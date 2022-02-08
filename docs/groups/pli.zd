@@ -1,0 +1,12 @@
+:title "Лаборатория"
+
+^title "Участники"
+^table 
+:members
+[{:person people.ai}
+ {:person people.mary}]
+
+
+:meetings md/
+
+Встречи проходят ...

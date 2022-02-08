@@ -1,0 +1,11 @@
+{:paths       ["src" "resources" "docs"]
+ :extra-paths ["zrc"]
+ :deps        {org.clojure/clojure             {:mvn/version "1.10.3"}
+               zen-lang/zen-zd               {:local/root "libs/zd"}}
+
+ :aliases
+ {:nrepl {:extra-paths ["dev" "libs/zd/src" "libs/zd/test"]
+          :extra-deps  {cider/cider-nrepl             {:mvn/version "LATEST"}
+                        refactor-nrepl/refactor-nrepl       {:mvn/version "2.5.1"}}
+                :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"]
+                :main-opts   ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}

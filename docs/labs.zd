@@ -1,0 +1,6 @@
+:title "Laboratory"
+
+^table
+:profiles
+[{:profile labs.Observation}
+ {:profile labs.Condition}]

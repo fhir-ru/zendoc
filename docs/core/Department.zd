@@ -1,0 +1,19 @@
+:title "Отделение"
+
+
+^badge
+:maturity "0"
+
+^badge
+:group groups.frmo
+
+:summary md/
+
+TBD: summary
+
+^attribute
+:part-of core.Organization
+
+^yaml
+^title "Пример 2"
+:samples.two  (load "org-2.yaml" :yaml)

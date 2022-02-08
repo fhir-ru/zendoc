@@ -1,0 +1,27 @@
+{:deps  {}
+ :tasks {:requires    ([babashka.fs :as fs])
+         ;; helpers and constants
+         :init        (do)
+         :enter       (do)
+         :leave       (do)
+         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+         ;; commands
+         ;; clean        {:doc  "Clean target folder"
+         ;;               :task (do (fs/delete-tree target-folder)
+         ;;                         (fs/create-dir target-folder))}
+
+         ;; build        {:doc  "Build deployable jar file for this project"
+         ;;               :task (let [params (format "-X:uberjar :jar %s :group-id %s :artifact-id %s :version '\"%s\"'"
+         ;;                                    jar-filename
+         ;;                                    group-id
+         ;;                                    artifact-id
+         ;;                                    version-id)]
+         ;;                       (fs/create-dirs target-folder)
+         ;;                       (clojure params))}
+
+         repl         {:doc  "Run Clojure repl for Emacs with cider"
+                       :task (clojure "-M:nrepl")}
+
+         lint         {:doc  "Lint source code"
+                       :task (do (shell "clj-kondo --parallel --lint src:test:dev/src")
+                                 (shell "cljstyle check"))}}}

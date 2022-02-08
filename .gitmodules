@@ -1,0 +1,3 @@
+[submodule "libs/zd"]
+	path = libs/zd
+	url = https://github.com/zen-lang/zd

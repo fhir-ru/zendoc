@@ -1,0 +1,59 @@
+^hide
+:menu-order 0
+
+
+:title "Пациент"
+
+^badge
+:fhir/resource "fhir.Patient"
+
+^badge
+:category "Administration"
+
+^badge
+:maturity "0"
+
+:scope md/
+
+This Resource covers data about patients and animals involved in a wide range of health-related activities, including:
+
+* Curative activities
+* Psychiatric care
+* Social services
+* Pregnancy care
+* Nursing and assisted living
+* Dietary services
+
+:identifier md/
+...
+
+
+^title "Имя"
+:name.summary md/
+
+A patient may have multiple names with different uses or applicable periods. For animals,
+the name is a "HumanName" in the sense that is assigned and used by humans and has the same patterns.
+
+^title ""
+:name.discussions md/
+* [[a https://github.com/fhir-ru/core/discussions/31 Отчество]]
+
+;; :discussions
+;; [{:title "Отчество" :discussion "https://github.com/fhir-ru/core/discussions/31"}]
+
+:gender md/
+...
+
+:address md/
+...
+
+^table
+:authors
+[{:person people.ai}
+ {:person people.niquola}]
+
+
+^table
+:discussions
+[{:title "Пол" :discussion "https://github.com/fhir-ru/core/discussions/34"}
+ {:title "Отчество" :discussion "https://github.com/fhir-ru/core/discussions/31"}]
