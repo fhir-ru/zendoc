@@ -1,8 +1,7 @@
 (ns zd.runner
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
-            [nrepl.server :as nrepl-server]
-            [cider.nrepl :refer (cider-nrepl-handler)])
+            [nrepl.server :as nrepl-server])
   (:import [java.lang ProcessBuilder])
   (:gen-class))
 

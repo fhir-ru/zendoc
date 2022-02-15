@@ -1,6 +1,6 @@
 {:paths       ["src" "resources" "docs"]
  :extra-paths ["zrc"]
- :deps        {org.clojure/clojure             {:mvn/version "1.10.3"}
+ :deps        {org.clojure/clojure           {:mvn/version "1.10.3"}
                zen-lang/zen-zd               {:local/root "libs/zd"}}
 
  :aliases
