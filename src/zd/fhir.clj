@@ -21,5 +21,6 @@
 
   (start-docs)
 
+  (stop-docs)
 
   )

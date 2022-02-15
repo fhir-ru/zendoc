@@ -18,9 +18,19 @@
          ;;                                    version-id)]
          ;;                       (fs/create-dirs target-folder)
          ;;                       (clojure params))}
+         run {:doc "Run on 3030 port with basic auth"
+              :task (clojure {:extra-env {"GOOGLE_APPLICATION_CREDENTIALS" "keys/todo.key"}} "-M:prod")}
+
+         run-update {:doc "Run on 3030 port with basic auth, check for new commits into repo"
+                     :depends  [sync-libs]
+                     :task (clojure {:extra-env {"GOOGLE_APPLICATION_CREDENTIALS" "keys/todo.key"}} "-m" "zd.runner")}
+
+         sync-libs    {:doc "Synchronize libs"
+                       :task (do (shell "git submodule update --init --recursive")
+                                 (shell "git submodule update --recursive"))}
 
          repl         {:doc  "Run Clojure repl for Emacs with cider"
-                       :task (clojure "-M:nrepl")}
+                       :task (clojure {:extra-env {"GOOGLE_APPLICATION_CREDENTIALS" "keys/todo.key"}} "-M:nrepl")}
 
          lint         {:doc  "Lint source code"
                        :task (do (shell "clj-kondo --parallel --lint src:test:dev/src")
