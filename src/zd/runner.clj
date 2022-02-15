@@ -108,18 +108,18 @@
                 (recur test-version p)))))))))
 
 (defn -main [& _]
-  (start (read-env {:ZO_GH_KEY "./keys/knowledge-base-git"
-                    :ZO_DIR "/tmp/knowledge-base"
+  (start (read-env {:ZO_GH_KEY "/home/niquola/.ssh/id_rsa"
+                    :ZO_DIR "/home/niquola/fhir-ru"
                     :ZO_APP "clojure -M:prod"
-                    :ZO_REPO "git@github.com:HealthSamurai/knowledge-base.git"})))
+                    :ZO_REPO "git@github.com:fhir-ru/zendoc.git"})))
 
 (comment
 
   (def start-env
-    {:ZO_GH_KEY "./keys/knowledge-base-git"
-     :ZO_DIR "/tmp/knowledge-base"
-     :ZO_APP "bb run"
-     :ZO_REPO "git@github.com:HealthSamurai/knowledge-base.git"})
+    {:ZO_GH_KEY "/home/niquola/.ssh/id_rsa"
+     :ZO_DIR "/home/niquola/fhir-ru"
+     :ZO_APP "clojure -M:prod"
+     :ZO_REPO "git@github.com:fhir-ru/zendoc.git"})
 
 
   (def t (Thread. (fn [] (start start-env))))

@@ -8,18 +8,20 @@
   (when-let [dtx @dtx] 
     (zd.core/stop dtx)))
 
-(defn start-docs []
+(defn start-docs [opts]
   (stop-docs)
   (let [pth (str (System/getProperty "user.dir") "/docs")
         ztx (zen.core/new-context {:zd/paths [pth] :paths [pth]})]
-    (zd.core/start ztx {:port 3030})
+    (zd.core/start ztx (merge {:port 3030} opts))
     (reset! dtx ztx))
   :ok)
 
+(defn -main []
+  (start-docs {:port 3031}))
+
 (comment
 
-
-  (start-docs)
+  (start-docs {})
 
   (stop-docs)
 
