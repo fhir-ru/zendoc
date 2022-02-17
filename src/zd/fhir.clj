@@ -16,12 +16,13 @@
     (reset! dtx ztx))
   :ok)
 
-(defn -main []
-  (start-docs {:port 3031}))
+(defn -main [& [port]]
+  (start-docs {:reload false
+               :port (if port (Integer/parseInt port) 80)}))
 
 (comment
 
-  (start-docs {})
+  (start-docs {:port 3333})
 
   (stop-docs)
 
