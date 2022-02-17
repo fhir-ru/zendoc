@@ -16,9 +16,10 @@
     (reset! dtx ztx))
   :ok)
 
-(defn -main [& [port]]
-  (start-docs {:reload false
-               :port (if port (Integer/parseInt port) 80)}))
+
+(defn -main [& [port reload]]
+  (start-docs {:production (not reload)
+               :port (if port (Integer/parseInt port) 3333)}))
 
 (comment
 
