@@ -1,14 +1,16 @@
 ^badge
 :organization orgs.samurai
 
+^badge
+:github "niquola"
+
+^badge
+:telegram "niquola"
+
 :title "Николай Рыжиков"
+:avatar "https://avatars.githubusercontent.com/u/32066?v=4"
 
 :summary md/
 
 CTO of #orgs.samurai
 
-^attribute
-:github "niquola"
-
-^attribute
-:telegram "niquola"

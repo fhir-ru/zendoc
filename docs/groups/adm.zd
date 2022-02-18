@@ -1,0 +1,24 @@
+:title "Административные"
+
+:summary md/
+
+Эта группа работает над ...
+
+
+^title "Участники"
+^table 
+:members
+[{:person people.eugene}
+ {:person people.semalexa}
+ {:person people.niquola}]
+
+
+
+^title "Профайлы"
+:profiles md/
+
+* #core.Organization
+* #core.Affiliation
+* #core.Department
+* #core.Patient
+* #core.Practitioner

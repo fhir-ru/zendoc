@@ -5,7 +5,7 @@
 :maturity "0"
 
 ^badge
-:group groups.frmo
+:group groups.adm
 
 :summary md/
 

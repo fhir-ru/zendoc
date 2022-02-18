@@ -1,11 +1,10 @@
 ^hide
 :menu-order 100
 
-:title "Ассоциация"
-
-
 ^badge
 :maturity "0"
 
 ^badge
-:group groups.frmo
+:group groups.adm
+
+:title "Ассоциация"

@@ -1,1 +1,10 @@
 :title "Клинический диагнозы"
+
+:summary md/
+
+Terms - #terms.diagnose
+
+^title "Участники"
+^table 
+:members
+[{:person people.oleg}]

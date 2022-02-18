@@ -1,18 +1,21 @@
 ^hide
 :menu-order 1
 
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+^badge
+:group groups.adm
+
 :title "Организация"
-
-^badge
-:maturity "0"
-
-^badge
-:group groups.frmo
 
 :description md/
 
 Профиль организации описывает субъекты хозяйственной деятельности в области здравоохранении. 
-Этот профиль применим только к  [[a http://www.consultant.ru/document/cons_doc_LAW_5142/68642eb1daeec13480d8f283f27bc14b42b929df Юридическим Лицам]]
+Этот профиль применим только к #terms.ul [[a http://www.consultant.ru/document/cons_doc_LAW_5142/68642eb1daeec13480d8f283f27bc14b42b929df Юридическим Лицам]]
 и [[a http://? Индивидуальным Предпринимателям]]. Для описания внутренней структуры организации (филиалы, отделы, отделения и т.д.)
 используйте профиль #core.Department
 а для связей между юридическими лицами (ведомства, сети, ассоциации) - профиль #core.Affiliation
