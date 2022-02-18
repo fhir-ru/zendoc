@@ -53,9 +53,9 @@
      [:img {:src img :class (c [:w 12] :inline-block [:mr 4] {:border-radius "100%"})}])
    title])
 
-(defmethod render-key [:avatar]
-  [_ block]
-  [:div ])
+(defmethod render-key [:avatar] [_ block] [:div ])
+
+(defmethod render-key [:menu-order] [_ block] [:div ])
 
 (defonce dtx (atom nil))
 
