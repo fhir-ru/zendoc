@@ -5,19 +5,7 @@
          :enter       (do)
          :leave       (do)
          ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-         ;; commands
-         ;; clean        {:doc  "Clean target folder"
-         ;;               :task (do (fs/delete-tree target-folder)
-         ;;                         (fs/create-dir target-folder))}
-
-         ;; build        {:doc  "Build deployable jar file for this project"
-         ;;               :task (let [params (format "-X:uberjar :jar %s :group-id %s :artifact-id %s :version '\"%s\"'"
-         ;;                                    jar-filename
-         ;;                                    group-id
-         ;;                                    artifact-id
-         ;;                                    version-id)]
-         ;;                       (fs/create-dirs target-folder)
-         ;;                       (clojure params))}
+         ;; tasks
          run          {:doc "Run on 3333 port with basic auth"
                        :task (clojure {:extra-env {}} "-M:run" "3333")}
 

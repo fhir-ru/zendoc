@@ -1,6 +1,9 @@
 ^badge 
 :date "2022-02-15"
 
+^badge 
+:tags #{tags.ds}
+
 :title "Core: 2022-02-15"
 
 :video "https://youtu.be/TRO_EjHiBas" 

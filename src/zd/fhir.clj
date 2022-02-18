@@ -13,7 +13,8 @@
 
 (defn render-video [link]
   [:div {:class (c [:px 0] [:py 2] [:bg :white])}
-   (if (str/starts-with? link "https://youtu.be")
+   (if (or (str/starts-with? link "https://youtu.be")
+           (str/starts-with? link "https://www.youtube.com"))
      [:iframe {:src (str "https://www.youtube.com/embed/" (last (str/split link #"/")))
                :width "560"
                :height "315"

@@ -1,1 +1,39 @@
-:title "core"
+^badge
+:status :draft
+
+:title "Ядро (core)"
+
+:summary md/
+
+Core это набора базовых профайлов для FHIR-RU
+
+^title "Обзор"
+:overview mm/
+
+classDiagram
+
+Department --> Organization : partOf
+Organization --> Affiliation : partOf
+
+
+PractitionerRole --> Organization
+PractitionerRole --> Department
+PractitionerRole --> Practitioner
+Encounter --> Organization
+Encounter --> Patient
+
+Organization: name
+Organization: type
+Organization: identifier
+Organization: address
+
+Patient: identifier
+Patient: address
+
+Encounter: type
+
+^table
+:profiles
+[{:profile core.Organization}
+ {:profile core.Department}
+ {:profile core.Affiliation}]
