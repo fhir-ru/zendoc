@@ -27,6 +27,24 @@
 
 Для Медицинских Организаций  добавлены идентификаторы  ФРМО и номера лицензий, а также более гранулярная классификация по ЕГИСЗ
 
+:diagram mm/
+
+classDiagram
+
+Department --> Organization : partOf
+Organization --> Affiliation : partOf
+
+Organization: type
+Organization: identifier
+Organization: address
+
+PractitionerRole --> Organization
+PractitionerRole --> Department
+PractitionerRole --> Practitioner
+Encounter --> Organization
+Encounter --> Patient
+
+
 ^title "Идентификаторы:"
 :identifier.summary md/
 
