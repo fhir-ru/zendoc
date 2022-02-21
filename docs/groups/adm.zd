@@ -1,15 +1,28 @@
-:title "Административные"
+:title "Административные объекты"
 
 :summary md/
 
-Эта группа работает над ...
+Эта группа работает над двумя задачами.
 
+1. Локализация ресурсов административного модуля спецификации FHIR (здесь нужна ссылка на http://hl7.org/fhir/administration-module.html).
+В первую очередь будут обработаны объекты:
+* Organization
+* Patient
+* Practitioner
+Результатом этой работы станет руководство по реализации RuCore в части административного модуля, достаточное для реализации следующих сценариев:
+* #IG.FRMO
+* #IG.Clin_Diag
+* #IG.Lab_Result
+
+2. Мапирование на ресурсы FHIR федерального реестра медицинских организаций (ФРМО).
 
 ^title "Участники"
 ^table 
 :members
 [{:person people.eugene}
  {:person people.semalexa}
+ {:person people.timur}
+ {:person people.varvara}
  {:person people.niquola}]
 
 
@@ -22,3 +35,5 @@
 * #core.Department
 * #core.Patient
 * #core.Practitioner
+
+Вы можете высказать замечания-предложения по поводу содержания этой страницы в этой дискуссии: (ссылка на дискуссию номер 88)
