@@ -4,6 +4,8 @@
             [stylo.core :refer [c]]
             [zd.db]
             [clojure.string :as str]
+            [clj-yaml.core]
+            [cheshire.core]
             [zen.core]))
 
 
@@ -31,11 +33,22 @@
   [ztx {data :data}]
   (render-video data))
 
+
+
 (defmethod render-key
   [:video]
   [_ {data :data}]
   (render-video data))
 
+(defmethod render-key
+  [:zd/debug]
+  [_ {data :data :as block}]
+  [:div 
+   [:h3 "Debug page"]
+   [:pre {:class (c :text-sm)}
+    [:code {:class (str "language-json hljs")}
+     (cheshire.core/generate-string
+      (get-in block [:page]) {:pretty true})]]])
 
 ;; discussion
 (defmethod inline-method :d

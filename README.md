@@ -12,11 +12,27 @@
 git clone git@github.com:fhir-ru/zendoc.git fhir-ru
 
 cd fhir-ru
+git submodule init
+git submodule update --recursive
 
 bb dev
 open http://localhost:3333
 # edit  /docs
 
+```
+
+## Run with docker-compose
+
+```bash
+cd fhir-ru
+git submodule init
+git submodule update --recursive
+# start
+docker-compose up -d
+# see logs
+docker-compose logs -f 
+# stop
+docker-compose stop
 ```
 
 ## zendoc basics

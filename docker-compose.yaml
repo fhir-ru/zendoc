@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  fhir-ru:
+    image: clojure:latest
+    ports: ['3333:3333']
+    volumes: ['.:/data']
+    command: "bash -c 'cd /data && clojure -M:run 3333 reload'"
