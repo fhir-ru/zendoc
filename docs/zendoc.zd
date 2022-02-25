@@ -5,6 +5,12 @@
 
 Как работает zendoc
 
+:toc
+
+:content-list md/
+
+Оглавление можно добавить через `:toc` :)
+
 
 ^title "Картинки"
 :images md/
