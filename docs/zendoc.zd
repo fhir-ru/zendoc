@@ -14,7 +14,7 @@
 
 ```code edn
   ^img
-  :image "https://fhir-ru.github.io/assets/images/fhir-logo-www.png"
+  :image "https://www.hl7.org/fhir/conformance.jpg"
 
   ^img
   :image "local.webp"
@@ -22,21 +22,19 @@
 
   :image-in-text md/
 
-      Можно вставить картинку в текст [[img local.webp]]
-      или ![](local.webp)
+      Можно вставить картинку в текст [[img local.webp]] или ![](local.webp)
 
 
 ```
 
 
-
 ^img
-:images:image "https://fhir-ru.github.io/assets/images/fhir-logo-www.png"
+:images:image "https://www.hl7.org/fhir/conformance.jpg"
 
 :images:image-in-text md/
 
-Можно вставить картинку в текст [[img local.webp]]
-или ![](local.webp)
+Можно вставить картинку в текст [[img https://www.hl7.org/fhir/conformance.jpg]]
+или ![](https://www.hl7.org/fhir/conformance.jpg)
 
 
 :zentext md/
