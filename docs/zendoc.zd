@@ -22,7 +22,8 @@
 
   :image-in-text md/
 
-     Можно вставить картинку в текст [[img local.webp]]
+      Можно вставить картинку в текст [[img local.webp]]
+      или ![](local.webp)
 
 
 ```
@@ -35,6 +36,7 @@
 :images:image-in-text md/
 
 Можно вставить картинку в текст [[img local.webp]]
+или ![](local.webp)
 
 
 :zentext md/
@@ -43,10 +45,57 @@
 * Можно сослаться на документ [[code #manifest]] - #manifest
 * Можно вставить код [[code `code()`]] - `code()`
 * Можно вставить код `[[code code()]]` - [[code code()]]
-* Можно вставить `**bold**` -**bold**
+* Можно вставить `**bold**` - **bold**
+* Можно вставить `__italic__` - __italic__
 * Можно вставить ссылку `[text](link)` - [text](link)
+* Сослаться на поле в ресурсе `((resource people.niquola :title))` - ((resource people.niquola :title))
+
+:zentext:lists md/
+
+Lists starts only with `* `. Nested lists prefixed with `..`.
+
+```
+* list 1 multi line
+* list 2
+..* sub item 1
+..* sub item 2
+* list 3
+```
+
+* list 1 multi line
+* list 2
+..* sub item 1
+..* sub item 2
+* list 3
+
+Numbered lists starts with `1)`. Nested with `..`.
+
+```
+1) item 1
+2) item 2
+..1) sub item
+..1) another
+3) item 3
+
+```
+
+1) item 1
+2) item 2
+..1) sub item
+..1) another
+3) item 3
 
 :markdown markdown/
+
+```code markdown
+  :markdown markdown/
+
+  Вы можете использовать [markdwon](markdown) - но луче zentext
+
+  * item-1
+  * item-2
+
+```
 
 Вы можете использовать [markdwon](markdown) - `:key markdown/` 
 
