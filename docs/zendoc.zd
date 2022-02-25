@@ -1,0 +1,54 @@
+:title "Zendoc"
+:avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
+:menu-order 100
+:summary md/
+
+Как работает zendoc
+
+
+^title "Картинки"
+:images md/
+
+Картинку можно положить в репозиторий или сослаться по ссылке.
+Чтобы картинка отрисовалась можно использовать анатацию [[code ^img]]
+
+```code edn
+  ^img
+  :image "https://fhir-ru.github.io/assets/images/fhir-logo-www.png"
+
+  ^img
+  :image "local.webp"
+
+
+  :image-in-text md/
+
+     Можно вставить картинку в текст [[img local.webp]]
+
+
+```
+
+
+
+^img
+:images:image "https://fhir-ru.github.io/assets/images/fhir-logo-www.png"
+
+:images:image-in-text md/
+
+Можно вставить картинку в текст [[img local.webp]]
+
+
+:zentext md/
+
+* Можно сослаться на человека [[code @niquola]] - @niquola
+* Можно сослаться на документ [[code #manifest]] - #manifest
+* Можно вставить код [[code `code()`]] - `code()`
+* Можно вставить код `[[code code()]]` - [[code code()]]
+* Можно вставить `**bold**` -**bold**
+* Можно вставить ссылку `[text](link)` - [text](link)
+
+:markdown markdown/
+
+Вы можете использовать [markdwon](markdown) - `:key markdown/` 
+
+* item-1
+* item-2
