@@ -1,0 +1,15 @@
+{ns fhir.ru.core.patient
+
+ Patient
+ {:zen/tags #{zen/schema}
+  :zendoc 'core.Patient
+
+
+
+
+  }
+
+
+
+
+ }

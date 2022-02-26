@@ -1,6 +1,9 @@
 ^hide
 :menu-order 1
 
+^hide
+:menu/first true
+
 ^badge
 :status :draft
 
@@ -44,6 +47,8 @@ PractitionerRole --> Practitioner
 Encounter --> Organization
 Encounter --> Patient
 
+
+:profile fhir.ru.core.organization/Organization
 
 ^title "Идентификаторы:"
 :identifier.summary md/

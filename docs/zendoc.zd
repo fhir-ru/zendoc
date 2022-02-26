@@ -5,11 +5,12 @@
 
 Как работает zendoc
 
-:toc
-
 :content-list md/
 
 Оглавление можно добавить через `:toc` :)
+
+:toc
+
 
 
 ^title "Картинки"
@@ -52,7 +53,7 @@
 * Можно вставить `**bold**` - **bold**
 * Можно вставить `__italic__` - __italic__
 * Можно вставить ссылку `[text](link)` - [text](link)
-* Сослаться на поле в ресурсе `((resource people.niquola :title))` - ((resource people.niquola :title))
+* Сослаться на поле в ресурсе `((resource people.niquola :telegram))` - ((resource people.niquola :telegram))
 
 :zentext:lists md/
 
@@ -88,6 +89,63 @@ Numbered lists starts with `1)`. Nested with `..`.
 ..1) sub item
 ..1) another
 3) item 3
+
+
+
+:code md/
+
+Code block can be written as [[code ```code]]
+Languages list is [[a https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md here]]
+
+```code
+  ```code json
+   {"a" : 1}
+  ```
+```
+
+```code json
+{"a" : 1}
+```
+  
+
+:tables:zentext md/
+
+You can embed table with [[code ```table]] block
+
+```code
+  ```table
+  name    | email       | phone
+  niquola | niq.com     | +7897989 
+  ivan    | iv@gmai.com | +7897989 
+  ```
+```
+
+```table
+name | email | phone
+niquola | niq.com | +7897989 
+ivan | iv@gmai.com | +7897989 
+
+```
+
+:mindmap mindmap/
+
+zendoc
+* semantic web
+  * resources
+  * attributes
+  * machine readable
+* knowlege base
+  * database
+  * links
+  * back links
+* zen-lang
+  * schema
+* clojure
+  * EDN
+    * symbols for links
+  * hiccup
+    * ad-hock markup
+  * extension
 
 :markdown markdown/
 
