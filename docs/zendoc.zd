@@ -127,7 +127,32 @@ ivan | iv@gmai.com | +7897989
 
 ```
 
-:mindmap mindmap/
+
+:mindmap-code md/
+
+```code edn
+  :mindmap:sample mindmap/
+
+  zendoc
+  * semantic web
+    * resources
+    * attributes
+    * machine readable
+  * knowlege base
+    * database
+    * links
+    * back links
+  * zen-lang
+    * schema
+  * clojure
+    * EDN
+      * symbols for links
+    * hiccup
+      * ad-hock markup
+    * extension
+```
+
+:mindmap-sample mindmap/
 
 zendoc
 * semantic web
