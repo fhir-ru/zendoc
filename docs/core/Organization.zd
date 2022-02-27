@@ -15,6 +15,8 @@
 
 :title "Организация"
 
+:toc
+
 :description md/
 
 Профиль организации описывает субъекты хозяйственной деятельности в области здравоохранении. 
@@ -52,26 +54,21 @@ Encounter --> Patient
 :profile fhir.ru.core.organization/Organization
 
 ^title "Идентификаторы:"
-:identifier.summary md/
+:identifier:summary md/
 
 Ниже приведен набор возможных систем для идентификаторов
 
 ^table
-:identifier.values (load "org-ids.yaml" :yaml)
+:identifier:values (load "org-ids.yaml" :yaml)
 
 
-^fhir-profile
-:profile (load "pateint.sd.json")
-
-
-```
-| Название  | Описание  | Код |
-| ------------- | ------------- |------------- |
-| [ОГРН ](https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80)  | Основной государственный регистрационный номер | `urn:ru:id:ogrn` |
-| [ИНН](https://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0)  |  Идентификационный номер налогоплательщика |  `urn:ru:id:org-inn`  |
-| [КПП](https://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0#%D0%9A%D0%BE%D0%B4_%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D1%8B_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8_%D0%BD%D0%B0_%D1%83%D1%87%D1%91%D1%82_(%D0%9A%D0%9F%D0%9F))   |  Код причины постановки на учёт   |  `urn:ru:id:kpp` |
-| ФРМО OID | |  `urn:ru:id:frmo` |
-```
+;; ```table
+;; Название  | Описание  | Код |
+;; [ОГРН ](https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80)  | Основной государственный регистрационный номер | `urn:ru:id:ogrn` |
+;; [ИНН](https://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0)  |  Идентификационный номер налогоплательщика |  `urn:ru:id:org-inn`  |
+;; [КПП](https://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0#%D0%9A%D0%BE%D0%B4_%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D1%8B_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8_%D0%BD%D0%B0_%D1%83%D1%87%D1%91%D1%82_(%D0%9A%D0%9F%D0%9F))   |  Код причины постановки на учёт   |  `urn:ru:id:kpp` |
+;; ФРМО OID | |  `urn:ru:id:frmo` |
+;; ```
 
 
 ^title "Классификация"
@@ -80,15 +77,14 @@ Encounter --> Patient
 По правовой форме `system = urn:ru:org:kind`
 По ОКВЭД   `system = urn:ru:org:okved` - Общероссийский классификатор видов экономической деятельности
 
-```hiccup
-| Код  | Описание |
-| ------------- | ------------- |
-| 86.90 |  Деятельность в области здравоохранения |
-| 86.10  |  Деятельность больничных организаций  |
+```table
+ Код  | Описание |
+ 86.90 |  Деятельность в области здравоохранения |
+ 86.10  |  Деятельность больничных организаций  |
 ```
 
 ^table
-^title ""
+^title "Value Set"
 :type:values (load "org-type.yaml" :yaml)
 
 
@@ -96,10 +92,11 @@ Encounter --> Patient
 :samples 
 
 ^yaml
-^title "Пример 1"
 ^collapse
+^title "Пример: Хеликс"
 :samples:one  (load "org-1.yaml" :yaml)
 
 ^yaml
-^title "Пример 2"
+^collapse
+^title "Пример: ЦНИИОИЗ"
 :samples:two  (load "org-2.yaml" :yaml)
