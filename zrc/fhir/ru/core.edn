@@ -1,0 +1,5 @@
+{ns fhir.ru.core
+ import #{fhir.ru.core.organization
+          fhir.ru.core.patient}
+
+ }

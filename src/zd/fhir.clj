@@ -6,6 +6,7 @@
             [clojure.string :as str]
             [clj-yaml.core]
             [cheshire.core]
+            [zd.zen]
             [zen.core]))
 
 
@@ -80,11 +81,25 @@
 (defn start-docs [opts]
   (stop-docs)
   (let [pth (str (System/getProperty "user.dir") "/docs")
-        ztx (zen.core/new-context {:zd/paths [pth] :paths [pth]})]
+        zrc (str (System/getProperty "user.dir") "/zrc")
+        ztx (zen.core/new-context {:zd/paths [pth] :paths [pth zrc]})]
+    (zen.core/read-ns ztx 'fhir.ru.core)
     (zd.core/start ztx (merge {:port 3030} opts))
     (reset! dtx ztx))
   :ok)
 
+
+(defmethod annotation :zen/schema
+  [nm params]
+  {:content :zen/schema :zen/schema params})
+
+(defmethod render-content :zen/schema
+  [ztx {data :data}]
+  (when data (zen.core/read-ns ztx (symbol (namespace data))))
+  (if-let [sch (zen.core/get-symbol ztx data)]
+    [:div {:class (c :border [:p 0])}
+     (zd.zen/render-schema sch)]
+    [:pre (str "Could not find " data)]))
 
 (defn -main [& [port reload :as args]]
   (println :args args)
@@ -96,5 +111,14 @@
   (start-docs {:port 3333})
 
   (stop-docs)
+
+  (do 
+    (zen.core/read-ns @dtx 'fhir.ru.core)
+    (zen.core/read-ns @dtx 'fhir.ru.core.organization)
+    :ok)
+
+  (zen.core/get-symbol @dtx 'fhir.ru.core.organization/Organization)
+
+  (zen.core/errors @dtx)
 
   )

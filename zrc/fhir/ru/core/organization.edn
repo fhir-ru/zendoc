@@ -3,6 +3,7 @@
  Organization
  {:zen/tags #{zen/schema}
   :zendoc 'core.Organization
+  :confirms #{fhir.v4/Organization}
   :zen/desc "Организация - Юридическое Лицо"
 
   :type zen/map
@@ -24,6 +25,11 @@
             :confirms #{Reference}
             :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"
             :fhir/profiles #{Association}}
+
+   :extension {:type zen/map
+               :keys {:fias {:type zen/string}
+                      :something-else {:type zen/string}
+                      }}
 
    }}
 
