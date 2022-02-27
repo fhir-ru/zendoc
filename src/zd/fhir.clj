@@ -55,9 +55,9 @@
 (defmethod inline-method :d
   [ztx m num]
   [:a {:href (str "https://github.com/fhir-ru/core/discussions/" num)
-       :class (c [:text :blue-500] :font-bold)}
-   [:i.fa.fa-comments]
-   (str " " num)])
+       :class (c [:text :blue-500] [:space-x 0.5])}
+   [:i.fa.fa-comments-o {:class (name (c [:text :blue-400] :text-sm))}]
+   [:span num]])
 
 
 (defmethod render-key
