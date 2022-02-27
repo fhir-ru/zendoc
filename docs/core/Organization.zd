@@ -89,7 +89,7 @@ Encounter --> Patient
 
 ^table
 ^title ""
-:type.values (load "org-type.yaml" :yaml)
+:type:values (load "org-type.yaml" :yaml)
 
 
 ^title "Примеры"
@@ -97,8 +97,9 @@ Encounter --> Patient
 
 ^yaml
 ^title "Пример 1"
-:samples.one  (load "org-1.yaml" :yaml)
+^collapse
+:samples:one  (load "org-1.yaml" :yaml)
 
 ^yaml
 ^title "Пример 2"
-:samples.two  (load "org-2.yaml" :yaml)
+:samples:two  (load "org-2.yaml" :yaml)

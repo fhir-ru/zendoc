@@ -4,6 +4,9 @@
             [clojure.edn]
             [clojure.walk]))
 
+(defn cls [cs]
+  (str/join " " (map :name cs)))
+
 (defn type-icon [tp]
   [:div {:class (c [:w 4] [:h 4]
                    :text-xs
