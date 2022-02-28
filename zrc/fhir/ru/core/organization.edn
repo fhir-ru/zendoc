@@ -11,27 +11,37 @@
   :keys
   {:name {:type zen/string
           :zen/desc "Название организации"}
+
    :identifier {:type zen/vector
                 :every {:confirms #{Identifier}
                         :type zen/map
                         :keys {:system {:type zen/string
-                                        :enum [{:value "ОГРН" :zen/desc "Основной государственный регистрационный номер"}]}}}}
+                                        :valueset {:id org-type}}}}}
+
    :type  {:type zen/vector
            :every {:confirms #{CodeableSystem}
                    :type zen/map
                    :keys {:code {:type zen/string
-                                 :enum [{:value "ОГРН" :zen/desc "Основной государственный регистрационный номер"}]}}}}
+                                 :valueset {:id org-type}}}}}
    :partOf {:type zen/map
             :confirms #{Reference}
             :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"
             :fhir/profiles #{Association}}
 
    :extension {:type zen/map
-               :keys {:fias {:type zen/string}
-                      :something-else {:type zen/string}
-                      }}
+               :keys {:fias {:type zen/string}}}}}
 
-   }}
+ types
+ {:zen/tags #{}
+  :zen/desc "Типы организации по собственности"
+  :concept [{:value "ООО"}
+            {:value "ОAО"}]}
+
+ ids
+ {:zen/tags #{}
+  :zen/desc "Идентификаторы организации"
+  :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
+            {:value "ИНН"  :description "Номер налого платильщика"}]}
 
  Associaiton
  {}

@@ -13,6 +13,9 @@
 ^badge
 :group groups.adm
 
+^hide
+:icon [:fa :fa-building-o] 
+
 :title "Организация"
 
 :toc

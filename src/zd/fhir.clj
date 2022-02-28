@@ -59,19 +59,6 @@
    [:i.fa.fa-comments-o {:class (name (c [:text :blue-400] :text-sm))}]
    [:span num]])
 
-
-(defmethod render-key
-  [:title]
-  [_ {title :data :as block}]
-  [:h1 {:class (c [:mb 0] :border-b)}
-   (when-let [img (get-in block [:page :resource :avatar])]
-     [:img {:src img :class (c [:w 12] :inline-block [:mr 4] {:border-radius "100%"})}])
-   title])
-
-(defmethod render-key [:avatar] [_ block] [:div ])
-
-(defmethod render-key [:menu-order] [_ block] [:div ])
-
 (defonce dtx (atom nil))
 
 (defn stop-docs []

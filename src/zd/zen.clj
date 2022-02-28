@@ -35,7 +35,9 @@
   (let [res (conj res (merge opts {:type tp :confirms (if (= 'zen/vector tp)
                                                         (get-in sch [:every :confirms])
                                                         (:confirms sch))
-                                   :path pth :desc (:zen/desc sch)}))]
+                                   :valueset (:valueset sch)
+                                   :path pth
+                                   :desc (:zen/desc sch)}))]
     (cond
       (= tp 'zen/map)
       (let [ks (->> (:keys sch)
@@ -62,6 +64,32 @@
           (str/join "."))
      "/" (name sym))))
 
+(defn schema-connectors [pth]
+  (let [lvl (count pth)]
+    [:div {:class (c :flex [:py 1] [:px 1] :items-center {:position "relative" :height "100%"})
+           :style (str "padding-left:" (+ lvl 0.5) "rem")}
+     (->> pth
+          (map-indexed
+           (fn [i {lst? :last}]
+             (if lst?
+               (when (= i (dec lvl))
+                 [:div {:style (str "left:" (+ i 1) "rem")
+                        :class (c [:w 2] {:border-left "1px solid #ccc"
+                                          :position "absolute"
+                                          :top "-0.3rem"
+                                          :height "18px"})}])
+               [:div {:style (str "left:" (+ i 1) "rem")
+                      :class (c [:w 2] {:border-left "1px solid #ccc"
+                                        :position "absolute"
+                                        :top "-0.3rem"
+                                        :bottom 0})}]))))
+     (when-not (= lvl 0)
+       [:div {:style (str "left:" lvl "rem")
+              :class (c {:border-top "1px solid #ccc"
+                         :position "absolute"
+                         :width "0.5rem"
+                         :top "13px"})}])]))
+
 (defn render-schema [sch & [opts]]
   [:div 
    [:style
@@ -78,40 +106,21 @@ table.schema td {}
        (let [lvl (count pth)]
          [:tr
           [:td 
-           [:div {:class (c :flex [:py 1] [:px 1] :items-center {:position "relative" :height "100%"})
-                  :style (str "padding-left:" (+ lvl 0.5) "rem")}
-            (->> pth
-                 (map-indexed
-                  (fn [i {lst? :last}]
-                    (if lst?
-                      (when (= i (dec lvl))
-                        [:div {:style (str "left:" (+ i 1) "rem")
-                               :class (c [:w 2] {:border-left "1px solid #ccc"
-                                                 :position "absolute"
-                                                 :top "-0.3rem"
-                                                 :height "18px"})}])
-                      [:div {:style (str "left:" (+ i 1) "rem")
-                             :class (c [:w 2] {:border-left "1px solid #ccc"
-                                               :position "absolute"
-                                               :top "-0.3rem"
-                                               :bottom 0})}]))))
-            (when-not (= lvl 0)
-              [:div {:style (str "left:" lvl "rem")
-                     :class (c {:border-top "1px solid #ccc"
-                                :position "absolute"
-                                :width "0.5rem"
-                                :top "13px"})}])
-            (type-icon (:type row))
-            [:div {:class (c [:ml 2])}
-             (if-let [nm (:name row)]
-               (schema-name nm)
-               (when-let [k (:key (last (:path row)))] (name k)))]
-            (when (:require row)
-              [:span {:class (c [:ml 0] [:text :red-700])} "*"])]]
+           (into (schema-connectors pth)
+                 [(type-icon (:type row))
+                  [:div {:class (c [:ml 2])}
+                   (if-let [nm (:name row)]
+                     (schema-name nm)
+                     (when-let [k (:key (last (:path row)))] (name k)))]
+                  (when (:require row)
+                    [:span {:class (c [:ml 0] [:text :red-700])} "*"])])]
           [:td {:class (c [:text :blue-600])}
            (if (:confirms row)
              (str/join ", " (mapv schema-name (:confirms row)))
              (when-let [t (:type row)] (schema-name t)))
            (when (= 'zen/vector (:type row))
              "[]")]
-          [:td {:class (c [:text :gray-700])} (:desc row)]]))]]])
+          [:td {:class (c [:text :gray-700] :flex :items-baseline)}
+           (:desc row)
+           (when-let [vs (:valueset row)]
+             (str "vs:" (:id vs)))]]))]]])
