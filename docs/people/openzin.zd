@@ -2,15 +2,14 @@
 :organization orgs.miramedix
 
 ^badge
-:github "?"
+:github "https://github.com/OlegPenzin"
 
 ^badge
-:telegram "?"
+:telegram "@OlegPenzin"
 
 :title "Олег Пензин"
 :avatar "https://avatars.githubusercontent.com/u/60599571?v=4"
 
 :summary md/
 
-.....
-
+MD PhD CDAO MiraMedix

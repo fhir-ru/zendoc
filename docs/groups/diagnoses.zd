@@ -7,4 +7,8 @@ Terms - #terms.diagnose
 ^title "Участники"
 ^table 
 :members
-[{:person people.oleg}]
+[
+    {:Участник people.openzin :role "Руководитель"}
+    {:Участник people.ishmyr :role "Редактор"}
+    {:Участник people.vrodionov :role "Редактор"}
+]
