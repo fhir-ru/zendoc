@@ -1,3 +1,15 @@
+^badge
+:authors #{people.vrodionov}
+
+^badge
+:groups #{groups.diagnoses}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-02-20"
+
 :title "Нозологическая единица"
 
 :toc
