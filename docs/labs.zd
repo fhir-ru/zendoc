@@ -1,3 +1,6 @@
+:menu-order 4
+:icon [:fa-solid :fa-box]
+
 :title "Laboratory"
 
 ^table

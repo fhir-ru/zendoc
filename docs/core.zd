@@ -1,6 +1,8 @@
+:menu-order 3
 ^badge
 :status :draft
 
+:icon [:fa-solid :fa-box]
 :title "Ядро (core)"
 
 :summary md/
