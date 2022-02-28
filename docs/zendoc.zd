@@ -1,5 +1,6 @@
 :title "Zendoc"
-:avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
+;; :avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
+:icon [:fa :fa-graduation-cap] 
 :menu-order 100
 :summary md/
 

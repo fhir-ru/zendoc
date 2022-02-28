@@ -2,6 +2,7 @@
 :menu-order 0
 
 
+:icon [:fa :fa-user-o]
 :title "Пациент"
 
 ^badge
