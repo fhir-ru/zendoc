@@ -7,7 +7,7 @@
 ^badge
 :maturity 0
 
-:icon [:fa :fa-user-o]
+:icon [:fa-solid :fa-user]
 
 :title "Practitioner"
 

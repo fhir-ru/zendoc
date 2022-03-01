@@ -12,7 +12,16 @@
 
 :toc
 
+^title "Иконки"
+:icons md/
 
+К главному заголовку можно добавить иконку.
+Иконки можно выбрать [здесь](https://fontawesome.com/search?q=comments&s=solid%2Cbrands%2Cregular%2Clight%2Cthin%2Cduotone)
+
+```code edn
+  :icon [:fa :fa-graduation-cap] 
+
+```
 
 ^title "Картинки"
 :images md/
@@ -172,6 +181,20 @@ zendoc
   * hiccup
     * ad-hock markup
   * extension
+
+^disc 45
+^title "Github Discussion"
+:discussion md/
+
+Можно добавить ссылку на дискуссию либо к заголовку либо в теле текста [[d 45]]
+
+```code edn
+  ^disc 45
+  :discussion md/
+
+  Можно добавить ссылку на дискуссию либо к заголовку либо в теле текста [[d 45]]
+
+```
 
 :markdown markdown/
 

@@ -1,3 +1,11 @@
 :menu-order 4
 :icon [:fa-solid :fa-box]
 :title "Клинические диагнозы"
+
+:summary md/
+
+Руководство по реализации клинических диагнозов
+
+:description md/
+
+.....

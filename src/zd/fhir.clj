@@ -14,6 +14,10 @@
   [nm params]
   {:content :video})
 
+(defmethod annotation :disc
+  [nm params]
+  {:disc params})
+
 (defn render-video [link]
   [:div {:class (c [:px 0] [:py 2] [:bg :white])}
    (if (or (str/starts-with? link "https://youtu.be")
@@ -53,11 +57,23 @@
 
 ;; discussion
 (defmethod inline-method :d
-  [ztx m num]
-  [:a {:href (str "https://github.com/fhir-ru/core/discussions/" num)
+  [ztx m d]
+  [:a {:href (str "https://github.com/fhir-ru/core/discussions/" d)
+       :target "_blank"
        :class (c [:text :blue-500] [:space-x 0.5])}
-   [:i.fa.fa-comments-o {:class (name (c [:text :blue-400] :text-sm))}]
-   [:span num]])
+   [:i.fa-regular.fa-comments {:class (name (c [:text :blue-400] :text-sm))}]
+   [:span d]])
+
+(defmethod zd.methods/title-actions
+  :override
+  [ztx {ann :annotations data :data path :path :as block}]
+  [:div (when-let [d (:disc ann)]
+          [:a {:href (str "https://github.com/fhir-ru/core/discussions/" d)
+               :target "_blank"
+               :class (c [:text :blue-500] [:space-x 0.5] {:font-weight 400}
+                         [:hover [:text :blue-600]])}
+           [:i.fa-regular.fa-comments {:class (name (c [:text :blue-400] :text-sm))}]
+           [:span d]])])
 
 (defonce dtx (atom nil))
 
