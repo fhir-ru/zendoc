@@ -82,7 +82,9 @@
 
 (defmethod render-content :zen/schema
   [ztx {data :data}]
-  (when data (zen.core/read-ns ztx (symbol (namespace data))))
+  (when data
+    (println :reload data
+             (zen.core/read-ns ztx (symbol (namespace data)))))
   (if-let [sch (zen.core/get-symbol ztx data)]
     [:div {:class (c :border [:p 0])}
      (zd.zen/render-schema sch)]
@@ -102,9 +104,12 @@
   (do 
     (zen.core/read-ns @dtx 'fhir.ru.core)
     (zen.core/read-ns @dtx 'fhir.ru.core.organization)
+    (zen.core/read-ns @dtx 'fhir.ru.diag.nosology)
+
     :ok)
 
   (zen.core/get-symbol @dtx 'fhir.ru.core.organization/Organization)
+  (zen.core/get-symbol @dtx 'fhir.ru.diag.nosology/unit)
 
   (zen.core/errors @dtx)
 

@@ -1,0 +1,58 @@
+{ns fhir.ru.diag.nosology
+
+ DiagnosisNosology
+ {:zen/tags #{zen/schema}
+  :zen/desc "Нозологическая единица"
+  :type zen/map
+  :keys
+  {:code {:confirms #{Coding}
+          :zen/desc "Код МКБ"}
+
+   :clarifiction {:confirms #{Coding}
+                  :zen/desc "Уточнение форм по синонимам и/или расширениям МКБ"}
+
+   :clinicalDescription {:type zen/string
+                         :zen/desc "Клиническая формулировка"}
+
+   :clinicalStatus  {:type zen/string
+                     :enum [{:value "активное"}
+                            {:value "рекуррентное"}
+                            {:value "рецидив"}
+                            {:value "неактивное"}
+                            {:value "перенесенное"}
+                            {:value "ремисия"}]}
+
+   :evidence {:type zen/map
+              :keys {:status {:type zen/string
+                              :enum [{:value "подозреваемое"}
+                                     {:value "подтвержденное"}
+                                     {:value "опровергнутое"}]}}}
+   :course {:type zen/string
+            :zen/desc "Характер заболевания"
+            :enum [{:value "острое"}
+                   {:value "хроническое"}]}
+
+   :active {:type zen/boolean}
+   :episodicity {:type zen/string
+                 :enum [{:value "новое"}
+                        {:value "активное"}
+                        {:value "неизвестно"}]}
+
+   :resolution {:type zen/map
+                :zen/desc "Стадия разрешения острого заболевания"
+                }
+   :progression {:type zen/map
+                 :zen/desc "Динамика заболевания/состояния"
+                 }
+   :control {:type zen/map}
+
+   :dates {:type zen/map
+           :keys {:symptomes {:type zen/date
+                              :zen/desc "Дата первых симпотомов"}
+                  :statement {:type zen/date
+                              :zen/desc "Дата постановки"}
+                  :record    {:type zen/date
+                              :zen/desc "Дата записи"}}}
+
+   :recordedBy {:confirms #{Reference}}
+   :relationship {:zen/desc "Взаимоотношение с другими"}}}}

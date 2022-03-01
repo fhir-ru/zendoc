@@ -101,6 +101,12 @@
 
 Клиническая формулировка диагноза в произвольной текстовой форме может быть указана в виде расширения `clinicalDescritpion`.
 
+
+^title "Логическая Модель"
+^zen/schema
+:logical-model:profile fhir.ru.diag.nosology/DiagnosisNosology
+
+
 ^title "Статусы нозологической единицы"
 :logical-model:implementation-details:status md/
 

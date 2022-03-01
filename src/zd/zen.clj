@@ -35,8 +35,9 @@
   (let [res (conj res (merge opts {:type tp :confirms (if (= 'zen/vector tp)
                                                         (get-in sch [:every :confirms])
                                                         (:confirms sch))
-                                   :valueset (:valueset sch)
                                    :path pth
+                                   :enum (:enum sch)
+                                   :valueset (:valueset sch)
                                    :desc (:zen/desc sch)}))]
     (cond
       (= tp 'zen/map)
@@ -120,7 +121,17 @@ table.schema td {}
              (when-let [t (:type row)] (schema-name t)))
            (when (= 'zen/vector (:type row))
              "[]")]
-          [:td {:class (c [:text :gray-700] :flex :items-baseline)}
-           (:desc row)
+          [:td {:class (c [:text :gray-700] :flex :items-baseline [:space-x 2] :text-sm )}
+           (when-let [d (:desc row)]
+             [:div {:class (c :text-sm [:text :gray-700])} d])
            (when-let [vs (:valueset row)]
-             (str "vs:" (:id vs)))]]))]]])
+             (str "vs:" (:id vs)))
+           (when-let [enum (:enum row)]
+             [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
+              [:b "enum:" ]
+              (for [{v :value} enum]
+                [:span v ";"]
+
+                )]
+             )
+           ]]))]]])
