@@ -1,0 +1,45 @@
+:menu-order 3
+
+^badge
+:authors #{people.vrodionov}
+
+^badge
+:groups #{groups.diagnoses}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-02-20"
+
+^badge
+:type :profile
+
+:title "Наблюдение, связанное с диагнозом"
+
+:toc
+
+^title "Введение"
+:intro md/
+
+Профиль описывает общую структуру наблюдений, связанных с диагнозом, таких как стадирование или методы подтверждения диагноза.
+
+^title "Область применения"
+:scope md/
+
+Клиническое использование нозологических единиц в рамках случая оказания медицинской помощи.
+
+^title "Определения"
+:terms md/
+
+-
+
+^title "Полезные ссылки"
+:links md/
+
+-
+
+^title "Список литературы"
+:literature md/
+
+-
