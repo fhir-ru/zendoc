@@ -1,0 +1,11 @@
+:menu-order 1
+:title "Что такое FHIR?"
+
+:summary md/
+
+Знакомство с FHIR
+
+^titme "Ресурсы"
+:resources md/
+
+TBD:....

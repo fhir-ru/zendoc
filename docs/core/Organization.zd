@@ -14,7 +14,7 @@
 :group groups.adm
 
 ^hide
-:icon [:fa :fa-building-o] 
+:icon [:fa-solid :fa-building] 
 
 :title "Организация"
 
@@ -51,6 +51,7 @@ Organization: address
 :profile fhir.ru.core.organization/Organization
 
 ^title "Идентификаторы:"
+^disc 45
 :identifier:summary md/
 
 Ниже приведен набор возможных систем для идентификаторов
