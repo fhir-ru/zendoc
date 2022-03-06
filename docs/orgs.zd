@@ -3,5 +3,5 @@
 :title "Организации"
 
 
-^table-of {:namespace "orgs." :columns [:zd/name :summary :site]}
+^table-of {:namespace "orgs." :columns [:zd/name :summary]}
 :organizations
