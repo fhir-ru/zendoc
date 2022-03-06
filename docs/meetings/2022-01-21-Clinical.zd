@@ -1,8 +1,24 @@
----
-Рабочая группа HL7 FHIR Russia - Клинический домен: Встреча 2022-01-21
----
+^badge 
+:date "2022-01-21"
 
+^badge 
+:groups #{groups.clin}
 
-[Видеозапись](https://youtu.be/jiF5RthzChg)
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2022-01-21 (cl)"
+
+:video "https://youtu.be/jiF5RthzChg" 
+
+^tile "Обсуждение"
+:discussion  md/
 
 Обсуждение требований к атрибутивному составу нозологической единицы - см. дискуссию #72
+
+^title "Решения"
+:decisions md/
+

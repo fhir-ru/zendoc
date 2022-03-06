@@ -5,7 +5,7 @@
 :authors #{people.vrodionov}
 
 ^badge
-:groups #{groups.diagnoses}
+:groups #{groups.clin}
 
 ^badge
 :status :draft

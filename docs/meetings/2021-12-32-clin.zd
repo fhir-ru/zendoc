@@ -1,6 +1,9 @@
 ^badge
 :groups #{groups.clin}
 
+^badge
+:date "2021-12-07"
+
 :title "Встреча 2021-12-07 (cl)"
 
 :video "https://youtu.be/Vj17UsIJ9wA"

@@ -8,7 +8,11 @@ Terms - #terms.diagnose
 ^table 
 :members
 [
-    {:Участник people.openzin :role "Руководитель"}
-    {:Участник people.ishmyr :role "Редактор"}
-    {:Участник people.vrodionov :role "Редактор"}
+ {:Участник people.openzin :role "Руководитель"}
+ {:Участник people.ishmyr :role "Редактор"}
+ {:Участник people.vrodionov :role "Редактор"}
 ]
+
+
+^meeting-list {:group groups.clin}
+:meetings

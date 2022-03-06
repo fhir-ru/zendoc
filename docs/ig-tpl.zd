@@ -1,4 +1,4 @@
-:menu-order 4
+:menu-order 10
 :icon [:fa-solid :fa-box]
 
 ^badge
@@ -16,7 +16,7 @@
 ^badge
 :type <:ig-или-:profile>
 
-:title "<указать заголовок>"
+:title "Шаблон IG"
 
 :toc
 

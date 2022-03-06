@@ -1,11 +1,14 @@
 ^badge
 :groups #{groups.adm}
 
+^badge
+:date "2021-12-07"
+
 :title "Встреча 2021-12-07"
 
 :video "https://youtu.be/-0iq2K0W7rw"
 
-:description md/
+:discussion md/
 
 * 11:24 Т.Алейников, @niquola о том, следует ли не рассматривать структуру юридических лиц или, наоборот, на ней основываться
 * 18:48 Д.Фадин, @niquola об объединениях организаций, #core.Affiliation

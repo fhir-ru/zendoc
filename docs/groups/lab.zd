@@ -7,6 +7,5 @@
  {:person people.mary}]
 
 
-:meetings md/
-
-Встречи проходят ...
+^meeting-list {:group groups.lab}
+:meetings

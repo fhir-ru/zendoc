@@ -1,0 +1,14 @@
+:title "Обучение"
+
+:summary md/
+
+
+^title "Участники"
+^table 
+:members
+[{:person people.niquola}]
+
+
+
+^meeting-list {:group groups.edu}
+:meetings

@@ -1,3 +1,7 @@
 :menu-order 7
 :icon [:fa-solid :fa-user]
 :title "Люди"
+
+
+^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+:people

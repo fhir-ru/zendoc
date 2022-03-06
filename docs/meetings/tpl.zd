@@ -1,0 +1,22 @@
+^badge 
+:date ""
+
+^badge 
+:tags #{}
+
+^badge 
+:groups #{}
+
+^badge 
+:participants #{}
+
+:title "template"
+
+:video "" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+
+^title "Решения"
+:decisions md/

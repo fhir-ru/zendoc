@@ -1,0 +1,5 @@
+:title "Timeline"
+:icon [:fa-solid :fa-rss]
+:menu-order 99
+
+:git/timeline
