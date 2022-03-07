@@ -1,7 +1,10 @@
 :menu-order 6
 :icon [:fa-regular :fa-calendar]
-:title "Встречи"
+:title "Встречи" /md
 
+Встречи сообщества FHIR RU проходят по вторникам с 13:30 по 14:30 [в zoom по этой ссылке](https://us02web.zoom.us/j/9528778806?pwd=b3M4cFJxUHFnZnpuU3kyWW8vNzg0QT09).
+Встречи клинической группы #groups.clin - по пятницам 16:00 - 17:00, ссылка выкладывается в чат [FHIR-RU](https://t.me/fhir_ru) перед встречей.
+Встречи лабораторной группы #groups.lab - по вторникам 12:30 - 13:30, ссылка выкладывается в чат [FHIR-RU](https://t.me/fhir_ru) перед встречей.
 
 ^meeting-list {}
 :meetings
