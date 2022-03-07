@@ -34,9 +34,6 @@
 
 Рабочие группы проводят регулярные #meetings
 
-^title "Встречи рабочих групп"
-:meetings md/
-
 ^title "Международный опыт"
 :refs md/
 
@@ -44,23 +41,23 @@
 по реализации стандарта FHIR (implementation guide, IG или Руководство) на территории Российской Федерации.
 Опыт иных стран:
 
-* США
-* Австралия
-* Дания
-* Швейцария
-* Италия
+* [США](http://hl7.org/fhir/us/core/)
+* [Австралия](http://build.fhir.org/ig/hl7au/au-fhir-base/)
+* [Дания](https://hl7dk.github.io/dk-core/artifacts.html)
+* [Канада](https://build.fhir.org/ig/HL7-Canada/ca-baseline/branches/master/index.html)
+* [Швейцария](https://fhir.ch/ig/ch-core/index.html)
+* [Италия](http://www.hl7.it/fhir/base/index.html)
 
 ^title "Что входит в FHIR Ru Core"
 :scope md/
 
 FHIR Ru Core включает, но не ограничивается следующими разделами:
 
-^title "Модель данных"
 :scope.data-model md/
-
-* профили FHIR ресурсов
-* расширения FHIR ресурсов
-* терминология (справочники, системы кодирования)
+* **Модель данных**
+..* профили FHIR ресурсов
+..* расширения FHIR ресурсов
+..* терминология (справочники, системы кодирования)
 
 
 ^title "Интеграционное взаимодействие"
