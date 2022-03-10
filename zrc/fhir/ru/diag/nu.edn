@@ -1,0 +1,35 @@
+{
+   ns fhir.ru.diag.nu
+
+   NosologyUnit
+   {
+      :type zen/map
+      :zen/tags #{zen/schema}
+      :zen/desc "Нозологическая единица"  
+      :zendoc 'diag.DsCondition
+      :confirms #{fhir.v4/Condition}
+
+      :require #{:clinicalStatus}
+
+      :keys
+      {
+         :identifier {
+         :type zen/vector
+         :every {
+            :type zen/map
+            :zen/desc "Идентификаторы данной нозологической единицы данного пациента."
+            }
+         }
+
+         :test {
+         :type zen/vector
+         :every {
+            :type zen/map
+            :zen/desc "test"
+            }
+         }
+
+      }
+   }
+
+}
