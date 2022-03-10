@@ -206,13 +206,11 @@
     (zen.core/read-ns @dtx 'fhir.ru.core)
     (zen.core/read-ns @dtx 'fhir.ru.core.organization)
     (zen.core/read-ns @dtx 'fhir.ru.diag.nosology)
-    (zen.core/read-ns @dtx 'fhir.ru.diag.nu)
 
     :ok)
 
   (zen.core/get-symbol @dtx 'fhir.ru.core.organization/Organization)
-  (zen.core/get-symbol @dtx 'fhir.ru.diag.nosology/DiagnosisNosology)
-  (zen.core/get-symbol @dtx 'fhir.ru.diag.nu/NosologyUnit)
+  (zen.core/get-symbol @dtx 'fhir.ru.diag.nosology/unit)
 
   (zen.core/errors @dtx)
 
