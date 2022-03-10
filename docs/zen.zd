@@ -98,3 +98,9 @@ zen имeет встроенный язык схем - описания стру
 ```
 
 результат - https://docs.miramedix.ru/fhir/IG/Patient-fhir-ru-patient-instance-konstantinopolskaya-gender.html
+
+* 6) Проверяем пример ресурса на соответстветствие данному профилю (валидация):
+
+```
+[todo]
+```
