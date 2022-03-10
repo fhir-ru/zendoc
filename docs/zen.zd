@@ -53,3 +53,48 @@ zen явно управляет зависимостями поэтому для
 
 zen имeет встроенный язык схем - описания структуры данных.
 Модель интерпретируется как схема если она имеет тэг `zen/schema`.
+
+
+:tutorial-1 md/
+
+Задача: определить профиль для ресурса `Пациент`, добавив для атрибута `Пол` расширение для кодирования по справочнику ФНСИ.
+
+* 1) Создаём описание справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
+
+```
+[todo]
+```
+
+результат - [[a https://docs.miramedix.ru/fhir/IG/CodeSystem-nsi-cs-1-2-643-5-1-13-13-11-1040.html]]
+
+* 2) Создаём описание набора значений из этого справочника:
+
+```
+[todo]
+```
+
+результат - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
+
+* 3) Создаём описание расширения для кодирования пола пациента по справочнику ФНСИ:
+
+```
+[todo]
+```
+
+результат - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-ext-nsi-gender.html]]
+
+* 4) Создаём профиль для ресурса `Пациент` с добавленным расширением для кодирования пола пациента по справочнику ФНСИ:
+
+```
+[todo]
+```
+
+результат - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-patient-gender.html]]
+
+* 5) Создаём пример ресурса, соответствующего данному профилю:
+
+```
+[todo]
+```
+
+результат - https://docs.miramedix.ru/fhir/IG/Patient-fhir-ru-patient-instance-konstantinopolskaya-gender.html

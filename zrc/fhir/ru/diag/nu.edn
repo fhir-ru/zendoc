@@ -1,35 +1,21 @@
-{
-   ns fhir.ru.diag.nu
+{ns fhir.ru.diag.nu
 
-   NosologyUnit
-   {
-      :type zen/map
-      :zen/tags #{zen/schema}
-      :zen/desc "Нозологическая единица"  
-      :zendoc 'diag.DsCondition
-      :confirms #{fhir.v4/Condition}
+ import #{fhir.v4}
 
-      :require #{:clinicalStatus}
+ DsCondition
+ {:type zen/map
+  :zen/tags #{zen/schema}
+  :zen/desc "Нозологическая единица"
+  :zendoc 'diag.DsCondition
+  :confirms #{fhir.v4/Condition}
 
-      :keys
-      {
-         :identifier {
-         :type zen/vector
-         :every {
-            :type zen/map
-            :zen/desc "Идентификаторы данной нозологической единицы данного пациента."
-            }
-         }
+  :require #{:clinicalStatus}
 
-         :test {
-         :type zen/vector
-         :every {
-            :type zen/map
-            :zen/desc "test"
-            }
-         }
+  :keys
+  {:identifier {:zen/desc "Идентификаторы данной нозологической единицы данного пациента."}
 
-      }
-   }
-
-}
+   :clinicalStatus {:zen/desc "Клинический статус нозологической единицы:\n  
+active | recurrence | relapse | inactive | remission | resolved"
+                    :minItems 1
+                    
+   }}}}

@@ -40,8 +40,9 @@
 [[a diag/fhir-ru-condition-nu.fsh]]
 [[img diag/fhir-ru-condition-nu.fsh.png]]
 
+^title "Профиль (Zen-lang|Edn)"
 ^zen/schema
-:profile fhir.ru.diag.nu/NosologyUnit
+:profile fhir.ru.diag.nu/DsCondition
 
 
 ^title "Примеры"

@@ -212,7 +212,7 @@
 
   (zen.core/get-symbol @dtx 'fhir.ru.core.organization/Organization)
   (zen.core/get-symbol @dtx 'fhir.ru.diag.nosology/DiagnosisNosology)
-  (zen.core/get-symbol @dtx 'fhir.ru.diag.nu/NosologyUnit)
+  (zen.core/get-symbol @dtx 'fhir.ru.diag.nu/DsCondition)
 
   (zen.core/errors @dtx)
 
