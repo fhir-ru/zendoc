@@ -1,7 +1,7 @@
 :menu-order 1
 :title "Что такое FHIR?"
 
-:content-list
+
 :toc
 
 
@@ -12,18 +12,31 @@ Interoperability Resources®
 Ресурсы Обмена Медицинской Информацией
 Новый стандарт обмена медицинской информацией от международной организации HL7®. FHIR создаётся с учётом стандартов и спецификаций HL7 второго и третьего поколений, CDA, задействует современные веб-технологии и направлен на практическую реализацию.
 
-:title "Вводные курсы"
+^title "Вводные курсы"
 :intro_courses md/
 
 * Введение в FHIR для медиков. [Текст от HL7](http://fhir-ru.github.io/overview-clinical.html) (английский)
 
 * Введение в FHIR для разработчиков. [Текст от HL7](http://fhir-ru.github.io/overview-dev.html) (английский)
 
-* Введение в FHIR и сообщество FHIR. Грэм Грив. Доклад на HIR Starter 2018: [Видео](https://www.youtube.com/watch?v=23sfSt0tGj8&t=4737s) (английский с переводом)]. 
-[Слайды](https://bit.ly/2tMPNMZ) (английский)
+* Введение в FHIR и сообщество FHIR. Грэм Грив. Доклад на FHIR Starter 2018: [Видео](https://www.youtube.com/watch?v=23sfSt0tGj8&t=4737s) (английский с переводом). [Слайды](https://bit.ly/2tMPNMZ) (английский). Идеи и преимущества FHIR, основные концепции, история создания, сообщество.
 
-:title "Тематические курсы"
+* Прошлое, настоящее и будущее FHIR. Грэм Грив. Доклад на FHIR Starter 2019: [Видео](https://www.youtube.com/watch?v=e1g7WpByIGk) (английский с переводом). Расширенная версия доклада 2018 года.
 
-* Введение в Search API. Юрий Махоткин, Health Samurai. Доклад на FHIR Starter 2019. [Видео (русский)](https://www.youtube.com/watch?v=LFyVqngtlF4) 
+* Введение в FHIR. Симона Хекман. Доклад на FHIR Starter 2019: [Видео](https://www.youtube.com/watch?v=WrvF7LM90QQ) (английский с переводом)
+
+* Вводный курс FHIR 101. Вьет Нгуен. Лекция на FHL7 Connectathon 2021. [Видео](https://vimeo.com/542197402/8fb80fea04) (английский). Основы FHIR, как читать руководство по реализации, US Core, тестирование на соответствие стандарту.
+
+* Архитектурные решения FHIR. Ллойд Маккензи. Доклад на FHIR Starter 2018. [Видео](https://youtu.be/23sfSt0tGj8?t=16980) (английский с переводом). Четыре подхода FHIR при обмене медицинскими данными: REST, Documents, Messages and Services. Плюсы и минусы.
+
+* Метамодель FHIR. Доклад на FHIR Starter 2018. [Слайды](http://bit.ly/2KDuSCE) (русский). Как использовать FHIR для решения конкретной задачи – методика.
+
+* FHIR. Бизнес-логические ресурсы в примерах. Доклад на FHIR Starter 2018. [Слайды](http://bit.ly/2lPAK0G) (русский). Процесс записи к врачу и приема врача описан с помощью ресурсов FHIR.
+
+
+^title "Тематические курсы"
+:specific_courses md/
+
+* Введение в Search API. Юрий Махоткин, Health Samurai. Доклад на FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=LFyVqngtlF4) (русский).
 
 
