@@ -6,6 +6,8 @@
 
 Как работает zendoc
 
+[@niquola представляет zendoc: видео 15 мин](https://www.youtube.com/watch?v=_thVrYW2FeQ)
+
 :content-list md/
 
 Оглавление можно добавить через `:toc` :)
