@@ -1,3 +1,4 @@
+:icon [:fa :fa-graduation-cap]
 :menu-order 1
 :title "Что такое FHIR?"
 
@@ -12,12 +13,18 @@ Interoperability Resources®
 Ресурсы Обмена Медицинской Информацией
 Новый стандарт обмена медицинской информацией от международной организации HL7®. FHIR создаётся с учётом стандартов и спецификаций HL7 второго и третьего поколений, CDA, задействует современные веб-технологии и направлен на практическую реализацию.
 
-^title "Вводные курсы"
+^title "Вводные и обзорные курсы"
 :intro_courses md/
 
 * Введение в FHIR для медиков. [Текст от HL7](http://fhir-ru.github.io/overview-clinical.html) (английский)
 
 * Введение в FHIR для разработчиков. [Текст от HL7](http://fhir-ru.github.io/overview-dev.html) (английский)
+
+* Введение в FHIR. Health Samurai, 2016 [Публикация на Evercare.ru](https://evercare.ru/vvedenie-v-hl7-fhir) (русский)
+
+* История развития стандартов HL7, Health Samurai, 2016 [Публикация на Evercare.ru](https://evercare.ru/istoriya-razvitiya-standartov-hl7) (русский)
+
+* Сравнение FHIR с другими стандартами HL7, Health Samurai, 2016 [Публикация на Evercare.ru](https://evercare.ru/sravnenie-fhir-s-drugimi-standartami-hl7) (русский)
 
 * Введение в FHIR и сообщество FHIR. Грэм Грив. Доклад на FHIR Starter 2018: [Видео](https://www.youtube.com/watch?v=23sfSt0tGj8&t=4737s) (английский с переводом). [Слайды](https://bit.ly/2tMPNMZ) (английский). Идеи и преимущества FHIR, основные концепции, история создания, сообщество.
 
@@ -37,6 +44,12 @@ Interoperability Resources®
 ^title "Тематические курсы"
 :specific_courses md/
 
-* Введение в Search API. Юрий Махоткин, Health Samurai. Доклад на FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=LFyVqngtlF4) (русский).
+* Введение в Search API. Юрий Махоткин. FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=LFyVqngtlF4) (русский).
+
+* Введение в профили и расширения. Николай Рыжиков, FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=ifJ4qvfeqUA) (русский).
+
+* Understanding Terminology & the Terminology Service. Grahame Grieve, FHIR Starter 2018. [Видео часть 1](https://www.youtube.com/watch?v=u5KtncpKEY8&t=3598s), [Видео часть 2](https://youtu.be/u5KtncpKEY8?t=9906) (английский с переводом)
+
+
 
 
