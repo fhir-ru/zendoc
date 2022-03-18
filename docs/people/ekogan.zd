@@ -1,5 +1,12 @@
 ^badge
 :github "eugenekogan-spb"
+
+^badge
+:email "ekogan2000@mail.ru"
+
+^badge
+:telegram "@ekogan"
+
 :title "Евгений Коган"
 
 :avatar "https://avatars.githubusercontent.com/u/62525329?v=4"
@@ -14,11 +21,9 @@
 
 Область интересов: проблемно-ориентированная электронная медицинская карта, SMART on FHIR приложения для врача.
 
-Контакты: 
 
-Telegramm: @ekogan
 
-Email: ekogan2000@mail.ru
+
 
 
 
