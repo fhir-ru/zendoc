@@ -14,7 +14,9 @@
 
 
    :extension {:type zen/map
-               :keys {:fias {:type zen/string}
-                      :fias_house {:type zen/string}
+               :keys {:fias {:type zen/identifier
+               :zen/desc "Код адреса по ФИАС"}
+                :fias_house {:type zen/identifier
+                :zen/desc "Код дома по ФИАС"}
                }}}}
  }
