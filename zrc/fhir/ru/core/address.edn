@@ -1,0 +1,20 @@
+{ns fhir.ru.core.address
+
+ Address
+ {:zen/tags #{zen/schema}
+  :zendoc 'core.Address
+  :confirms #{fhir.v4/Address}
+  :zen/desc "Адрес"
+
+  :type zen/map
+  :keys
+  {:text {:type zen/string
+          :zen/desc "Полный адрес"}
+
+
+
+   :extension {:type zen/map
+               :keys {:fias {:type zen/string}
+                      :fias_house {:type zen/string}
+               }}}}
+ }
