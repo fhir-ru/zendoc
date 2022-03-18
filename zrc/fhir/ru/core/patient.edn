@@ -1,15 +1,37 @@
-{ns fhir.ru.core.patient
+ {ns fhir.ru.core.patient
 
  Patient
  {:zen/tags #{zen/schema}
   :zendoc 'core.Patient
+  :confirms #{fhir.v4/Patient}
+  :zen/desc "Пациент"
+
+  :type zen/map
+  :keys
+  {
+    :identifier {:type zen/vector
+                :every {:confirms #{Identifier}
+                        :type zen/map
+                        :keys {:system {:type zen/string
+                                        :valueset {:id org-type}}}}}
+    :name {:type zen/vector
+        :every {:confirms #{HumanName}
+          :zen/desc "Имя пациента"}
 
 
+}}
 
+ types
+ {:zen/tags #{}
+  :zen/desc "Типы организации по собственности"
+  :concept [{:value "ООО"}
+            {:value "ОAО"}]}
 
-  }
+ ids
+ {:zen/tags #{}
+  :zen/desc "Идентификаторы организации"
+  :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
+            {:value "ИНН"  :description "Номер налого платильщика"}]}
 
+ }}
 
-
-
- }
