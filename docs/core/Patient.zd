@@ -16,14 +16,7 @@
 
 :scope md/
 
-This Resource covers data about patients and animals involved in a wide range of health-related activities, including:
-
-* Curative activities
-* Psychiatric care
-* Social services
-* Pregnancy care
-* Nursing and assisted living
-* Dietary services
+Профиль Пациент описывает человека, получающего медицинскую помощь.
 
 :identifier md/
 ...
@@ -32,8 +25,31 @@ This Resource covers data about patients and animals involved in a wide range of
 ^title "Имя"
 :name.summary md/
 
-A patient may have multiple names with different uses or applicable periods. For animals,
-the name is a "HumanName" in the sense that is assigned and used by humans and has the same patterns.
+Актуальное имя пациента записывается в поле Patient.name с use=official. 
+Для любого другого типа use кодирование имени может быть каким угодно другим, 
+необходимым для конкретной реализации.
+
+Имя и отчество записывается в массиве given. На первой позиции идет имя, 
+на втором всегда отчество. Не рекомендуется использовать больше двух элементов 
+в given. В случае двойного имени - оно записывается в первом поле given через пробел. 
+В случае сложного отчества - оно записывается во второй позиции given через пробел.
+
+Если имя не известно, но требуется передать отчество, то в массиве передается 
+пустая строчка "", а на втором месте указывается отчество. Т.о. мы гарантируем, 
+что given[1] - это всегда отчество.
+
+Пример:
+
+resourceType: Patient
+name:
+- use: official
+  family: Двойная фамилия
+  given:
+    - Двойное имя
+    - Сложное отчество
+
+Предыдущее решение https://github.com/fhir-ru/core/issues/3
+Дискуссия про отчество https://github.com/fhir-ru/core/discussions/31
 
 ^title ""
 :name.discussions md/
@@ -47,6 +63,9 @@ the name is a "HumanName" in the sense that is assigned and used by humans and h
 
 :address md/
 ...
+
+^zen/schema
+:profile fhir.ru.core.patient/Patient
 
 ^table
 :authors
