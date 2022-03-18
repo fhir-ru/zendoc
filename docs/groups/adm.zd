@@ -17,9 +17,9 @@
 ^title "Участники"
 ^table 
 :members
-[{:person people.eugene}
- {:person people.semalexa}
- {:person people.timur}
+[{:person people.ekogan}
+ {:person people.alexandra}
+ {:person people.taleinikov}
  {:person people.varvara}
  {:person people.niquola}]
 
