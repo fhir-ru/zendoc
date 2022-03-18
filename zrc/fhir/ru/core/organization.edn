@@ -10,7 +10,15 @@
   :require #{:name}
   :keys
   {:name {:type zen/string
-          :zen/desc "Название организации"}
+          :zen/desc "Полное название организации"}
+
+
+  :alias {:type zen/vector
+          :zen/desc "Сокращенное наименование организации"
+          :every {:type zen/string}}
+
+:active {:type zen/boolean
+        :zen/desc "True для действующих организаций"}
 
    :identifier {:type zen/vector
                 :every {:confirms #{Identifier}
@@ -19,7 +27,7 @@
                                         :valueset {:id org-type}}}}}
 
    :type  {:type zen/vector
-           :every {:confirms #{CodeableSystem}
+           :every {:confirms #{CodeableConcept}
                    :type zen/map
                    :keys {:code {:type zen/string
                                  :valueset {:id org-type}}}}}
