@@ -14,8 +14,7 @@
 
 :summary md/
 
-Профиль "Пациент" описываает ....
-
+Профиль Пациент описывает человека, получающего медицинскую помощь.
 
 ^zen/schema
 :profile fhir.ru.core.patient/Patient
@@ -29,8 +28,33 @@
 ^title "Имя (name)"
 :elements.name md/
 
-A patient may have multiple names with different uses or applicable periods. For animals,
-the name is a "HumanName" in the sense that is assigned and used by humans and has the same patterns.
+Актуальное имя пациента записывается в поле `Patient.name` с `use=official`. 
+Для любого другого типа use кодирование имени может быть каким угодно другим, 
+необходимым для конкретной реализации.
+
+Имя и отчество записывается в массиве **given**. На первой позиции идет имя, 
+на втором всегда отчество. Не рекомендуется использовать больше двух элементов 
+в given. В случае двойного имени - оно записывается в первом поле given через пробел. 
+В случае сложного отчества - оно записывается во второй позиции given через пробел.
+
+Если имя не известно, но требуется передать отчество, то в массиве передается 
+пустая строчка "", а на втором месте указывается отчество. Т.о. мы гарантируем, 
+что given[1] - это всегда отчество.
+
+Пример:
+
+```code yaml
+resourceType: Patient
+name:
+- use: official
+  family: Двойная фамилия
+  given:
+    - Двойное имя
+    - Сложное отчество
+```
+
+* Предыдущее решение https://github.com/fhir-ru/core/issues/3
+* Дискуссия про отчество https://github.com/fhir-ru/core/discussions/31
 
 
 ^disc 34
@@ -41,7 +65,6 @@ the name is a "HumanName" in the sense that is assigned and used by humans and h
 ^title "Адрес (address)"
 :elements.address md/
 ...
-
 ^table
 :authors
 [{:person people.ai}

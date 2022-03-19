@@ -12,8 +12,25 @@
   :require #{:clinicalStatus}
 
   :keys
-  {:identifier {:zen/desc "Идентификаторы данной нозологической единицы данного пациента."}
+  {:assertedDate {:confirms #{fhir/dateTime}
+                  :type zen/dateTime
+                  :fhir/extensionUri "????"}
 
-   ;; active | recurrence | relapse | inactive | remission | resolved
-   :clinicalStatus {:zen/desc "Клинический статус нозологической единицы."
-                    :minItems 1}}}}
+   :histology    {:confirms #{fhir/CodeableConcept}
+                  :fhir/extensionUri "????"
+                  :fhir/binding {}}
+
+   :code         {:fhir/binding {:zen/desc "ICD-10"}
+                  :confirms #{fhir/CodeableConcept}}
+
+   :bodySite     {:type zen/vector
+                  :zen/desc "Локализация заболевания"
+                  :every {:confirms #{fhir/CodeableConcept}}}
+
+   :subject      {:confirms #{fhir/Reference}}
+
+   :stage {:type zen/map
+           :keys {:type {:fhir/binding {:zen/desc "TBD"}
+                         :confirms #{fhir/CodeableConcept}}
+                  :assessment  {:confirms #{fhir/Reference}}
+                  }}}}}

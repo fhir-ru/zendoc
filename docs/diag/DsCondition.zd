@@ -111,6 +111,5 @@
 ^title "Полезные ссылки"
 :links md/
 
-[[a https://github.com/fhir-ru/core/discussions/72 Основная страница проекта fhir-ru на github.com для обсуждения нозологической единицы]] ([[d 72]])
-
-[[a https://docs.google.com/spreadsheets/d/1WDC22c-qnWYEJZmdKcfuIqz_OvZaC_z4b5Vg5R5YSnI/edit?usp=sharing Обсуждение логической структуры нозологической единицы в Google Sheet]] 
+* [[a https://github.com/fhir-ru/core/discussions/72 Основная страница проекта fhir-ru на github.com для обсуждения нозологической единицы]] ([[d 72]])
+* [[a https://docs.google.com/spreadsheets/d/1WDC22c-qnWYEJZmdKcfuIqz_OvZaC_z4b5Vg5R5YSnI/edit?usp=sharing Обсуждение логической структуры нозологической единицы в Google Sheet]] 

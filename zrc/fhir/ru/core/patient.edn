@@ -1,4 +1,4 @@
-{ns fhir.ru.core.patient
+ {ns fhir.ru.core.patient
 
  import #{fhir}
 
@@ -16,8 +16,19 @@
                               :type zen/map
                               :keys {:system {:zen/desc "????"}}
                               }}
-         :birthDate {}}
+         :birthDate {}}}
 
-  }
+ types
+ {:zen/tags #{}
+  :zen/desc "Типы организации по собственности"
+  :concept [{:value "ООО"}
+            {:value "ОAО"}]}
+
+ ids
+ {:zen/tags #{}
+  :zen/desc "Идентификаторы организации"
+  :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
+            {:value "ИНН"  :description "Номер налого платильщика"}]}
 
  }
+

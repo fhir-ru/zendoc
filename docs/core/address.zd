@@ -1,0 +1,48 @@
+^hide
+:menu-order 1
+
+^hide
+:menu/first true
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+^badge
+:group groups.adm
+
+^hide
+:icon [:fa-solid :fa-house] 
+
+:title "Адрес"
+
+:toc
+
+:description md/
+
+Профиль на адрес добавляет два расширения: код адреса по ФИАС и код дома по ФИАС.
+
+^zen/schema
+:profile fhir.ru.core.address/Address
+
+
+
+^table
+^title "Value Set"
+:use:values (load "address-use.yaml" :yaml)
+
+
+;; ^title "Примеры"
+;; :samples 
+
+;; ^yaml
+;; ^collapse
+;; ^title "Пример: Хеликс"
+;; :samples:one  (load "org-1.yaml" :yaml)
+
+;; ^yaml
+;; ^collapse
+;; ^title "Пример: ЦНИИОИЗ"
+;; :samples:two  (load "org-2.yaml" :yaml)

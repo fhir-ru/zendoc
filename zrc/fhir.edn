@@ -3,11 +3,17 @@
  import
  #{hl7-fhir-r4-core.Patient
    hl7-fhir-r4-core.Condition
-   hl7-fhir-r4-core.Organization}
+   hl7-fhir-r4-core.Organization
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Coding
+
+   }
 
  Patient hl7-fhir-r4-core.Patient/schema
  Organization hl7-fhir-r4-core.Organization/schema
  Condition hl7-fhir-r4-core.Condition/schema
+ CodeableConcept hl7-fhir-r4-core.CodeableConcept/schema
 
 
  }
