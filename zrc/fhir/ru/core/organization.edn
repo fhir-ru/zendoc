@@ -1,9 +1,11 @@
 {ns fhir.ru.core.organization
 
+ import #{fhir}
+
  Organization
  {:zen/tags #{zen/schema}
   :zendoc 'core.Organization
-  :confirms #{fhir.v4/Organization}
+  :confirms #{fhir/Organization}
   :zen/desc "Организация - Юридическое Лицо"
 
   :type zen/map

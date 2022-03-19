@@ -1,0 +1,13 @@
+{ns fhir
+
+ import
+ #{hl7-fhir-r4-core.Patient
+   hl7-fhir-r4-core.Condition
+   hl7-fhir-r4-core.Organization}
+
+ Patient hl7-fhir-r4-core.Patient/schema
+ Organization hl7-fhir-r4-core.Organization/schema
+ Condition hl7-fhir-r4-core.Condition/schema
+
+
+ }

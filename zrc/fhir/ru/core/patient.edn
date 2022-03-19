@@ -1,15 +1,23 @@
 {ns fhir.ru.core.patient
 
+ import #{fhir}
+
  Patient
  {:zen/tags #{zen/schema}
-  :zendoc 'core.Patient
-
-
-
+  :zen/desc "Пациент"
+  :confirms #{fhir/Patient}
+  :type zen/map
+  :keys {:notes {:type zen/string
+                 :fhir/extensionUri "http://fhir.ru/patient-notes"}
+         :identifier {:zen/desc "Идентификаторы"
+                      :type zen/vector
+                      :minItems 1
+                      :every {:confirms #{fhir/Identifier}
+                              :type zen/map
+                              :keys {:system {:zen/desc "????"}}
+                              }}
+         :birthDate {}}
 
   }
-
-
-
 
  }

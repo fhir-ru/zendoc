@@ -35,16 +35,16 @@
 
 Для Медицинских Организаций  добавлены идентификаторы  ФРМО и номера лицензий, а также более гранулярная классификация по ЕГИСЗ
 
-:diagram mm/
+;; :diagram mm/
 
-classDiagram
+;; classDiagram
 
-Department --> Organization : partOf
-Organization --> Affiliation : partOf
+;; Department --> Organization : partOf
+;; Organization --> Affiliation : partOf
 
-Organization: type
-Organization: identifier
-Organization: address
+;; Organization: type
+;; Organization: identifier
+;; Organization: address
 
 
 ^zen/schema

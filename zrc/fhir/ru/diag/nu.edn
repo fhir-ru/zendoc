@@ -1,21 +1,19 @@
 {ns fhir.ru.diag.nu
 
- import #{fhir.v4}
+ import #{fhir}
 
  DsCondition
  {:type zen/map
   :zen/tags #{zen/schema}
   :zen/desc "Нозологическая единица"
   :zendoc 'diag.DsCondition
-  :confirms #{fhir.v4/Condition}
+  :confirms #{fhir/Condition}
 
   :require #{:clinicalStatus}
 
   :keys
   {:identifier {:zen/desc "Идентификаторы данной нозологической единицы данного пациента."}
 
-   :clinicalStatus {:zen/desc "Клинический статус нозологической единицы:\n  
-active | recurrence | relapse | inactive | remission | resolved"
-                    :minItems 1
-                    
-   }}}}
+   ;; active | recurrence | relapse | inactive | remission | resolved
+   :clinicalStatus {:zen/desc "Клинический статус нозологической единицы."
+                    :minItems 1}}}}

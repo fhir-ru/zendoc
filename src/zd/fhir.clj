@@ -74,7 +74,7 @@
                :class (c [:text :blue-500] [:space-x 0.5] {:font-weight 400}
                          [:hover [:text :blue-600]])}
            [:i.fa-regular.fa-comments {:class (name (c [:text :blue-400] :text-sm))}]
-           [:span d]])])
+           [:span {:class (c :text-sm)} d]])])
 
 (defonce dtx (atom nil))
 
@@ -103,8 +103,8 @@
     (println :reload data
              (zen.core/read-ns ztx (symbol (namespace data)))))
   (if-let [sch (zen.core/get-symbol ztx data)]
-    [:div {:class (c :border [:p 0])}
-     (zd.zen/render-schema sch)]
+    [:div {:class (c )}
+     (zd.zen/render-schema ztx data)]
     [:pre (str "Could not find " data)]))
 
 
