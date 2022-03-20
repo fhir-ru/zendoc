@@ -1,0 +1,22 @@
+^badge 
+:date "2022-03-18"
+
+^badge 
+:groups #{groups.lab}
+
+:title "Встреча 2022-03-18 (lab)"
+
+:video "https://youtu.be/b8IkbljHD1I" 
+
+^tile "Обсуждение"
+:discussion  markdown/
+
+* Синхронизация статусов рабочей группы
+* DiagnosticReport - Андрей Звягин показывает предлагаемый формат
+* Начать перенос артефактов в Zendoc
+* Предложения по переносу созвона рабочей группы на пятницу
+
+^title "Решения"
+:decisions md/
+
+* Начать перенос артефактов в Zendoc
