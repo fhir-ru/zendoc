@@ -191,10 +191,6 @@
  vitalsigns                    hl7-fhir-r4-core.vitalsigns/schema
  vitalspanel                   hl7-fhir-r4-core.vitalspanel/schema
 
- 11179-objectClass                                 hl7-fhir-r4-core.11179-objectClass/schema
- 11179-objectClassProperty                         hl7-fhir-r4-core.11179-objectClassProperty/schema
- 11179-permitted-value-conceptmap                  hl7-fhir-r4-core.11179-permitted-value-conceptmap/schema
- 11179-permitted-value-valueset                    hl7-fhir-r4-core.11179-permitted-value-valueset/schema
  Address                                           hl7-fhir-r4-core.Address/schema
  Age                                               hl7-fhir-r4-core.Age/schema
  Annotation                                        hl7-fhir-r4-core.Annotation/schema
