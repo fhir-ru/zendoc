@@ -66,6 +66,6 @@ name:
 :elements.address md/
 ...
 ^table
+^title "Авторы"
 :authors
-[{:person people.ai}
- {:person people.niquola}]
+[{:person people.alexandra}]

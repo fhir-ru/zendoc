@@ -1,0 +1,65 @@
+ {ns fhir.ru.core.practitioner
+
+  import #{fhir}
+
+  Practitioner
+  {:zen/tags #{zen}
+   :zen/desc "Врач/сотрудник"
+   :confirms #{fhir/Practitioner}
+   :type zen/map
+   :keys {:identifier {:zen/desc "Идентификационные данные врача"
+                       :type zen/vector
+                       :every {:confirms #{fhir/Identifier}
+                               :type zen/map}
+                       :slicing
+                       {:slices
+                        {"PassportRF"
+                         {:zen/desc "Паспорт РФ"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/passport-rf"}}}
+                         "INN"
+                         {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. 
+                         Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/inn"}}}
+                         "SNILS"
+                         {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта 
+                         застрахованного лица в системе обязательного пенсионного страхования"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/snils"}}}}}}
+          :active {:type zen/boolean
+                   :zen/desc "Признак активной действующей записи о враче"}
+          :name {:zen/desc "ФИО врача"
+                 :type zen/vector
+                 :every {:confirms #{fhir/HumanName}
+                         :type zen/map
+                         :keys {:use {:confirms #{fhir/code}
+                                      :type zen/string}
+                                :given {:zen/desc "Имя и отчество врача. Первым должно идти имя, вторым - отчество"
+                                        :type zen/vector
+                                        :every {:confirms #{fhir/string}
+                                                :type zen/string}}
+                                :family {:zen/desc "Фамилия врача"
+                                         :type zen/string}}}}
+          :telecom {:zen/desc "Контактные данные врача"
+                    :type zen/vector
+                    :every {:confirms #{fhir/ContactPoint}
+                            :type zen/map}}
+          :gender {:zen/desc "Пол врача"
+                   :confirms #{fhir/code}
+                   :type zen/string}
+          :birthDate {:zen/desc "Дата рождения врача"
+                      :type zen/string
+                      :confirms #{fhir/date}}
+          :address {:confirms #{fhir/Address}
+                    :zen/desc "Адрес врача"
+                    :type zen/vector
+                    :every {:confirms #{fhir/Address}
+                            :type zen/map}}}}}
+

@@ -1,0 +1,10 @@
+  {ns fhir.ru.core.practitionerrole
+
+  import #{fhir}
+  
+  PractitionerRole
+  {:zen/tags #{zen}
+   :zen/desc
+   "Роль врача/сотрудника"
+   :confirms #{fhir/PractitionerRole}
+   :type zen/map}}}

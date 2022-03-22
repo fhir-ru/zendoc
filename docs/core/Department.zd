@@ -1,11 +1,13 @@
 :title "Отделение"
 
-
 ^badge
 :maturity "0"
 
 ^badge
 :group groups.adm
+
+^hide
+:icon [:fa-solid :fa-building] 
 
 :summary md/
 

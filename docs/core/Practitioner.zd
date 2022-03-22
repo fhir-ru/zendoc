@@ -1,22 +1,30 @@
 ^hide
 :menu-order 1
 
+:icon [:fa-solid :fa-user]
+
 ^badge
-:group groups.pa
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+:title "Врач"
 
 ^badge
 :maturity 0
 
 :icon [:fa-solid :fa-user]
 
-:title "Practitioner"
-
 :summary md/
 
-TBD
+Профиль Врач предназначен для описания врачей, медицинских работников, специалистов.
 
-:profile "/ru-core/Practioner.json"
+^zen/schema
+:profile fhir.ru.core.practitioner/Practitioner
 
-^button
-:download "Profile"
+^zen/schema
+:profile fhir.ru.core.practitionerrole/PractitionerRole
+
+
 

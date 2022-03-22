@@ -1,34 +1,105 @@
  {ns fhir.ru.core.patient
 
- import #{fhir}
+  import #{fhir}
 
- Patient
- {:zen/tags #{zen/schema}
-  :zen/desc "Пациент"
-  :confirms #{fhir/Patient}
-  :type zen/map
-  :keys {:notes {:type zen/string
-                 :fhir/extensionUri "http://fhir.ru/patient-notes"}
-         :identifier {:zen/desc "Идентификаторы"
-                      :type zen/vector
-                      :minItems 1
-                      :every {:confirms #{fhir/Identifier}
-                              :type zen/map
-                              :keys {:system {:zen/desc "????"}}
-                              }}
-         :birthDate {}}}
-
- types
- {:zen/tags #{}
-  :zen/desc "Типы организации по собственности"
-  :concept [{:value "ООО"}
-            {:value "ОAО"}]}
-
- ids
- {:zen/tags #{}
-  :zen/desc "Идентификаторы организации"
-  :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
-            {:value "ИНН"  :description "Номер налого платильщика"}]}
-
- }
+  Patient
+  {:zen/tags #{zen/schema}
+   :zen/desc "Пациент"
+   :confirms #{fhir/Patient}
+   :type zen/map
+   :keys {:identifier {:zen/desc "Идентификаторы пациента"
+                       :type zen/vector
+                       :every {:confirms #{fhir/Identifier}
+                               :type zen/map}
+                       :slicing
+                       {:slices
+                        {"PassportRF"
+                         {:zen/desc "Паспорт РФ"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/passport-rf"}}}
+                         "INN"
+                         {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. 
+                         Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/inn"}}}
+                         "SNILS"
+                         {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта 
+                         застрахованного лица в системе обязательного пенсионного страхования"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/snils"}}}
+                         "ENP"
+                         {:zen/desc "ЕНП"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/enp"}}}
+                         "BirthCertificate"
+                         {:zen/desc "Свидетельство о рождении"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/birth-certificate"}}}
+                         "InsuranceOMS"
+                         {:zen/desc "Полис ОМС единого образца, выданный в соответствии с требованиями Закона об ОМС"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/oms"}}}
+                         "Newborn"
+                         {:zen/desc "Идентификатор для новорожденного до государственной регистрации рождения (когда предъявлен полис матери)"
+                          :schema {:type zen/vector, :maxItems 1}
+                          :filter
+                          {:engine :match
+                           :match {:system "https://fhir.ru/id/newborn"}}}}}}
+          :active {:type zen/boolean
+                   :zen/desc "Признак активной действующей записи о пациенте"}
+          :name {:zen/desc "ФИО пациента"
+                 :type zen/vector
+                 :every {:confirms #{fhir/HumanName}
+                         :type zen/map
+                         :keys {:use {:confirms #{fhir/code}
+                                      :type zen/string}
+                                :given {:zen/desc "Имя и отчество пациента. Первым должно идти имя, вторым - отчество"
+                                        :type zen/vector
+                                        :every {:confirms #{fhir/string}
+                                                :type zen/string}}
+                                :family {:zen/desc "Фамилия пациента"
+                                         :type zen/string}}}}
+          :telecom {:zen/desc "Контактные данные пациента"
+                    :type zen/vector
+                    :every {:confirms #{fhir/ContactPoint}
+                            :type zen/map}}
+          :gender {:zen/desc "Пол пациента"
+                   :confirms #{fhir/code}
+                   :type zen/string}
+          :birthDate {:zen/desc "Дата рождения пациента"
+                      :type zen/string
+                      :confirms #{fhir/date}}
+          :address {:confirms #{fhir/Address}
+                    :zen/desc "Адрес пациента"
+                    :type zen/vector
+                    :every {:confirms #{fhir/Address}
+                            :type zen/map}}
+          :generalPractitioner {:type zen/vector
+                                :every
+                                {:confirms #{fhir/Reference}
+                                 :type zen/map
+                                 :fhir/reference
+                                 {:refers
+                                  #{fhir/PractitionerRole
+                                    fhir/Organization
+                                    fhir/Practitioner}}
+                                 :zen/desc "Семейный врач, прикрепленная поликлиника"}}
+          :managingOrganization {:type zen/map
+                                 :confirms #{fhir/Reference}
+                                 :fhir/reference
+                                 {:refers #{fhir/Organization}}
+                                 :zen/desc
+                                 "Организация-хранитель записи о пациенте"}}}}
 
