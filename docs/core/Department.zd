@@ -16,6 +16,9 @@ TBD: summary
 ^attribute
 :part-of core.Organization
 
+^zen/schema
+:profile fhir.ru.core.department/Department
+
 ^yaml
 ^title "Пример 2"
 :samples.two  (load "org-2.yaml" :yaml)

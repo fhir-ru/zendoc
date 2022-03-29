@@ -26,9 +26,23 @@
                         :slicing
                         {:slices
                          {"ИНН"
-                          {:filter
+                          {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации.
+Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+                          :filter
                            {:engine :match
-                            :match {:system "https://fhir.ru/inn"}}
+                            :match {:system "https://fhir.ru/ids/inn"}}
+                           :schema
+                           {:type zen/vector
+                            :minItems 0
+                            :maxItems 1
+                            :every
+                            {:type zen/map
+                             :require #{:system :value}}}}
+                             "ОГРН"
+                          {:zen/desc "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
+                          :filter
+                           {:engine :match
+                            :match {:system "https://fhir.ru/ids/ogrn"}}
                            :schema
                            {:type zen/vector
                             :minItems 0
@@ -66,7 +80,7 @@
              }}}
 
         :address {:type zen/vector
-                        :every {:confirms #{fhir.ru.core.address/Address}}
+                        :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
                         :zen/desc "Адрес организации"}
 }}
 

@@ -1,0 +1,68 @@
+{ns fhir.ru.core.department
+
+ import #{fhir}
+
+ Department
+ {:zen/tags #{zen/schema}
+  :zendoc 'core.Organization
+  :confirms #{fhir/Organization}
+  :zen/desc "Организация - Подразделение"
+
+  :type zen/map
+  :require #{:name}
+  :keys
+  {:name {:type zen/string
+          :zen/desc "Полное название организации"}
+
+   :alias {:type zen/vector
+           :zen/desc "Сокращенное наименование организации"
+           :every {:type zen/string}}
+
+   :identifier {:type zen/vector
+                :every {:confirms #{fhir/Identifier}}
+                :slicing
+                {:slices
+                 {"ФРМО"
+                  {:zen/desc "Уникальный идентификатор МО в справочнике ФРМО"
+                   :filter
+                   {:engine :match
+                    :match {:system "https://fhir.ru/ids/frmo"}}
+                   :schema
+                   {:type zen/vector
+                    :minItems 0
+                    :maxItems 1
+                    :every
+                    {:type zen/map
+                     :require #{:system :value}}}}}}}
+
+   :type  {:zen/desc "Тип организации"
+           :type zen/vector
+           :every {:confirms #{fhir/CodeableConcept}
+                   :type zen/map
+                   :keys {:code {:type zen/string
+                                 :valueset {:id org-type}}}}}
+   :partOf {:type zen/map
+            :confirms #{fhir/Reference}
+            :zen/desc "Ссылка на организацию-юридическое лицо, которой принадлежит данная организация"
+            :fhir/profiles #{fhir.ru.core.organization/Organization}}
+
+   :telecom {:type zen/vector
+             :zen/desc "Контактные данные организации"
+             :every {:confirms #{fhir/ContactPoint}}
+             :slicing
+             {:slices
+              {"Phone"
+               {:filter
+                {:engine :match
+                 :match {:system "phone", :use "work"}}}
+
+               "Email"
+               {:filter
+                {:engine :match
+                 :match {:system "email", :use "work"}}}}}}
+
+   :address {:type zen/vector
+             :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
+             :zen/desc "Адрес организации"}}}}
+
+

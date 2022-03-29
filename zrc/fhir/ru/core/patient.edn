@@ -84,7 +84,7 @@
           :address {:confirms #{fhir/Address}
                     :zen/desc "Адрес пациента"
                     :type zen/vector
-                    :every {:confirms #{fhir/Address}
+                    :every {:confirms #{fhir.ru.core.address/RuCoreAddress}
                             :type zen/map}}
           :generalPractitioner {:type zen/vector
                                 :every

@@ -60,6 +60,6 @@
           :address {:confirms #{fhir/Address}
                     :zen/desc "Адрес врача"
                     :type zen/vector
-                    :every {:confirms #{fhir/Address}
+                    :every {:confirms #{fhir.ru.core.address/RuCoreAddress}
                             :type zen/map}}}}}
 
