@@ -21,8 +21,14 @@
 
 ^title "Идентификаторы (identifiers)"
 :elements.identifier md/
-...
 
+(решение не выработано)
+
+[Issue с подробным обсуждением идетификаторов пациента, 2019-2020](https://github.com/fhir-ru/core/issues/2)
+
+Дискуcсия, требования об идентификаторах пациента для лабораторного результата [[d 56]]
+
+Решение использовать Единый номер застрахованного в качестве идентификатора пациента: [[d 82]]
 
 ^disc 31
 ^title "Имя (name)"
@@ -53,8 +59,8 @@ name:
     - Сложное отчество
 ```
 
-* Предыдущее решение https://github.com/fhir-ru/core/issues/3
-* Дискуссия про отчество https://github.com/fhir-ru/core/discussions/31
+* [Предыдущее решение](https://github.com/fhir-ru/core/issues/3)
+* Дискуссия про отчество [[d 31 ]]
 
 
 ^disc 34
@@ -62,8 +68,12 @@ name:
 :elements.gender md/
 ...
 
+^disc 83
 ^title "Адрес (address)"
 :elements.address md/
+
+Должен использоваться [профиль RuCore-Address](http://fhir-ru.zendoc.me/core.address), содержащий расширение для кода адреса для ФИАС и кода дома по ФИАС.
+
 ...
 ^table
 ^title "Авторы"
