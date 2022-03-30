@@ -1,0 +1,125 @@
+:menu-order 11
+:icon [:fa-solid :fa-box]
+
+:title "Соглашения"
+
+:toc
+
+^disc 31
+^title "Именование артефактов"
+:name-conventions md/
+
+базовый url: http://fhir.ru
+
+Подход: затем название IG (core), затем название типа (тип ресурса, тип данных, справочник, набор значений, расширение), затем уточнения
+
+Конкретно:
+
+id: слова через тире, нижний регистр, латинскими буквами
+"id" : "core-[тип]-[уточнения-через-тире]"
+[тип] - тип ресурса, тип данных, ex для extension, cs для codesystem, vs для valueset, cm для conceptmap (плюс буква -x- между названиями маппируемых наборов значений)
+
+ресурс
+"id" : "core-patient-adult"
+"id" : "core-patient-newborn"
+тип данных
+"id" : "core-address"
+расширение
+"id" : "core-ex-fias"
+терминологии
+"id" : "core-cs-nsi-sex"
+"id" : "core-vs-nsi-sex"
+"id" : "core-cm-core-vs-nsi-sex-x-administrative-gender"
+
+url: "[base url] /[IG] /[тип артефакта]/[id]"
+"url" : "http://fhir.ru/core/[тип артефакта]/core-[тип]-[уточнения-через-тире]"
+[тип артефакта] - sd для StructureDefinition (в том числе для типов данных и для extension), cs для codesystem, vs для valueset, cm для conceptmap (плюс буква -x- между названиями маппируемых наборов значений)
+[тип] - тип ресурса, тип данных, ex для extension, cs для codesystem, vs для valueset, cm для conceptmap (плюс буква -x- между названиями маппируемых наборов значений)
+
+ресурс
+"url" : "http://fhir.ru/core/sd/core-patient-adult"
+"url" : "http://fhir.ru/core/sd/core-patient-newborn"
+тип данных
+"url" : "http://fhir.ru/core/sd/core-address"
+расширение
+"url" : "http://fhir.ru/core/sd/core-ex-fias-profile"
+терминологии
+"url" : "http://fhir.ru/core/cs/core-cs-nsi-sex"
+"url" : "http://fhir.ru/core/vs/core-vs-nsi-sex"
+"url" : "http://fhir.ru/core/cm/core-cm-core-vs-nsi-sex-x-administrative-gender"
+
+name: camel-case - слова слитно, каждое слово с заглавной буквы, затем - нижний регистр, латинскими буквами
+"name" : "Core[Тип][УточненияCamelКейсом]"
+[Тип] - Тип ресурса, Тип данных, Ex для extension, Cs для codesystem, Vs для valueset, Cm для conceptmap (плюс буква X между названиями маппируемых наборов значений)
+
+ресурс
+"name" : "CorePatientAdult"
+"name" : "CorePatientNewborn"
+тип данных
+"name" : "CoreAddress"
+расширение
+"name" : "CoreExFias"
+терминологии
+"name" : "CoreCsNsiSex"
+"name" : "CoreVsNsiSex"
+"name" : "CoreCmCoreVsNsiSexXAdministrativeGender"
+
+title: слова через пробел, каждое слово с заглавной буквы, аббревиатуры все заглавные, уточнения русскими буквами, можно добавлять знаки препинания
+"title" : "Core [Тип] [Уточнения Через Пробел]"
+[Тип] - Тип ресурса, Тип данных, Extension, CodeSystem, ValueSet, ConceptMap (плюс буква X между названиями маппируемых наборов значений)
+
+ресурс
+"title" : "Core Patient Пациент (взрослый)"
+"title" : "Core Patient Пациент (новорождённых)"
+тип данных
+"title" : "Core Address Адрес"
+расширение
+"title" : "Core Extension ФИАС"
+терминологии
+"title" : "Core CodeSystem Пол пациента (ФНСИ)"
+"title" : "Core ValueSet Пол пациента (ФНСИ)"
+"title" : "Core ConceptMap Core ValueSet Пол пациента (ФНСИ) X AdministrativeGender"
+
+^disc 61
+^title "Идентификаторы Coding Systems"
+:code-systems-naming md/
+
+Аналогично соглашению по названиями профайлов - системы кодируются так:
+
+http://fhir.ru/<ig>/systems/<lowercase(common-human-name)>
+
+http://fhir.ru/core/systems/snils
+http://fhir.ru/core/systems/ogrn
+http://fhir.ru/frmo/systems/minzdrav-oid
+
+Для систем, которые уже имеют устоявшиеся идентификаторы в формате OID\UUID\URL\URN, их необходимо указывать для возможности поиска (например, для СНИЛС - oid 1.2.643.100.3).
+
+Будет создан реестр всех использованных в наших профилях систем идентификации с возможностью поиска как по текущим устоявшимся идентификаторам, так и по новым, переопределённым.
+
+Каждую систему идентификации следует описать в ресурсе NamingSystem, в следующем формате:
+
+
+```code json
+{
+  "id": "core-namingsystem-snils",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "identifier",
+  "name": "Страховой номер индивидуального лицевого счёта, СНИЛС",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Identifier: Страховой номер индивидуального лицевого счёта, СНИЛС, может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.100.3</li>\n    <li>[предпочтительно] URI: http://fhir.ru/core/systems/snils</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.100.3"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/systems/snils",
+    }
+  ]
+}
+```code
