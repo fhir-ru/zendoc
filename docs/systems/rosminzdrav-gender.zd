@@ -1,0 +1,55 @@
+:menu-order 1
+:icon [:fa-solid :fa-box]
+
+^badge
+:authors #{people.alexandra people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-04"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Пол пациента"
+
+:toc
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Пол пациента](systems.rosminzdrav-gender)
+[НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
+
+```code json
+{
+  "id": "core-namingsystem-rosminzdrav-gender",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "rosminzdrav-gender",
+  "description": "НСИ Минздрава Пол пациента",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Пол пациента, 
+    может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.5.1.13.13.11.1040</li>\n   
+     <li>[предпочтительно] URI: https://fhir.ru/systems/rosminzdrav-gender</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1040"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "https://fhir.ru/systems/rosminzdrav-gender",
+    }
+  ]
+}
+```code

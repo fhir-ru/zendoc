@@ -1,0 +1,21 @@
+:menu-order 2
+:icon [:fa-solid :fa-box]
+
+^badge
+:authors #{people.alexandra people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-04"
+
+^badge
+:type :ig
+
+:title "НСИ ФОМС Пол пациента"
+
+:toc
