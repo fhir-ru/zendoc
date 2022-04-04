@@ -34,6 +34,8 @@ Interoperability Resources®
 
 * Вводный курс FHIR 101. Вьет Нгуен. Лекция на FHL7 Connectathon 2021. [Видео](https://vimeo.com/542197402/8fb80fea04) (английский). Основы FHIR, как читать руководство по реализации, US Core, тестирование на соответствие стандарту.
 
+* FHIR Architecture Design, Lloyd McKenzie - DevDays 2019 Amsterdam [Видео](https://www.youtube.com/watch?v=qSSrJaS6aBY) (английский). Почему хорош REST и почему иногда приходится использовать Documents и Messages.
+
 * Архитектурные решения FHIR. Ллойд Маккензи. Доклад на FHIR Starter 2018. [Видео](https://youtu.be/23sfSt0tGj8?t=16980) (английский с переводом). Четыре подхода FHIR при обмене медицинскими данными: REST, Documents, Messages and Services. Плюсы и минусы.
 
 * Метамодель FHIR. Доклад на FHIR Starter 2018. [Слайды](http://bit.ly/2KDuSCE) (русский). Как использовать FHIR для решения конкретной задачи – методика.
@@ -49,6 +51,13 @@ Interoperability Resources®
 * Введение в профили и расширения. Николай Рыжиков, FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=ifJ4qvfeqUA) (русский).
 
 * Understanding Terminology & the Terminology Service. Grahame Grieve, FHIR Starter 2018. [Видео часть 1](https://www.youtube.com/watch?v=u5KtncpKEY8&t=3598s), [Видео часть 2](https://youtu.be/u5KtncpKEY8?t=9906) (английский с переводом)
+
+* FHIR® Terminology Services: Ideas, Challenges, Applications. Meetup 03.03.2022. [Слайды, видео](https://www.health-samurai.io/online-fhir-meetup-7-terminology) (английский)
+..* Lord of the Terms. Graham Grieve
+..* FHIR Terminology Services with Ontoserver. Dr. Michael Lawley 
+..* Practical approach to FHIR Terminology Services. Nikolai Ryzhikov
+
+* SMART on FHIR. Josh Mandel, DevDays Redmond 2019 [Видео](https://www.youtube.com/watch?v=N0PXAxBA-J8), [Слайды (частично)](https://docs.google.com/presentation/d/1LWZ5jq6ZfJWADphcIdQmKC83ObNnlPuaVMBeUDSij_I/present?slide=id.g32111244a0_0_0) (английиский)
 
 
 Есть предложения по улучшению этой страницы? Пиши сюда [[d 90]].
