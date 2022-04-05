@@ -23,8 +23,7 @@
 ^title "Naming System"
 :code-systems-naming md/
 
-[НСИ Минздрава Пол пациента](systems.rosminzdrav-gender)
-[НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
+[Справочник НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
 
 ```code json
 {
@@ -49,6 +48,78 @@
       "type": "uri",
       "preferred": true,
       "value": "https://fhir.ru/systems/rosminzdrav-gender",
+    }
+  ]
+}
+```code
+
+^title "ConceptMap"
+:concept-map md/
+
+```code json
+{
+  "resourceType": "ConceptMap",
+  "id": "conceptmap-rosminzdrav-gender",
+  "url": "http://fhir.ru/fhir/ConceptMap/conceptmap-rosminzdrav-gender",  
+  "version": "0.0.1",
+  "name": "rosminzdrav-gender-to-fhir",
+  "title": "Соответствие справочника НСИ Минздрава Пол пациента справочнику FHIR AdministrativeGender",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-05",
+  "description": "Соответствие справочника НСИ Минздрава Пол пациента справочнику FHIR AdministrativeGender",  
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "RU"
+        }
+      ]
+    }
+  ],
+  "purpose": "Для FHIR RU CORE",
+  "sourceUri": "http://fhir.ru/fhir/ValueSet/rosminzdrav-gender",
+  "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
+  "group": [
+    {
+      "source": "https://fhir.ru/systems/rosminzdrav-gender",
+      "target": "http://hl7.org/fhir/administrative-gender",
+      "element": [
+        {
+          "code": "1",
+          "display": "Мужской",
+          "target": [
+            {
+              "code": "male",
+              "display": "Male",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "2",
+          "display": "Женский",
+          "target": [
+            {
+              "code": "female",
+              "display": "Female",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "3",
+          "display": "Неопределенный",
+          "target": [
+            {
+              "code": "unknown",
+              "display": "Unknown",
+              "equivalence": "equivalent"
+            }
+          ]
+        }        
+      ]      
     }
   ]
 }
