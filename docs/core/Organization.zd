@@ -48,7 +48,7 @@
 
 
 ^zen/schema
-:profile fhir.ru.core.organization/Organization
+:profile fhir.ru.core.organization/RuCoreOrganization
 
 ^title "Идентификаторы:"
 ^disc 45
@@ -69,9 +69,8 @@
 ;; ```
 
 
-^title "Классификация"
+^title "Примеры классификации организации-юридического лица"
 :type md/
-
 По правовой форме `system = urn:ru:org:kind`
 По ОКВЭД   `system = urn:ru:org:okved` - Общероссийский классификатор видов экономической деятельности
 
@@ -82,8 +81,14 @@
 ```
 
 ^table
-^title "Value Set"
+^title "По типу деятельности"
 :type:values (load "org-type.yaml" :yaml)
+
+
+
+^table
+^title "По правовой форме"
+:type:values (load "org-type-1.yaml" :yaml)
 
 
 ^title "Примеры"

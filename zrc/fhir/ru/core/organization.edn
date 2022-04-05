@@ -2,7 +2,7 @@
 
  import #{fhir}
 
- Organization
+ RuCoreOrganization
  {:zen/tags #{zen/schema}
   :zendoc 'core.Organization
   :confirms #{fhir/Organization}
@@ -18,74 +18,76 @@
            :zen/desc "Сокращенное наименование организации"
            :every {:type zen/string}}
 
-   :active {:type zen/boolean
-            :zen/desc "True для действующих организаций"}
+   :active {:zen/desc "True для действующих организаций"}
 
    :identifier {:type zen/vector
                 :every {:confirms #{fhir/Identifier}}
-                        :slicing
-                        {:slices
-                         {"ИНН"
-                          {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации.
+                :slicing
+                {:slices
+                 {"ИНН"
+                  {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации.
 Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
-                          :filter
-                           {:engine :match
-                            :match {:system "https://fhir.ru/ids/inn"}}
-                           :schema
-                           {:type zen/vector
-                            :minItems 0
-                            :maxItems 1
-                            :every
-                            {:type zen/map
-                             :require #{:system :value}}}}
-                             "ОГРН"
-                          {:zen/desc "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
-                          :filter
-                           {:engine :match
-                            :match {:system "https://fhir.ru/ids/ogrn"}}
-                           :schema
-                           {:type zen/vector
-                            :minItems 0
-                            :maxItems 1
-                            :every
-                            {:type zen/map
-                             :require #{:system :value}}}}}}}
+                   :filter
+                   {:engine :match
+                    :match {:system "https://fhir.ru/ids/inn"}}
+                   :schema
+                   {:type zen/vector
+                    :minItems 0
+                    :maxItems 1
+                    :every
+                    {:type zen/map
+                     :require #{:system :value}}}}
+                  "ФРМО"
+                  {:zen/desc "Уникальный идентификатор МО в справочнике ФРМО"
+                   :filter
+                   {:engine :match
+                    :match {:system "https://fhir.ru/ids/frmo"}}
+                   :schema
+                   {:type zen/vector
+                    :minItems 0
+                    :maxItems 1
+                    :every
+                    {:type zen/map
+                     :require #{:system :value}}}}
+                  "ОГРН"
+                  {:zen/desc "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
+                   :filter
+                   {:engine :match
+                    :match {:system "https://fhir.ru/ids/ogrn"}}
+                   :schema
+                   {:type zen/vector
+                    :minItems 0
+                    :maxItems 1
+                    :every
+                    {:type zen/map
+                     :require #{:system :value}}}}}}}
 
-   :type  {:type zen/vector
-           :every {:confirms #{fhir/CodeableConcept}
-                   :type zen/map
-                   :keys {:code {:type zen/string
-                                 :valueset {:id org-type}}}}}
-  ;; :partOf {:type zen/map
-  ;;          :confirms #{fhir/Reference}
-  ;;          :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"
-  ;;          :fhir/profiles #{Association}}
+
+  :partOf {:type zen/map
+            :confirms #{fhir/Reference}
+            :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"}
 
    :telecom {:type zen/vector
-                :zen/desc "Контактные данные организации"
+             :zen/desc "Контактные данные организации"
              :every {:confirms #{fhir/ContactPoint}}
              :slicing
              {:slices
-             {
-                     "Phone"
-                     {:filter
-                     {:engine :match
-                     :match {:system "phone", :use "work"}}
-                     }
+              {"Phone"
+               {:filter
+                {:engine :match
+                 :match {:system "phone", :use "work"}}}
 
-                     "Email"
-                     {:filter
-                     {:engine :match
-                     :match {:system "email", :use "work"}}}
-             }}}
+               "Email"
+               {:filter
+                {:engine :match
+                 :match {:system "email", :use "work"}}}}}}
 
-        :address {:type zen/vector
-                        :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
-                        :zen/desc "Адрес организации"}
-}}
+   :address {:type zen/vector
+             :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
+             :zen/desc "Адрес организации"}}}
 
-   :extension {:type zen/map
-               :keys {:fias {:type zen/string}}}}}
+ :extension {:type zen/map
+             :keys {:fias {:type zen/string}}}
 
  types
  {:zen/tags #{}

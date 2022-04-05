@@ -23,7 +23,7 @@
 ^title "Naming System"
 :code-systems-naming md/
 
-[Справочник НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
+[НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
 
 ```code json
 {
