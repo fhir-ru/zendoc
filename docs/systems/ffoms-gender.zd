@@ -19,3 +19,96 @@
 :title "НСИ ФОМС Пол пациента"
 
 :toc
+
+^title "Naming System"
+:code-systems-naming md/
+
+
+[Справочник НСИ ФОМС Пол пациента](http://nsi.ffoms.ru/#refbookList?refbookList:filter:$filter=set&refbookList:filter:name=%D0%BF%D0%BE%D0%BB&refbookList:$active=1&refbookList:$selectedId=914/refbookList.refbookList.view$2v914?menu:filter:dictionaryId=914&menu:filter:readOnly=true&menu:$active=1&menu:$selectedId=undefined&refbookSimple0:$active=1&refbookSimple0:page=1&refbookSimple1:$active=1&refbookSimple1:page=1&refbookSimple1:$selectedId=undefined)
+
+
+
+```code json
+{
+  "id": "core-namingsystem-ffoms-gender",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "ffoms-gender",
+  "description": "НСИ ФОМС Пол пациента",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ ФОМС Пол пациента, 
+    может быть известен под следующими идентификаторами:<ol>\n    <li>OID: </li>\n   
+     <li>[предпочтительно] URI: https://fhir.ru/systems/ffoms-gender</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [    
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "https://fhir.ru/systems/ffoms-gender",
+    }
+  ]
+}
+```code
+
+^title "ConceptMap"
+:concept-map md/
+
+```code json
+{
+  "resourceType": "ConceptMap",
+  "id": "conceptmap-ffoms-gender",
+  "url": "http://fhir.ru/fhir/ConceptMap/conceptmap-ffoms-gender",  
+  "version": "0.0.1",
+  "name": "ffoms-gender-to-fhir",
+  "title": "Соответствие справочника НСИ ФОМС Пол пациента справочнику FHIR AdministrativeGender",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-05",
+  "description": "Соответствие справочника НСИ ФОМС Пол пациента справочнику FHIR AdministrativeGender",  
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "RU"
+        }
+      ]
+    }
+  ],
+  "purpose": "Для FHIR RU CORE",
+  "sourceUri": "http://fhir.ru/fhir/ValueSet/ffoms-gender",
+  "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
+  "group": [
+    {
+      "source": "https://fhir.ru/systems/ffoms-gender",
+      "target": "http://hl7.org/fhir/administrative-gender",
+      "element": [
+        {
+          "code": "1",
+          "display": "Мужской",
+          "target": [
+            {
+              "code": "male",
+              "display": "Male",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "2",
+          "display": "Женский",
+          "target": [
+            {
+              "code": "female",
+              "display": "Female",
+              "equivalence": "equivalent"
+            }
+          ]
+        }       
+      ]      
+    }
+  ]
+}
+```code

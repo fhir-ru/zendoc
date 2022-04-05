@@ -46,11 +46,11 @@
                           {:engine :match
                            :match {:system "https://fhir.ru/id/birth-certificate"}}}
                          "InsuranceOMS"
-                         {:zen/desc "Полис ОМС единого образца, выданный в соответствии с требованиями Закона об ОМС"
+                         {:zen/desc "Идентификация по номеру полиса ОМС. Система идентификации - Единый реестр застрахованных ФФОМС"
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/oms"}}}
+                           :match {:system "https://fhir.ru/systems/erz-ffoms"}}}
                          "Newborn"
                          {:zen/desc "Идентификатор для новорожденного до государственной регистрации рождения (когда предъявлен полис матери)"
                           :schema {:type zen/vector, :maxItems 1}
