@@ -216,7 +216,9 @@ table.schema td {}
       [:div {:class (cls ["tabh" tab-cls]) :for (str id "-snap")} "Snapshot"]]
      [:div  {:class (c :border [:pt 2] {:margin-left "-10px"
                                         :margin-right "-50px"})}
-      [:div {:id (str id "-diff")} (schema-table sch)]
-      [:div {:id (str id "-snap") :style "display:none;"} (schema-table snapshot)]]
+      [:div {:id (str id "-diff")}
+       (schema-table sch)]
+      [:div {:id (str id "-snap") :style "display:none;"}
+       (schema-table snapshot)]]
      
      ]))
