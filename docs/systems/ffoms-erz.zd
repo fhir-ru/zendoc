@@ -1,0 +1,49 @@
+:menu-order 1
+:icon [:fa-solid :fa-box]
+
+^badge
+:authors #{people.alexandra people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-05"
+
+^badge
+:type :ig
+
+:title "Единый регистр застрахованных лиц (ЕРЗ)"
+
+:toc
+
+^title "Naming System"
+:code-systems-naming md/
+
+[Единый регистр застрахованных лиц (ЕРЗ)](https://i-novus.ru/projects/podsistema-yedinyy-registr-zastrakhovannykh-lits-yerz)
+
+```code json
+{
+  "id": "core-namingsystem-ffoms-erz",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "identifier",
+  "name": "ffoms-erz",
+  "description": "Единый регистр застрахованных лиц (ЕРЗ)",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>NamingSystem: Единый регистр застрахованных лиц (ЕРЗ), 
+    может быть известен под следующими идентификаторами:<ol>\n <li>[предпочтительно] URI: https://fhir.ru/systems/core/ffoms-erz</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "https://fhir.ru/systems/core/ffoms-erz",
+    }
+  ]
+}
+```code
