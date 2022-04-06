@@ -36,7 +36,7 @@
   "text": {
     "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Пол пациента, 
     может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.5.1.13.13.11.1040</li>\n   
-     <li>[предпочтительно] URI: https://fhir.ru/systems/rosminzdrav-gender</li>\n  </ol>\n</div>",
+     <li>[предпочтительно] URI: http://fhir.ru/core/systems/rosminzdrav-gender</li>\n  </ol>\n</div>",
     "status": "generated"
   },
   "uniqueId": [
@@ -47,7 +47,7 @@
     {
       "type": "uri",
       "preferred": true,
-      "value": "https://fhir.ru/systems/rosminzdrav-gender",
+      "value": "http://fhir.ru/core/systems/rosminzdrav-gender",
     }
   ]
 }
@@ -60,7 +60,7 @@
 {
   "resourceType": "ConceptMap",
   "id": "conceptmap-rosminzdrav-gender",
-  "url": "http://fhir.ru/fhir/ConceptMap/conceptmap-rosminzdrav-gender",  
+  "url": "http://fhir.ru/core/ConceptMap/conceptmap-rosminzdrav-gender",  
   "version": "0.0.1",
   "name": "rosminzdrav-gender-to-fhir",
   "title": "Соответствие справочника НСИ Минздрава Пол пациента справочнику FHIR AdministrativeGender",
@@ -79,11 +79,11 @@
     }
   ],
   "purpose": "Для FHIR RU CORE",
-  "sourceUri": "http://fhir.ru/fhir/ValueSet/rosminzdrav-gender",
+  "sourceUri": "http://fhir.ru/core/ValueSet/rosminzdrav-gender",
   "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
   "group": [
     {
-      "source": "https://fhir.ru/systems/rosminzdrav-gender",
+      "source": "http://fhir.ru/core/systems/rosminzdrav-gender",
       "target": "http://hl7.org/fhir/administrative-gender",
       "element": [
         {

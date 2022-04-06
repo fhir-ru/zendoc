@@ -39,14 +39,14 @@
   "text": {
     "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ ФОМС Пол пациента, 
     может быть известен под следующими идентификаторами:<ol>\n    <li>OID: </li>\n   
-     <li>[предпочтительно] URI: https://fhir.ru/systems/ffoms-gender</li>\n  </ol>\n</div>",
+     <li>[предпочтительно] URI: http://fhir.ru/core/systems/ffoms-gender</li>\n  </ol>\n</div>",
     "status": "generated"
   },
   "uniqueId": [    
     {
       "type": "uri",
       "preferred": true,
-      "value": "https://fhir.ru/systems/ffoms-gender",
+      "value": "http://fhir.ru/core/systems/ffoms-gender",
     }
   ]
 }
@@ -82,7 +82,7 @@
   "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
   "group": [
     {
-      "source": "https://fhir.ru/systems/ffoms-gender",
+      "source": "http://fhir.ru/systems/ffoms-gender",
       "target": "http://hl7.org/fhir/administrative-gender",
       "element": [
         {

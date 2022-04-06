@@ -35,14 +35,14 @@
   "description": "Единый регистр застрахованных лиц (ЕРЗ)",
   "text": {
     "div": "<div xmlns='http://www.w3.org/1999/xhtml'>NamingSystem: Единый регистр застрахованных лиц (ЕРЗ), 
-    может быть известен под следующими идентификаторами:<ol>\n <li>[предпочтительно] URI: https://fhir.ru/systems/core/ffoms-erz</li>\n  </ol>\n</div>",
+    может быть известен под следующими идентификаторами:<ol>\n <li>[предпочтительно] URI: http://fhir.ru/core/systems/ffoms-erz</li>\n  </ol>\n</div>",
     "status": "generated"
   },
   "uniqueId": [
     {
       "type": "uri",
       "preferred": true,
-      "value": "https://fhir.ru/systems/core/ffoms-erz",
+      "value": "http://fhir.ru/core/systems/ffoms-erz",
     }
   ]
 }
