@@ -1,0 +1,22 @@
+^badge 
+:date "2022-04-05"
+:title "Встреча 2022-04-05 (lab)"
+
+^badge 
+:groups #{groups.lab}
+
+:video "https://youtu.be/0czSgOTaI00" 
+
+
+:discussion md/
+
+* Обсуждение связи Task и ServiceRequest, изменения в Task
+* Пример использования FHIR валидатора
+* Обсуждение disussion по типу Bundle для ПЛИ
+* Обсуждение профиля липидограммы от Хеликс
+
+:decisions md/
+
+* Подготовить discussion связи ServiceRequest и Task (Иванов)
+* Продолжение работы по ресурсам, валидация примеров (Звягин)
+* ЦНИИОИЗ оценивает профиль липидограммы Хеликс и дает комментарии по формату
