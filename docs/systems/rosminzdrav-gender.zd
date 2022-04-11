@@ -27,16 +27,16 @@
 
 ```code json
 {
-  "id": "core-namingsystem-rosminzdrav-gender",
+  "id": "core-ns-nsi-gender",
   "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",
-  "name": "rosminzdrav-gender",
+  "name": "CoreNsiGender",
   "description": "НСИ Минздрава Пол пациента",
   "text": {
     "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Пол пациента, 
     может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.5.1.13.13.11.1040</li>\n   
-     <li>[предпочтительно] URI: http://fhir.ru/core/systems/rosminzdrav-gender</li>\n  </ol>\n</div>",
+     <li>[предпочтительно] URI: http://fhir.ru/core/systems/gender</li>\n  </ol>\n</div>",
     "status": "generated"
   },
   "uniqueId": [
@@ -47,23 +47,23 @@
     {
       "type": "uri",
       "preferred": true,
-      "value": "http://fhir.ru/core/systems/rosminzdrav-gender",
+      "value": "http://fhir.ru/core/systems/gender",
     }
   ]
 }
 ```code
 
-^title "ConceptMap"
+^title "Core ConceptMap Core ValueSet Пол пациента (ФНСИ) X AdministrativeGender"
 :concept-map md/
 
 ```code json
 {
   "resourceType": "ConceptMap",
-  "id": "conceptmap-rosminzdrav-gender",
-  "url": "http://fhir.ru/core/ConceptMap/conceptmap-rosminzdrav-gender",  
+  "id": "core-cm-core-vs-nsi-gender-x-administrative-gender",
+  "url": "http://fhir.ru/core/cm/core-cm-core-vs-nsi-gender-x-administrative-gender",  
   "version": "0.0.1",
-  "name": "rosminzdrav-gender-to-fhir",
-  "title": "Соответствие справочника НСИ Минздрава Пол пациента справочнику FHIR AdministrativeGender",
+  "name": "CoreCmCoreVsNsiGenderXAdministrativeGender",
+  "title": "Core ConceptMap Core ValueSet Пол пациента (ФНСИ) X AdministrativeGender",
   "status": "draft",
   "experimental": true,
   "date": "2022-04-05",
@@ -79,11 +79,11 @@
     }
   ],
   "purpose": "Для FHIR RU CORE",
-  "sourceUri": "http://fhir.ru/core/ValueSet/rosminzdrav-gender",
+  "sourceUri": "http://fhir.ru/core/vs/nsi-gender",
   "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
   "group": [
     {
-      "source": "http://fhir.ru/core/systems/rosminzdrav-gender",
+      "source": "http://fhir.ru/core/systems/nsi-gender",
       "target": "http://hl7.org/fhir/administrative-gender",
       "element": [
         {
@@ -115,6 +115,78 @@
             {
               "code": "unknown",
               "display": "Unknown",
+              "equivalence": "equivalent"
+            }
+          ]
+        }        
+      ]      
+    }
+  ]
+}
+```code
+
+^title "Core ConceptMap AdministrativeGender X Core ValueSet Пол пациента (ФНСИ)"
+:concept-map md/
+
+```code json
+{
+  "resourceType": "ConceptMap",
+  "id": "core-cm-administrative-gender-x-core-vs-nsi-gender",
+  "url": "http://fhir.ru/core/cm/administrative-gender-x-core-cm-core-vs-nsi-gender",  
+  "version": "0.0.1",
+  "name": "CoreCmAdministrativeGenderXCoreVsNsiGender",
+  "title": "Core ConceptMap AdministrativeGender X Core ValueSet Пол пациента (ФНСИ)",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-05",
+  "description": "Соответствие справочника FHIR AdministrativeGender справочнику НСИ Минздрава Пол пациента справочнику ",  
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "RU"
+        }
+      ]
+    }
+  ],
+  "purpose": "Для FHIR RU CORE",
+  "sourceUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
+  "targetUri": "http://fhir.ru/core/vs/nsi-gender",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/administrative-gender",
+      "target": "http://fhir.ru/core/systems/nsi-gender",
+      "element": [
+        {
+          "code": "male",
+          "display": "Male",
+          "target": [
+            {
+              "code": "1",
+              "display": "Мужской",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "female",
+          "display": "Female",
+          "target": [
+            {
+              "code": "2",
+              "display": "Женский",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "unknown",
+          "display": "Unknown",
+          "target": [
+            {
+              "code": "3",
+              "display": "Неопределенный",
               "equivalence": "equivalent"
             }
           ]

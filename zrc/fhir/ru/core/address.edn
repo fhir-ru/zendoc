@@ -1,9 +1,11 @@
 {ns fhir.ru.core.address
+ 
+ #{fhir}
 
  RuCoreAddress
  {:zen/tags #{zen/schema}
   :zendoc 'core.Address
-  :confirms #{fhir.v4/Address}
+  :confirms #{fhir/Address}
   :zen/desc "Адрес"
 
   :type zen/map
@@ -12,7 +14,7 @@
           :zen/desc "Полный адрес"}
 
    :extension {:type zen/map
-               :keys {:fias {:type zen/identifier
+               :keys {:fias {:type zen/string
                              :zen/desc "Код адреса по ФИАС"}
-                      :fias_house {:type zen/identifier
+                      :fias_house {:type zen/string
                                    :zen/desc "Код дома по ФИАС"}}}}}}

@@ -68,6 +68,15 @@ name:
 :elements.gender md/
 ...
 
+```table
+ FHIR ValueSet  | НСИ Минздрава | НСИ ФОМС |
+ Male |  Мужской | Мужской |
+ Female  |  Женский  | Женский |
+ Other| - | -|
+ Unknown| Неопределенный| -|
+```
+
+
 ^disc 83
 ^title "Адрес (address)"
 :elements.address md/

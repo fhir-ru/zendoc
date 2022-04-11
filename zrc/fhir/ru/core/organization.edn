@@ -4,7 +4,7 @@
 
  RuCoreOrganization
  {:zen/tags #{zen/schema}
-  :zendoc 'core.Organization
+  ;;:zendoc 'core.Organization
   :confirms #{fhir/Organization}
   :zen/desc "Организация - Юридическое Лицо"
 
@@ -63,7 +63,7 @@
                      :require #{:system :value}}}}}}}
 
 
-  :partOf {:type zen/map
+   :partOf {:type zen/map
             :confirms #{fhir/Reference}
             :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"}
 
@@ -85,9 +85,6 @@
    :address {:type zen/vector
              :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
              :zen/desc "Адрес организации"}}}
-
- :extension {:type zen/map
-             :keys {:fias {:type zen/string}}}
 
  types
  {:zen/tags #{}
