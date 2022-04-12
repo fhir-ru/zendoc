@@ -5,7 +5,7 @@
 
 :video ""
 
-:title "Обсуждение"
+^title "Обсуждение"
 :discussion md/
 
 * 6:35 проверяем задачки от прошлого раза, в том числе подтвердили, что можно сделать ограниченный ValueSet для Patient.Gender.
@@ -15,7 +15,7 @@
 * 47:34 лабораторная группа –описание ресурса Observation переводим в Zendoc, подготовили спецификации Bandle, Document, Composition; стоит ли при наличии кода FHIR и справочника НСИ всегда поступать как с Patient.Gender – в ресурс не добавлять Extension, и делать маппинг.
 
 
-:title "Решили"
+^title "Решили"
 :decisions md/
 
 1.	Добавить в Patient.Gender описание ValueSet, сделанное В.Родионовым в дискуссии #34, [задача 129](https://github.com/fhir-ru/core/issues/129) – Коган
