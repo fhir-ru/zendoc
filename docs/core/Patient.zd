@@ -67,7 +67,7 @@ name:
 ^title "Пол (gender)"
 :elements.gender md/
 
-* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с Value Set http://fhir.ru/core/vs/core-vs-administrative-gender. Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со справочником НСИ ЕГИСЗ http://fhir.ru/systems/rosminzdrav-gender.
+* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с [Value Set core-vs-administrative-gender](http://fhir-ru.zendoc.me/core.vs-administrative-gender). Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со [справочником НСИ ЕГИСЗ](http://fhir-ru.zendoc.me/systems.rosminzdrav-gender).
 * В Ru Core [определены маппинги](http://fhir-ru.zendoc.me/systems.rosminzdrav-gender), позволяющие перевести значения пола пациента из кодов FHIR в коды НСИ ЕГИСЗ и наоборот
 * В таблице ниже приведены соответствия кодов по указанным справочникам и, дополнительно, по справочнику ФФОМС
 
