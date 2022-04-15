@@ -1,13 +1,15 @@
 {ns fhir.ru.core.organization
 
- import #{fhir}
+ import #{fhir zen.fhir}
 
- RuCoreOrganization
- {:zen/tags #{zen/schema}
-  ;;:zendoc 'core.Organization
+ CoreOrganization
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
   :confirms #{fhir/Organization}
   :zen/desc "Организация - Юридическое Лицо"
-
+  :id "core-organization"
+  :name "CoreOrganization"
+  :zen.fhir/type "Organization"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-organization"
   :type zen/map
   :require #{:name}
   :keys
@@ -62,7 +64,6 @@
                     {:type zen/map
                      :require #{:system :value}}}}}}}
 
-
    :partOf {:type zen/map
             :confirms #{fhir/Reference}
             :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"}
@@ -83,7 +84,7 @@
                  :match {:system "email", :use "work"}}}}}}
 
    :address {:type zen/vector
-             :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
+             :every {:confirms #{fhir.ru.core.address/CoreAddress}}
              :zen/desc "Адрес организации"}}}
 
  types

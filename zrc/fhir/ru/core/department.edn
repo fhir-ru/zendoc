@@ -62,7 +62,7 @@
                  :match {:system "email", :use "work"}}}}}}
 
    :address {:type zen/vector
-             :every {:confirms #{fhir.ru.core.address/RuCoreAddress}}
+             :every {:confirms #{fhir.ru.core.address/CoreAddress}}
              :zen/desc "Адрес организации"}}}}
 
 

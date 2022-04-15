@@ -1,11 +1,15 @@
  {ns fhir.ru.core.patient
 
-  import #{fhir}
+  import #{fhir zen.fhir}
 
-  Patient
-  {:zen/tags #{zen/schema}
+  CorePatient
+  {:zen/tags #{zen.fhir/profile-schema zen/schema}
    :zen/desc "Пациент"
    :confirms #{fhir/Patient}
+   :id "core-patient"
+   :name "CorePatient"
+   :zen.fhir/type "Patient"
+   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
    :type zen/map
    :keys {:identifier {:zen/desc "Идентификаторы пациента"
                        :type zen/vector
@@ -81,10 +85,9 @@
           :birthDate {:zen/desc "Дата рождения пациента"
                       :type zen/string
                       :confirms #{fhir/date}}
-          :address {:confirms #{fhir/Address}
-                    :zen/desc "Адрес пациента"
+          :address {:zen/desc "Адрес пациента"
                     :type zen/vector
-                    :every {:confirms #{fhir.ru.core.address/RuCoreAddress}
+                    :every {:confirms #{fhir.ru.core.address/CoreAddress}
                             :type zen/map}}
           :generalPractitioner {:type zen/vector
                                 :every

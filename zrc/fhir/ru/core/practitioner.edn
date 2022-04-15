@@ -57,9 +57,8 @@
           :birthDate {:zen/desc "Дата рождения врача"
                       :type zen/string
                       :confirms #{fhir/date}}
-          :address {:confirms #{fhir/Address}
-                    :zen/desc "Адрес врача"
+          :address {:zen/desc "Адрес врача"
                     :type zen/vector
-                    :every {:confirms #{fhir.ru.core.address/RuCoreAddress}
+                    :every {:confirms #{fhir.ru.core.address/CoreAddress}
                             :type zen/map}}}}}
 
