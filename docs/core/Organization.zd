@@ -1,5 +1,5 @@
 ^hide
-:menu-order 1
+:menu-order 4
 
 ^hide
 :menu/first true
