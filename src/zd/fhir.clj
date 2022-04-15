@@ -98,13 +98,13 @@
   {:content :zen/schema :zen/schema params})
 
 (defmethod render-content :zen/schema
-  [ztx {data :data}]
+  [ztx {data :data :as options}]
   (when data
     (println :reload data
              (zen.core/read-ns ztx (symbol (namespace data)))))
   (if-let [sch (zen.core/get-symbol ztx data)]
     [:div {:class (c )}
-     (zd.zen/render-schema ztx data)]
+     (zd.zen/render-schema ztx data options)]
     [:pre (str "Could not find " data)]))
 
 

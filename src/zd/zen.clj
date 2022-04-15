@@ -1,5 +1,6 @@
 (ns zd.zen
   (:require [stylo.core :refer [c c?]]
+            [clj-yaml.core]
             [zen.core]
             [clojure.string :as str]
             [clojure.edn]
@@ -198,6 +199,29 @@ table.schema {width: 100%;}
 table.schema tr:nth-child(even) {background: rgba(247,250,252,var(--bg-opacity));}
 table.schema td {}
 .zd-tabs .active { border-bottom: 2px solid #888; font-weight: 500;}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+}
+.tabs input[type=\"radio\"] {
+  display: none;
+}
+
+.tabs input[type=\"radio\"]:checked + .tabh {
+  border-bottom: 2px solid #888;
+  font-weight: 500;
+}
+
+.tabs input[type=\"radio\"]:checked + .tabh + .tab {
+  display: block;
+}
 "])
 
 (def tab-cls
@@ -205,20 +229,71 @@ table.schema td {}
      [:hover [:bg :gray-100]])
   )
 
-(defn render-schema [ztx sch-name & [opts]]
+(defn zen-message-view
+  [schema-name message]
+  [:div {:class (c [:bg :red-200] :border [:p 2] [:my 2] :text-xs)}
+   [:div {:class (c :font-bold)}
+    (->> (:path message)
+         (map #(if (keyword? %) (name %) %))
+         (interpose ".")
+         (apply str)
+         (str schema-name "."))]
+   (:message message)])
+
+(defn validation-tab
+  [ztx schema-name http-params]
+  (let [schema-errors
+        (->> (zen.core/errors ztx)
+             (filter (comp #{schema-name} :resource))
+             (distinct))
+        data
+        (some->
+         (get http-params "data")
+         (clj-yaml.core/parse-string))
+        data-errors
+        (when data
+          (:errors (zen.core/validate ztx #{schema-name} data)))]
+    [:div
+     (when (seq schema-errors)
+       (for [error schema-errors]
+         (zen-message-view schema-name error)))
+     [:form {:id "form-validate" :action "" :method "POST"}
+      [:input {:class (c :hidden) :name "form-type" :value "validation"}]
+      [:textarea {:name "data" :class (c [:my 2] :w-full :border) :rows 20}
+       (get http-params "data")]
+      [:button
+       {:onclick "on_form_validate()"
+        :class   (c [:my 2] [:p 2] [:bg :gray-100] :shadow-sm :border)}
+       "Check"]]
+     (when (seq data-errors)
+       (for [error data-errors]
+         (zen-message-view schema-name error)))]))
+
+(defn render-schema [ztx sch-name & [options]]
   (let [sch (zen.core/get-symbol ztx sch-name)
         snapshot (effective-schema ztx sch-name)
-        id (str sch-name)]
-    [:div.zd-tabs
-     style
-     [:div {:class (cls ["tabsh" (c :flex :items-baseline [:space-x 2])])}
-      [:div {:class (cls ["tabh" "active" tab-cls]) :for (str id "-diff")} "Differential"]
-      [:div {:class (cls ["tabh" tab-cls]) :for (str id "-snap")} "Snapshot"]]
-     [:div  {:class (c :border [:pt 2] {:margin-left "-10px"
-                                        :margin-right "-50px"})}
-      [:div {:id (str id "-diff")}
-       (schema-table sch)]
-      [:div {:id (str id "-snap") :style "display:none;"}
-       (schema-table snapshot)]]
-     
-     ]))
+        id (str sch-name)
+        form-type-request
+        (-> options :page :request :params (get "form-type"))
+        active-tab
+        (if (= "validation" form-type-request)
+          :validation
+          :differential)]
+    [:div.zd-tabs style
+     [:div {:class (cls ["tabs" (c [:space-y 2])])}
+
+      [:input {:type "radio" :name "tabs" :id (str id "-diff")
+               :checked (when (= :differential active-tab) "checked")}]
+      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-diff")} "Differential"]
+      [:div {:class (cls ["tab" (c :hidden [:mx 2])])} (schema-table sch)]
+
+      [:input {:type "radio" :name "tabs" :id (str id "-snap")}]
+      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-snap")} "Snapshot"]
+      [:div {:class (cls ["tab" (c :hidden [:mx 2])])} (schema-table snapshot)]
+
+      [:input {:type "radio" :name "tabs" :id (str id "-validate")
+               :checked (when (= :validation active-tab) "checked")}]
+      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-validate")} "Validate"]
+      [:div {:class (cls ["tab" (c :hidden [:mx 2])])}
+       (validation-tab ztx sch-name (when (= "validation" form-type-request)
+                                      (-> options :page :request :params)))]]]))

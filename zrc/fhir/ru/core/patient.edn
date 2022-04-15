@@ -5,6 +5,7 @@
   CorePatient
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
    :zen/desc "Пациент"
+   :zen.fhir/version "0.5.8"
    :confirms #{fhir/Patient}
    :id "core-patient"
    :name "CorePatient"
@@ -91,17 +92,17 @@
                             :type zen/map}}
           :generalPractitioner {:type zen/vector
                                 :every
-                                {:confirms #{fhir/Reference}
+                                {:confirms #{fhir/Reference  zen.fhir/Reference}
                                  :type zen/map
-                                 :fhir/reference
+                                 :zen.fhir/reference
                                  {:refers
                                   #{fhir/PractitionerRole
                                     fhir/Organization
                                     fhir/Practitioner}}
                                  :zen/desc "Семейный врач, прикрепленная поликлиника"}}
           :managingOrganization {:type zen/map
-                                 :confirms #{fhir/Reference}
-                                 :fhir/reference
+                                 :confirms #{fhir/Reference zen.fhir/Reference}
+                                 :zen.fhir/reference
                                  {:refers #{fhir/Organization}}
                                  :zen/desc
                                  "Организация-хранитель записи о пациенте"}}}}
