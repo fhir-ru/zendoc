@@ -1,12 +1,16 @@
 {ns fhir.ru.core.address
- 
- #{fhir}
 
- RuCoreAddress
- {:zen/tags #{zen/schema}
+ import #{fhir}
+
+ CoreAddress
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
   :zendoc 'core.Address
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
+  :id "core-address"
+  :name "CoreAddress"
+  :zen.fhir/type "Address"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-address"
 
   :type zen/map
   :keys
