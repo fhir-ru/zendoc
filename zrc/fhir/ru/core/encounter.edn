@@ -1,0 +1,74 @@
+{ns fhir.ru.core.encounter
+
+ import #{fhir zen.fhir}
+ CoreEncounter
+ {:zen/tags #{zen.fhir/profile-scheme zen/scheme}
+  :zen/desc "Случай обслуживания"
+  :confirms #{fhir/Encounter}
+  :id "core-encounter"
+  :name "CoreEncounter"
+  :zen.fhir/type "Encounter"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-encounter"
+  :type zen/map
+  :keys {:diagnosis {:zen/desc "Диагноз"
+                     :type zen/vector
+                     :every {:confirms #{fhir/BackboneElement}
+                             :type zen/map
+                             :keys {:condition {:type zen/map
+                                                :zen/desc "Нозологическая единица"
+                                                :confirms #{fhir.ru.diag.nosology/DiagnosisNosology}}
+                                    :diagnosisType {:type zen/map
+                                                    :confirms #{CoreDiagnosisType}
+                                                    :fhir/extensionUri "http://fhir.ru/core/ex/core-diagnosis-type"
+                                                    :zen.fhir/value-set {:symbol CoreVsDiagnosisType}}
+                                    :diagnosisRubric {:type zen/map
+                                                      :confirms #{CoreDiagnosisRubric}
+                                                      :fhir/extensionUri "http://fhir.ru/core/ex/core-diagnosis-rubric"
+                                                      :zen.fhir/value-set {:symbol CoreVsDiagnosisRubric}}}}
+                     :slicing {:slices {"Основной диагноз" {:filter {:engine :match
+                                                                     :match {}}}}}}}}
+;; {:type zen/vector
+;;       :every {:confirms #{hl7-fhir-r4-core.Coding/schema}}
+;;       :slicing
+;;       {:slices
+;;        {"BodyWeightCode"
+;;         {:filter
+;;          {:engine :match
+;;           :match {:code "29463-7", :system "http://loinc.org"}}
+;;          :schema
+;;          {:type zen/vector
+;;           :minItems 1
+;;           :maxItems 1
+;;           :every
+;;           {:type zen/map
+;;            :require #{:system :code}}}}}}}}}}}
+
+ CoreDiagnosisType
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/type "CodeableConcept"
+  :zen.fhir/profileUri "http://fhir.ru/core/ex/core-diagnosis-type"
+  :type zen/map
+  :zen/desc "Тип диагноза"
+  :confirms #{zen.fhir/CodeableConcept}}
+
+ CoreDiagnosisRubric
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/type "CodeableConcept"
+  :zen.fhir/profileUri "http://fhir.ru/core/ex/core-diagnosis-rubric"
+  :type zen/map
+  :zen/desc "Рубрика диагноза"
+  :confirms #{zen.fhir/CodeableConcept}}
+
+ CoreVsDiagnosisType
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "Справочник Степень обоснованности диагноза"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-justification-degree"
+                        :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-diagnosis-type"}
+
+ CoreVsDiagnosisRubric
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "Справочник Виды нозологических единиц диагноза"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-justification-degree"
+                        :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-diagnosis-type"}}

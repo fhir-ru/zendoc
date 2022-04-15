@@ -1,0 +1,28 @@
+^hide
+:menu-order 2
+
+^hide
+:menu/first true
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+^badge
+:group groups.adm
+
+^hide
+:icon [:fa-solid :fa-building] 
+
+:title "Случай оказания медицинской помощи"
+
+:toc
+
+:description md/
+
+Профиль описывает случай обслуживания.
+
+^zen/schema
+:profile fhir.ru.core.encounter/CoreEncounter
