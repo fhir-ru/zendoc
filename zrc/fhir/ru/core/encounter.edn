@@ -10,7 +10,7 @@
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-encounter"
   :type zen/map
-  :keys {:diagnosis {:zen/desc "Диагноз"
+  :keys {:diagnosis {:zen/desc "Диагноз" 
                      :type zen/vector
                      :every {:confirms #{fhir/BackboneElement}
                              :type zen/map
@@ -26,7 +26,11 @@
                                                       :fhir/extensionUri "http://fhir.ru/core/ex/core-diagnosis-rubric"
                                                       :zen.fhir/value-set {:symbol CoreVsDiagnosisRubric}}}}
                      :slicing {:slices {"Основной диагноз" {:filter {:engine :match
-                                                                     :match {}}}}}}}}
+                                                                     :match {:diagnosisRubric {:coding #{{:code "Основной" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}}}}}
+                                                            }
+                                        "Сопутствующий диагноз" {:filter {:engine :match
+                                                                          :match {:diagnosisRubric {:coding #{{:code "Сопутствующий" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}}}}}}
+                                        }}}}}
 ;; {:type zen/vector
 ;;       :every {:confirms #{hl7-fhir-r4-core.Coding/schema}}
 ;;       :slicing
@@ -69,6 +73,6 @@
  CoreVsDiagnosisRubric
  {:zen/tags #{zen.fhir/value-set}
   :zen/desc "Справочник Виды нозологических единиц диагноза"
-  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-justification-degree"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-nosology-kinds"
                         :zen.fhir/content :not-present}}
   :uri "http://fhir.ru/core/vs/core-diagnosis-type"}}
