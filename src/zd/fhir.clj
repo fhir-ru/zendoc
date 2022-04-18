@@ -8,7 +8,8 @@
             [cheshire.core]
             [zd.zen]
             [zd.git]
-            [zen.core]))
+            [zen.core]
+            [zen.dev]))
 
 
 (defmethod annotation :video
@@ -89,7 +90,9 @@
         ztx (zen.core/new-context {:zd/paths [pth] :paths [pth zrc]})]
     (zen.core/read-ns ztx 'fhir.ru.core)
     (zd.core/start ztx (merge {:port 3030} opts))
-    (reset! dtx ztx))
+    (reset! dtx ztx)
+    (when-not (:production opts)
+      (zen.dev/watch ztx)))
   :ok)
 
 
