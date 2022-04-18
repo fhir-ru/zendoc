@@ -249,7 +249,6 @@ table.schema td {}
         data-errors
         (when data
           (zen.core/validate ztx #{schema-name} data))]
-    (def data-errors data-errors)
     [:div
      [:form {:id "form-validate" :action "" :method "POST"}
       [:input {:class (c :hidden) :name "form-type" :value "validation"}]
@@ -262,6 +261,17 @@ table.schema td {}
      (when-let [errors (seq (:errors data-errors))]
        (for [error errors]
          (zen-message-view schema-name error)))]))
+
+(defn get-profile-schema-errors
+  [ztx schema-name]
+  (->> (zen.core/errors ztx)
+       (filter
+        (fn [error]
+          (or (= schema-name (:resource error))
+              (clojure.string/includes?
+               (str (:message error))
+               (str schema-name)))))
+       (distinct)))
 
 (defn render-schema [ztx sch-name & [options]]
   (let [sch (zen.core/get-symbol ztx sch-name)
@@ -295,10 +305,6 @@ table.schema td {}
       [:input {:type "radio" :name "tabs" :id (str id "-schema-errors")}]
       [:label {:class (cls ["tabh" tab-cls]) :for (str id "-schema-errors")} "Schema errors"]
       [:div {:class (cls ["tabe" (c :hidden [:mx 2])])}
-       (let [schema-errors
-             (->> (zen.core/errors ztx)
-                  (filter (comp #{sch-name} :resource))
-                  (distinct))]
-         (when (seq schema-errors)
-           (for [error schema-errors]
-             (zen-message-view sch-name error))))]]]))
+       (when-let [schema-errors (seq (get-profile-schema-errors ztx sch-name))]
+         (for [error schema-errors]
+           (zen-message-view sch-name error)))]]]))
