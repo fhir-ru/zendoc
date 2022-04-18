@@ -6,6 +6,7 @@
  {:zen/tags #{zen.fhir/profile-scheme zen/scheme}
   :zen/desc "Случай обслуживания"
   :confirms #{fhir/Encounter}
+  :zen.fhir/version "0.5.8"
   :id "core-encounter"
   :name "CoreEncounter"
   :zen.fhir/type "Encounter"

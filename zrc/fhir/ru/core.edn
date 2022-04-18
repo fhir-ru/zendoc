@@ -1,5 +1,7 @@
 {ns fhir.ru.core
  import #{fhir.ru.core.organization
-          fhir.ru.core.patient}
-
- }
+          fhir.ru.core.patient
+          fhir.ru.core.encounter
+          fhir.ru.core.address
+          fhir.ru.core.department
+          fhir.ru.core.practitioner}}
