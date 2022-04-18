@@ -1,18 +1,44 @@
-:title "Zendoc"
+:title "Zendoc-инструкция"
 ;; :avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
 :icon [:fa :fa-graduation-cap] 
 :menu-order 100
-:summary md/
 
-Как работает zendoc
-
-@niquola представляет zendoc: [видео 15 мин](https://www.youtube.com/watch?v=_thVrYW2FeQ)
-
-:content-list md/
+^title "Оглавление"
+:content-list md/ 
 
 Оглавление можно добавить через `:toc` :)
 
 :toc
+
+^title "Введение"
+:description md/
+
+Zendoc - это данные, аннотированные так, чтобы они выглядели как структурированный динамический текст, который может использовать другие данные.
+
+Каждый документ — это данные. Назовем это ресурсом.
+ Ресурс — это упорядоченный набор ключей  и значений (map в терминах clojure).
+Ключи верхнего уровня начинаются с новой строки с `:` и значение в EDN после `:this-is-a-key "value"`
+
+Ресурс хранится в базе данных и может быть доступен по имени или с помощью фильтра.
+Каждый документ получает свое имя от пути в файловой системе начиная с корня проекта. Это имя в качестве символа может использоваться для ссылки на документ/ресурс. 
+Например путь [[code mywiki/people/niquola.zd]] будет переведен в имя [[code mywiki.people.niquola]]
+
+Каждый документ в zendoc состоит из последовательности ключей (keypaths), значений и аннотаций.
+Ключ может иметь аннотацию (метаданные) - `^badge`
+Благодаря аннотации данные отображаются в определенном виде.
+
+Для многострочности используется специальная нотация, которая начинается с `:key /md` и заканчивается новой строкой с ключом или аннотацией.
+
+
+
+
+
+
+
+@niquola представляет zendoc: [видео 15 мин](https://www.youtube.com/watch?v=_thVrYW2FeQ).
+
+
+Все пожелания по улучшение Zendoc и наполнению контентом этой страницы можно оставлять тут - [[d 132]]
 
 ^title "Иконки"
 :icons md/
@@ -47,8 +73,11 @@
 ```
 
 
+__Результат:__
+
 ^img
 :images:image "https://www.hl7.org/fhir/conformance.jpg"
+
 
 :images:image-in-text md/
 
@@ -56,6 +85,7 @@
 или ![](https://www.hl7.org/fhir/conformance.jpg)
 
 
+^title "Текст"
 :zentext md/
 
 * Можно сослаться на человека [[code @niquola]] - @niquola
@@ -67,9 +97,25 @@
 * Можно вставить ссылку `[text](link)` - [text](link)
 * Сослаться на поле в ресурсе `((resource people.niquola :telegram))` - ((resource people.niquola :telegram))
 
+^title "Заголовоки"
+:zentext:title md/
+
+```
+    ^title "Текст"
+    :zentext md/
+
+    подзаголовок (вложенный заголовок) можно задать с помощью вложенных ключей:
+
+    ^title "Списки"
+    :zentext:lists md/
+```
+
+
+^title "Списки"
 :zentext:lists md/
 
-Lists starts only with `* `. Nested lists prefixed with `..`.
+Списки начинаютя с `*`. Вложенные списки с префиксом `..`.
+
 
 ```
 * list 1 multi line
@@ -79,13 +125,17 @@ Lists starts only with `* `. Nested lists prefixed with `..`.
 * list 3
 ```
 
+
+__Результат:__
 * list 1 multi line
 * list 2
 ..* sub item 1
 ..* sub item 2
 * list 3
 
-Numbered lists starts with `1)`. Nested with `..`.
+
+Пронумерованные списки начинаются с `1)`. Вложенные с `..`.
+
 
 ```
 1) item 1
@@ -96,6 +146,7 @@ Numbered lists starts with `1)`. Nested with `..`.
 
 ```
 
+__Результат:__
 1) item 1
 2) item 2
 ..1) sub item
@@ -103,26 +154,11 @@ Numbered lists starts with `1)`. Nested with `..`.
 3) item 3
 
 
-
-:code md/
-
-Code block can be written as [[code ```code]]
-Languages list is [[a https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md here]]
-
-```code
-  ```code json
-   {"a" : 1}
-  ```
-```
-
-```code json
-{"a" : 1}
-```
   
-
+^title "Таблицы"
 :tables:zentext md/
 
-You can embed table with [[code ```table]] block
+Таблицу можно встроить с помощью -  [[code ```table]] block
 
 ```code
   ```table
@@ -132,6 +168,7 @@ You can embed table with [[code ```table]] block
   ```
 ```
 
+__Результат:__
 ```table
 name | email | phone
 niquola | niq.com | +7897989 
@@ -139,7 +176,26 @@ ivan | iv@gmai.com | +7897989
 
 ```
 
+^title "Код"
+:code md/
 
+Блок с кодом можно записать как  [[code ```code]]
+
+Список языков -  [[a https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md здесь]]
+
+```code
+  ```code json
+   {"a" : 1}
+  ```
+```
+
+
+__Результат:__
+```code json
+{"a" : 1}
+```
+
+^title "Диаграмма связей"
 :mindmap-code md/
 
 ```code edn
@@ -164,8 +220,8 @@ ivan | iv@gmai.com | +7897989
     * extension
 ```
 
-:mindmap-sample mindmap/
-
+^title "Пример диаграммы связей"
+:mindmap-code:mindmap-sample mindmap/
 zendoc
 * semantic web
   * resources
@@ -185,10 +241,10 @@ zendoc
   * extension
 
 ^disc 45
-^title "Github Discussion"
+^title "Github дискуссии"
 :discussion md/
 
-Можно добавить ссылку на дискуссию либо к заголовку либо в теле текста [[d 45]]
+Можно добавить ссылку на дискуссию либо к заголовку, либо в теле текста [[d 45]]
 
 ```code edn
   ^disc 45
@@ -214,3 +270,26 @@ zendoc
 
 * item-1
 * item-2
+
+^title "Диаграмма"
+:description md/
+
+Для отображения в виде диаграммы нужно использовать нотацию `:any-key mm/ flowchart` 
+```code edn
+    :diagram mm/
+    flowchart TB
+    zendoc-->document
+    zendoc-->resource
+    resource-->db
+    document-->db
+    db[(Database)]
+```
+
+^title "Пример диаграммы"
+:description:diagram mm/
+flowchart
+zendoc-->document
+zendoc-->resource
+resource-->db
+document-->db
+db[(Database)]
