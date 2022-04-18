@@ -9,6 +9,7 @@
             [zd.zen]
             [zd.git]
             [zen.core]
+            [clojure.java.shell]
             [zen.dev]))
 
 
@@ -196,11 +197,11 @@
 
 (defn -main [& [port reload :as args]]
   (println :args args)
+  (clojure.java.shell/sh "npm" "update" :dir "zrc")
   (start-docs {:production (not reload)
                :port (if port (Integer/parseInt port) 3333)}))
 
 (comment
-
   (start-docs {:port 3333})
 
   (stop-docs)
