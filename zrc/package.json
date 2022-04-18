@@ -1,6 +1,6 @@
 {
   "name": "zrc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zen-lang/hl7-fhir-r4-core": "^0.5.3",
-    "@zen-lang/hl7-fhir-us-core": "^0.5.3"
+    "@zen-lang/hl7-fhir-r4-core": "^0.5.8",
+    "@zen-lang/hl7-fhir-us-core": "^0.5.8"
   }
 }
