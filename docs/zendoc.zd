@@ -3,6 +3,12 @@
 :icon [:fa :fa-graduation-cap] 
 :menu-order 100
 
+^badge
+:editor #{people.mary}
+
+^badge
+:status "draft"
+
 ^title "Оглавление"
 :content-list md/ 
 
@@ -158,23 +164,40 @@ __Результат:__
 ^title "Таблицы"
 :tables:zentext md/
 
-Таблицу можно встроить с помощью -  [[code ```table]] block
+Таблицу можно встроить с помощью -  [[code ```table]] block 
+
 
 ```code
   ```table
   name    | email       | phone
   niquola | niq.com     | +7897989 
-  ivan    | iv@gmai.com | +7897989 
+  mary    | mary.com | +7897555 
   ```
 ```
+
+
+Еще таблицу можно записать с помощью - `^table{:key[{:column1 "value1" :column2 "value2"}]`
+
+
+```
+    ^table
+    :contacts
+    [{:name "niquola":email "niq.com":phone "+7897989"} 
+    {:name "mary":email "mary.com":phone "+7897555"}]
+```
+
+
 
 __Результат:__
 ```table
 name | email | phone
 niquola | niq.com | +7897989 
-ivan | iv@gmai.com | +7897989 
+mary | mary.com | +7897555 
 
 ```
+
+
+
 
 ^title "Код"
 :code md/

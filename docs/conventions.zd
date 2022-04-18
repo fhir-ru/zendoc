@@ -2,7 +2,7 @@
 :icon [:fa-solid :fa-box]
 
 ^badge
-:editors #{people.mary}
+:editor #{people.mary}
 
 :title "Соглашения"
 
