@@ -1,10 +1,11 @@
 {ns fhir.ru.core.department
 
- import #{fhir}
+ import #{fhir zen.fhir}
 
  Department
- {:zen/tags #{zen/schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
   :zendoc 'core.Organization
+  :zen.fhir/version "0.5.8"
   :confirms #{fhir/Organization}
   :zen/desc "Организация - Подразделение"
 

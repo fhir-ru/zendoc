@@ -62,48 +62,60 @@
                           :filter
                           {:engine :match
                            :match {:system "https://fhir.ru/id/newborn"}}}}}}
-          :active {:type zen/boolean
-                   :zen/desc "Признак активной действующей записи о пациенте"}
+          ;; :active {:type zen/boolean
+                  ;;  :zen/desc "Признак активной действующей записи о пациенте"}
           :name {:zen/desc "ФИО пациента"
                  :type zen/vector
                  :every {:confirms #{fhir/HumanName}
                          :type zen/map
                          :keys {:use {:confirms #{fhir/code}
-                                      :type zen/string}
+                                      :type zen/string
+                                      :zen/desc "Фиксированное значение official"}
                                 :given {:zen/desc "Имя и отчество пациента. Первым должно идти имя, вторым - отчество"
                                         :type zen/vector
                                         :every {:confirms #{fhir/string}
                                                 :type zen/string}}
                                 :family {:zen/desc "Фамилия пациента"
                                          :type zen/string}}}}
-          :telecom {:zen/desc "Контактные данные пациента"
-                    :type zen/vector
-                    :every {:confirms #{fhir/ContactPoint}
-                            :type zen/map}}
+          ;; :telecom {:zen/desc "Контактные данные пациента"
+          ;;           :type zen/vector
+          ;;           :every {:confirms #{fhir/ContactPoint}
+          ;;                   :type zen/map}}
           :gender {:zen/desc "Пол пациента"
                    :confirms #{fhir/code}
-                   :type zen/string}
-          :birthDate {:zen/desc "Дата рождения пациента"
-                      :type zen/string
-                      :confirms #{fhir/date}}
+                   :type zen/string
+                   :zen.fhir/value-set {:symbol CoreVsAdministrativeGender :strength :required}}
+          ;; :birthDate {:zen/desc "Дата рождения пациента"
+          ;;             :type zen/string
+          ;;             :confirms #{fhir/date}}
           :address {:zen/desc "Адрес пациента"
                     :type zen/vector
                     :every {:confirms #{fhir.ru.core.address/CoreAddress}
                             :type zen/map}}
-          :generalPractitioner {:type zen/vector
-                                :every
-                                {:confirms #{fhir/Reference  zen.fhir/Reference}
-                                 :type zen/map
-                                 :zen.fhir/reference
-                                 {:refers
-                                  #{fhir/PractitionerRole
-                                    fhir/Organization
-                                    fhir/Practitioner}}
-                                 :zen/desc "Семейный врач, прикрепленная поликлиника"}}
-          :managingOrganization {:type zen/map
-                                 :confirms #{fhir/Reference zen.fhir/Reference}
-                                 :zen.fhir/reference
-                                 {:refers #{fhir/Organization}}
-                                 :zen/desc
-                                 "Организация-хранитель записи о пациенте"}}}}
+          ;; :generalPractitioner {:type zen/vector
+          ;;                       :every
+          ;;                       {:confirms #{fhir/Reference  zen.fhir/Reference}
+          ;;                        :type zen/map
+          ;;                        :zen.fhir/reference
+          ;;                        {:refers
+          ;;                         #{fhir/PractitionerRole
+          ;;                           fhir/Organization
+          ;;                           fhir/Practitioner}}
+          ;;                        :zen/desc "Семейный врач, прикрепленная поликлиника"}}
+          ;; :managingOrganization {:type zen/map
+          ;;                        :confirms #{fhir/Reference zen.fhir/Reference}
+          ;;                        :zen.fhir/reference
+          ;;                        {:refers #{fhir/Organization}}
+          ;;                        :zen/desc
+          ;;                        "Организация-хранитель записи о пациенте"}
+          }}
+
+
+
+  CoreVsAdministrativeGender
+  {:zen/tags #{zen.fhir/value-set}
+   :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
+   :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gende"
+                         :zen.fhir/content :not-present}}
+   :uri "http://fhir.ru/core/vs/core-administrative-gender"}}
 

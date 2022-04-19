@@ -1,10 +1,11 @@
  {ns fhir.ru.core.practitioner
 
-  import #{fhir}
+  import #{fhir zen.fhir}
 
-  Practitioner
-  {:zen/tags #{zen}
+  CorePractitioner
+  {:zen/tags #{zen.fhir/profile-schema zen/schema}
    :zen/desc "Врач/сотрудник"
+   :zen.fhir/version "0.5.8"
    :confirms #{fhir/Practitioner}
    :type zen/map
    :keys {:identifier {:zen/desc "Идентификационные данные врача"
@@ -60,5 +61,19 @@
           :address {:zen/desc "Адрес врача"
                     :type zen/vector
                     :every {:confirms #{fhir.ru.core.address/CoreAddress}
-                            :type zen/map}}}}}
+                            :type zen/map}}}}
+
+  CorePractitionerRole
+  {:zen/tags #{zen.fhir/profile-schema zen/schema}
+   :zen/desc "Роль врача/сотрудника"
+   :confirms #{fhir/PractitionerRole}
+   :type zen/map
+   :keys {:practitioner {:zen/desc "Ссылка на ресурс Practitioner"
+                         :type zen/map
+                         :confirms #{CorePractitioner}}
+          :organization {:zen/desc "Ссылка на ресурс Organization"
+                         :type zen/map
+                         :confirms #{fhir/Reference}
+                         :zen.fhir/reference
+                         {:refers #{fhir.ru.core.organization/CoreOrganization}}}}}}
 

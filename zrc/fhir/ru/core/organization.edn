@@ -5,6 +5,7 @@
  CoreOrganization
  {:zen/tags #{zen/schema zen.fhir/profile-schema}
   :confirms #{fhir/Organization}
+  :zen.fhir/version "0.5.8"
   :zen/desc "Организация - Юридическое Лицо"
   :id "core-organization"
   :name "CoreOrganization"

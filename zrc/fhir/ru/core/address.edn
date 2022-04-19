@@ -1,10 +1,11 @@
 {ns fhir.ru.core.address
 
- import #{fhir}
+ import #{fhir zen.fhir}
 
  CoreAddress
  {:zen/tags #{zen/schema zen.fhir/structure-schema}
   :zendoc 'core.Address
+  :zen.fhir/version "0.5.8"
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
   :id "core-address"

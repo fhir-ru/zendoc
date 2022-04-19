@@ -4,4 +4,6 @@
           fhir.ru.core.encounter
           fhir.ru.core.address
           fhir.ru.core.department
-          fhir.ru.core.practitioner}}
+          fhir.ru.core.practitioner
+          fhir.ru.diag.nosology
+          fhir.ru.diag.nu}}
