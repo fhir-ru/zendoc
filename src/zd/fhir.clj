@@ -197,7 +197,7 @@
 
 (defn -main [& [port reload :as args]]
   (println :args args)
-  (clojure.java.shell/sh "npm" "update" :dir "zrc")
+  ;; (clojure.java.shell/sh "npm" "update" :dir "zrc")
   (start-docs {:production (not reload)
                :port (if port (Integer/parseInt port) 3333)}))
 
