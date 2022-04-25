@@ -7,12 +7,14 @@
   :zen/desc "Случай обслуживания"
   :confirms #{fhir/Encounter}
   :zen.fhir/version "0.5.8"
-  :id "core-encounter"
-  :name "CoreEncounter"
+  :zen.fhir/id "core-encounter"
+  :zen.fhir/name "CoreEncounter"
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-encounter"
   :type zen/map
+;;   :validation #{ValidationRule1}
   :keys {:diagnosis {:zen/desc "Диагноз"
+                     :confirms #{ConstraintRule1}
                      :type zen/vector
                      :every {:confirms #{fhir/BackboneElement}
                              :type zen/map
@@ -43,6 +45,7 @@
                                                          :schema {:type zen/vector
                                                                   :minItems 0
                                                                   :maxItems 1
+
                                                                   :every
                                                                   {:type zen/map
                                                                    :require #{:condition :diagnosisType :diagnosisRubric}}}}
@@ -54,7 +57,13 @@
                                                                :maxItems 1
                                                                :every
                                                                {:type zen/map
-                                                                :require #{:condition :diagnosisType :diagnosisRubric}}}}}}}}}
+                                                                :require #{:condition :diagnosisType :diagnosisRubric}}}}}
+                               :rest {:type zen/vector
+                                      :minItems 0
+                                      :maxItems 1
+                                      :every
+                                      {:type zen/map
+                                       :require #{:condition}}}}}}}
 
 
 
@@ -64,7 +73,7 @@
   :zen.fhir/profileUri "http://fhir.ru/core/ex/core-diagnosis-type"
   :type zen/map
   :zen/desc "Тип диагноза"
-  :confirms #{zen.fhir/CodeableConcept}}
+  :confirms #{fhir/CodeableConcept}}
 
  CoreDiagnosisRubric
  {:zen/tags #{zen/schema zen.fhir/structure-schema fhir/extension}
@@ -72,7 +81,7 @@
   :zen.fhir/profileUri "http://fhir.ru/core/ex/core-diagnosis-rubric"
   :type zen/map
   :zen/desc "Рубрика диагноза"
-  :confirms #{zen.fhir/CodeableConcept}}
+  :confirms #{fhir/CodeableConcept}}
 
  CoreVsDiagnosisType
  {:zen/tags #{zen.fhir/value-set}
@@ -86,4 +95,20 @@
   :zen/desc "[Справочник Виды нозологических единиц диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3)"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-nosology-kinds"
                         :zen.fhir/content :not-present}}
-  :uri "http://fhir.ru/core/vs/core-diagnosis-type"}}
+  :uri "http://fhir.ru/core/vs/core-diagnosis-type"}
+
+
+;;  ValidationRule1
+;;  {:zen/tags #{zen/validation-fn}
+;;   :handler :diagnosisRubric {:coding (:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+;;                                                           {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+;;                                                           {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+;;                                                           {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}
+
+ ConstraintRule1
+ {:zen/tags #{zen/schema}
+  :zen/desc "Правило проверки массива диагнозов 1"
+  :match {:diagnosisRubric {:coding (:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+                                                         {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+                                                         {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
+                                                         {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}}

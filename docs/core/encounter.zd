@@ -28,3 +28,60 @@
 ^title "Профиль"
 ^zen/schema
 :profile fhir.ru.core.encounter/CoreEncounter
+
+^title "Пример в Aidbox-формате"
+:example md/
+
+Пример в Aidbox-формате для проверки во встроенном Zen-валидаторе (вкладка Validate над схемой).
+
+```
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx1
+  diagnosisRubric: 
+    coding:
+    - code: "3"
+      display: "Сопутствующее заболевание"
+      system: "http://fhir.ru/core/systems/diagnosis-nosology-kinds"
+  diagnosisType: 
+    coding:
+    - code: "1"
+      display: "Предварительный клинический диагноз"
+      system: "http://fhir.ru/core/ex/core-diagnosis-type"
+
+```
+
+^title "Пример в FHIR-формате"
+:example-in-fhir-format md/
+
+```
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx1
+  extension:
+  - url: http://fhir.ru/core/ex/core-diagnosis-rubric
+    valueCodeableConcept: 
+      coding:
+      - code: "3"
+        display: "Сопутствующее заболевание"
+        system: "http://fhir.ru/core/systems/diagnosis-nosology-kinds"
+  - url: http://fhir.ru/core/ex/core-diagnosis-type
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Предварительный клинический диагноз"
+        system: "http://fhir.ru/core/ex/core-diagnosis-type"
+```
+
