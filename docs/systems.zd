@@ -16,24 +16,48 @@
 ^badge
 :type :ig
 
-:title "Реестр систем"
+:title "Реестр кодовых систем и идентификаторов"
 
 :toc
 
-^title "Реестр систем"
-:intro md/
-
-[НСИ Минздрава Пол пациента](systems.rosminzdrav-gender)
-[НСИ ФОМС Пол пациента](systems.ffoms-gender)
-[НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
-[НСИ ФОМС Пол пациента](http://nsi.ffoms.ru/#refbookList?refbookList:filter:$filter=set&refbookList:filter:name=%D0%BF%D0%BE%D0%BB&refbookList:$active=1&refbookList:$selectedId=914/refbookList.refbookList.view$2v914?menu:filter:dictionaryId=914&menu:filter:readOnly=true&menu:$active=1&menu:$selectedId=undefined&refbookSimple0:$active=1&refbookSimple0:page=1&refbookSimple1:$active=1&refbookSimple1:page=1&refbookSimple1:$selectedId=undefined)
+^title "Кодовые системы"
+:code-systems md/
 
 
-^title "Профили"
+
+
+
+;; [НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
+;; [НСИ ФОМС Пол пациента](http://nsi.ffoms.ru/#refbookList?refbookList:filter:$filter=set&refbookList:filter:name=%D0%BF%D0%BE%D0%BB&refbookList:$active=1&refbookList:$selectedId=914/refbookList.refbookList.view$2v914?menu:filter:dictionaryId=914&menu:filter:readOnly=true&menu:$active=1&menu:$selectedId=undefined&refbookSimple0:$active=1&refbookSimple0:page=1&refbookSimple1:$active=1&refbookSimple1:page=1&refbookSimple1:$selectedId=undefined)
+
+^title "Системы идентификаторов"
+:naming-systems md/
+
+[NamingSystem](http://hl7.org/fhir/namingsystem.html) — курируемое пространство имен, назначающее уникальные в этом пространстве имен символы для идентификации людей, понятий, устройств. Представляет собой "систему" в типах данных Identifier и Coding.
+
+Определяет конкретную кодовую систему или систему идентификаторов, чтобы её можно было внести в реестр, где другие информационные системы смогут её найти и понять идентификатор.
+
+^title "Отличие NamingSystem от CodeSystem"
+:naming-systems:difference md/
+
+
+Ресурс `CodeSystem` определяет содержимое кодовой системы и её предпочтительный идентификатор. Ресурс `NamingSystem` декларирует существование кодовой системы или системы идентификаторов, а также её возможные и предпочтительный идентификатор. Ключевое различие между этими ресурсами заключается в том, кто создаёт и управляет ими. Ресурсами `CodeSystem` управляет владелец кодовой системы, который может должным образом определять функции и содержимое кодовой системы. 
+
+Ресурсы `NamingSystem` часто создаются третьими сторонами, которые сталкиваются с использованием кодовой системы и хотят описать её применение, но не имеют полномочий определять её функции и содержимое. Кроме того, для одной кодовой системы может быть создано несколько ресурсов `NamingSystem`, но должен быть только один ресурс `CodeSystem`.
+
+^title "Реестр кодовых систем"
 ^table
-:profiles
+:code-systems-register
 [
-    {:Система systems.rosminzdrav-gender   :URI "http://fhir.ru/systems/rosminzdrav-gender" :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
-    {:Система systems.ffoms-gender   :URI "http://fhir.ru/systems/ffoms-gender" :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
-    
+    {:Система systems.rosminzdrav-gender :URI "http://fhir.ru/systems/rosminzdrav-gender" :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
+    {:Система systems.ffoms-gender :URI "http://fhir.ru/systems/ffoms-gender" :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
+    {:Система systems.identity-documents :URI "http://fhir.ru/core/systems/identity-documents" :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
+]
+
+^title "Реестр систем идентификаторов"
+^table
+:naming-systems-register
+[
+    {:Система systems.passport-rf :URI "http://fhir.ru/core/systems/passport-rf" :OID "" :Описание "Паспорт гражданина Российской Федерации"}    
+    {:Система systems.birth-certificate :URI "http://fhir.ru/core/systems/birth-certificate" :OID "" :Описание "Свидетельство о рождении"}    
 ]

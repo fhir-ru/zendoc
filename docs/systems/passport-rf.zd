@@ -1,0 +1,55 @@
+:menu-order 5
+:icon [:fa-solid :fa-box]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-25"
+
+^badge
+:type :ig
+
+:title "Паспорт РФ"
+
+:toc
+
+^title "System"
+:system md/
+
+Значение для использования в качестве системы в идентификаторе при указании паспорта гражданина Российской Федерации:
+
+^badge
+:system "http://fhir.ru/core/systems/passport-rf"
+
+^title "Naming System"
+:identifier-systems-naming md/
+
+```code json
+{
+  "id": "core-ns-passport-rf",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "identifier",
+  "name": "CorePassportRf",
+  "description": "Паспорт гражданина Российской Федерации",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>NamingSystem: Паспорт гражданина Российской Федерации. Идентификатор:<ol>\n          
+     <li>URI: http://fhir.ru/core/systems/passport-rf</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [    
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/systems/passport-rf",
+    }
+  ]
+}
+```code
