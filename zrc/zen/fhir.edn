@@ -71,7 +71,9 @@
   :confirms #{nested-schema version}
   :type     zen/map
   :keys     {:zen.fhir/type {:type zen/string}
-             :zen.fhir/profileUri {:type zen/string}}}
+             :zen.fhir/profileUri {:type zen/string}
+             :zen.fhir/id {:type zen/string}
+             :zen.fhir/name {:type zen/string}}}
 
  base-schema
  {:zen/tags #{zen/schema zen/tag}
