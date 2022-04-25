@@ -55,7 +55,7 @@
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/systems/erz-ffoms"}}}
+                           :match {:system "http://fhir.ru/core/systems/ffoms-erz"}}}
                          "Newborn"
                          {:zen/desc "Идентификатор для новорожденного до государственной регистрации рождения (когда предъявлен полис матери)"
                           :schema {:type zen/vector, :maxItems 1}
