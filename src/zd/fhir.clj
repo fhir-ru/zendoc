@@ -13,6 +13,30 @@
             [zen.dev]))
 
 
+;; NOTE: to fix YAML parser producing lazy seqs and ordered maps/sets
+;; lazy seqs can't be indexed and all of them ugly printed
+;; JSON parser doesn't do such things, this patch makes YAML parser behave like JSON parser
+(extend-protocol clj-yaml.core/YAMLCodec
+  java.util.LinkedHashMap
+  (clj-yaml.core/decode [data keywords]
+    (letfn [(decode-key [k]
+              (if keywords
+                ;; (keyword k) is nil for numbers etc
+                (or (keyword k) k)
+                k))]
+      (into {}
+            (for [[k v] data]
+              [(-> k (clj-yaml.core/decode keywords) decode-key) (clj-yaml.core/decode v keywords)]))))
+
+  java.util.LinkedHashSet
+  (clj-yaml.core/decode [data keywords]
+    (into #{} data))
+
+  java.util.ArrayList
+  (clj-yaml.core/decode [data keywords]
+    (mapv #(clj-yaml.core/decode % keywords) data)))
+
+
 (defmethod annotation :video
   [nm params]
   {:content :video})
