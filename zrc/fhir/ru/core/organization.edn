@@ -3,10 +3,10 @@
  import #{fhir zen.fhir}
 
  CoreOrganization
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
-  :confirms #{fhir/Organization}
-  :zen.fhir/version "0.5.8"
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
   :zen/desc "Организация - Юридическое Лицо"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Organization}
   :id "core-organization"
   :name "CoreOrganization"
   :zen.fhir/type "Organization"
