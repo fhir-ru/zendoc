@@ -1,4 +1,7 @@
+^hide
 :menu-order 6
+
+^hide
 :icon [:fa-regular :fa-calendar]
 
 :title "Встречи"

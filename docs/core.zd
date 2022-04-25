@@ -1,8 +1,12 @@
+^hide
 :menu-order 3
+
 ^badge
 :status :draft
 
+^hide
 :icon [:fa-solid :fa-box]
+
 ^disc 94
 :title "Ядро (core)"
 

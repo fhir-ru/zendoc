@@ -1,5 +1,8 @@
+^hide
 :menu-order 11
-:icon [:fa-solid :fa-box]
+
+^hide
+:icon [:fa-solid :fa-handshake]
 
 ^badge
 :editor #{people.mary}

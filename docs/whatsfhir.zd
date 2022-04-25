@@ -1,10 +1,12 @@
+^hide
 :icon [:fa :fa-graduation-cap]
+
+^hide
 :menu-order 1
+
 :title "Что такое FHIR?"
 
-
 :toc
-
 
 :summary md/
 

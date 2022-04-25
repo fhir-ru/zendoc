@@ -1,6 +1,10 @@
 :title "Zendoc-инструкция"
 ;; :avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
+
+^hide
 :icon [:fa :fa-graduation-cap] 
+
+^hide
 :menu-order 100
 
 ^badge

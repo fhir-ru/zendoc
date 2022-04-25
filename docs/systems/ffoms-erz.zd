@@ -1,5 +1,5 @@
 :menu-order 1
-:icon [:fa-solid :fa-box]
+:icon [:fa-solid :fa-fingerprint]
 
 ^badge
 :authors #{people.alexandra people.varvara}

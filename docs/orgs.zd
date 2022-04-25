@@ -1,7 +1,10 @@
+^hide
 :menu-order 9
-:icon [:fa-regular :fa-building]
-:title "Организации"
 
+^hide
+:icon [:fa-regular :fa-building]
+
+:title "Организации"
 
 ^table-of {:namespace "orgs." :columns [:zd/name :summary]}
 :organizations

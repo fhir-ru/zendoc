@@ -1,4 +1,7 @@
+^hide
 :menu-order 10
+
+^hide
 :icon [:fa-solid :fa-box]
 
 ^badge

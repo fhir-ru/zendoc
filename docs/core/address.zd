@@ -14,7 +14,7 @@
 :group groups.adm
 
 ^hide
-:icon [:fa-solid :fa-house] 
+:icon [:fa-solid :fa-house-chimney] 
 
 :title "Адрес"
 

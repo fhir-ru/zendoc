@@ -14,7 +14,7 @@
 ^badge
 :maturity 0
 
-:icon [:fa-solid :fa-user]
+:icon [:fa-solid :fa-user-nurse]
 
 :summary md/
 

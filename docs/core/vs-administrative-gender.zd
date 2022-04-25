@@ -1,8 +1,11 @@
-:menu-order 1
-:icon [:fa-solid :fa-box]
+^hide
+:menu-order 101
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
 
 ^badge
-:authors #{people.vrovdi people.ekogan}
+:authors #{people.vrodionov people.ekogan}
 
 ^badge
 :groups #{groups.adm}
@@ -12,7 +15,6 @@
 
 ^badge
 :date:start "2022-04-12"
-
 
 :title "ValueSet Core-vs-administrative-gender"
 

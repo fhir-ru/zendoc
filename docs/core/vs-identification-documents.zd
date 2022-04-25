@@ -1,3 +1,9 @@
+^hide
+:menu-order 102
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
 ^badge
 :groups #{groups.adm}
 

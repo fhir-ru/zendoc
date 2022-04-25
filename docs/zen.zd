@@ -1,10 +1,14 @@
-:title "Zen profiling"
+^hide
 :icon [:fa :fa-graduation-cap] 
+
+^hide
 :menu-order 101
+
+:title "Zen profiling"
+
 :summary md/
 
 Краткое введение в zen
-
 
 :project md/
 

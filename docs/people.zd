@@ -1,7 +1,10 @@
+^hide
 :menu-order 7
-:icon [:fa-solid :fa-user]
-:title "Люди"
 
+^hide
+:icon [:fa-solid :fa-user-group]
+
+:title "Люди"
 
 ^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
 :people

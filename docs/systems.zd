@@ -1,5 +1,8 @@
+^hide
 :menu-order 10
-:icon [:fa-solid :fa-box]
+
+^hide
+:icon [:fa-solid :fa-table-list]
 
 ^badge
 :authors #{people.alexandra people.varvara}

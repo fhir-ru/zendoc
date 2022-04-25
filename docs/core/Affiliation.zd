@@ -1,6 +1,9 @@
 ^hide
 :menu-order 100
 
+^hide
+:icon [:fa-solid :fa-hospital] 
+
 ^badge
 :maturity "0"
 

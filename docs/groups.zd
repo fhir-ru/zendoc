@@ -1,5 +1,9 @@
+^hide
 :menu-order 6
+
+^hide
 :icon [:fa-solid :fa-users]
+
 :title "Рабочие Группы"
 
 :summary md/

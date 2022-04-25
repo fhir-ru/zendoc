@@ -1,4 +1,7 @@
+^hide
 :menu-order 4
+
+^hide
 :icon [:fa-solid :fa-box]
 
 :title "Лаборатория"
