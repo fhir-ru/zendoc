@@ -3,3 +3,4 @@
 .DS_Store
 .clj-kondo
 .lsp
+zrc/package-lock.json
