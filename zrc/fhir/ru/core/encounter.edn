@@ -23,11 +23,13 @@
                                     :diagnosisType {:type zen/map
                                                     :confirms #{CoreDiagnosisType}
                                                     :fhir/extensionUri "http://fhir.ru/core/ex/core-diagnosis-type"
-                                                    :zen.fhir/value-set {:symbol CoreVsDiagnosisType}}
+                                                    :zen.fhir/value-set {:symbol CoreVsDiagnosisType
+                                                                         :strength :required}}
                                     :diagnosisRubric {:type zen/map
                                                       :confirms #{CoreDiagnosisRubric}
                                                       :fhir/extensionUri "http://fhir.ru/core/ex/core-diagnosis-rubric"
-                                                      :zen.fhir/value-set {:symbol CoreVsDiagnosisRubric}}}}
+                                                      :zen.fhir/value-set {:symbol CoreVsDiagnosisRubric
+                                                                           :strength :required}}}}
                      :slicing {:slices {"Основной" {:filter {:engine :zen
                                                              :zen {:confirms #{DxSliceMain}}}
                                                     :schema {:type zen/vector
@@ -75,59 +77,59 @@
  CoreVsDiagnosisType
  {:zen/tags #{zen.fhir/value-set}
   :zen/desc "[Справочник Степень обоснованности диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1)"
-  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-justification-degree"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/diagnosis-justification-degree"
                         :zen.fhir/content :not-present}}
   :uri "http://fhir.ru/core/vs/core-diagnosis-type"}
 
  CoreVsDiagnosisRubric
  {:zen/tags #{zen.fhir/value-set}
   :zen/desc "[Справочник Виды нозологических единиц диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3)"
-  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/systems/diagnosis-nosology-kinds"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
                         :zen.fhir/content :not-present}}
-  :uri "http://fhir.ru/core/vs/core-diagnosis-type"}
+  :uri "http://fhir.ru/core/vs/core-diagnosis-rubric"}
 
 
  ConstraintRule1
  {:zen/tags #{zen/schema}
   :zen/desc "Правило проверки массива диагнозов 1: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
   :type zen/vector
-  :match #{{:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}
-           (:zen.match/one-of #{{:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}}}}
-                                {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "2" :display "Осложнение основного заболевания" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                                                  {:code "7" :display "Осложнение сопутствующего заболевания " :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}})}}
+  :match #{{:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}})}}}
+           (:zen.match/one-of #{{:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}}}}
+                                {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "2" :display "Осложнение основного заболевания" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                                                  {:code "7" :display "Осложнение сопутствующего заболевания " :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}})}}}})}}
 
  ConstraintRule2
  {:zen/tags #{zen/schema}
   :zen/desc "Правило проверки массива диагнозов 1: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
   :type zen/vector
-  :match #{{:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                             {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}
-           {:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}}}}}}
+  :match #{{:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                             {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}})}}}
+           {:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}}}}}}
 
 
  DxSliceMain
  {:zen/tags #{zen/schema}
   :zen/desc "ОСНОВНОЙ"
-  :match {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                           {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                           {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                           {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}}
+  :match {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                           {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                           {:code "6" :display "Фоновое заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                           {:code "8" :display "Сочетанное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}})}}}}
 
  DxSliceAdditional
  {:zen/tags #{zen/schema}
   :zen/desc "СОПУТСТВУЮЩИЙ"
-  :match {:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}}}}}
+  :match {:diagnosisRubric {:coding #{{:code "3" :display "Сопутствующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}}}}}
 
  DxSliceComplication
  {:zen/tags #{zen/schema}
   :zen/desc "ОСЛОЖНЕНИЕ"
-  :match {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "2" :display "Осложнение основного заболевания" :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}
-                                                           {:code "7" :display "Осложнение сопутствующего заболевания " :system "http://fhir.ru/core/systems/diagnosis-nosology-kinds"}})}}}}}
+  :match {:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "2" :display "Осложнение основного заболевания" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
+                                                           {:code "7" :display "Осложнение сопутствующего заболевания " :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}})}}}}}
 
 
 
