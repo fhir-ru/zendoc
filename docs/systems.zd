@@ -63,4 +63,5 @@
 [
     {:Система systems.passport-rf :URI "http://fhir.ru/core/systems/passport-rf" :OID "" :Описание "Паспорт гражданина Российской Федерации"}    
     {:Система systems.birth-certificate :URI "http://fhir.ru/core/systems/birth-certificate" :OID "" :Описание "Свидетельство о рождении"}    
+    {:Система systems.ffoms-erz :URI "http://fhir.ru/core/systems/ffoms-erz" :OID "" :Описание "Единый регистр застрахованных лиц (ЕРЗ)"}    
 ]

@@ -1,5 +1,8 @@
-:menu-order 1
-:icon [:fa-solid :fa-spell-check]
+^hide
+:menu-order 5
+
+^hide
+:icon [:fa-solid :fa-book]
 
 ^badge
 :authors #{people.alexandra people.varvara}

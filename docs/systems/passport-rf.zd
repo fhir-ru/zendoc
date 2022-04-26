@@ -1,5 +1,8 @@
-:menu-order 5
-:icon [:fa-solid :fa-fingerprint]
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa-solid :fa-id-card]
 
 ^badge
 :authors #{people.alexandra}
