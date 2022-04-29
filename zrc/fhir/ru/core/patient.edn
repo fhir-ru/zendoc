@@ -84,6 +84,9 @@
           :gender {:zen/desc "Пол пациента"
                    :confirms #{fhir/code}
                    :type zen/string
+                   :enum [{:value "male"}
+                          {:value "female"}
+                          {:value "unknown"}]
                    :zen.fhir/value-set {:symbol CoreVsAdministrativeGender :strength :required}}
           ;; :birthDate {:zen/desc "Дата рождения пациента"
           ;;             :type zen/string
@@ -115,7 +118,7 @@
   CoreVsAdministrativeGender
   {:zen/tags #{zen.fhir/value-set}
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
-   :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gende"
+   :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
                          :zen.fhir/content :not-present}}
-   :uri "http://fhir.ru/core/vs/core-administrative-gender"}}
+   :uri "http://fhir.ru/core/vs/core-vs-administrative-gender"}}
 
