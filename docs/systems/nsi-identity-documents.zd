@@ -23,6 +23,14 @@
 
 :toc
 
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы в кодинге при указании в качестве типа идентификатора паспорта гражданина Российской Федерации:
+
+^badge
+:system "http://fhir.ru/core/cs/nsi-identity-documents"
+
 ^title "Naming System"
 :code-systems-naming md/
 
