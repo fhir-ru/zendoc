@@ -15,7 +15,8 @@
    :keys {:identifier {:zen/desc "Идентификаторы пациента"
                        :type zen/vector
                        :every {:confirms #{fhir/Identifier}
-                               :type zen/map}
+                               :type zen/map
+                               :require #{:system :value}}
                        :slicing
                        {:slices
                         {"PassportRF"
