@@ -23,6 +23,14 @@
 
 :toc
 
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы:
+
+^badge
+:system "http://fhir.ru/core/systems/ffoms-gender"
+
 ^title "Naming System"
 :code-systems-naming md/
 

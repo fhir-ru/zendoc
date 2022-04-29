@@ -43,6 +43,18 @@
 ^title "Отличие NamingSystem от CodeSystem"
 :naming-systems:difference md/
 
+((resource systems.nsi-identity-documents :system))
+
+((resource systems.rosminzdrav-gender :system))
+
+((resource systems.ffoms-gender :system))
+
+((resource systems.passport-rf :system))
+
+((resource systems.ffoms-erz :system))
+
+((resource systems.birth-certificate :system))
+
 Ресурс `CodeSystem` определяет содержимое кодовой системы и её предпочтительный идентификатор. Ресурс `NamingSystem` декларирует существование кодовой системы или системы идентификаторов, а также её возможные и предпочтительный идентификатор. Ключевое различие между этими ресурсами заключается в том, кто создаёт и управляет ими. Ресурсами `CodeSystem` управляет владелец кодовой системы, который может должным образом определять функции и содержимое кодовой системы. 
 
 Ресурсы `NamingSystem` часто создаются третьими сторонами, которые сталкиваются с использованием кодовой системы и хотят описать её применение, но не имеют полномочий определять её функции и содержимое. Кроме того, для одной кодовой системы может быть создано несколько ресурсов `NamingSystem`, но должен быть только один ресурс `CodeSystem`.
@@ -51,9 +63,11 @@
 ^table
 :code-systems-register
 [
-    {:Система systems.rosminzdrav-gender :URI "http://fhir.ru/core/cs/rosminzdrav-gender" :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
-    {:Система systems.ffoms-gender :URI "http://fhir.ru/core/cs/ffoms-gender" :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
-    {:Система systems.nsi-identity-documents :URI "((resource systems.nsi-identity-documents :system))" :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
+    {:Система systems.rosminzdrav-gender :URI ((resource systems.rosminzdrav-gender :system)) :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
+    {:Система systems.ffoms-gender :URI ((resource systems.ffoms-gender :system)) :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
+    {:Система systems.nsi-identity-documents :URI ((resource systems.nsi-identity-documents :system)) :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
+    {:Система "Справочник Степень обоснованности диагноза" :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :OID "1.2.643.5.1.13.13.99.2.795" :Описание "НСИ Минздрава Справочник Степень обоснованности диагноза"}     
+    {:Система "Справочник Виды нозологических единиц диагноза" :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :OID "1.2.643.5.1.13.13.11.1077" :Описание "НСИ Минздрава Справочник Виды нозологических единиц диагноза"}     
 ]
 
 
@@ -62,7 +76,7 @@
 ^table
 :naming-systems-register
 [
-    {:Система systems.passport-rf :URI "http://fhir.ru/core/systems/passport-rf" :OID "" :Описание "Паспорт гражданина Российской Федерации"}    
-    {:Система systems.birth-certificate :URI "http://fhir.ru/core/systems/birth-certificate" :OID "" :Описание "Свидетельство о рождении"}    
-    {:Система systems.ffoms-erz :URI "http://fhir.ru/core/systems/ffoms-erz" :OID "" :Описание "Единый регистр застрахованных лиц (ЕРЗ)"}    
+    {:Идентификатор systems.passport-rf :URI ((resource systems.passport-rf :system)) :Описание "Паспорт гражданина Российской Федерации" "Тип идентификатора FHIR" "code: PPN, system: http://terminology.hl7.org/CodeSystem/v2-0203, display: Passport number" "Тип идентификатора Ru Core" "code: 1, display: Паспорт гражданина Российской Федерации, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
+    {:Идентификатор systems.birth-certificate :URI ((resource systems.birth-certificate :system)) :Описание "Свидетельство о рождении" "Тип идентификатора FHIR" "" "Тип идентификатора Ru Core" "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
+    {:Идентификатор systems.ffoms-erz :URI ((resource systems.ffoms-erz :system)) :Описание "Единый регистр застрахованных лиц (ЕРЗ)"}    
 ]
