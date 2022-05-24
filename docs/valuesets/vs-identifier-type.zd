@@ -29,16 +29,16 @@
 ^table
 :identifier-types
 [
-    {:Код "PPN" :Display "Passport number" :Наименование "Номер паспорта" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "MR" :Display "Medical record number" :Наименование "Номер медицинской карты" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "BCT" :Display "Birth Certificate" :Наименование "Номер медицинского свидетельства о рождении" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "BR" :Display "Birth registry number" :Наименование "Номер государственного свидетельства о рождении" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "DC" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "FDR" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "MRT" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "NI" :Display "National unique individual identifier" :Наименование "??? СНИЛС" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "PI" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
-    {:Код "SS" :Display "Social Security number" :Наименование "??? ИНН" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Наименование "Номер паспорта" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/passport-rf" }
+    {:Code "MR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Medical record number" :Наименование "Номер медицинской карты" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/medical-record-number" }
+    {:Code "BCT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth Certificate" :Наименование "Номер медицинского свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/medical-birth-certificate" }
+    {:Code "BR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth registry number" :Наименование "Номер государственного свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/birth-registry-number" }
+    {:Code "DC" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/death-certificate" }
+    {:Code "FDR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/fetal-death-certificate" }
+    {:Code "MRT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/temporary-medical-record-number" }
+    {:Code "NI" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "National unique individual identifier" :Наименование "??? СНИЛС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/snils" }
+    {:Code "PI" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/patient-internal-identifier" }
+    {:Code "SS" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Security number" :Наименование "??? ИНН" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/inn" }
 ]
  
 

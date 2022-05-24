@@ -41,7 +41,9 @@
                          {:zen/desc "Паспорт РФ"
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/passport-rf"}}
+                           :match {:type {:coding #{{:code "PPN"
+                                                     :display "Passport number"
+                                                     :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}
                           :schema {:type zen/vector, :maxItems 1
                                    :every {:type zen/map
                                            :require #{:type :system :value}
@@ -51,7 +53,8 @@
                                                                      :system "http://terminology.hl7.org/CodeSystem/v2-0203"}
                                                                     {:code "1"
                                                                      :display "Паспорт гражданина Российской Федерации"
-                                                                     :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}}}}}}
+                                                                     :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}}
+                                                   :system "https://fhir.ru/id/passport-rf"}}}}
                          "INN"
                          {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. 
                          Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
