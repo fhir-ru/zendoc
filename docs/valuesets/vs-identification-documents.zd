@@ -1,5 +1,5 @@
 ^hide
-:menu-order 102
+:menu-order 2
 
 ^hide
 :icon [:fa-regular :fa-rectangle-list]

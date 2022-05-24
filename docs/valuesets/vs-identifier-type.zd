@@ -1,0 +1,147 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-05-24"
+
+:title "ValueSet Core-vs-identifier-type"
+
+:toc
+
+^title "Описание"
+:description md/
+
+Данный ValueSet отличается от стандартного [ValueSet FHIR](http://hl7.org/fhir/R4/valueset-identifier-type.html) тем, что из него исключены некоторые значения и в него добавлены значения из [справочника HL7 Version 2 Table 0203 ](http://hl7.org/fhir/R4/v2/0203/index.html).
+
+^title "Содержимое набора значений"
+^table
+:identifier-types
+[
+    {:Код "PPN" :Display "Passport number" :Наименование "Номер паспорта" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "MR" :Display "Medical record number" :Наименование "Номер медицинской карты" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "BCT" :Display "Birth Certificate" :Наименование "Номер медицинского свидетельства о рождении" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "BR" :Display "Birth registry number" :Наименование "Номер государственного свидетельства о рождении" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "DC" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "FDR" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "MRT" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "NI" :Display "National unique individual identifier" :Наименование "??? СНИЛС" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "PI" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+    {:Код "SS" :Display "Social Security number" :Наименование "??? ИНН" :System "http://terminology.hl7.org/CodeSystem/v2-0203" }
+]
+ 
+
+^title "Определение ресурса"
+:content-logical-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-identifier-type",
+  "name": "CoreVsIdentifierType",
+  "title": "Core ValueSet Тип идентификатора",
+  "url" : "http://fhir.ru/core/vs/core-vs-identifier-type",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "concept": [
+          {
+            "code": "PPN",
+            "display": "Passport number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер паспорта"
+            }
+          },
+          {
+            "code": "MR",
+            "display": "Medical record number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинской карты"
+            }
+          },
+          {
+            "code": "BCT",
+            "display": "Birth Certificate",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинского свидетельства о рождении"
+            }
+          },
+          {
+            "code": "BR",
+            "display": "Birth registry number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер государственного свидетельства о рождении"
+            }
+          },
+          {
+            "code": "DC",
+            "display": "Death Certificate ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о смерти (государственного?)"
+            }
+          },
+          {
+            "code": "FDR",
+            "display": "Fetal Death Report ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)"
+            }
+          },
+          {
+            "code": "MRT",
+            "display": "Temporary Medical Record Number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Временный номер медицинской карты"
+            }
+          },
+          {
+            "code": "NI",
+            "display": "National unique individual identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "??? СНИЛС"
+            }
+          },
+          {
+            "code": "PI",
+            "display": "Patient internal identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер пациента в МИС"
+            }
+          },
+          {
+            "code": "SS",
+            "display": "Social Security number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "??? ИНН"
+            }
+          }
+          
+        ]
+      }
+    ]
+  }
+}
+```code
