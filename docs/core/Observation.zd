@@ -1,0 +1,34 @@
+^hide
+:menu-order 8
+
+^hide
+:icon [:fa-solid :fa-hospital-user] 
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+
+:title "Результат наблюдения"
+
+:toc
+
+^title "Определение"
+:description md/
+
+Профиль описывает измерения и простые утверждения о пациенте.
+
+^title "Профиль"
+^zen/schema
+:profile fhir.ru.core.observation/CoreObservation

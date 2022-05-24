@@ -1,0 +1,17 @@
+{ns fhir.ru.core.observation
+
+ import #{fhir zen.fhir}
+
+ CoreObservation
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zen/desc "Результат наблюдения"
+  :confirms #{fhir/Observation}
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/id "core-observation"
+  :zen.fhir/name "CoreObservation"
+  :zen.fhir/type "Observation"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-observation"
+  :type zen/map
+  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}
+         :encounter {:confirms #{fhir.ru.core.encounter/CoreEncounter}}
+         :performer {:confirms #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}}}
