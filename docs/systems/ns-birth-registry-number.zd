@@ -1,0 +1,58 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-id-card]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-25"
+
+^badge
+:type :ig
+
+:title "Номер государственного свидетельства о рождении"
+
+:toc
+
+^title "System"
+:system md/
+
+Значение для использования в качестве системы в идентификаторе при указании номера государственного свидетельства о рождении:
+
+^badge
+:system "http://fhir.ru/core/systems/birth-registry-number"
+
+^title "Naming System"
+:identifier-systems-naming md/
+
+```code json
+{
+  "id": "core-ns-birth-registry-number",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "identifier",
+  "name": "CoreBirthRegistryNumber",
+  "description": "Номер государственного свидетельства о рождении",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>NamingSystem: Номер государственного свидетельства о рождении. Идентификатор:<ol>\n          
+     <li>URI: http://fhir.ru/core/systems/birth-registry-number</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [    
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/systems/birth-registry-number",
+    }
+  ]
+}
+```code

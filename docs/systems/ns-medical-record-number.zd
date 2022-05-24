@@ -1,0 +1,58 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-id-card]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-05-24"
+
+^badge
+:type :ig
+
+:title "Номер медицинской карты"
+
+:toc
+
+^title "System"
+:system md/
+
+Значение для использования в качестве системы в идентификаторе при указании номера медицинской карты:
+
+^badge
+:system "http://fhir.ru/core/systems/medical-record-number"
+
+^title "Naming System"
+:identifier-systems-naming md/
+
+```code json
+{
+  "id": "core-ns-medical-record-number",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "identifier",
+  "name": "CoreMedicalRecordNumber",
+  "description": "Номер медицинской карты",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>NamingSystem: Номер медицинской карты. Идентификатор:<ol>\n          
+     <li>URI: http://fhir.ru/core/systems/medical-record-number</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [    
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/systems/medical-record-number",
+    }
+  ]
+}
+```code
