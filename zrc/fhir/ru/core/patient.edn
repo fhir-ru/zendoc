@@ -16,7 +16,25 @@
                        :type zen/vector
                        :every {:confirms #{fhir/Identifier}
                                :type zen/map
-                               :require #{:system :value}}
+                               :require #{:type :system :value}
+                               :keys {:type {:type zen/map
+                                             :zen/desc "Тип идентификатора"
+                                             :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :required}
+                                             :keys {:coding {:type zen/vector
+                                                             :zen/desc "vs: http://fhir.ru/core/vs/core-vs-identifier-type"
+                                                             :every {:confirms #{fhir/Coding}
+                                                                     :type zen/map
+
+                                                                     :keys {:system {:type zen/string}
+                                                                            :code {:type zen/string}
+                                                                            :display {:type zen/string}}}}
+                                                    :text {:type zen/string}}}
+                                      :system {:type zen/string}
+                                      :value {:type zen/string}
+                                      ;; :period {}
+                                      ;; :assigner {}
+                                      ;; :use {}
+                                      }}
                        :slicing
                        {:slices
                         {"PassportRF"
@@ -130,5 +148,12 @@
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
    :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
                          :zen.fhir/content :not-present}}
-   :uri "http://fhir.ru/core/vs/core-vs-administrative-gender"}}
+   :uri "http://fhir.ru/core/vs/core-vs-administrative-gender"}
+
+  CoreVsIdentifierType
+  {:zen/tags #{zen.fhir/value-set}
+   :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что из него исключены некоторые значения и в него добавлены значения из справочника HL7 Version 2 Table 0203."
+   :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203"
+                         :zen.fhir/content :not-present}}
+   :uri "http://fhir.ru/core/vs/core-vs-identifier-type"}}
 
