@@ -1,5 +1,5 @@
 ^hide
-:menu-order 11
+:menu-order 14
 
 ^hide
 :icon [:fa-solid :fa-handshake]

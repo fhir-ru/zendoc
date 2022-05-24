@@ -17,7 +17,8 @@
 
    :alias {:type zen/vector
            :zen/desc "Сокращенное наименование организации"
-           :every {:type zen/string}}
+           :every {:type zen/string
+                   :confirms #{fhir/string}}}
 
    :identifier {:type zen/vector
                 :every {:confirms #{fhir/Identifier}}
@@ -43,9 +44,9 @@
                    :keys {:code {:type zen/string
                                  :valueset {:id org-type}}}}}
    :partOf {:type zen/map
-            :confirms #{fhir/Reference}
-            :zen/desc "Ссылка на организацию-юридическое лицо, которой принадлежит данная организация"
-            :fhir/profiles #{fhir.ru.core.organization/RuCoreOrganization}}
+            :confirms #{fhir.ru.core.organization/CoreOrganization}
+            :zen/desc "Ссылка на организацию-юридическое лицо, которой принадлежит данная организация"}
+
 
    :telecom {:type zen/vector
              :zen/desc "Контактные данные организации"

@@ -1,5 +1,5 @@
 ^hide
-:menu-order 100
+:menu-order 6
 
 ^hide
 :icon [:fa-solid :fa-hospital] 

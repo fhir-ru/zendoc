@@ -1,0 +1,40 @@
+^hide
+:menu-order 11
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-05-24"
+
+^badge
+:type :ig
+
+:title "Реестр наборов значений"
+
+:toc
+
+^title "Наборы значений"
+:value-sets md/
+
+^title "Отличие ValueSet от CodeSystem"
+:valueset-codesystem:difference md/
+
+
+^title "Реестр наборов значений"
+^table
+:valuesets-register
+[
+    {"ValueSet ID" valuesets.vs-administrative-gender "ValueSet URI" "http://fhir.ru/core/vs/core-vs-administrative-gender" :Описание "Пол пациента"}
+    {"ValueSet ID" valuesets.vs-identification-documents "ValueSet URI" "http://fhir.ru/core/vs/core-vs-identification-documents" :Описание "Документы, удостоверяющие личность"}
+    ]
+

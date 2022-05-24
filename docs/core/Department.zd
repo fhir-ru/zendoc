@@ -1,13 +1,22 @@
-:title "Отделение"
+^hide
+:menu-order 5
+
+^hide
+:menu/first true
 
 ^badge
-:maturity "0"
+:status :draft
+
+^badge
+:maturity 0
 
 ^badge
 :group groups.adm
 
 ^hide
 :icon [:fa-solid :fa-building] 
+
+:title "Отделение"
 
 :summary md/
 

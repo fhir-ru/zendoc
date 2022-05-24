@@ -5,7 +5,7 @@
  EncounterClinicalDx
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
   :zen/desc "Случай обслуживания"
-  :confirms #{fhir/Encounter fhir.ru.core.encounter/CoreEncounter}
+  :confirms #{fhir.ru.core.encounter/CoreEncounter}
   :zen.fhir/version "0.5.8"
   :zen.fhir/id "encounter-clinical-dx"
   :zen.fhir/name "EncounterClinicalDx"

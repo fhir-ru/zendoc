@@ -12,4 +12,4 @@
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-encounter"
   :type zen/map
-  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient fhir/Reference}}}}}
+  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}}}}

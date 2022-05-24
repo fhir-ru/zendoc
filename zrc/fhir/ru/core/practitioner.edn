@@ -73,7 +73,7 @@
                          :confirms #{CorePractitioner}}
           :organization {:zen/desc "Ссылка на ресурс Organization"
                          :type zen/map
-                         :confirms #{fhir/Reference}
+                         :confirms #{fhir.ru.core.organization/CoreOrganization}
                          :zen.fhir/reference
                          {:refers #{fhir.ru.core.organization/CoreOrganization}}}}}}
 

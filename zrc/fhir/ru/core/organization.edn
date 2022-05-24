@@ -19,9 +19,10 @@
 
    :alias {:type zen/vector
            :zen/desc "Сокращенное наименование организации"
-           :every {:type zen/string}}
+           :every {:type zen/string
+                   :confirms #{fhir/string}}}
 
-   :active {:zen/desc "True для действующих организаций"}
+  ;;  :active {:zen/desc "True для действующих организаций"}
 
    :identifier {:type zen/vector
                 :every {:confirms #{fhir/Identifier}}
@@ -66,7 +67,7 @@
                      :require #{:system :value}}}}}}}
 
    :partOf {:type zen/map
-            :confirms #{fhir/Reference}
+            :confirms #{fhir.ru.core.organization/CoreOrganization}
             :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"}
 
    :telecom {:type zen/vector
