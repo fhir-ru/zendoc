@@ -68,10 +68,104 @@
 Данный профиль не накладывает ограничений и не даёт рекомендаций по описанию "случаев медицинской помощи", а только определяет требования к структурированию диагноза в рамках случая, т.е. профиль накладывает ограничения только на атрибут Encounter.diagnosis.
 
 ^title "Профиль"
-:profile md/
+^zen/schema
+:profile fhir.ru.diag.encounter/EncounterClinicalDx
 
-TODO: тут должен быть добавлен профиль, соответствующий описанию в Google-Sheet - см. [ссылку](https://docs.google.com/spreadsheets/d/1WDC22c-qnWYEJZmdKcfuIqz_OvZaC_z4b5Vg5R5YSnI/edit#gid=371194862)
+^collapse
+^title "Пример в Aidbox-формате"
+:example2 md/
 
+Этот пример должен успешно пройти валидацию, поскольку имеет основное и сопутствующее заболевание.
+
+```
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx1
+  diagnosisRubric: 
+    coding:
+    - code: "1"
+      display: "Основное заболевание"
+      system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  diagnosisType: 
+    coding:
+    - code: "1"
+      display: "Предварительный клинический диагноз"
+      system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx2
+  diagnosisRubric: 
+    coding:
+    - code: "3"
+      display: "Сопутствующее заболевание"
+      system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  diagnosisType: 
+    coding:
+    - code: "1"
+      display: "Предварительный клинический диагноз"
+      system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+
+```
+^collapse
+^title "Пример в FHIR-формате"
+:example3 md/
+
+N/B: В данный момент валидация работает только для Aidbox-формата.
+
+```
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: CC
+      display: Chief complaint
+      system: http://terminology.hl7.org/CodeSystem/diagnosis-role    
+  condition:
+    display: Dx1
+  extension:
+  - url: http://fhir.ru/core/ex/core-diagnosis-rubric
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Основное заболевание"
+        system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  - url: http://fhir.ru/core/ex/core-diagnosis-type
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Предварительный клинический диагноз"
+        system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+- use:
+    coding: 
+    - code: CM
+      display: Comorbidity diagnosis
+      system: http://terminology.hl7.org/CodeSystem/diagnosis-role
+  condition:
+    display: Dx1
+  extension:
+  - url: http://fhir.ru/core/ex/core-diagnosis-rubric
+    valueCodeableConcept: 
+      coding:
+      - code: "3"
+        display: "Сопутствующее заболевание"
+        system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  - url: http://fhir.ru/core/ex/core-diagnosis-type
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Предварительный клинический диагноз"
+        system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+```
 
 ^title "Полезные ссылки"
 :links md/
