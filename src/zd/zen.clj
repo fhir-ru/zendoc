@@ -215,9 +215,7 @@
        [:td {:class (c [:text :blue-600] :text-sm [:px 3])}
         (if (:confirms row)
           (str/join ", " (mapv schema-name (:confirms row)))
-          (when-let [t (:type row)] (schema-name t)))
-        (when (= 'zen/vector (:type row))
-          "[]")]
+          (when-let [t (:type row)] (schema-name t)))]
        [:td {:class (c [:text :gray-700] :text-xs )}
         (when-let [d (:desc row)]
           [:div {:class (c :text-xs [:text :gray-700])} d])
