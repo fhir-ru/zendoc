@@ -1,0 +1,5 @@
+:title "core-ex-diagnosis-rubric"
+
+^title "Профиль"
+^zen/schema
+:profile fhir.ru.diag.encounter/CoreDiagnosisRubric

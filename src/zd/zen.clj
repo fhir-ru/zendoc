@@ -222,6 +222,7 @@
         (if (:confirms row)
           (str/join ", " (mapv schema-name (:confirms row)))
           (when-let [t (:type row)] (schema-name t)))]
+       
        [:td {:class (c [:text :gray-700] :text-xs )}
         (when-let [d (:desc row)]
           [:div {:class (c :text-xs [:text :gray-700])} d])
@@ -230,10 +231,14 @@
            [:b "Fixed value: "]
            [:span {:class (c [:text :green-700])}
             d]])
+        (when-let [d (:extension row)]
+          (let [extension-name (last (clojure.string/split (str d) #"/"))]
+            [:div {:class (c :text-xs [:text :gray-700])}
+             [:b "URL: "]
+             [:a {:href (str "/extension." extension-name) :target "_blank" :class (c [:text :blue-700])}
+              d]]))
         (when-let [vs (:valueset row)]
           (str "vs:" (:id vs)))
-        (when-let [vs (:extension row)]
-          (str "ext:" vs))
         (when-let [enum (:enum row)]
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
            [:b "enum:" ]
