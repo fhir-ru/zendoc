@@ -13,11 +13,11 @@
 
   :keys
   {:assertedDate {:confirms #{fhir/dateTime}
-                  :type zen/dateTime
-                  :fhir/extensionUri "????"}
+                  :type zen/datetime
+                  :zen.fhir/extensionUri "????"}
 
    :histology    {:confirms #{fhir/CodeableConcept}
-                  :fhir/extensionUri "????"
+                  :zen.fhir/extensionUri "????"
                   :fhir/binding {}}
 
    :code         {:fhir/binding {:zen/desc "ICD-10"}

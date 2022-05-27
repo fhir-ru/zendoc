@@ -1,6 +1,8 @@
 {ns fhir.ru.core.department
 
- import #{fhir zen.fhir}
+ import #{fhir zen.fhir
+          fhir.ru.core.address
+          fhir.ru.core.organization}
 
  Department
  {:zen/tags #{zen/schema zen.fhir/profile-schema}

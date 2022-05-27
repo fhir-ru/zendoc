@@ -1,14 +1,15 @@
  {ns fhir.ru.core.patient
 
-  import #{fhir zen.fhir}
+  import #{fhir zen.fhir
+           fhir.ru.core.address}
 
   CorePatient
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
    :zen/desc "Пациент"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/Patient}
-   :id "core-patient"
-   :name "CorePatient"
+   :zen.fhir/id "core-patient"
+   :zen.fhir/name "CorePatient"
    :zen.fhir/type "Patient"
    :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
    :type zen/map
@@ -149,6 +150,7 @@
   CoreVsAdministrativeGender
   {:zen/tags #{zen.fhir/value-set}
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
+   :zen.fhir/version "0.5.8"
    :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
                          :zen.fhir/content :not-present}}
    :uri "http://fhir.ru/core/vs/core-vs-administrative-gender"}
@@ -156,6 +158,7 @@
   CoreVsIdentifierType
   {:zen/tags #{zen.fhir/value-set}
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что из него исключены некоторые значения и в него добавлены значения из справочника HL7 Version 2 Table 0203."
+   :zen.fhir/version "0.5.8"
    :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203"
                          :zen.fhir/content :not-present}}
    :uri "http://fhir.ru/core/vs/core-vs-identifier-type"}}

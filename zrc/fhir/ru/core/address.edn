@@ -8,8 +8,8 @@
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
-  :id "core-address"
-  :name "CoreAddress"
+  :zen.fhir/id "core-address"
+  :zen.fhir/name "CoreAddress"
   :zen.fhir/type "Address"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-address"
 

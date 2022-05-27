@@ -1,6 +1,8 @@
  {ns fhir.ru.core.practitioner
 
-  import #{fhir zen.fhir}
+  import #{fhir zen.fhir
+           fhir.ru.core.organization
+           fhir.ru.core.address}
 
   CorePractitioner
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
@@ -66,6 +68,7 @@
   CorePractitionerRole
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
    :zen/desc "Роль врача/сотрудника"
+   :zen.fhir/version "0.5.8"
    :confirms #{fhir/PractitionerRole}
    :type zen/map
    :keys {:practitioner {:zen/desc "Ссылка на ресурс Practitioner"

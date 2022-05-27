@@ -1,14 +1,15 @@
 {ns fhir.ru.diag.nosology
+ import #{fhir}
 
  DiagnosisNosology
  {:zen/tags #{zen/schema}
   :zen/desc "Нозологическая единица"
   :type zen/map
   :keys
-  {:code {:confirms #{Coding}
+  {:code {:confirms #{fhir/Coding}
           :zen/desc "Код МКБ"}
 
-   :clarifiction {:confirms #{Coding}
+   :clarifiction {:confirms #{fhir/Coding}
                   :zen/desc "Уточнение форм по синонимам и/или расширениям МКБ"}
 
    :clinicalDescription {:type zen/string
@@ -54,5 +55,5 @@
                   :record    {:type zen/date
                               :zen/desc "Дата записи"}}}
 
-   :recordedBy {:confirms #{Reference}}
+   :recordedBy {:confirms #{fhir/Reference}}
    :relationship {:zen/desc "Взаимоотношение с другими"}}}}

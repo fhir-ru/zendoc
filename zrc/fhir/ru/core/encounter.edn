@@ -1,6 +1,7 @@
 {ns fhir.ru.core.encounter
 
- import #{fhir zen.fhir}
+ import #{fhir zen.fhir
+          fhir.ru.core.patient}
 
  CoreEncounter
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
