@@ -13,6 +13,10 @@
   (when confirms
     (contains? (into #{} (map name confirms)) x)))
 
+(defn contains-str? [confirms x]
+  (not-empty (filter #(str/includes? % (str/lower-case x)) (into #{} (map #(-> % str str/lower-case) confirms)))))
+
+
 (defn type-icon [tp confirms extension]
   [:div {:class (cls
                  (cond-> 
@@ -26,23 +30,54 @@
                          {:border-radius "4px"
                           :border "1px solid #ccc"
                           :font-size "9px"})]
-                   extension (conj (c [:bg :green-200]))
-                   (not extension) (conj (c [:bg :gray-300]))
-                   ))}
+                     extension (conj (c [:bg :green-200]))
+                     (not extension) (conj (c [:bg :gray-300]))
+                     ))}
    (cond
      (contains-name? confirms "Coding") [:div.fa-solid.fa-tag]
      (contains-name? confirms "CodeableConcept") [:div.fa-solid.fa-tags]
      (contains-name? confirms "Reference") [:div.fa-solid.fa-arrow-up-right-from-square]
-     (nil? tp) [:div " "]
+     (contains-str? confirms "Identifier") [:div.fa-solid.fa-fingerprint]
+     (contains-str? confirms "Address") [:div.fa-solid.fa-home]
+     (contains-str? confirms "Meta") [:div.fa-solid.fa-info-circle]
+     (contains-str? confirms "ContactPoint") [:div.fa-solid.fa-phone]
+     (contains-str? confirms "Attachment") [:div.fa.fa-file-download]
+     (contains-str? confirms "Resource") [:div.fa-solid.fa-folder]
+     (contains-str? confirms "Extension") [:div.fa-solid.fa-folder-plus]
+     (contains-str? confirms "Annotation") [:div.fa-solid.fa-note-sticky]
+     (contains-str? confirms "backboneelement") [:div.fa-solid.fa-folder]
+     (or (contains-str? confirms "range") (contains-str? confirms "Period")) [:div.fa-solid.fa-clock]
+     (contains-str? confirms "HumanName") [:div.fa-solid.fa-user]
+     (contains-str? confirms "uri") [:div.fa-solid.fa-link]
+     (contains-str? confirms "Narrative") [:div.fa.fa-pencil {:class (cls [(c {:line-height "inherit!important"})])}]
+     (contains-str? confirms "duration") [:div.fa-solid.fa-ruler]
+
+     (or
+      (contains-str? confirms "coding")
+      (contains-str? confirms "code")) [:div.fa-solid.fa-tag]
+
      (= tp 'zen/set) [:div "#{ }"]
-     (= tp 'zen/map) [:div "{ }"]
+
+     (and (some? confirms) (= tp 'zen/map)) [:div.fa-solid.fa-folder #_confirms]
      (= tp 'zen/case) [:div "?"]
+     (or (contains-str? confirms "string")
+         (= tp 'zen/string)) [:div.fa.fa-pencil {:class (cls [(c {:line-height "inherit!important"})])}]
+     (or (contains-str? confirms "date") (= tp 'zen/date)) [:div.fa.fa-calendar-day]
+
+     (or (contains-str? confirms "time")
+         (= tp 'zen/datetime))
+     [:div.fa.fa-clock]
+     (or
+      (contains-str? confirms "boolean")
+      (= tp 'zen/boolean)) [:div.fa.fa-toggle-on]
      (= tp 'zen/vector) [:div "[ ]"]
-     (= tp 'zen/date) [:div.fa.fa-calendar-day]
-     (= tp 'zen/datetime) [:div.fa.fa-calendar-day]
-     (= tp 'zen/boolean) [:div.fa.fa-toggle-on]
-     (= tp 'zen/string) [:div.fa.fa-pencil {:class (cls [(c {:line-height "inherit!important"})])}]
-     (= tp 'zen/integer) [:b "1"]
+     (or (contains-str? confirms "integer")
+         (contains-str? confirms "age")
+         (contains-str? confirms "positiveInt")
+         (= tp 'zen/integer)) [:b "1"]
+
+     (= tp 'zen/map) [:div.fa-solid.fa-folder]
+     (nil? tp) [:div.fa-solid.fa-folder]
      :else (first (last (str/split (str tp) #"/"))))])
 
 (defn flatten-sch [res pth {tp :type :as sch} & [opts ztx]]
