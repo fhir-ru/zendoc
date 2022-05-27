@@ -317,16 +317,42 @@ table.schema td {}
      [:hover [:bg :gray-100]])
   )
 
+(defn get-schema&path-from-error [{:keys [schema]}]
+  (let [[schema? schema-or-path?] (take-last 2 (partition-by symbol? schema))]
+    (if (symbol? (first schema-or-path?))
+      {:schema (first schema-or-path?)
+       :path   []}
+      {:schema (first schema?)
+       :path   (vec schema-or-path?)})))
+
+(defn schema-path [schema path]
+  (->> path
+       (mapcat
+         (fn [x]
+           (if (= :every x)
+             [x]
+             [:keys x])))
+       vec))
+
+(defn get-error-schema [ztx error-message]
+  (let [{:keys [schema path]} (get-schema&path-from-error error-message)]
+    (when schema
+      (let [schema-def        (zen.core/get-symbol ztx schema)
+            error-schema-path (schema-path schema-def path)]
+        (get-in schema-def error-schema-path)))))
+
 (defn zen-message-view
-  [schema-name message]
-  [:div {:class (c [:bg :red-200] :border [:p 2] [:my 2] :text-xs)}
-   [:div {:class (c :font-bold)}
-    (->> (:path message)
-         (map #(if (keyword? %) (name %) %))
-         (interpose ".")
-         (apply str)
-         (str schema-name "."))]
-   (:message message)])
+  [ztx schema-name message]
+  (let [error-schema (get-error-schema ztx message)]
+    [:div {:class (c [:bg :red-200] :border [:p 2] [:my 2] :text-xs)}
+     [:div {:class (c :font-bold)}
+      (->> (:path message)
+           (map #(if (keyword? %) (name %) %))
+           (interpose ".")
+           (apply str)
+           (str schema-name "."))]
+     [:div (:zen/desc error-schema)]
+     (:message message)]))
 
 (defn validation-tab
   [ztx schema-name http-params]
@@ -348,7 +374,7 @@ table.schema td {}
        "Check"]]
      (if-let [errors (seq (:errors data-errors))]
        (for [error errors]
-         (zen-message-view schema-name error))
+         (zen-message-view ztx schema-name error))
        (when (get http-params "data")
          [:div {:class (c [:text :green-500])}
           [:ul {:class "fa-ul"}
@@ -401,4 +427,4 @@ table.schema td {}
       [:div {:class (cls ["tabe" (c :hidden [:mx 2])])}
        (when-let [schema-errors (seq (get-profile-schema-errors ztx sch-name))]
          (for [error schema-errors]
-           (zen-message-view sch-name error)))]]]))
+           (zen-message-view ztx sch-name error)))]]]))
