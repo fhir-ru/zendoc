@@ -258,9 +258,14 @@ table.schema td {}
        {:onclick "on_form_validate()"
         :class   (c [:my 2] [:p 2] [:bg :gray-100] :shadow-sm :border)}
        "Check"]]
-     (when-let [errors (seq (:errors data-errors))]
+     (if-let [errors (seq (:errors data-errors))]
        (for [error errors]
-         (zen-message-view schema-name error)))]))
+         (zen-message-view schema-name error))
+       [:div {:class (c [:text :green-500])}
+        [:ul {:class "fa-ul"}
+         [:li {:class (c :list-none)}
+          [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"]}]]
+          "Ресурс прошел валидацию."]]])]))
 
 (defn get-profile-schema-errors
   [ztx schema-name]
