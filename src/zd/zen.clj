@@ -314,11 +314,12 @@ table.schema td {}
      (if-let [errors (seq (:errors data-errors))]
        (for [error errors]
          (zen-message-view schema-name error))
-       [:div {:class (c [:text :green-500])}
-        [:ul {:class "fa-ul"}
-         [:li {:class (c :list-none)}
-          [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"]}]]
-          "Ресурс прошел валидацию."]]])]))
+       (when (get http-params "data")
+         [:div {:class (c [:text :green-500])}
+          [:ul {:class "fa-ul"}
+           [:li {:class (c :list-none)}
+            [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"]}]]
+            "Ресурс прошел валидацию."]]]))]))
 
 (defn get-profile-schema-errors
   [ztx schema-name]
