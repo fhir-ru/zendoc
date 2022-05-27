@@ -53,6 +53,14 @@
                                                  (get-in sch [:every :confirms])
                                                  (:confirms sch))
                                      :extension (:fhir/extensionUri sch)
+                                     :cardinality (format "%s..%s"
+                                                          (cond (:require opts) "1"
+                                                                (:minItems opts) (:minItems opts)
+                                                                :else "0")
+                                                          (cond
+                                                            (= 'zen/vector tp) "*"
+                                                            (:maxItems opts) (:maxItems opts)
+                                                            :else "1"))
                                      :path pth
                                      :enum (:enum sch)
                                      :valueset (:valueset sch)
@@ -100,7 +108,9 @@
                                     {:match (merge (->> (-> slice-data :schema :every :require)
                                                         (mapv (fn [v] [v nil]))
                                                         (into {}))
-                                                   (-> slice-data :filter :match))}
+                                                   (-> slice-data :filter :match))
+                                     :minItems (-> slice-data :schema :minItems)
+                                     :maxItems (-> slice-data :schema :maxItems)}
                                     ztx)))
               acc)))
         :else res)
@@ -199,10 +209,10 @@
                [:div {:class (c [:ml 3])}
                 (if-let [nm (:name row)]
                   (schema-name nm)
-                  (when-let [k (:key (last (:path row)))] (name k)))]
-               (when (:require row)
-                 [:span {:class (c [:ml 0] [:pl 1] [:text :red-700])} "*"])])]
-       [:td {:class (c [:text :blue-600] :text-sm)}
+                  (when-let [k (:key (last (:path row)))] (name k)))]])]
+       [:td {:class (c :text-sm [:px 3])}
+        (:cardinality row)]
+       [:td {:class (c [:text :blue-600] :text-sm [:px 3])}
         (if (:confirms row)
           (str/join ", " (mapv schema-name (:confirms row)))
           (when-let [t (:type row)] (schema-name t)))
