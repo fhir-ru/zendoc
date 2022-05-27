@@ -201,6 +201,12 @@
 (defn schema-table [sch & [ztx]]
   [:table.schema
    [:tbody
+    [:tr {:class (c [:text :gray-700] :text-left)}
+     (let [th-style (c :font-medium)]
+       (list [:th {:class th-style} "Название"]
+             [:th {:class th-style} "Кол-во"]
+             [:th {:class th-style} "Тип"]
+             [:th {:class th-style} "Описание"]))]
     (for [{pth :path :as row} (flatten-sch [] [] sch {:name (:zen/name sch)} ztx)]
       [:tr
        [:td {:class (c :text-sm)} 
