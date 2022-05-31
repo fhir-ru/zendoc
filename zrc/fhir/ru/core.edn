@@ -7,4 +7,5 @@
           fhir.ru.core.practitioner
           fhir.ru.diag.nosology
           fhir.ru.diag.nu
-          fhir.ru.diag.encounter}}
+          fhir.ru.diag.encounter
+          fhir.ru.lab.diagnosticreport}}
