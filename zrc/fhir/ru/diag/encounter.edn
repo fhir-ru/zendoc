@@ -24,11 +24,13 @@
                                                 :confirms #{fhir.ru.diag.nosology/DiagnosisNosology}}
                                     :diagnosisType {:type zen/map
                                                     :confirms #{CoreDiagnosisType}
+                                                    :zen/desc "Тип диагноза"
                                                     :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
                                                     :zen.fhir/value-set {:symbol CoreVsDiagnosisType
                                                                          :strength :required}}
                                     :diagnosisRubric {:type zen/map
                                                       :confirms #{CoreDiagnosisRubric}
+                                                      :zen/desc "Рубрика диагноза"
                                                       :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
                                                       :zen.fhir/value-set {:symbol CoreVsDiagnosisRubric
                                                                            :strength :required}}}}
@@ -64,7 +66,8 @@
 
 
  CoreDiagnosisType
- {:zen/tags #{zen/schema zen.fhir/structure-schema fhir/extension}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+  :zendoc 'valuesets.vs-administrative-gender
   :zen.fhir/type "CodeableConcept"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
   :type zen/map
@@ -73,7 +76,7 @@
   :confirms #{fhir/CodeableConcept}}
 
  CoreDiagnosisRubric
- {:zen/tags #{zen/schema zen.fhir/structure-schema fhir/extension}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
   :zen.fhir/type "CodeableConcept"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
   :type zen/map
@@ -112,7 +115,7 @@
 
  ConstraintRule2
  {:zen/tags #{zen/schema}
-  :zen/desc "Правило проверки массива диагнозов 1: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
+  :zen/desc "Правило проверки массива диагнозов: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
   :type zen/vector
   :match #{{:diagnosisRubric {:coding #{(:zen.match/one-of #{{:code "1" :display "Основное заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
                                                              {:code "4" :display "Конкурирующее заболевание" :system "http://fhir.ru/core/cs/diagnosis-nosology-kinds"}
