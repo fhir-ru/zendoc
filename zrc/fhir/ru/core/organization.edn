@@ -1,6 +1,7 @@
 {ns fhir.ru.core.organization
 
- import #{fhir zen.fhir}
+ import #{fhir zen.fhir
+          fhir.ru.core.address}
 
  CoreOrganization
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
@@ -66,10 +67,6 @@
                     {:type zen/map
                      :require #{:system :value}}}}}}}
 
-   :partOf {:type zen/map
-            :confirms #{fhir.ru.core.organization/CoreOrganization}
-            :zen/desc "Ссылка на ассоциацию которой принадлежит данная организация"}
-
    :telecom {:type zen/vector
              :zen/desc "Контактные данные организации"
              :every {:confirms #{fhir/ContactPoint}}
@@ -78,12 +75,17 @@
               {"Phone"
                {:filter
                 {:engine :match
-                 :match {:system "phone", :use "work"}}}
-
+                 :match {:system "phone"}}
+                :schema {:type zen/vector
+                         :every {:type zen/map
+                                 :match {:use "work"}}}}
                "Email"
                {:filter
                 {:engine :match
-                 :match {:system "email", :use "work"}}}}}}
+                 :match {:system "email"}}
+                :schema {:type zen/vector
+                         :every {:type zen/map
+                                 :match {:use "work"}}}}}}}
 
    :address {:type zen/vector
              :every {:confirms #{fhir.ru.core.address/CoreAddress}}
@@ -99,10 +101,4 @@
  {:zen/tags #{}
   :zen/desc "Идентификаторы организации"
   :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
-            {:value "ИНН"  :description "Номер налого платильщика"}]}
-
- Associaiton
- {}
-
- Department
- {}}
+            {:value "ИНН"  :description "Номер налого платильщика"}]}}
