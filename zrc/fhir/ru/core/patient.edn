@@ -17,25 +17,24 @@
                        :type zen/vector
                        :every {:confirms #{fhir/Identifier}
                                :type zen/map
-                               :require #{:type :system :value}
-                               :keys {:type {:type zen/map
-                                             :zen/desc "Тип идентификатора"
-                                             :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :required}
-                                             :keys {:coding {:type zen/vector
-                                                             :zen/desc "vs: http://fhir.ru/core/vs/core-vs-identifier-type"
-                                                             :every {:confirms #{fhir/Coding}
-                                                                     :type zen/map
+                              ;; :require #{:type :system :value}
+                              ;;  :keys {:type {:type zen/map
+                              ;;                :zen/desc "Тип идентификатора"
+                              ;;                :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :required}
+                              ;;                :keys {:coding {:type zen/vector
+                              ;;                                :zen/desc "vs: http://fhir.ru/core/vs/core-vs-identifier-type"
+                              ;;                                :every {:confirms #{fhir/Coding}
+                              ;;                                        :type zen/map
 
-                                                                     :keys {:system {:type zen/string}
-                                                                            :code {:type zen/string}
-                                                                            :display {:type zen/string}}}}
-                                                    :text {:type zen/string}}}
-                                      :system {:type zen/string}
-                                      :value {:type zen/string}
-                                      ;; :period {}
-                                      ;; :assigner {}
-                                      ;; :use {}
-                                      }}
+                              ;;                                        :keys {:system {:type zen/string}
+                              ;;                                               :code {:type zen/string}
+                              ;;                                               :display {:type zen/string}}}}
+                              ;;                       :text {:type zen/string}}}
+                              ;;         :system {:type zen/string}
+                              ;;        :value {:type zen/string}
+
+                              ;;         }}
+                               }
                        :slicing
                        {:slices
                         {"PassportRF"
@@ -94,8 +93,6 @@
                           :filter
                           {:engine :match
                            :match {:system "https://fhir.ru/id/newborn"}}}}}}
-          ;; :active {:type zen/boolean
-                  ;;  :zen/desc "Признак активной действующей записи о пациенте"}
           :name {:zen/desc "ФИО пациента"
                  :type zen/vector
                  :every {:confirms #{fhir/HumanName}
@@ -109,10 +106,7 @@
                                                 :type zen/string}}
                                 :family {:zen/desc "Фамилия пациента"
                                          :type zen/string}}}}
-          ;; :telecom {:zen/desc "Контактные данные пациента"
-          ;;           :type zen/vector
-          ;;           :every {:confirms #{fhir/ContactPoint}
-          ;;                   :type zen/map}}
+
           :gender {:zen/desc "Пол пациента"
                    :confirms #{fhir/code}
                    :type zen/string
@@ -120,32 +114,10 @@
                           {:value "female"}
                           {:value "unknown"}]
                    :zen.fhir/value-set {:symbol CoreVsAdministrativeGender :strength :required}}
-          ;; :birthDate {:zen/desc "Дата рождения пациента"
-          ;;             :type zen/string
-          ;;             :confirms #{fhir/date}}
           :address {:zen/desc "Адрес пациента"
                     :type zen/vector
                     :every {:confirms #{fhir.ru.core.address/CoreAddress}
-                            :type zen/map}}
-          ;; :generalPractitioner {:type zen/vector
-          ;;                       :every
-          ;;                       {:confirms #{fhir/Reference  zen.fhir/Reference}
-          ;;                        :type zen/map
-          ;;                        :zen.fhir/reference
-          ;;                        {:refers
-          ;;                         #{fhir/PractitionerRole
-          ;;                           fhir/Organization
-          ;;                           fhir/Practitioner}}
-          ;;                        :zen/desc "Семейный врач, прикрепленная поликлиника"}}
-          ;; :managingOrganization {:type zen/map
-          ;;                        :confirms #{fhir/Reference zen.fhir/Reference}
-          ;;                        :zen.fhir/reference
-          ;;                        {:refers #{fhir/Organization}}
-          ;;                        :zen/desc
-          ;;                        "Организация-хранитель записи о пациенте"}
-          }}
-
-
+                            :type zen/map}}}}
 
   CoreVsAdministrativeGender
   {:zen/tags #{zen.fhir/value-set}
