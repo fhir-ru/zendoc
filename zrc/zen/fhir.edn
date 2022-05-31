@@ -89,6 +89,13 @@
   :type     zen/map
   :require  #{:zen.fhir/profileUri}}
 
+ extension
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Extension"
+  :confirms #{structure-schema}
+  :type     zen/map
+  :require  #{:zen.fhir/profileUri}}
+
  search
  {:zen/tags #{zen/schema zen/tag}
   :zen/desc "This symbol defines search on a FHIR resource type"
