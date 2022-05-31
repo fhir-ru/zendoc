@@ -1,1 +1,24 @@
-:title "Extensions"
+^hide
+:menu-order 12
+
+^hide
+:icon [:fa-solid :fa-notes-medical]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-04"
+
+^badge
+:type :ig
+
+:title "Реестр расширений"
+
+:toc

@@ -1,4 +1,27 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-square-plus]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-05-27"
+
+^badge
+:type :ig
+
 :title "core-ex-diagnosis-type"
+
+:toc
 
 ^title "Профиль"
 ^zen/schema
