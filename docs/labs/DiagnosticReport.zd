@@ -5,7 +5,7 @@
 :icon [:fa-solid :fa-user]
 
 ^badge
-:groups #{groups.labs}
+:groups #{groups.lab}
 
 ^badge
 :status :draft
