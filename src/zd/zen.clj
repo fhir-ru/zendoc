@@ -19,20 +19,19 @@
 
 (defn type-icon [tp confirms extension]
   [:div {:class (cls
-                 (cond-> 
-                     [(c [:w 4] [:h 4]
-                         :text-xs
-                         :flex
-                         :items-center
-                         :justify-center
-                         :shadow
-                         [:text :gray-700]
-                         {:border-radius "4px"
-                          :border "1px solid #ccc"
-                          :font-size "9px"})]
-                     extension (conj (c [:bg :green-200]))
-                     (not extension) (conj (c [:bg :gray-300]))
-                     ))}
+                 (cond->
+                  [(c [:w 4] [:h 4]
+                      :text-xs
+                      :flex
+                      :items-center
+                      :justify-center
+                      :shadow
+                      [:text :gray-700]
+                      {:border-radius "4px"
+                       :border "1px solid #ccc"
+                       :font-size "9px"})]
+                   extension (conj (c [:bg :green-200]))
+                   (not extension) (conj (c [:bg :gray-300]))))}
    (cond
      (contains-name? confirms "Coding") [:div.fa-solid.fa-tag]
      (contains-name? confirms "CodeableConcept") [:div.fa-solid.fa-tags]
@@ -101,10 +100,10 @@
                                      :valueset (:valueset sch)
                                      :desc (:zen/desc sch)})))]
     (cond
-      
+
       (= tp 'zen/map)
       (let [ks (->> (if (:match opts)
-                      (select-keys 
+                      (select-keys
                        (:keys sch)
                        (keys (:match opts)))
                       (:keys sch))
@@ -114,20 +113,44 @@
           (if (nil? k)
             res
             (recur ks
-             (flatten-sch res
-                          (conj pth {:key k :last (empty? ks)}) v
-                          {:require (contains? (:require sch) k)
-                           :const   (get-in opts [:match k])}
-                          ztx)))))
+                   (flatten-sch res
+                                (conj pth {:key k :last (empty? ks)}) v
+                                {:require (contains? (:require sch) k)
+                                 :const   (get-in opts [:match k])}
+                                ztx)))))
       (= tp 'zen/vector)
       (cond
         (get-in sch [:every :keys])
-        (flatten-sch res
-                     pth
-                     (:every sch)
-                     {:skip true}
-                     ztx)
-
+        (if (:slicing sch)
+          (let [r (flatten-sch res
+                               pth
+                               (:every sch)
+                               {:skip true}
+                               ztx)
+                confirm-schema (zen.core/get-symbol ztx (-> sch :every :confirms first))]
+            (loop [slices (-> sch :slicing :slices seq) acc r]
+              (if (seq slices)
+                (let [[slice-name slice-data] (first slices)]
+                  (recur (rest slices)
+                         (flatten-sch acc
+                                      (conj pth {:key slice-name :last (empty? (rest slices))})
+                                      (assoc (merge confirm-schema
+                                                    (:every (:schema slice-data)))
+                                             :zen/desc (-> slice-data :zen/desc)
+                                             :confirms (:confirms (:every sch)))
+                                      {:match (merge (->> (-> slice-data :schema :every :require)
+                                                          (mapv (fn [v] [v nil]))
+                                                          (into {}))
+                                                     (-> slice-data :filter :match))
+                                       :minItems (-> slice-data :schema :minItems)
+                                       :maxItems (-> slice-data :schema :maxItems)}
+                                      ztx)))
+                acc)))
+          (flatten-sch res
+                       pth
+                       (:every sch)
+                       {:skip true}
+                       ztx))
         (:slicing sch)
         (let [confirm-schema (zen.core/get-symbol ztx (-> sch :every :confirms first))]
           (loop [slices (-> sch :slicing :slices seq) acc res]
@@ -137,7 +160,7 @@
                        (flatten-sch acc
                                     (conj pth {:key slice-name :last (empty? (rest slices))})
                                     (assoc (merge confirm-schema
-                                                  (:every (:schema slice-data))) 
+                                                  (:every (:schema slice-data)))
                                            :zen/desc (-> slice-data :zen/desc)
                                            :confirms (:confirms (:every sch)))
                                     {:match (merge (->> (-> slice-data :schema :every :require)
@@ -149,7 +172,7 @@
                                     ztx)))
               acc)))
         :else res)
-      
+
       :else res)))
 
 (defn schema-name [sym]
@@ -157,11 +180,11 @@
     (if (= "schema" (name sym))
       (last (str/split (namespace sym) #"\."))
       (name sym))
-    #_(str 
-     (->> (str/split (namespace sym) #"\.")
-          (mapv first)
-          (str/join "."))
-     "/" (name sym))))
+    #_(str
+       (->> (str/split (namespace sym) #"\.")
+            (mapv first)
+            (str/join "."))
+       "/" (name sym))))
 
 (defn schema-connectors [pth]
   (let [lvl (count pth)
@@ -227,10 +250,9 @@
 (defn effective-schema [ztx sch-name]
   (let [sch   (zen.core/get-symbol ztx sch-name)
         sch (->> (:confirms sch)
-                    (reduce
-                     (fn [acc nm]
-                       (deep-merge (effective-schema ztx nm) acc)
-                       ) sch))]
+                 (reduce
+                  (fn [acc nm]
+                    (deep-merge (effective-schema ztx nm) acc)) sch))]
     (clear-primitives sch)))
 
 (defn schema-table [sch & [ztx]]
@@ -244,7 +266,7 @@
              [:th {:class th-style} "Описание"]))]
     (for [{pth :path :as row} (flatten-sch [] [] sch {:name (:zen/name sch)} ztx)]
       [:tr
-       [:td {:class (c :text-sm)} 
+       [:td {:class (c :text-sm)}
         (into (schema-connectors pth)
               [(type-icon (:type row) (:confirms row) (:extension row))
                [:div {:class (c [:ml 3])}
@@ -257,8 +279,8 @@
         (if (:confirms row)
           (str/join ", " (mapv schema-name (:confirms row)))
           (when-let [t (:type row)] (schema-name t)))]
-       
-       [:td {:class (c [:text :gray-700] :text-xs )}
+
+       [:td {:class (c [:text :gray-700] :text-xs)}
         (when-let [d (:desc row)]
           [:div {:class (c :text-xs [:text :gray-700])} d])
         (when-let [d (:const row)]
@@ -276,7 +298,7 @@
           (str "vs:" (:id vs)))
         (when-let [enum (:enum row)]
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
-           [:b "enum:" ]
+           [:b "enum:"]
            (for [{v :value} enum]
              [:span v ";"])])]])]])
 
@@ -314,8 +336,7 @@ table.schema td {}
 
 (def tab-cls
   (c [:px 2] :cursor-pointer {:margin-bottom "-1px" :border-bottom "2px solid transparent"}
-     [:hover [:bg :gray-100]])
-  )
+     [:hover [:bg :gray-100]]))
 
 (defn get-schema&path-from-error [{:keys [schema]}]
   (let [[schema? schema-or-path?] (take-last 2 (partition-by symbol? schema))]
@@ -328,10 +349,10 @@ table.schema td {}
 (defn schema-path [schema path]
   (->> path
        (mapcat
-         (fn [x]
-           (if (= :every x)
-             [x]
-             [:keys x])))
+        (fn [x]
+          (if (= :every x)
+            [x]
+            [:keys x])))
        vec))
 
 (defn get-error-schema [ztx error-message]

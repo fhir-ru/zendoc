@@ -17,24 +17,20 @@
                        :type zen/vector
                        :every {:confirms #{fhir/Identifier}
                                :type zen/map
-                              ;; :require #{:type :system :value}
-                              ;;  :keys {:type {:type zen/map
-                              ;;                :zen/desc "Тип идентификатора"
-                              ;;                :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :required}
-                              ;;                :keys {:coding {:type zen/vector
-                              ;;                                :zen/desc "vs: http://fhir.ru/core/vs/core-vs-identifier-type"
-                              ;;                                :every {:confirms #{fhir/Coding}
-                              ;;                                        :type zen/map
-
-                              ;;                                        :keys {:system {:type zen/string}
-                              ;;                                               :code {:type zen/string}
-                              ;;                                               :display {:type zen/string}}}}
-                              ;;                       :text {:type zen/string}}}
-                              ;;         :system {:type zen/string}
-                              ;;        :value {:type zen/string}
-
-                              ;;         }}
-                               }
+                               :require #{:type :system :value}
+                               :keys {:type {:type zen/map
+                                             :zen/desc "Тип идентификатора"
+                                             :keys {:coding {:type zen/vector
+                                                             :zen/desc "vs: http://fhir.ru/core/vs/core-vs-identifier-type"
+                                                             :every {:confirms #{fhir/Coding}
+                                                                     :type zen/map
+                                                                     :keys {:system {:type zen/string}
+                                                                            :code {:type zen/string
+                                                                                   :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :required}}
+                                                                            :display {:type zen/string}}}}
+                                                    :text {:type zen/string}}}
+                                      :system {:type zen/string}
+                                      :value {:type zen/string}}}
                        :slicing
                        {:slices
                         {"PassportRF"
