@@ -20,6 +20,135 @@
 
 :toc
 
+^title "Разработка проекта"
+:project md/
+
+^title "Запуск проекта локально через docker-compose"
+:project:local md/
+
+* Склонировать себе [проект](https://github.com/fhir-ru/zendoc/):
+
+```code bash
+git clone git@github.com:fhir-ru/zendoc.git
+```
+либо так, если хотите переименовать папку:
+
+```code bash
+git clone git@github.com:fhir-ru/zendoc.git fhir-ru
+```
+
+* Запустить [docker](https://docs.docker.com/desktop/windows/install/)
+* Зайти в папку проекта:
+
+```code bash
+cd zendoc
+```
+или 
+
+```code bash
+cd fhir-ru
+```
+
+* Инициализировать сабмодули:
+
+```code bash
+git submodule init
+git submodule update --recursive
+```
+
+* Открыть проект в VSCODE с помощью команды в терминале:
+
+```code bash
+code ./
+```
+
+* В VSCODE перейти в терминал и запустить команду:
+
+```code bash
+docker-compose up -d
+```
+
+либо с логами:
+
+```code bash
+docker-compose logs -f
+```
+
+* Когда процесс выполнится, открыть в браузере страницу [http://localhost:3333/](http://localhost:3333/)
+* Внести изменения в файлы проекта, рефрешнуть страницу в браузере
+
+* Остановить докер:
+
+```code bash
+docker-compose stop
+```
+
+^title "Обновление проекта"
+:project:update md/
+
+* Скачать последнюю версию:
+
+```code bash
+git pull
+```
+
+* Обновить сабмодули:
+
+```code bash
+git submodule update --recursive
+```
+
+^title "Отправка ваших изменений на сервер"
+:project:commit md/
+
+Проверка статуса:
+
+```code bash
+git status
+```
+
+Скачать последнюю версию, чтобы избежать мержа:
+
+```code bash
+git pull
+```
+
+Добавление всех измененных и новых файлов к коммиту:
+
+```code bash
+git add .
+```
+
+Добавить только модифицированные файлы:
+
+```code bash
+git add -u
+```
+
+Дать наименование коммиту:
+
+```code bash
+git commit -m "Ваш текст-пояснение к коммиту"
+```
+
+Отправить ваш коммит на сервер:
+
+```code bash
+git push
+```
+
+Если нужно временно спрятать свои локальные изменения:
+
+```code bash
+git stash
+```
+
+Достать спрятанные изменения обратно:
+
+```code bash
+git stash apply
+```
+
 ^title "Введение"
 :description md/
 
