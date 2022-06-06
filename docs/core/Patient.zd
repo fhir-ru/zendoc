@@ -1,7 +1,6 @@
 ^hide
 :menu-order 1
 
-
 :icon [:fa-solid :fa-user]
 
 ^badge
@@ -20,6 +19,71 @@
 ^zen/schema
 :profile fhir.ru.core.patient/CorePatient
 
+^collapse
+^title "Пример ресурса"
+:example-1 md/
+
+Пример в JSON-формате для проверки во встроенном Zen-валидаторе (вкладка Validate над схемой).
+Этот пример должен успешно пройти валидацию, так как для паспорта указан тип идентификатора.
+
+```code json
+{
+  "name": [{
+      "use": "official",
+      "given": [
+        "BARBARA",
+        "A"
+      ],
+      "family": "KENNEDY"
+    }
+  ],
+  "gender": "female",
+  "address": [{
+      "city": "Москва",
+      "line": [
+        "Арбат"
+      ],
+      "state": "MO",
+      "country": "РФ",
+      "postalCode": "64083"
+    }
+  ],
+  "birthDate": "1961-03-03",
+  "identifier": [{
+      "use": "official",
+      "value": "00665282",
+      "system": "mrn",
+      "type": {
+        "text": "Номер медицинской карты",
+        "coding": [{
+            "code": "MR",
+            "display": "Medical record number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      }
+    }, {
+      "value": "100160728281",
+      "system": "https://fhir.ru/id/passport-rf",
+      "type": {
+        "text": "Паспорт гражданина Российской Федерации",
+        "coding": [{
+            "code": "PPN",
+            "display": "Passport number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }, {
+            "code": "1",
+            "display": "Паспорт гражданина Российской Федерации",
+            "system": "http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+          }
+        ]
+      }
+    }
+  ],
+  "id": "002ab5bc-6ba1-4de2-89ee-6afe55d685ff",
+  "resourceType": "Patient"
+}
+```
 
 
 ^title "Идентификаторы пациента (identifier)"
@@ -33,9 +97,9 @@
 ^title "Документы, удостоверяющие личность"
 :identification-documents md/
 
-При передаче документа, удостоверяющего личность пациента, в атрибуте Identifier.Type необходимо указать значение из [ValuSet Core-vs-identification-documents](http://fhir-ru.zendoc.me/core.vs-identification-documents), основанном на справочнике НСИ ЕГИСЗ [Документы удостоверяющие личность]( https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48 )
-Если для данного документа подходит значение типа из базовой спецификации FHIR, необходимо в Identifier.Type указать также и это значение. Например, для паспорта гражданина РФ указываем типы [1, PPN], а для свидетельства о рождении тип [6]. 
-При определении соответствия [кода документа, удостоверяющего личность]( https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48), и Identifier Type Code необходимо использовать [маппинг](http://fhir-ru.zendoc.me/core.vs-identification-documents:identifier-types)
+При передаче документа, удостоверяющего личность пациента, в атрибуте Identifier.type необходимо указать значение из #valuesets.vs-identification-documents, основанном на справочнике НСИ ЕГИСЗ [Документы, удостоверяющие личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48).
+Если для данного документа подходит значение типа из базовой спецификации FHIR, необходимо в Identifier.type указать также и это значение первым элементом. Например, для паспорта гражданина РФ указываем типы [PPN, 1], а для свидетельства о рождении тип [6]. 
+При определении соответствия [кода документа, удостоверяющего личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48) и Identifier Type Code, необходимо использовать маппинг #valuesets.vs-identifier-type
 
 Дискуссия: [[d 111]]
 
@@ -43,9 +107,9 @@
 :insurance-number md/
 
 При регистрации полиса ОМС в качестве идентификатора пациента необходимо указать следующее:
-* Identifier.Value = номер полиса, 
-* Identifier.System – [Единый реестр застрахованных лиц](http://fhir-ru.zendoc.me/systems.ffoms-erz),
-* Identifier.Type = NIIP
+* Identifier.value = номер полиса 
+* Identifier.system = Единый реестр застрахованных лиц #systems.ns-ffoms-erz
+* Identifier.type = NIIP
 
 Дискуссия: [[d 82]]
 
@@ -55,16 +119,16 @@
 
 В МИС обычно есть внутренний номер пациента, не обязательно равный номеру медицинской карты. В амбулаторной ситуации, когда у пациента карта одна, они могут совпадать. В ситуации стационара карта заводится на каждую госпитализацию, поэтому номер пациента в системе один, а номеров карт много.
 
-При передаче номера пациента в МИС в качестве Patient.Identifier необходимо указать следующее:
-* Identifier.System = уникальный идентификатор инсталляции МИС. 
+При передаче номера пациента в МИС в качестве Patient.identifier необходимо указать следующее:
+* Identifier.system = уникальный идентификатор инсталляции МИС. 
 ..* Для каждой инсталляции системы, в которой независимо присваиваются номера пациентам, необходимо создавать отдельный идентификатор 
 ..* В случае, если предполагается обмен данными с ЕГИСЗ, рекомендуется использовать формат идентификатора МИС - OID, созданный по правилу СЭМД ЕГИСЗ: OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.10
 ..* При этом, медицинская организация, эксплуатирующая экземпляры МИС, обязана определить для каждого такого экземпляра свой Номер МИС 
 ..* В случае, когда идентификатор МИС не предполагается использовать при взаимодействии с ЕГИСЗ, допускается использование GUID
-* Identifier.Assigner – медицинская организация - владелец информационной системы, выдавшей идентификатор (не организация-поставщик МИС)
-* Identifier.Type = PI
+* Identifier.assigner – медицинская организация - владелец информационной системы, выдавшей идентификатор (не организация-поставщик МИС)
+* Identifier.type = PI
 
-Дискуссия 128: https://github.com/fhir-ru/core/discussions/128
+Дискуссия: [[d 128]]
 
 [Предыдущие обсуждения идетификаторов пациента, 2019-2020](https://github.com/fhir-ru/core/issues/2)
 
@@ -99,16 +163,15 @@ name:
 ```
 
 * [Предыдущее решение](https://github.com/fhir-ru/core/issues/3)
-* Дискуссия про отчество [[d 31 ]]
-
+* Дискуссия про отчество: [[d 31 ]]
 
 ^disc 34
 ^title "Пол (gender)"
 :elements.gender md/
 
-* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с [Value Set core-vs-administrative-gender](http://fhir-ru.zendoc.me/core.vs-administrative-gender). Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со [справочником НСИ ЕГИСЗ](http://fhir-ru.zendoc.me/systems.rosminzdrav-gender).
-* В Ru Core [определены маппинги](http://fhir-ru.zendoc.me/systems.rosminzdrav-gender), позволяющие перевести значения пола пациента из кодов FHIR в коды НСИ ЕГИСЗ и наоборот
-* В таблице ниже приведены соответствия кодов по указанным справочникам и, дополнительно, по справочнику ФФОМС
+* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с #valuesets.vs-administrative-gender . Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со справочником НСИ ЕГИСЗ #systems.cs-rosminzdrav-gender .
+* В Ru Core определены маппинги #systems.cs-rosminzdrav-gender , позволяющие перевести значения пола пациента из кодов FHIR в коды НСИ ЕГИСЗ и наоборот.
+* В таблице ниже приведены соответствия кодов по указанным справочникам и, дополнительно, по справочнику ФФОМС.
 
 ```table
  FHIR ValueSet  | НСИ Минздрава | НСИ ФОМС |
@@ -117,127 +180,18 @@ name:
  Other (не используется в RuCore)| - | -|
  Unknown| Неопределенный| -|
 ```
-
-
 ^disc 83
 ^title "Адрес (address)"
 :elements.address md/
 
-Должен использоваться [профиль RuCore-Address](http://fhir-ru.zendoc.me/core.address), содержащий расширение для кода адреса для ФИАС и кода дома по ФИАС.
-
-...
-
-^title "Примеры"
-:examples md/
-
-
-^title "Пример срабатывания валидации"
-:example-1 md/
-
-Пример в JSON-формате для проверки во встроенном Zen-валидаторе (вкладка Validate над схемой).
-Этот пример должен вызвать ошибку валидации, так как для паспорта не указан тип идентификатора.
-
-```code json
-{
-  "name": [{
-      "use": "official",
-      "given": [
-        "BARBARA",
-        "A"
-      ],
-      "family": "KENNEDY"
-    }
-  ],
-  "gender": "female",
-  "address": [{
-      "city": "Москва",
-      "line": [
-        "Арбат"
-      ],
-      "state": "MO",
-      "country": "РФ",
-      "postalCode": "64083"
-    }
-  ],
-  "birthDate": "1961-03-03",
-  "identifier": [{
-      "use": "official",
-      "value": "00665282",
-      "system": "mrn"
-    }, {
-      "value": "100160728281",
-      "system": "https://fhir.ru/id/passport-rf"
-    }
-  ],
-  "id": "002ab5bc-6ba1-4de2-89ee-6afe55d685ff",
-  "resourceType": "Patient"
-}
-```
-
-^title "Пример успешной валидации"
-:example-2 md/
-
-Пример в JSON-формате для проверки во встроенном Zen-валидаторе (вкладка Validate над схемой).
-Этот пример должен успешно пройти валидацию, так как для паспорта тип идентификатора указан.
-
-```code json
-{
-  "name": [{
-      "use": "official",
-      "given": [
-        "BARBARA",
-        "A"
-      ],
-      "family": "KENNEDY"
-    }
-  ],
-  "gender": "female",
-  "address": [{
-      "city": "Москва",
-      "line": [
-        "Арбат"
-      ],
-      "state": "MO",
-      "country": "РФ",
-      "postalCode": "64083"
-    }
-  ],
-  "birthDate": "1961-03-03",
-  "identifier": [{
-      "use": "official",
-      "value": "00665282",
-      "system": "mrn"
-    }, {
-      "value": "100160728281",
-      "system": "https://fhir.ru/id/passport-rf",
-      "type": {
-        "text": "Паспорт гражданина Российской Федерации",
-        "coding": [{
-            "code": "PPN",
-            "display": "Passport number",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-          }, {
-            "code": "1",
-            "display": "Паспорт гражданина Российской Федерации",
-            "system": "http://fhir.ru/core/cs/core-cs-nsi-identity-document"
-          }
-        ]
-      }
-    }
-  ],
-  "id": "002ab5bc-6ba1-4de2-89ee-6afe55d685ff",
-  "resourceType": "Patient"
-}
-```
-
-
+Должен использоваться профиль #core.address , содержащий расширение для кода адреса для ФИАС и кода дома по ФИАС.
 
 ^title "Использование типа в идентификаторах"
 :elements.identifier.type md/
 
 У типа данных [Identifier](http://hl7.org/fhir/datatypes.html#Identifier) есть поле type с привязкой к набору значений типа Extensible.
 
-[Extensible](http://hl7.org/fhir/terminologies.html#extensible) предписывает, что для соответствия стандарту, 
+[Extensible](http://hl7.org/fhir/terminologies.html#extensible) предписывает, что для соответствия стандарту
 коды в данном элементе ДОЛЖНЫ быть из указанного набора значений, ЕСЛИ хоть один код из этого набора значений 
 может быть использован для передачи концепта.
 
@@ -248,7 +202,6 @@ name:
 Также можно указать более специфичное значение, более полно представляющее передаваемый концепт, 
 в виде дополнительного значения из справочника (Coding), если тип элемента CodeableConcept, 
 но оно НЕ МОЖЕТ использоваться вместо кода из привязанного набора значений.
-
 
 ^table
 ^title "Авторы"
