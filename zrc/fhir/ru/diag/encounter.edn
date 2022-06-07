@@ -40,7 +40,14 @@
                                                 :schema {:type zen/vector
                                                          :every
                                                          {:type zen/map
-                                                          :require #{:condition :diagnosisType :diagnosisRubric}}}}
+                                                          :require #{:condition :diagnosisType :diagnosisRubric}
+                                                          :keys {:diagnosisRubric {:type zen/map
+                                                                                   :confirms #{CoreDiagnosisRubric}
+                                                                                   :zen/desc "Рубрика диагноза vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
+                                                                                   :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
+                                                                                   :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricMain
+                                                                                                        :strength :required
+                                                                                                        :zen/desc "CoreVsDiagnosisRubricMain"}}}}}}
                                         "additional" {:zen/desc "Сопутствующий"
                                                       :filter {:engine :zen
                                                                :zen {:confirms #{DxSliceAdditional}}}
@@ -48,14 +55,28 @@
 
                                                                :every
                                                                {:type zen/map
-                                                                :require #{:condition :diagnosisType :diagnosisRubric}}}}
+                                                                :require #{:condition :diagnosisType :diagnosisRubric}
+                                                                :keys {:diagnosisRubric {:type zen/map
+                                                                                         :confirms #{CoreDiagnosisRubric}
+                                                                                         :zen/desc "Рубрика диагноза vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl"
+                                                                                         :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
+                                                                                         :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricCompl
+                                                                                                              :strength :required
+                                                                                                              :zen/desc "CoreVsDiagnosisRubricCompl"}}}}}}
                                         "complication" {:zen/desc "Осложнение"
                                                         :filter {:engine :zen
                                                                  :zen {:confirms #{DxSliceComplication}}}
                                                         :schema {:type zen/vector
                                                                  :every
                                                                  {:type zen/map
-                                                                  :require #{:condition :diagnosisType :diagnosisRubric}}}}}
+                                                                  :require #{:condition :diagnosisType :diagnosisRubric}
+                                                                  :keys {:diagnosisRubric {:type zen/map
+                                                                                           :confirms #{CoreDiagnosisRubric}
+                                                                                           :zen/desc "Рубрика диагноза vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-supl"
+                                                                                           :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
+                                                                                           :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricSupl
+                                                                                                                :strength :required
+                                                                                                                :zen/desc "CoreVsDiagnosisRubricSupl"}}}}}}}
                                :rest {:type zen/vector
                                       :minItems 0
                                       :maxItems 0
@@ -99,6 +120,31 @@
                         :zen.fhir/content :not-present}}
   :zen.fhir/version "0.5.8"
   :uri "http://fhir.ru/core/vs/core-vs-diagnosis-rubric"}
+
+ CoreVsDiagnosisRubricMain
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "CoreVsDiagnosisRubricMain"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
+                        :zen.fhir/content :not-present}}
+  :zen.fhir/version "0.5.8"
+  :uri "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"}
+
+ CoreVsDiagnosisRubricCompl
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "CoreVsDiagnosisRubricCompl"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
+                        :zen.fhir/content :not-present}}
+  :zen.fhir/version "0.5.8"
+  :uri "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl"}
+
+
+ CoreVsDiagnosisRubricSupl
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "CoreVsDiagnosisRubricSupl"
+  :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
+                        :zen.fhir/content :not-present}}
+  :zen.fhir/version "0.5.8"
+  :uri "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-supl"}
 
 
  ConstraintRule1
