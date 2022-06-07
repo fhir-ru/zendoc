@@ -77,11 +77,11 @@
 ^table
 :code-systems-register
 [
-    {:Система systems.rosminzdrav-gender :URI ((resource systems.rosminzdrav-gender :system)) :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
-    {:Система systems.ffoms-gender :URI ((resource systems.ffoms-gender :system)) :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
-    {:Система systems.nsi-identity-documents :URI ((resource systems.nsi-identity-documents :system)) :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
-    {:Система "Справочник Степень обоснованности диагноза" :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :OID "1.2.643.5.1.13.13.99.2.795" :Описание "НСИ Минздрава Справочник Степень обоснованности диагноза"}     
-    {:Система "Справочник Виды нозологических единиц диагноза" :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :OID "1.2.643.5.1.13.13.11.1077" :Описание "НСИ Минздрава Справочник Виды нозологических единиц диагноза"}     
+    {:Система systems.cs-rosminzdrav-gender :URI ((resource systems.rosminzdrav-gender :system)) :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
+    {:Система systems.cs-ffoms-gender :URI ((resource systems.ffoms-gender :system)) :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
+    {:Система systems.cs-nsi-identity-document :URI ((resource systems.nsi-identity-document :system)) :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
+    {:Система systems.cs-nsi-diagnosis-justification-degree :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :OID "1.2.643.5.1.13.13.99.2.795" :Описание "НСИ Минздрава Справочник Степень обоснованности диагноза"}     
+    {:Система systems.cs-nsi-diagnosis-nosology-kind :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :OID "1.2.643.5.1.13.13.11.1077" :Описание "НСИ Минздрава Справочник Виды нозологических единиц диагноза"}     
 ]
 
 ^title "Реестр систем идентификаторов"
