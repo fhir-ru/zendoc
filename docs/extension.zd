@@ -32,3 +32,8 @@
    
     ]
 
+^title "Extensions"
+:tag zen.fhir/extension
+
+^title "Profiles"
+:tag zen.fhir/profile-schema
