@@ -488,3 +488,50 @@ zendoc-->resource
 resource-->db
 document-->db
 db[(Database)]
+
+^title "Вкладки"
+:tabs:doc md/
+
+Вкладки можно вставить с помощью блоков с аннотациями, где
+`tabs` — контейнер, `tab-title` — название вкладки, `tab-content` — ее содержимое,
+путь задает саму вкладку, он обязательно должен быть внутри контейнера.
+
+Пример:
+
+```code edn
+    ^tabs
+    :tabs-example
+    ^tab-title
+    ~:json:title "JSON"
+    ^tab-content
+    ~:json:content md/
+
+    **Hello**
+
+    ```code json
+        {"key": "value"}
+    ```
+
+    ^tab-title
+    ~:yaml:title "YAML"
+    ^tab-content
+    ~:yaml:content "not written yet"
+```
+
+^tabs
+:tabs-example
+^tab-title
+~:json:title "JSON"
+^tab-content
+~:json:content md/
+
+**Hello**
+
+```code json
+    {"key": "value"}
+```
+
+^tab-title
+~:yaml:title "YAML"
+^tab-content
+~:yaml:content "not written yet"

@@ -137,6 +137,33 @@
     [:pre (str "Could not find " data)]))
 
 
+(defmethod annotation :tabs
+  [nm params]
+  {:block :plain :content :tabs :tabs params})
+
+
+(defmethod render-content :tabs
+  [ztx options]
+  (let [path (:path options)
+        data (->> (get-in options [:page :doc])
+                  (filter #(#{:tab-title :tab-content} (get-in % [:annotations :type])))
+                  (filterv #(= (subvec (:path %) 0 (count path)) path))
+                  (reduce (fn [acc block]
+                            (assoc-in acc (subvec (:path block) (count path))
+                                      (render-content ztx block))) {}))
+        id (->> (:path options)
+                (mapv #(str/replace % "_" "__"))
+                (str/join "_"))]
+    (zd.zen/render-tabs id data (first (keys data)))))
+
+(defmethod annotation :tab-title
+  [nm params]
+  {:block :none :type :tab-title})
+
+(defmethod annotation :tab-content
+  [nm params]
+  {:block :none :type :tab-content})
+
 (defmethod annotation :table-of
   [nm params]
   {:content :table-of :table-of params})

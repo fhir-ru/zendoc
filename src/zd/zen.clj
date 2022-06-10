@@ -355,7 +355,7 @@
 table.schema {width: 100%;}
 table.schema tr:nth-child(even) {background: rgba(247,250,252,var(--bg-opacity));}
 table.schema td {}
-.zd-tabs .active { border-bottom: 2px solid #888; font-weight: 500;}
+.tabs .active { border-bottom: 2px solid #888; font-weight: 500;}
 
 .tabs {
   display: flex;
@@ -461,6 +461,16 @@ table.schema td {}
                (str schema-name)))))
        (distinct)))
 
+(defn render-tabs [sch-name tabs active]
+  (let [id (str sch-name)]
+    [:div style
+     [:div {:class (cls ["tabs" (c [:space-y 2])])}
+      (for [[tab-key {tab-name :title tab-content :content}] tabs]
+        (list [:input {:type "radio" :name "tabs" :id (str id "-" tab-key)
+                       :checked (when (= tab-key active) "checked")}]
+              [:label {:class (cls ["tabh" tab-cls]) :for (str id "-" tab-key)} tab-name]
+              [:div {:class (cls ["tabe" (c :hidden [:mx 2])])} tab-content]))]]))
+
 (defn render-schema [ztx sch-name & [options]]
   (let [sch (zen.core/get-symbol ztx sch-name)
         snapshot (effective-schema ztx sch-name)
@@ -469,30 +479,22 @@ table.schema td {}
         (-> options :page :request :params (get "form-type"))
         active-tab
         (if (= "validation" form-type-request)
-          :validation
+          :validate
           :differential)]
-    [:div.zd-tabs style
-     [:div {:class (cls ["tabs" (c [:space-y 2])])}
-
-      [:input {:type "radio" :name "tabs" :id (str id "-diff")
-               :checked (when (= :differential active-tab) "checked")}]
-      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-diff")} "Differential"]
-      [:div {:class (cls ["tabe" (c :hidden [:mx 2])])} (schema-table sch ztx)]
-
-      [:input {:type "radio" :name "tabs" :id (str id "-snap")}]
-      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-snap")} "Snapshot"]
-      [:div {:class (cls ["tabe" (c :hidden [:mx 2])])} (schema-table snapshot ztx)]
-
-      [:input {:type "radio" :name "tabs" :id (str id "-validate")
-               :checked (when (= :validation active-tab) "checked")}]
-      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-validate")} "Validate"]
-      [:div {:class (cls ["tabe" (c :hidden [:mx 2])])}
-       (validation-tab ztx sch-name (when (= "validation" form-type-request)
-                                      (-> options :page :request :params)))]
-
-      [:input {:type "radio" :name "tabs" :id (str id "-schema-errors")}]
-      [:label {:class (cls ["tabh" tab-cls]) :for (str id "-schema-errors")} "Schema errors"]
-      [:div {:class (cls ["tabe" (c :hidden [:mx 2])])}
-       (when-let [schema-errors (seq (get-profile-schema-errors ztx sch-name))]
-         (for [error schema-errors]
-           (zen-message-view ztx sch-name error)))]]]))
+    (render-tabs id
+                 {:differential {:title "Differential"
+                                 :content (schema-table sch ztx)}
+                  :snapshot {:title "Snapshot"
+                             :content (schema-table snapshot ztx)}
+                  :validate {:title "Validate"
+                             :content
+                             (validation-tab ztx sch-name (when (= "validation" form-type-request)
+                                                            (-> options :page :request :params)))
+                             }
+                  :schema-errors {:title "Schema errors"
+                                  :content
+                                  (when-let [schema-errors
+                                             (seq (get-profile-schema-errors ztx sch-name))]
+                                    (for [error schema-errors]
+                                      (zen-message-view ztx sch-name error)))}}
+                 active-tab)))
