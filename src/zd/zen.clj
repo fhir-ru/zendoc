@@ -88,6 +88,7 @@
                                                  (get-in sch [:every :confirms])
                                                  (:confirms sch))
                                      :extension (:fhir/extensionUri sch)
+                                     :const (-> sch :const :value)
                                      :cardinality (format "%s..%s"
                                                           (cond (:require opts) "1"
                                                                 (:minItems opts) (:minItems opts)
