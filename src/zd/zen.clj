@@ -97,7 +97,14 @@
                                                             :else "1"))
                                      :path pth
                                      :enum (:enum sch)
-                                     :valueset (:valueset sch)
+                                     :valueset
+                                     (when-let [valueset (:zen.fhir/value-set sch)]
+                                       (let [schema (zen.core/get-symbol ztx (:symbol valueset))]
+                                         {:zendoc (some-> schema :zendoc name)
+                                          :name (:symbol valueset)
+                                          :description (:zen/desc schema)
+                                          :strength (name (:strength valueset))}))
+                                     
                                      :desc (:zen/desc sch)})))]
     (cond
 
@@ -294,8 +301,14 @@
              [:b "URL: "]
              [:a {:href (str "/extension." extension-name) :target "_blank" :class (c [:text :blue-700])}
               d]]))
-        (when-let [vs (:valueset row)]
-          (str "vs:" (:id vs)))
+        (when-let [valueset (:valueset row)]
+          [:div
+           [:b "Binding: "]
+           [:a {:href  (str "/" (:zendoc valueset))
+                :class (c [:text :blue-600])}
+            (:name valueset) " "
+            [:span (format "(%s): " (:strength valueset))]]
+           [:span (:description valueset)]])
         (when-let [enum (:enum row)]
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
            [:b "enum:"]
