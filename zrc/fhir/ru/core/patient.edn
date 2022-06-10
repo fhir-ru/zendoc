@@ -117,7 +117,7 @@
 
   CoreVsAdministrativeGender
   {:zen/tags #{zen.fhir/value-set}
-   :zendoc   valuesets.vs-administrative-gender
+   :zendoc   'valuesets.vs-administrative-gender
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
    :zen.fhir/version "0.5.8"
    :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
@@ -126,7 +126,7 @@
 
   CoreVsIdentifierType
   {:zen/tags #{zen.fhir/value-set}
-   :zendoc   valuesets.vs-identifier-type
+   :zendoc   'valuesets.vs-identifier-type
    :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что из него исключены некоторые значения и в него добавлены значения из справочника HL7 Version 2 Table 0203."
    :zen.fhir/version "0.5.8"
    :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203"

@@ -101,14 +101,14 @@
                                      :valueset
                                      (when-let [valueset (:zen.fhir/value-set sch)]
                                        (let [schema (zen.core/get-symbol ztx (:symbol valueset))
-                                             zendoc (some-> schema :zendoc name)
-                                             standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")]
-                                         
-                                         {:zendoc zendoc
-                                          :name (or (->> (zd.db/get-doc ztx zendoc) 
-                                                         (filter #(= [:title] (:path %)))
-                                                         (first)
-                                                         (:data))
+                                             standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")
+                                             zendoc (some-> schema :zendoc name (subs 1) symbol)]
+                                         {:zendoc (str zendoc)
+                                          :name (or (and zendoc
+                                                         (->> (zd.db/get-doc ztx zendoc) 
+                                                              (filter #(= [:title] (:path %)))
+                                                              (first)
+                                                              (:data)))
                                                     (and standart?
                                                          (-> (:uri schema)
                                                              (str)
