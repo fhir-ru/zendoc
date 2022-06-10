@@ -2,6 +2,7 @@
   (:require [stylo.core :refer [c c?]]
             [clj-yaml.core]
             [zen.core]
+            [zd.db]
             [clojure.string :as str]
             [clojure.edn]
             [clojure.walk]))
@@ -99,9 +100,32 @@
                                      :enum (:enum sch)
                                      :valueset
                                      (when-let [valueset (:zen.fhir/value-set sch)]
-                                       (let [schema (zen.core/get-symbol ztx (:symbol valueset))]
-                                         {:zendoc (some-> schema :zendoc name)
-                                          :name (:symbol valueset)
+                                       (let [schema (zen.core/get-symbol ztx (:symbol valueset))
+                                             zendoc (some-> schema :zendoc name)
+                                             standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")]
+                                         
+                                         {:zendoc zendoc
+                                          :name (or (->> (zd.db/get-doc ztx zendoc) 
+                                                         (filter #(= [:title] (:path %)))
+                                                         (first)
+                                                         (:data))
+                                                    (and standart?
+                                                         (-> (:uri schema)
+                                                             (str)
+                                                             (clojure.string/split #"/")
+                                                             (last)))
+                                                    (:symbol valueset))
+                                          :page-not-found
+                                          (and (not zendoc)
+                                               (not standart?))
+                                          :uri (:uri schema)
+                                          :strength-ref
+                                          (case (:strength valueset)
+                                            :required   "http://hl7.org/fhir/terminologies.html#required"
+                                            :extensible "http://hl7.org/fhir/terminologies.html#extensible"
+                                            :preferred  "http://hl7.org/fhir/terminologies.html#preferred"
+                                            :example    "http://hl7.org/fhir/terminologies.html#example"
+                                            nil)
                                           :description (:zen/desc schema)
                                           :strength (name (:strength valueset))}))
                                      
@@ -304,10 +328,19 @@
         (when-let [valueset (:valueset row)]
           [:div
            [:b "Binding: "]
-           [:a {:href  (str "/" (:zendoc valueset))
-                :class (c [:text :blue-600])}
-            (:name valueset) " "
-            [:span (format "(%s): " (:strength valueset))]]
+           [:a {:href  (if (:zendoc valueset)
+                         (str "/" (:zendoc valueset))
+                         (:uri valueset))
+                :class (if (:page-not-found valueset)
+                         (c [:text :red-600])
+                         (c [:text :blue-600]))}
+            (:name valueset) " "]
+           [:span
+            "("
+            [:a {:href (:strength-ref valueset)
+                 :class (c [:text :blue-600])}
+             (:strength valueset)]
+            ") "]
            [:span (:description valueset)]])
         (when-let [enum (:enum row)]
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
