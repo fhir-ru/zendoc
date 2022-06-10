@@ -114,7 +114,8 @@
         zrc (str (System/getProperty "user.dir") "/zrc")
         ztx (zen.core/new-context {:zd/paths [pth] :paths [pth zrc]})]
     (zen.core/read-ns ztx 'fhir.ru.core)
-    (zd.core/start ztx (merge {:port 3030} opts))
+    (zd.core/start ztx (merge {:port 3030}
+                              opts))
     (reset! dtx ztx)
     (when-not (:production opts)
       (zen.dev/watch ztx)))
@@ -219,14 +220,20 @@
                                (zd.impl/symbol-link ztx x)]))
                  (apply conj [:div]))]])])]))
 
+(def routes
+  {:GET {:op {:status  302
+              :headers {"Location" "/readme"}}}})
+
 (defn -main [& [port reload :as args]]
   (println :args args)
   ;; (clojure.java.shell/sh "npm" "update" :dir "zrc")
   (start-docs {:production (not reload)
+               :route-map routes
                :port (if port (Integer/parseInt port) 3333)}))
 
 (comment
-  (start-docs {:port 3333})
+  (start-docs {:port 3333
+               :route-map routes})
 
   (stop-docs)
 
