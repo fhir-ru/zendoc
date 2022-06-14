@@ -75,9 +75,6 @@
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
 ^title "Пример 1"
-:examples md/
-
-^title "Пример 1"
 ^tabs
 :tabs-example-simple
 ^tab-title
@@ -161,11 +158,6 @@ diagnosis:
               display: Основной
 
 ```
-
-
-
-^title "Пример 2"
-:example-complex md/
 
 ^title "Пример 2"
 ^tabs
