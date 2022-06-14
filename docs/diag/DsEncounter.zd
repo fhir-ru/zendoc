@@ -75,7 +75,7 @@
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
 
-^title "Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая"."
+^title "Пример 1"
 ^tabs
 :tabs-example1
 ^tab-title
@@ -83,7 +83,7 @@
 ^tab-content
 ~:json:content md/
 
-**Пример 1**
+**"Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая"."**
 
 ```code json
 {
