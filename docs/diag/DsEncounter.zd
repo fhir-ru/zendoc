@@ -74,11 +74,16 @@
 ^zen/schema
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
-^collapse
-^title "Пример 1"
-:example-simple md/
 
-Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+^title "Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая"."
+^tabs
+:tabs-example1
+^tab-title
+~:json:title "FHIR JSON"
+^tab-content
+~:json:content md/
+
+**Пример 1**
 
 ```code json
 {
@@ -119,6 +124,16 @@
         ]
       }
 ```
+
+^tab-title
+~:yaml:title "FHIR YAML"
+^tab-content
+~:yaml:content "not written yet"
+
+:example-simple md/
+
+
+
 ^collapse
 ^title "Пример 2"
 :example-compound md/
