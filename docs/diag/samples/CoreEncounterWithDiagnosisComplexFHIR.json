@@ -1,0 +1,126 @@
+{
+  "resourceType": "Encounter",
+  "id": "CoreEncounterWithDiagnosisValidExampleComplex",
+  "status": "planned",
+  "class": {
+    "code": "IMP",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "inpatient encounter"
+  },
+  "subject": {
+    "reference": "Patient/RuCorePatientInstance",
+    "display": "Иванов Иван Иванович (пациент, соответствующий профилю RuCore - CorePatient)"
+  },
+  "diagnosis": [{
+      "condition": {
+        "reference": "Condition/RuCoreDiagnosisNosologyInstance2",
+        "display": "Нозологическая единица 'I20 Ишемическая болезнь сердца' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
+      },
+      "rank": 1,
+      "extension": [{
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "10",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+                "display": "Клинический диагноз"
+              }
+            ]
+          }
+        }, {
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "8",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+                "display": "Сочетанный"
+              }
+            ]
+          }
+        }
+      ]
+    }, {
+      "condition": {
+        "reference": "Condition/RuCoreDiagnosisNosologyInstance3",
+        "display": "Нозологическая единица 'I49.9 Аритмия' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
+      },
+      "rank": 1,
+      "extension": [{
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "10",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+                "display": "Клинический диагноз"
+              }
+            ]
+          }
+        }, {
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "8",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+                "display": "Сочетанный"
+              }
+            ]
+          }
+        }
+      ]
+    }, {
+      "condition": {
+        "reference": "Condition/RuCoreDiagnosisNosologyInstance4",
+        "display": "Нозологическая единица 'N18 Хроническая болезнь почек' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
+      },
+      "extension": [{
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "10",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+                "display": "Клинический диагноз"
+              }
+            ]
+          }
+        }, {
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "3",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+                "display": "Сопутствующий"
+              }
+            ]
+          }
+        }
+      ]
+    }, {
+      "condition": {
+        "reference": "Condition/RuCoreDiagnosisNosologyInstance5",
+        "display": "Нозологическая единица 'I50 Хроническая сердечная недостаточность' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
+      },
+      "extension": [{
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "10",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+                "display": "Клинический диагноз"
+              }
+            ]
+          }
+        }, {
+          "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "2",
+                "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+                "display": "Осложнение основного"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
