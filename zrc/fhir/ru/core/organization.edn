@@ -35,7 +35,7 @@
 Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
                    :filter
                    {:engine :match
-                    :match {:system "https://fhir.ru/ids/inn"}}
+                    :match {:system "http://fhir.ru/core/systems/inn"}}
                    :schema
                    {:type zen/vector
                     :minItems 0
@@ -47,7 +47,7 @@
                   {:zen/desc "Уникальный идентификатор МО в справочнике ФРМО"
                    :filter
                    {:engine :match
-                    :match {:system "https://fhir.ru/ids/frmo"}}
+                    :match {:system "http://fhir.ru/core/systems/frmo"}}
                    :schema
                    {:type zen/vector
                     :minItems 0
@@ -59,7 +59,7 @@
                   {:zen/desc "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
                    :filter
                    {:engine :match
-                    :match {:system "https://fhir.ru/ids/ogrn"}}
+                    :match {:system "http://fhir.ru/core/systems/ogrn"}}
                    :schema
                    {:type zen/vector
                     :minItems 0

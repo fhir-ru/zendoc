@@ -44,7 +44,7 @@
                                                                                         :code {:type zen/string}
                                                                                         :display {:type zen/string}}}}
                                                                 :text {:type zen/string
-                                                                       :const "Паспорт гражданина Российской Федерации"}}}
+                                                                       :const "Номер паспорта"}}}
                                                   :system {:type zen/string}
                                                   :value {:type zen/string}}
                                            :require #{:type :system :value}
@@ -63,26 +63,26 @@
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/inn"}}}
+                           :match {:system "http://fhir.ru/core/systems/inn"}}}
                          "SNILS"
                          {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта 
                          застрахованного лица в системе обязательного пенсионного страхования"
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/snils"}}}
+                           :match {:system "http://fhir.ru/core/systems/snils"}}}
                          "ENP"
                          {:zen/desc "ЕНП"
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/enp"}}}
+                           :match {:system "http://fhir.ru/core/systems/enp"}}}
                          "BirthCertificate"
                          {:zen/desc "Свидетельство о рождении"
                           :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "https://fhir.ru/id/birth-certificate"}}}
+                           :match {:system "http://fhir.ru/core/systems/birth-certificate"}}}
                          "InsuranceOMS"
                          {:zen/desc "Идентификация по номеру полиса ОМС. Система идентификации - Единый реестр застрахованных ФФОМС"
                           :schema {:type zen/vector, :maxItems 1}

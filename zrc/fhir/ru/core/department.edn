@@ -30,7 +30,7 @@
                   {:zen/desc "Уникальный идентификатор МО в справочнике ФРМО"
                    :filter
                    {:engine :match
-                    :match {:system "https://fhir.ru/ids/frmo"}}
+                    :match {:system "http://fhir.ru/core/systems/frmo"}}
                    :schema
                    {:type zen/vector
                     :minItems 0
