@@ -77,7 +77,7 @@
 
 ^title "Пример 1"
 ^tabs
-:tabs-example1
+:tabs-example-simple
 ^tab-title
 ~:json:title "FHIR JSON"
 ^tab-content
@@ -130,7 +130,7 @@
 ^tab-content
 ~:yaml:content "not written yet"
 
-:example-simple md/
+
 
 
 
