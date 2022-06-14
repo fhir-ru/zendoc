@@ -1,6 +1,8 @@
 {ns fhir.ru.core.observation
 
- import #{fhir zen.fhir}
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.practitioner}
 
  CoreObservation
  {:zen/tags #{zen.fhir/profile-schema zen/schema}

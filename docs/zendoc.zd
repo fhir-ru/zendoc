@@ -98,6 +98,8 @@ git pull
 git submodule update --recursive
 ```
 
+* Рестартануть докер-контейнер
+
 ^title "Отправка ваших изменений на сервер"
 :project:commit md/
 
