@@ -1,0 +1,20 @@
+{ns fhir.ru.core.bundle
+
+ import #{fhir zen.fhir}
+
+ CoreBundle
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zendoc 'core.Bundle
+  :zen/desc "CoreBundle"
+  :confirms #{fhir/Bundle}
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/id "core-bundle"
+  :zen.fhir/name "CoreBundle"
+  :zen.fhir/type "Bundle"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-bundle"
+  :type zen/map
+  :keys {:type {:type zen/string}
+         :entry {:type zen/vector
+                 :every {:type zen/map
+                         :confirms #{fhir/BackboneElement}}
+                 :slicing {}}}}}

@@ -4,7 +4,7 @@
 
  CoreAddress
  {:zen/tags #{zen/schema zen.fhir/structure-schema}
-  :zendoc 'core.Address
+  :zendoc 'core.address
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
@@ -15,11 +15,45 @@
 
   :type zen/map
   :keys
-  {:text {:type zen/string
-          :zen/desc "Полный адрес"}
+  {;;  :text {:type zen/string
+  ;;         :zen/desc "Полный адрес"}
+   :fias {:type zen/map
+          :confirms #{CoreAddressFias}
+          :zen/desc "Расширение: Код адреса по ФИАС"
+          :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias"}
+   :fias_house {:type zen/map
+                :confirms #{CoreAddressFiasHouse}
+                :zen/desc "Расширение: Код дома по ФИАС"
+                :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias-house"}}}
 
-   :extension {:type zen/map
-               :keys {:fias {:type zen/string
-                             :zen/desc "Код адреса по ФИАС"}
-                      :fias_house {:type zen/string
-                                   :zen/desc "Код дома по ФИАС"}}}}}}
+ CoreAddressFias
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+  :zendoc 'extension.core-ex-address-fias
+  :zen.fhir/type "string"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias"
+  :type zen/string
+  :zen/desc "Код адреса по ФИАС"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/string}}
+
+ CoreAddressFiasHouse
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+  :zendoc 'extension.core-ex-address-fias-house
+  :zen.fhir/type "string"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias-house"
+  :type zen/string
+  :zen/desc "Код дома по ФИАС"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/string}}}
+
+
+
+
+
+
+
+
+
+
+
+

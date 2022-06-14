@@ -6,6 +6,7 @@
 
   CorePatient
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
+   :zendoc 'core.Patient
    :zen/desc "Пациент"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/Patient}

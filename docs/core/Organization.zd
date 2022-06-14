@@ -57,7 +57,7 @@
 Ниже приведен набор возможных систем для идентификаторов
 
 ^table
-:identifier:values (load "org-ids.yaml" :yaml)
+:identifier:values (load "samples/org-ids.yaml" :yaml)
 
 
 ;; ```table
@@ -82,13 +82,13 @@
 
 ^table
 ^title "По типу деятельности"
-:type:values (load "org-type.yaml" :yaml)
+:type:values (load "samples/org-type.yaml" :yaml)
 
 
 
 ^table
 ^title "По правовой форме"
-:type:values (load "org-type-1.yaml" :yaml)
+:type:values (load "samples/org-type-1.yaml" :yaml)
 
 
 ^title "Примеры"
@@ -97,9 +97,9 @@
 ^yaml
 ^collapse
 ^title "Пример: Хеликс"
-:samples:one  (load "org-1.yaml" :yaml)
+:samples:one  (load "samples/org-1.yaml" :yaml)
 
 ^yaml
 ^collapse
 ^title "Пример: ЦНИИОИЗ"
-:samples:two  (load "org-2.yaml" :yaml)
+:samples:two  (load "samples/org-2.yaml" :yaml)

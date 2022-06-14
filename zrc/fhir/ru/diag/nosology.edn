@@ -1,8 +1,10 @@
 {ns fhir.ru.diag.nosology
- import #{fhir}
+ import #{fhir
+          zen.fhir}
 
  DiagnosisNosology
- {:zen/tags #{zen/schema}
+ {:zen/tags #{zen.fhir/profile-schemazen/schema}
+  :zendoc 'diag.DsCondition
   :zen/desc "Нозологическая единица"
   :type zen/map
   :keys
@@ -40,11 +42,9 @@
                         {:value "неизвестно"}]}
 
    :resolution {:type zen/map
-                :zen/desc "Стадия разрешения острого заболевания"
-                }
+                :zen/desc "Стадия разрешения острого заболевания"}
    :progression {:type zen/map
-                 :zen/desc "Динамика заболевания/состояния"
-                 }
+                 :zen/desc "Динамика заболевания/состояния"}
    :control {:type zen/map}
 
    :dates {:type zen/map
