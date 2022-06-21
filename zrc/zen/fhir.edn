@@ -30,7 +30,8 @@
   :zen/desc "Value set"
   :confirms #{version}
   :type zen/map
-  :keys {:uri {:type zen/string}
+  :keys {:zendoc {:type zen/symbol}
+         :uri {:type zen/string}
          :fhir/code-systems {:type zen/set
                              :every {:type zen/map
                                      :require #{:fhir/url}
@@ -70,7 +71,8 @@
  {:zen/tags #{zen/schema zen/tag}
   :confirms #{nested-schema version}
   :type     zen/map
-  :keys     {:zen.fhir/type {:type zen/string}
+  :keys     {:zendoc {:type zen/symbol}
+             :zen.fhir/type {:type zen/string}
              :zen.fhir/profileUri {:type zen/string}
              :zen.fhir/id {:type zen/string}
              :zen.fhir/name {:type zen/string}}}

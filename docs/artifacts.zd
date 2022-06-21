@@ -8,7 +8,7 @@
 :menu/first true
 
 ^badge
-:authors #{people.alexandra}
+:authors #{people.alexandra} 
 
 ^badge
 :groups #{groups.adm}
@@ -44,7 +44,7 @@ The following extensions have been defined for this implementation guide.
 :tag zen.fhir/extension
 
 ^title "Наборы значений"
-:extensions md/ 
+:valuesets md/ 
 
 The following valuesets have been defined for this implementation guide.
 

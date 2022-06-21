@@ -75,6 +75,11 @@
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
 ^title "Пример 1"
+:examples md/
+
+Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+
+^title "Пример 1"
 ^tabs
 :tabs-example-simple
 ^tab-title
@@ -82,7 +87,7 @@
 ^tab-content
 ~:json:content md/
 
-Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+
 
 ```code json
 {
@@ -129,8 +134,6 @@
 ^tab-content
 ~:yaml:content md/
 
-Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
-
 ```code yaml
 resourceType: Encounter
 id: CoreEncounterWithDiagnosisValidExampleSimple
@@ -160,14 +163,17 @@ diagnosis:
 ```
 
 ^title "Пример 2"
+:example-complex md/
+
+Пример составного ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+
+^title "Пример 2"
 ^tabs
 :tabs-example-complex
 ^tab-title
 ~:json:title "FHIR JSON"
 ^tab-content
 ~:json:content md/
-
-Пример составного ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
 
 ```code json
 {
@@ -322,8 +328,6 @@ diagnosis:
 ~:yaml:title "FHIR YAML"
 ^tab-content
 ~:yaml:content md/
-
-Пример составного ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
 
 ```code yaml
 resourceType: Encounter

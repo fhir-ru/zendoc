@@ -20,7 +20,15 @@
                      :confirms #{ConstraintRule2}
                      :type zen/vector
                      :every {:confirms #{fhir/BackboneElement}
-                             :type zen/map}
+                             :type zen/map
+                             :keys {:diagnosisType {:type zen/map
+                                                    :confirms #{CoreDiagnosisType}
+                                                    :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
+                                                    :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"}
+                                    :diagnosisRubric {:type zen/map
+                                                      :confirms #{CoreDiagnosisRubric}
+                                                      :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
+                                                      :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"}}}
                      :slicing {:slices {"main" {:zen/desc "Основной"
                                                 :filter {:engine :zen
                                                          :zen {:confirms #{DxSliceMain}}}
@@ -96,7 +104,7 @@
                                                                                                                 :zen/desc "CoreVsDiagnosisRubricCompl"}}}}}}}
                                :rest {:type zen/vector
                                       :minItems 0
-                                      :maxItems 0
+                                      :maxItems 1
                                       :every
                                       {:type zen/map
                                        :require #{:condition}}}}}}}

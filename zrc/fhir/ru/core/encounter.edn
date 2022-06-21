@@ -5,7 +5,7 @@
 
  CoreEncounter
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  :zendoc 'core.encounter
+  :zendoc 'core.Patient
   :zen/desc "Случай обслуживания"
   :confirms #{fhir/Encounter}
   :zen.fhir/version "0.5.8"

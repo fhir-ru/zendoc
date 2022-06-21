@@ -15,13 +15,11 @@
 
   :type zen/map
   :keys
-  {;;  :text {:type zen/string
-  ;;         :zen/desc "Полный адрес"}
-   :fias {:type zen/map
+  {:fias {:type zen/string
           :confirms #{CoreAddressFias}
           :zen/desc "Расширение: Код адреса по ФИАС"
           :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias"}
-   :fias_house {:type zen/map
+   :fias_house {:type zen/string
                 :confirms #{CoreAddressFiasHouse}
                 :zen/desc "Расширение: Код дома по ФИАС"
                 :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias-house"}}}
@@ -39,8 +37,8 @@
  CoreAddressFiasHouse
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
   :zendoc 'extension.core-ex-address-fias-house
-  :zen.fhir/type "string"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias-house"
+  ;; :zen.fhir/type "string"
+  ;; :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias-house"
   :type zen/string
   :zen/desc "Код дома по ФИАС"
   :zen.fhir/version "0.5.8"

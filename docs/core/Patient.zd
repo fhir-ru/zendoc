@@ -64,9 +64,9 @@
       }
     }, {
       "value": "100160728281",
-      "system": "https://fhir.ru/id/passport-rf",
+      "system": "http://fhir.ru/core/sytems/passport-rf",
       "type": {
-        "text": "Паспорт гражданина Российской Федерации",
+        "text": "Номер паспорта",
         "coding": [{
             "code": "PPN",
             "display": "Passport number",
@@ -180,6 +180,7 @@ name:
  other (не используется в RuCore)| - | -|
  unknown| Неопределенный| -|
 ```
+
 ^disc 83
 ^title "Адрес (address)"
 :elements.address md/
