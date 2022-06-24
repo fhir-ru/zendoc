@@ -4,7 +4,7 @@
           fhir.ru.core.patient}
 
  CoreEncounter
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
   :zendoc 'core.Patient
   :zen/desc "Случай обслуживания"
   :confirms #{fhir/Encounter}
