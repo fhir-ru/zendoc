@@ -466,7 +466,7 @@ table.schema td {}
     [:div style
      [:div {:class (cls ["tabs" (c [:space-y 2])])}
       (for [[tab-key {tab-name :title tab-content :content}] tabs]
-        (list [:input {:type "radio" :name "tabs" :id (str id "-" tab-key)
+        (list [:input {:type "radio" :name (str "tabs" id) :id (str id "-" tab-key)
                        :checked (when (= tab-key active) "checked")}]
               [:label {:class (cls ["tabh" tab-cls]) :for (str id "-" tab-key)} tab-name]
               [:div {:class (cls ["tabe" (c :hidden [:mx 2])])} tab-content]))]]))
