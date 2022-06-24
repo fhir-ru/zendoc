@@ -1,0 +1,78 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-06-24"
+
+:title "ValueSet Core-vs-diagnosis-rubric-main"
+
+:toc
+
+^title "Описание"
+:description md/
+
+В набор значений входят коды из набора значений "Рубрика диагноза", соответсвующие срезу "Основной".
+
+^title "Содержимое набора значений"
+^table
+:identifier-types
+[
+    {:Code "1" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Основное заболевание" }
+    {:Code "4" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Конкурирующее заболевание"}
+    {:Code "6" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Фоновое заболевание"}
+    {:Code "8" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Сочетанное заболевание"}
+    
+]
+ 
+
+^title "Определение ресурса"
+:content-logical-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "сore-vs-diagnosis-rubric-main",
+  "name": "CoreVsDiagnosisRubricMain",
+  "title": "Core ValueSet Рубрика диагноза (срез - основной)",
+  "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Основное заболевание"
+          },
+          {
+            "code": "4",
+            "display": "Конкурирующее заболевание"
+          },
+          {
+            "code": "6",
+            "display": "Фоновое заболевание"
+          },
+          {
+            "code": "8",
+            "display": "Сочетанное заболевание"
+          }
+          
+        ]
+      }
+    ]
+  }
+}
+```code

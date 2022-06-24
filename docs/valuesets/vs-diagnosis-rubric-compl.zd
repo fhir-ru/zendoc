@@ -1,0 +1,70 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-06-24"
+
+:title "ValueSet Core-vs-diagnosis-rubric-compl"
+
+:toc
+
+^title "Описание"
+:description md/
+
+В набор значений входят коды из набора значений "Рубрика диагноза", соответсвующие срезу "Осложнение".
+
+^title "Содержимое набора значений"
+^table
+:identifier-types
+[
+    
+    {:Code "2" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Осложнение основного заболевания"}
+    {:Code "7" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :Display "Осложнение сопутствующего заболевания"}
+    
+    
+]
+ 
+
+^title "Определение ресурса"
+:content-logical-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "сore-vs-diagnosis-rubric-compl",
+  "name": "CoreVsDiagnosisRubricCompl",
+  "title": "Core ValueSet Рубрика диагноза (срез - осложнение)",
+  "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+        "concept": [
+          {
+            "code": "2",
+            "display": "Осложнение основного заболевания"
+          },
+          {
+            "code": "7",
+            "display": "Осложнение сопутствующего заболевания"
+          }
+          
+        ]
+      }
+    ]
+  }
+}
+```code
