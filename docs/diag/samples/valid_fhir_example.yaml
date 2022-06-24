@@ -1,0 +1,44 @@
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: CC
+      display: Chief complaint
+      system: http://terminology.hl7.org/CodeSystem/diagnosis-role    
+  condition:
+    display: Dx1
+  extension:
+  - url: http://fhir.ru/core/ex/core-diagnosis-rubric
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Основное заболевание"
+        system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  - url: http://fhir.ru/core/ex/core-diagnosis-type
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Предварительный клинический диагноз"
+        system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+- use:
+    coding: 
+    - code: CM
+      display: Comorbidity diagnosis
+      system: http://terminology.hl7.org/CodeSystem/diagnosis-role
+  condition:
+    display: Dx1
+  extension:
+  - url: http://fhir.ru/core/ex/core-diagnosis-rubric
+    valueCodeableConcept: 
+      coding:
+      - code: "3"
+        display: "Сопутствующее заболевание"
+        system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  - url: http://fhir.ru/core/ex/core-diagnosis-type
+    valueCodeableConcept: 
+      coding:
+      - code: "1"
+        display: "Предварительный клинический диагноз"
+        system: "http://fhir.ru/core/cs/diagnosis-justification-degree"

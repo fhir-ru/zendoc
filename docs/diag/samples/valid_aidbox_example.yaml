@@ -1,0 +1,34 @@
+status: in-progress
+class: 
+  code: inpatient
+diagnosis:
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx1
+  diagnosisRubric: 
+    coding:
+    - code: "1"
+      display: "Основное заболевание"
+      system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  diagnosisType: 
+    coding:
+    - code: "1"
+      display: "Предварительный клинический диагноз"
+      system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
+- use:
+    coding: 
+    - code: chief
+  condition:
+    display: Dx2
+  diagnosisRubric: 
+    coding:
+    - code: "3"
+      display: "Сопутствующее заболевание"
+      system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+  diagnosisType: 
+    coding:
+    - code: "1"
+      display: "Предварительный клинический диагноз"
+      system: "http://fhir.ru/core/cs/diagnosis-justification-degree"
