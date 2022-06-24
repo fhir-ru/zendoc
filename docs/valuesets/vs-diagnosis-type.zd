@@ -1,0 +1,108 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-06-24"
+
+:title "ValueSet Core-vs-diagnosis-type"
+
+:toc
+
+^title "Описание"
+:description md/
+
+В набор значений входят все коды из справочника [Справочник Степень обоснованности диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1).
+
+^title "Содержимое набора значений"
+^table
+:identifier-types
+[
+    {:Code "10" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Клинический диагноз" }
+    {:Code "1" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Предварительный клинический диагноз"}
+    {:Code "2" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Этапный клинический диагноз"}
+    {:Code "3" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Заключительный клинический диагноз"}
+    {:Code "4" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Патологоанатомический диагноз"}
+    {:Code "41" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Предварительный патологоанатомический диагноз"}
+    {:Code "42" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Заключительный патологоанатомический диагноз"}
+    {:Code "5" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Судебно-медицинский диагноз"}
+    {:Code "51" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Предварительный судебно-медицинский диагноз"}
+    {:Code "52" :System "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :Display "Заключительный судебно-медицинский диагноз"}
+    
+]
+ 
+
+^title "Определение ресурса"
+:content-logical-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "сore-vs-diagnosis-type",
+  "name": "CoreVsDiagnosisType",
+  "title": "Core ValueSet Рубрика диагноза",
+  "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-type",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+        "concept": [
+          {
+            "code": "10",
+            "display": "Клинический диагноз"
+          },
+          {
+            "code": "1",
+            "display": "Предварительный клинический диагноз"
+          },
+          {
+            "code": "2",
+            "display": "Этапный клинический диагноз"
+          },
+          {
+            "code": "3",
+            "display": "Заключительный клинический диагноз"
+          },
+          {
+            "code": "4",
+            "display": "Патологоанатомический диагноз"
+          },
+          {
+            "code": "41",
+            "display": "Предварительный патологоанатомический диагноз"
+          },
+          {
+            "code": "42",
+            "display": "Заключительный патологоанатомический диагноз"
+          },
+          {
+            "code": "5",
+            "display": "Судебно-медицинский диагноз"
+          },
+          {
+            "code": "51",
+            "display": "Предварительный судебно-медицинский диагноз"
+          },
+          {
+            "code": "52",
+            "display": "Заключительный судебно-медицинский диагноз"
+          },
+          
+        ]
+      }
+    ]
+  }
+}
+```code
