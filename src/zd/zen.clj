@@ -212,11 +212,7 @@
     (if (= "schema" (name sym))
       (last (str/split (namespace sym) #"\."))
       (name sym))
-    #_(str
-       (->> (str/split (namespace sym) #"\.")
-            (mapv first)
-            (str/join "."))
-       "/" (name sym))))
+    ))
 
 (defn schema-connectors [pth]
   (let [lvl (count pth)
@@ -287,33 +283,27 @@
                     (deep-merge (effective-schema ztx nm) acc)) sch))]
     (clear-primitives sch)))
 
-(defn schema-table [sch & [ztx]]
-  [:table.schema
-   [:tbody
-    [:tr {:class (c [:text :gray-700] :text-left)}
-     (let [th-style (c :font-medium)]
-       (list [:th {:class th-style} "Название"]
-             [:th {:class th-style} "Кол-во"]
-             [:th {:class th-style} "Тип"]
-             [:th {:class th-style} "Описание"]))]
-    (for [{pth :path :as row} (flatten-sch [] [] sch {:name (:zen/name sch)} ztx)]
-      [:tr
-       [:td {:class (c :text-sm)}
-        (into (schema-connectors pth)
-              [(type-icon (:type row) (:confirms row) (:extension row))
-               [:div {:class (c [:ml 3])}
-                (if-let [nm (:name row)]
-                  (schema-name nm)
-                  (when-let [k (:key (last (:path row)))] (name k)))]])]
-       [:td {:class (c :text-sm [:px 3])}
-        (:cardinality row)]
-       [:td {:class (c [:text :blue-600] :text-sm [:px 3])}
-        (if (:confirms row)
-          (str/join ", " (mapv schema-name (:confirms row)))
-          (when-let [t (:type row)] (schema-name t)))]
+(defn- render-schema-table-row-name [pth row]
+  (into (schema-connectors pth)
+        [(type-icon (:type row) (:confirms row) (:extension row))
+         [:div {:class (c [:ml 3])}
+          (if-let [nm (:name row)]
+            (schema-name nm)
+            (when-let [k (:key (last (:path row)))] (name k)))]]))
 
-       [:td {:class (c [:text :gray-700] :text-xs)}
-        (when-let [d (:desc row)]
+(defn- render-schema-table-row-type [row]
+  (if (:confirms row)
+    (let [schnames (mapv #(schema-name %) (:confirms row))
+          reference (filter #(= "Reference" %) schnames)]
+      (if-not (empty? reference)
+        (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize (name (:key % ))))
+                                                        (:path row)))) ")")
+        (if (empty? schnames) ""
+            (last schnames))))
+    (when-let [t (:type row)] (schema-name t))))
+
+(defn- render-schema-table-row-description [row]
+  (list (when-let [d (:desc row)]
           [:div {:class (c :text-xs [:text :gray-700])} d])
         (when-let [d (:const row)]
           [:div {:class (c :text-xs [:text :gray-700])}
@@ -347,7 +337,28 @@
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
            [:b "enum:"]
            (for [{v :value} enum]
-             [:span v ";"])])]])]])
+             [:span v ";"])])))
+
+(defn schema-table [sch & [ztx]]
+  [:table.schema
+   [:tbody
+    [:tr {:class (c [:text :gray-700] :text-left)}
+     (let [th-style (c :font-medium)]
+       (list [:th {:class th-style} "Название"]
+             [:th {:class th-style} "Кол-во"]
+             [:th {:class th-style} "Тип"]
+             [:th {:class th-style} "Описание"]))]
+    (for [{pth :path :as row} (flatten-sch [] [] sch {:name (:zen/name sch)} ztx)]
+      [:tr
+       [:td {:class (c :text-sm)}
+        (render-schema-table-row-name pth row)]
+       [:td {:class (c :text-sm [:px 3])}
+        (:cardinality row)]
+       [:td {:class (c [:text :blue-600] :text-sm [:px 3])}
+        (render-schema-table-row-type row)]
+
+       [:td {:class (c [:text :gray-700] :text-xs)}
+       (render-schema-table-row-description row)]])]])
 
 (def style
   [:style
