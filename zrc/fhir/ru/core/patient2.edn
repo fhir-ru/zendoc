@@ -1,0 +1,55 @@
+{ns fhir.ru.core.patient2
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.address}
+
+ CorePatient
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zen/desc "Пациент"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Patient}
+  :zen.fhir/id "core-patient"
+  :zen.fhir/name "CorePatient"
+  :zen.fhir/type "Patient"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
+  :type zen/map
+  :keys {:address {:zen/desc "Адрес пациента"
+                   :type zen/vector
+                   :every {:confirms #{fhir.ru.core.address/CoreAddress}
+                           :type zen/map}}
+         :identifier {:zen/desc "Идентификаторы пациента"
+                      :type zen/vector
+                      :every {:confirms #{fhir/Identifier}
+                              :type zen/map}
+                      :slicing
+                      {:slices
+                       {"PassportRF"
+                        {:zen/desc "Паспорт РФ"
+                         :filter
+                         {:engine :match
+                          :match {:type {:coding #{{:code "PPN"
+                                                    :display "Passport number"
+                                                    :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}
+
+
+                         :schema {:type zen/vector
+                                  :maxItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :keys {:type {:type zen/map
+                                                        :confirms #{SchemaPassportRF}
+                                                        :zen/desc "Тип идентификатора"}}}}}}}}}}
+ SchemaPassportRF
+ {:zen/tags #{zen/schema}
+  :zen/desc "Тип идентификатора - Паспорт РФ. Система http://terminology.hl7.org/CodeSystem/v2-0203 обязательна, далее одна из систем на выбор: http://fhir.ru/core/cs/core-cs-nsi-identity-document | urn:oid:1.2.643.5.1.13.13.99.2.48."
+  :match {:coding #{{:code "PPN"
+                     :display "Passport number"
+                     :system "http://terminology.hl7.org/CodeSystem/v2-0203"}
+                    (:zen.match/one-of #{{:code "1"
+                                          :display "Паспорт гражданина Российской Федерации"
+                                          :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}
+                                         {:code "1"
+                                          :display "Паспорт гражданина Российской Федерации"
+                                          :system "urn:oid:1.2.643.5.1.13.13.99.2.48"
+                                          :version "5.1"}})}}}}

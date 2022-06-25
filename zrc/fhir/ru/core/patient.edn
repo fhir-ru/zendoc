@@ -149,4 +149,3 @@
    :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203"
                          :zen.fhir/content :not-present}}
    :uri "http://fhir.ru/core/vs/core-vs-identifier-type"}}
-
