@@ -1,0 +1,55 @@
+^hide
+:menu-order 10
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-06-28"
+
+:title "Пол пациента [все значения]"
+
+:toc
+
+^title "Описание"
+:description md/
+
+	Кодирование пола по справочнику ФНСИ
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-administrative-gender",
+  "name": "CoreVsAdministrativeGender",
+  "title": "Core ValueSet Пол пациента (FHIR AdministrativeGender)",
+  "url" : "http://fhir.ru/core/vs/core-vs-administrative-gender",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "concept": [
+          {
+            "code": "male"
+          },
+          {
+            "code": "female"
+          },
+          {
+            "code": "unknown"
+          }
+        ]
+      }
+    ]
+  }
+}
+```code

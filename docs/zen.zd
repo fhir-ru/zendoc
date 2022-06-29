@@ -12,15 +12,15 @@
 
 :project md/
 
-Zen проект это папка, в которой каждый файл это **namespace**.
-Имя **namespace** можно получить заменив `/` на `.` в отностельном пути файла.
+Zen-проект - это папка, в которой каждый файл - это **namespace**.
+Имя **namespace** можно получить, заменив `/` на `.` в отностельном пути файла.
 
 Например, `fhir/ru/patient.edn` => `fhir.ru.patient`.
 
 :namespace md/
 
-**namespace** это структура данных в формате [edn](https://github.com/edn-format/edn),
-а точнее это всегда **map** (словарь, объект) состоящий из ключей и значений.
+**namespace** - это структура данных в формате [edn](https://github.com/edn-format/edn),
+а точнее это всегда **map** (словарь, объект),, состоящий из ключей и значений.
 
 ```code edn
 {ns fhir.ru.patient
@@ -43,39 +43,90 @@ Zen проект это папка, в которой каждый файл эт
  }
 ```
 
-Ключь задает имя **модели**, а значение это ее описание. Модели могут ссылаться друг на друга
-в рамках namespace просто по имени `Patient`, а между namespace по полному имени `fhir.ru.patient/Patient` 
-zen явно управляет зависимостями поэтому для того что бы ссылатся на модели из других namespace вам нужно сделать `import`.
+Ключ задает имя **модели**, а значение - это ее описание. Модели могут ссылаться друг на друга
+в рамках namespace просто по имени `Patient`, а между namespace по полному имени `fhir.ru.patient/Patient`.
+Zen явно управляет зависимостями, поэтому для того чтобы ссылаться на модели из других namespace, вам нужно сделать `import`.
 
+^title "Модели"
 :models md/
 
-Модель в zen в общем случае это произвольная структура данных.
-Модель может быть протэгированна с помощью аттрибута `:zen/tags #{}`, значением которого является множество
-символов ссылающихся на другие модели. Тэги можно воспринимать как множественную классификацию - типы модели.
+Модель в zen в общем случае - это произвольная структура данных.
+Модель может быть протэгирована с помощью аттрибута `:zen/tags #{}`, значением которого является множество
+символов, ссылающихся на другие модели. Тэги можно воспринимать как множественную классификацию - типы модели.
 
+^title "Схема"
 :schema md/
 
-zen имeет встроенный язык схем - описания структуры данных.
-Модель интерпретируется как схема если она имеет тэг `zen/schema`.
+Zen имeет встроенный язык схем - описание структуры данных.
+Модель интерпретируется как схема, если она имеет тэг `zen/schema`.
 
-
+^title "Инструкция"
 :tutorial-1 md/
 
 Задача: определить профиль для ресурса `Пациент`, добавив для атрибута `Пол` расширение для кодирования по справочнику ФНСИ.
 
 * 1) Создаём описание справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
 
-```
-[todo]
-```
+```code json
+{
+  "id": "core-ns-nsi-gender",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsiGender",
+  "description": "НСИ Минздрава Пол пациента",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Пол пациента, 
+    может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.5.1.13.13.11.1040</li>\n   
+     <li>[предпочтительно] URI: http://fhir.ru/core/systems/gender</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1040"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/systems/gender",
+    }
+  ]
+}
+```code
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/CodeSystem-nsi-cs-1-2-643-5-1-13-13-11-1040.html]]
 
 * 2) Создаём описание набора значений из этого справочника:
 
-```
-[todo]
-```
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-administrative-gender",
+  "name": "CoreVsAdministrativeGender",
+  "title": "Core ValueSet Пол пациента (FHIR AdministrativeGender)",
+  "url" : "http://fhir.ru/core/vs/core-vs-administrative-gender",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "concept": [
+          {
+            "code": "male"
+          },
+          {
+            "code": "female"
+          },
+          {
+            "code": "unknown"
+          }
+        ]
+      }
+    ]
+  }
+}
+```code
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
 

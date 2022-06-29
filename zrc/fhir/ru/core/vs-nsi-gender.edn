@@ -1,0 +1,13 @@
+{ns fhir.ru.core.vs-nsi-gender
+ import #{fhir zen.fhir}
+ CoreNsiGender
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "Пол пациента [все значения]"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems #{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040" :zen.fhir/content :not-present}
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-gender"
+  :version "2.1"
+  :zendoc 'valuesets.vs-nsi-gender}}
+
+
+

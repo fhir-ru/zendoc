@@ -1,0 +1,23 @@
+{ns fhir.ru.core.ext-nsi-gender
+
+ import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender/CoreNsiGender}
+
+ CoreNsiGender
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension fhir.ru.core.vs-nsi-gender/CoreNsiGender}
+  :zen.fhir/type "Coding"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-nsi-gender"
+  :type zen/map
+  :zen/desc "Кодирование пола по справочнику ФНСИ"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Coding}
+  :zen.fhir/value-set
+  {:symbol fhir.ru.core.vs-nsi-gender/CoreNsiGender
+   :strength :required}
+  :keys {:url "http://fhir.ru/core/sd/core-ex-nsi-gender"
+         :valueCoding  {:system "http://hl7.org/fhir/administrative-gender"}}
+
+  :zendoc 'extension.ext-nsi-gender}}
+
+
+
+
