@@ -103,8 +103,6 @@
                                                                                                                 :strength :required
                                                                                                                 :zen/desc "CoreVsDiagnosisRubricCompl"}}}}}}}
                                :rest {:type zen/vector
-                                      :minItems 0
-                                      :maxItems 1
                                       :every
                                       {:type zen/map
                                        :require #{:condition}}}}}}}
