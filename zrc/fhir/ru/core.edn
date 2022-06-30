@@ -8,4 +8,6 @@
           fhir.ru.diag.nosology
           fhir.ru.diag.nu
           fhir.ru.diag.encounter
-          fhir.ru.lab.diagnosticreport}}
+          fhir.ru.lab.diagnosticreport
+          fhir.ru.core.vs-nsi-gender
+          fhir.ru.core.ext-nsi-gender}}
