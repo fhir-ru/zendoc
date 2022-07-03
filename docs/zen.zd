@@ -1,26 +1,40 @@
 ^hide
-:icon [:fa :fa-graduation-cap] 
-
-^hide
 :menu-order 101
 
-:title "Zen profiling"
+^hide
+:icon [:fa :fa-graduation-cap] 
 
-:summary md/
+:title "Zen Profiling"
 
-Краткое введение в zen
+^badge
+:editors [people.alexandra people.varvara]
 
-:project md/
+^badge
+:date:updated "2022-07-03"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+
+^title "Введение в Zen"
+:zen-intro md/
+
+Краткое введение в Zen
+
+:zen-intro:project md/
 
 Zen-проект - это папка, в которой каждый файл - это **namespace**.
 Имя **namespace** можно получить, заменив `/` на `.` в отностельном пути файла.
 
 Например, `fhir/ru/patient.edn` => `fhir.ru.patient`.
 
-:namespace md/
+
+:zen-intro:namespace md/
 
 **namespace** - это структура данных в формате [edn](https://github.com/edn-format/edn),
-а точнее это всегда **map** (словарь, объект),, состоящий из ключей и значений.
+а точнее это всегда **map** (словарь, объект), состоящий из ключей и значений.
 
 ```code edn
 {ns fhir.ru.patient
@@ -43,27 +57,50 @@ Zen-проект - это папка, в которой каждый файл - 
  }
 ```
 
-Ключ задает имя **модели**, а значение - это ее описание. Модели могут ссылаться друг на друга
-в рамках namespace просто по имени `Patient`, а между namespace по полному имени `fhir.ru.patient/Patient`.
+Ключ задает имя **модели**, а значение - это ее описание. Модели могут ссылаться друг на друга в рамках namespace просто по имени `Patient`, а между namespace по полному имени `fhir.ru.patient/Patient`. 
+
 Zen явно управляет зависимостями, поэтому для того чтобы ссылаться на модели из других namespace, вам нужно сделать `import`.
 
+В файле `zendoc\zrc\fhir\ru\core.edn` необходимо прописать все созданные неймспейсы.
+
+Пример:
+
+```code edn
+{ns fhir.ru.core
+ import #{fhir.ru.core.organization
+          fhir.ru.core.patient
+          fhir.ru.core.encounter
+          fhir.ru.core.address
+          fhir.ru.core.department
+          fhir.ru.core.practitioner
+          fhir.ru.diag.nosology
+          fhir.ru.diag.nu
+          fhir.ru.diag.encounter
+          fhir.ru.lab.diagnosticreport
+          fhir.ru.core.vs-nsi-gender
+          fhir.ru.core.ext-nsi-gender}}
+```          
+
 ^title "Модели"
-:models md/
+:zen-intro:models md/
 
 Модель в zen в общем случае - это произвольная структура данных.
 Модель может быть протэгирована с помощью аттрибута `:zen/tags #{}`, значением которого является множество
 символов, ссылающихся на другие модели. Тэги можно воспринимать как множественную классификацию - типы модели.
 
 ^title "Схема"
-:schema md/
+:zen-intro:schema md/
 
-Zen имeет встроенный язык схем - описание структуры данных.
+Zen имeет встроенный язык схем для описания структуры данных.
+
 Модель интерпретируется как схема, если она имеет тэг `zen/schema`.
 
 ^title "Инструкция"
-:tutorial-1 md/
+:tutorial md/
 
 Задача: определить профиль для ресурса `Пациент`, добавив для атрибута `Пол` расширение для кодирования по справочнику ФНСИ.
+
+:tutorial:namingsystem md/
 
 1) Создаём описание NamingSystem для справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
 
@@ -103,6 +140,7 @@ Zen имeет встроенный язык схем - описание стру
 * результат на нашем сайте: http://fhir-ru.zendoc.me/systems.cs-rosminzdrav-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/CodeSystem-nsi-cs-1-2-643-5-1-13-13-11-1040.html]]
 
+:tutorial:valueset md/
 
 2) Создаём описание набора значений из этого справочника:
 
@@ -137,6 +175,8 @@ Zen имeет встроенный язык схем - описание стру
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
 
+:tutorial:extension md/
+
 * 3) Создаём описание расширения для кодирования пола пациента по справочнику ФНСИ:
 
 ```
@@ -144,6 +184,8 @@ Zen имeет встроенный язык схем - описание стру
 ```
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-ext-nsi-gender.html]]
+
+:tutorial:profile md/
 
 * 4) Создаём профиль для ресурса `Пациент` с добавленным расширением для кодирования пола пациента по справочнику ФНСИ:
 
@@ -153,13 +195,71 @@ Zen имeет встроенный язык схем - описание стру
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-patient-gender.html]]
 
+:tutorial:example md/
+
 * 5) Создаём пример ресурса, соответствующего данному профилю:
 
+^tabs
+:tabs-example
+^tab-title
+~:json:title "JSON"
+^tab-content
+~:json:content md/
+
+```code json
+{
+  "name": [
+    {
+      "use": "official",
+      "given": [
+        "BARBARA",
+        "A"
+      ],
+      "family": "KENNEDY"
+    }
+  ],
+  "gender": "female",
+  "address": [
+    {
+      "city": "Москва",
+      "line": [
+        "Арбат"
+      ],
+      "state": "MO",
+      "country": "РФ",
+      "postalCode": "64083"
+    }
+  ],
+  "birthDate": "1961-03-03"
+}
 ```
-[todo]
+
+^tab-title
+~:yaml:title "YAML"
+^tab-content
+~:yaml:content md/
+
+```code yaml
+name:
+  - use: official
+    given:
+      - BARBARA
+      - A
+    family: KENNEDY
+gender: female
+address:
+  - city: Москва
+    line:
+      - Арбат
+    state: MO
+    country: РФ
+    postalCode: "64083"
+birthDate: "1961-03-03"
 ```
 
 результат - https://docs.miramedix.ru/fhir/IG/Patient-fhir-ru-patient-instance-konstantinopolskaya-gender.html
+
+:tutorial:validation md/
 
 * 6) Проверяем пример ресурса на соответстветствие данному профилю (валидация):
 

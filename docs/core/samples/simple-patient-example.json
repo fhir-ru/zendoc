@@ -1,0 +1,25 @@
+{
+  "name": [
+    {
+      "use": "official",
+      "given": [
+        "BARBARA",
+        "A"
+      ],
+      "family": "KENNEDY"
+    }
+  ],
+  "gender": "female",
+  "address": [
+    {
+      "city": "Москва",
+      "line": [
+        "Арбат"
+      ],
+      "state": "MO",
+      "country": "РФ",
+      "postalCode": "64083"
+    }
+  ],
+  "birthDate": "1961-03-03"
+}
