@@ -1,5 +1,5 @@
 ^hide
-:menu-order 2
+:menu-order 4
 
 ^hide
 :icon [:fa-solid :fa-id-card]

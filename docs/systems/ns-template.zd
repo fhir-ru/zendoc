@@ -1,5 +1,5 @@
 ^hide
-:menu-order 3
+:menu-order 1
 
 ^hide
 :icon [:fa-solid :fa-id-card]
@@ -14,12 +14,12 @@
 :status :draft
 
 ^badge
-:date:start "2022-04-25"
+:date:updated "2022-07-04"
 
 ^badge
 :type :ig
 
-:title "Паспорт РФ"
+:title "Шаблон NamingSystem"
 
 :toc
 

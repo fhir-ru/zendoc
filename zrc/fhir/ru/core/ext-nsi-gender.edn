@@ -20,7 +20,7 @@
                         :confirms #{fhir/Coding}
                         :zen/desc "Значение из справочника https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040"
                         :require #{:system :code :display}
-                        :keys {:system {:zen/desc "http://hl7.org/fhir/administrative-gender"
+                        :keys {:system {:zen/desc "http://fhir.ru/core/systems/nsi-gender"
                                         :confirms #{fhir/uri}}
                                :code {:confirms #{fhir/code}
                                       :zen/desc "Код"}

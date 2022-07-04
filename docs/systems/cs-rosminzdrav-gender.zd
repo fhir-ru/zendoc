@@ -1,5 +1,5 @@
 ^hide
-:menu-order 5
+:menu-order 9
 
 ^hide
 :icon [:fa-solid :fa-book]

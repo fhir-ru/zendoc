@@ -175,12 +175,12 @@ Zen имeет встроенный язык схем для описания с�
 ^title "Naming System"
 :tutorial:namingsystem md/
 
-Почему NamingSystem, а не CodeSystem - см. systems#:mindmap.
+Почему NamingSystem, а не CodeSystem - см. #systems#:mindmap.
 
 1) Создаём определение NamingSystem для справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
 
 * в папке `docs/systems` создаем файл, название которого соответствует пункту "терминологии" соглашения conventions.
-* в файле по шаблону ____________ заполняем атрибуты. В данном случае кроме своего идентификатора даем ссылку на OID НСИ ЕГИСЗ
+* в файле по шаблону #systems.ns-template заполняем атрибуты. В данном случае кроме своего идентификатора даем ссылку на OID НСИ ЕГИСЗ
 * получаем следующий текст:
 
 ```code json
@@ -211,35 +211,38 @@ Zen имeет встроенный язык схем для описания с�
 }
 ```code
 
-* результат на нашем сайте: systems.cs-rosminzdrav-gender
+* результат на нашем сайте: #systems.cs-rosminzdrav-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/CodeSystem-nsi-cs-1-2-643-5-1-13-13-11-1040.html]]
 
 ^title "ValueSet"
 :tutorial:valueset md/
 
-2) Создаём определение набора значений из этого справочника:
+2) Создаём определение набора значений из этого справочника (по шаблону #valuesets.template):
 
 ```code json
 {
   "resourceType": "ValueSet",
-  "id": "core-vs-administrative-gender",
-  "name": "CoreVsAdministrativeGender",
-  "title": "Core ValueSet Пол пациента (FHIR AdministrativeGender)",
-  "url" : "http://fhir.ru/core/vs/core-vs-administrative-gender",
+  "id": "core-vs-nsi-gender",
+  "name": "CoreVsNsiGender",
+  "title": "Core ValueSet Пол пациента",
+  "url" : "http://fhir.ru/core/vs/core-vs-nsi-gender",
   "status": "active",
   "compose": {
     "include": [
       {
-        "system": "http://hl7.org/fhir/administrative-gender",
+        "system": "http://fhir.ru/core/systems/nsi-gender",
         "concept": [
           {
-            "code": "male"
+            "code": "1",
+            "display": "Мужской"
           },
           {
-            "code": "female"
+            "code": "2",
+            "display": "Женский"
           },
           {
-            "code": "unknown"
+            "code": "3",
+            "display": "Неопределенный"
           }
         ]
       }
@@ -247,6 +250,24 @@ Zen имeет встроенный язык схем для описания с�
   }
 }
 ```code
+
+и соответствующую zen-схему:
+
+```code edn
+{ns fhir.ru.core.vs-nsi-gender
+ import #{fhir zen.fhir}
+
+ CoreVsNsiGender
+ {:zen/tags #{zen.fhir/value-set}
+  :zen/desc "Справочник НСИ Минздрава Пол пациента"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-gender"
+  :version "2.1"
+  :zendoc 'valuesets.core-vs-nsi-gender}}
+ ```
 
 * результат на нашем сайте: valuesets.vs-administrative-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
@@ -272,24 +293,18 @@ Zen имeет встроенный язык схем для описания с�
   :zen.fhir/value-set
   {:symbol fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
    :strength :required}
-  :require #{:url :valueCoding}
-  :keys {:url {:zen/desc "http://fhir.ru/core/sd/core-ex-nsi-gender"
-               :confirms #{fhir/uri}}
-         :valueCoding  {:type zen/map
-                        :confirms #{fhir/Coding}
-                        :zen/desc "Значение из справочника https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040"
-                        :require #{:system :code :display}
-                        :keys {:system {:zen/desc "http://hl7.org/fhir/administrative-gender"
-                                        :confirms #{fhir/uri}}
-                               :code {:confirms #{fhir/code}
-                                      :zen/desc "Код"}
-                               :display {:zen/desc "Значение для отображения"
-                                         :confirms #{fhir/string}}}}}
-
   :zendoc 'extension.ext-nsi-gender}}
 ```
-* и страницу для вывода схемы и дополнительной документации - в папке `docs/extension` создаем файл с расширением `.zd`, название которого соответствует пункту "терминологии" соглашения conventions.
-* результат на нашем сайте: extension.ext-nsi-gender
+* и страницу для вывода схемы и дополнительной документации - в папке `docs/extension` создаем файл с расширением `.zd`, название которого соответствует пункту "терминологии" соглашения conventions
+* выводим схему на странице документации:
+
+```code zendoc
+^title "Расширение"
+^zen/schema
+:profile fhir.ru.core.ext-nsi-gender/CoreNsiGender
+```
+
+* результат на нашем сайте: #extension.ext-nsi-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-ext-nsi-gender.html]]
 
 ^title "Profile"
@@ -297,8 +312,30 @@ Zen имeет встроенный язык схем для описания с�
 
 * 4) Создаём профиль для ресурса `Пациент` с добавленным расширением для кодирования пола пациента по справочнику ФНСИ:
 
-```
-[todo]
+```code edn
+{ns fhir.ru.core.tutorial-patient
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.ext-nsi-gender}
+
+ TutorialPatient
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zen/desc "Пациент"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Patient}
+  :zen.fhir/id "tutorial-patient"
+  :zen.fhir/name "TutorialPatient"
+  :zen.fhir/type "Patient"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/tutorial-patient"
+  :type zen/map
+  :keys {:_gender {:zen/desc "Пол пациента по справочнику НСИ"
+                   :type zen/map
+                   :confirms #{fhir/Element}
+                   :keys {:nsiGender {:confirms #{fhir.ru.core.ext-nsi-gender/CoreNsiGender}
+                                      :type zen/map
+                                      :zen/desc "Расширение: Пол пациента по справочнику НСИ, vs:http://fhir.ru/core/vs/core-vs-nsi-gender"
+                                      :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-nsi-gender"}}}}}}
 ```
 
 результат - [[a https://docs.miramedix.ru/fhir/IG/StructureDefinition-fhir-ru-patient-gender.html]]
