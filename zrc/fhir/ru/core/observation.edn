@@ -2,10 +2,13 @@
 
  import #{fhir
           zen.fhir
-          fhir.ru.core.practitioner}
+          fhir.ru.core.patient
+          fhir.ru.core.practitioner
+          fhir.ru.core.encounter}
 
  CoreObservation
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :type zen/map
   :zendoc 'core.Observation
   :zen/desc "Результат наблюдения"
   :confirms #{fhir/Observation}
@@ -14,7 +17,6 @@
   :zen.fhir/name "CoreObservation"
   :zen.fhir/type "Observation"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-observation"
-  :type zen/map
   :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}
          :encounter {:confirms #{fhir.ru.core.encounter/CoreEncounter}}
          :performer {:confirms #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}}}

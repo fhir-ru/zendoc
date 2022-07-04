@@ -1,0 +1,23 @@
+{ns fhir.ru.core.tutorial-patient
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.ext-nsi-gender}
+
+ TutorialPatient
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zen/desc "Пациент"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Patient}
+  :zen.fhir/id "tutorial-patient"
+  :zen.fhir/name "TutorialPatient"
+  :zen.fhir/type "Patient"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/tutorial-patient"
+  :type zen/map
+  :keys {:_gender {:zen/desc "Пол пациента по справочнику НСИ"
+                   :type zen/map
+                   :confirms #{fhir/Element}
+                   :keys {:nsiGender {:confirms #{fhir.ru.core.ext-nsi-gender/CoreNsiGender}
+                                      :type zen/map
+                                      :zen/desc "Расширение: Пол пациента по справочнику НСИ, vs:http://fhir.ru/core/vs/core-vs-nsi-gender"
+                                      :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-nsi-gender"}}}}}}

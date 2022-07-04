@@ -13,7 +13,7 @@
   :zen.fhir/value-set
   {:symbol fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
    :strength :required}
-  :require #{:url :valueCoding}
+  ;; :require #{:url :valueCoding}
   :keys {:url {:zen/desc "http://fhir.ru/core/sd/core-ex-nsi-gender"
                :confirms #{fhir/uri}}
          :valueCoding  {:type zen/map
@@ -27,4 +27,4 @@
                                :display {:zen/desc "Значение для отображения"
                                          :confirms #{fhir/string}}}}}
 
-  :zendoc 'extension.ext-nsi-gender}}
+  :zendoc 'extension.core-ex-nsi-gender}}
