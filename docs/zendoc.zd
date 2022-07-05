@@ -1,5 +1,4 @@
 :title "Zendoc-инструкция"
-;; :avatar "https://github.com/zen-lang/zd/blob/main/docs/logo.png?raw=true"
 
 ^hide
 :icon [:fa :fa-graduation-cap] 
@@ -8,36 +7,41 @@
 :menu-order 100
 
 ^badge
-:editor #{people.mary}
+:editors #{people.alexandra people.varvara}
 
 ^badge
-:status "draft"
+:status "in progress"
 
 ^title "Оглавление"
 :content-list md/ 
-
-Оглавление можно добавить через `:toc` :)
 
 :toc
 
 ^title "Разработка проекта"
 :project md/
 
-^title "Запуск проекта локально через docker-compose"
-:project:local md/
+^title "Пререквизиты"
+:project:prerequisites md/
 
+Необходимо поставить себе:
+* [Docker](https://docs.docker.com/desktop/windows/install/)
+* [VSCode](https://code.visualstudio.com/)
 * Склонировать себе [проект](https://github.com/fhir-ru/zendoc/):
 
 ```code bash
 git clone git@github.com:fhir-ru/zendoc.git
 ```
-либо так, если хотите переименовать папку:
+
+либо так, если хотите переименовать папку `zendoc` например в `fhir-ru`:
 
 ```code bash
 git clone git@github.com:fhir-ru/zendoc.git fhir-ru
 ```
 
-* Запустить [docker](https://docs.docker.com/desktop/windows/install/)
+^title "Запуск проекта локально через docker-compose"
+:project:local md/
+
+* Запустить Docker
 * Зайти в папку проекта:
 
 ```code bash
@@ -56,13 +60,13 @@ git submodule init
 git submodule update --recursive
 ```
 
-* Открыть проект в VSCODE с помощью команды в терминале:
+* Открыть проект в VSCode с помощью команды в терминале:
 
 ```code bash
 code ./
 ```
 
-* В VSCODE перейти в терминал и запустить команду:
+* В VSCode перейти в терминал и запустить команду:
 
 ```code bash
 docker-compose up -d
@@ -75,18 +79,26 @@ docker-compose logs -f
 ```
 
 * Когда процесс выполнится, открыть в браузере страницу [http://localhost:3333/](http://localhost:3333/)
-* Внести изменения в файлы проекта, рефрешнуть страницу в браузере
+* Внести изменения в файлы проекта, рефрешнуть страницу в браузере (F5)
 
-* Остановить докер:
+* Если необходимо, остановить докер можно командой:
 
 ```code bash
 docker-compose stop
 ```
 
-^title "Обновление проекта"
+^title "Обновление проекта до последней версии"
 :project:update md/
 
-* Скачать последнюю версию:
+* Скачать и установить последнюю версию:
+
+```code bash
+git pull --ff-only
+```
+
+**Ключ `--ff-only` позволяет сделать pull, только если возможен автоматический мерж изменений ваших и на сервере, и прерывает выполнение команды, если есть конфликты.
+
+либо так: 
 
 ```code bash
 git pull
@@ -98,7 +110,7 @@ git pull
 git submodule update --recursive
 ```
 
-* Рестартануть докер-контейнер
+* Рестартануть докер-контейнер:
 
 ^title "Отправка ваших изменений на сервер"
 :project:commit md/
@@ -112,16 +124,16 @@ git status
 Скачать последнюю версию, чтобы избежать мержа:
 
 ```code bash
-git pull
+git pull --ff-only
 ```
 
-Добавление всех измененных и новых файлов к коммиту:
+Добавление всех ваших измененных и новых файлов к коммиту:
 
 ```code bash
 git add .
 ```
 
-Добавить только модифицированные файлы:
+либо можно добавить к коммиту только модифицированные файлы:
 
 ```code bash
 git add -u
@@ -139,64 +151,144 @@ git commit -m "Ваш текст-пояснение к коммиту"
 git push
 ```
 
-Если нужно временно спрятать свои локальные изменения:
+Если нужно временно спрятать свои локальные изменения, например в случае конфликтов, когда нужно забрать изменения с сервера:
 
 ```code bash
 git stash
 ```
 
-Достать спрятанные изменения обратно:
+Достать спрятанные изменения обратно, например после успешного пулла:
 
 ```code bash
 git stash apply
 ```
 
-^title "Введение"
-:description md/
+^title "Дополнительная настройка редактора VSCode"
+:project:vscode md/
 
-Zendoc - это данные, аннотированные так, чтобы они выглядели как структурированный динамический текст, который может использовать другие данные.
+Для вашего удобства можно настроить редактор VSCode с помощью установки расширений.
+
+* Автоматическое сохранение изменений:
+
+открыть `Settings` / `Auto Save` и выбрать опцию `onFocusChange`.
+
+
+* Автоматическое форматирование:
+
+поставить расширения Prettier и Formatting Toggle. 
+
+^collapse
+^title "Список расширений, которые могут пригодиться"
+:project:vscode-extensions md/
+
+```
+Name: zendoc
+Id: zendoc-vs.zendoc
+Description: semantic wiki syntax
+Version: 0.0.1
+Publisher: zendoc-vs
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=zendoc-vs.zendoc
+
+Name: zen-lsp
+Id: zen-lang.zen-lsp
+Description: 
+Version: 0.0.3
+Publisher: zen-lang
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=zen-lang.zen-lsp
+
+Name: TabOut
+Id: albert.TabOut
+Description: Tab out of quotes, brackets, etc
+Version: 0.2.1
+Publisher: Albert Romkes
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=albert.TabOut
+
+Name: Prettier - Code formatter
+Id: esbenp.prettier-vscode
+Description: Code formatter using prettier
+Version: 9.5.0
+Publisher: Prettier
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+Name: Formatting Toggle
+Id: tombonnike.vscode-status-bar-format-toggle
+Description: A VS Code extension that allows you to toggle formatting settings ON and OFF with a simple click.
+Version: 3.0.0
+Publisher: tombonnike
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle
+
+Name: cljfmt
+Id: pedrorgirardi.vscode-cljfmt
+Description: Format Clojure & EDN.
+Version: 1.3.0
+Publisher: Pedro Girardi
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=pedrorgirardi.vscode-cljfmt
+
+Name: Calva: Clojure & ClojureScript Interactive Programming
+Id: betterthantomorrow.calva
+Description: Integrated REPL, formatter, Paredit, and more. Powered by cider-nrepl and clojure-lsp.
+Version: 2.0.287
+Publisher: Better Than Tomorrow
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
+
+Name: Bookmarks
+Id: alefragnani.Bookmarks
+Description: Mark lines and jump to them
+Version: 13.3.0
+Publisher: Alessandro Fragnani
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
+```
+
+
+^title "Введение в Zendoc"
+:introduction md/
+
+Zendoc — это данные, аннотированные так, чтобы они выглядели как структурированный динамический текст, который может использовать другие данные.
 
 Каждый документ — это данные. Назовем это ресурсом.
- Ресурс — это упорядоченный набор ключей  и значений (map в терминах clojure).
-Ключи верхнего уровня начинаются с новой строки с `:` и значение в EDN после `:this-is-a-key "value"`
+Ресурс — это упорядоченный набор ключей  и значений (map в терминах clojure).
+
+Ключи верхнего уровня начинаются с новой строки с `:`, потом указывается их значение в EDN через пробел, например `:this-is-a-key "value"`.
 
 Ресурс хранится в базе данных и может быть доступен по имени или с помощью фильтра.
-Каждый документ получает свое имя от пути в файловой системе начиная с корня проекта. Это имя в качестве символа может использоваться для ссылки на документ/ресурс. 
-Например путь [[code mywiki/people/niquola.zd]] будет переведен в имя [[code mywiki.people.niquola]]
+
+Каждый документ получает свое имя от пути в файловой системе, начиная от корня проекта. 
+Это имя в качестве символа может использоваться для ссылки на документ/ресурс. 
+Например путь [[code mywiki/people/niquola.zd]] будет переведен в имя [[code mywiki.people.niquola]].
 
 Каждый документ в zendoc состоит из последовательности ключей (keypaths), значений и аннотаций.
-Ключ может иметь аннотацию (метаданные) - `^badge`
+Ключ может иметь аннотацию (метаданные), например `^badge`.
 Благодаря аннотации данные отображаются в определенном виде.
 
 Для многострочности используется специальная нотация, которая начинается с `:key /md` и заканчивается новой строкой с ключом или аннотацией.
 
-
-
-
-
-
-
 @niquola представляет zendoc: [видео 15 мин](https://www.youtube.com/watch?v=_thVrYW2FeQ).
 
-
-Все пожелания по улучшение Zendoc и наполнению контентом этой страницы можно оставлять тут - [[d 132]]
+Все пожелания по улучшению Zendoc и наполнению контентом этой страницы можно оставлять тут — [[d 132]].
 
 ^title "Иконки"
 :icons md/
 
 К главному заголовку можно добавить иконку.
-Иконки можно выбрать [здесь](https://fontawesome.com/search?q=comments&s=solid%2Cbrands%2Cregular%2Clight%2Cthin%2Cduotone)
+
+Иконки можно выбрать [здесь](https://fontawesome.com/search?q=comments&s=solid%2Cbrands%2Cregular%2Clight%2Cthin%2Cduotone).
 
 ```code edn
   :icon [:fa :fa-graduation-cap] 
 
 ```
 
+^title "Вывод оглавления"
+:content-list md/ 
+
+Оглавление можно добавить через `:toc`.
+
 ^title "Картинки"
 :images md/
 
 Картинку можно положить в репозиторий или сослаться по ссылке.
-Чтобы картинка отрисовалась можно использовать анатацию [[code ^img]]
+
+Чтобы картинка отрисовалась, можно использовать анатацию [[code ^img]].
 
 ```code edn
   ^img
@@ -209,10 +301,7 @@ Zendoc - это данные, аннотированные так, чтобы о
   :image-in-text md/
 
       Можно вставить картинку в текст [[img local.webp]] или ![](local.webp)
-
-
 ```
-
 
 __Результат:__
 
@@ -223,13 +312,15 @@ __Результат:__
 :images:image-in-text md/
 
 Можно вставить картинку в текст [[img https://www.hl7.org/fhir/conformance.jpg]]
-или ![](https://www.hl7.org/fhir/conformance.jpg)
+или ![](https://www.hl7.org/fhir/conformance.jpg).
 
 
 ^title "Аннотации"
 :annotation md/
-Аннотация, это подсказка, которая позволяет интепретатору понять как рисовать содержимое ключа - `^badge`.
-Аннотация подвязывается к ключу
+
+Аннотация — это подсказка, которая позволяет интепретатору понять, как рисовать содержимое ключа, например `^badge`.
+
+Аннотация подвязывается к ключу:
 
 ```code
     ^badge
@@ -239,43 +330,43 @@ __Результат:__
 
 **Список аннотаций:**
 
-* `^collapse` - свернуть данные под заголовок
+* `^collapse` — свернуть данные под заголовок
 
-* `^badge` - прикрепляется как лейбел вверху страницы
+* `^badge` — прикрепляется как лейбел вверху страницы
 
-* `^title` - отрисовать заданный заголовок
+* `^title` — отрисовать заданный заголовок
 
-* `^link-badge` - маленький бейджик внутри которого будет ссылка, то же что и badge
+* `^link-badge` — маленький бейджик, внутри которого будет ссылка; то же, что и badge
 
-* `^href / link` - способ отрисовать ссылки
+* `^href / link` — способ отрисовать ссылки
 
-* `^img` - вставить картинку
+* `^img` — вставить картинку
 
-* `^table` - отрисовка таблицы
+* `^table` — отрисовка таблицы
 
-* `^hide` - не отрисует данные
+* `^hide` — не отрисует данные
 
-* `^yaml` - отрисовать yaml код с подсветкой
+* `^yaml` — отрисовать yaml-код с подсветкой
 
-* `^edn` - отрисовать edn код с подсветкой
+* `^edn` — отрисовать edn-код с подсветкой
 
-* `^video` - вставить видео
+* `^video` — вставить видео
 
-* `^zen/schema` - способ отрисовать zen schema в виде дерева
+* `^zen/schema` — способ отрисовать zen schema в виде дерева, например для вывода профиля на странице документации
 
-* `^disc` - ссылка на дискашен
+* `^disc` — ссылка на дискуссию в GitHub
 
 ^title "Текст"
 :zentext md/
 
-* Можно сослаться на человека [[code @niquola]] - @niquola
-* Можно сослаться на документ [[code #manifest]] - #manifest
-* Можно вставить код [[code `code()`]] - `code()`
-* Можно вставить код `[[code code()]]` - [[code code()]]
-* Можно вставить `**bold**` - **bold**
-* Можно вставить `__italic__` - __italic__
-* Можно вставить ссылку `[text](link)` - [text](link)
-* Сослаться на поле в ресурсе `((resource people.niquola :telegram))` - ((resource people.niquola :telegram))
+* Можно сослаться на человека: [[code @niquola]] — @niquola
+* Можно сослаться на документ: [[code #manifest]] — #manifest
+* Можно вставить код: [[code `code()`]] — `code()`
+* Можно вставить код: `[[code code()]]` — [[code code()]]
+* Выделить жирным: `**bold**` — **bold**
+* Выделить курсивом: `__italic__` — __italic__
+* Можно вставить ссылку: `[text](link)` — [text](link)
+* Сослаться на поле в ресурсе: `((resource people.niquola :telegram))` — ((resource people.niquola :telegram))
 
 ^title "Заголовоки"
 :zentext:title md/
@@ -332,14 +423,11 @@ __Результат:__
 ..1) sub item
 ..1) another
 3) item 3
-
-
   
 ^title "Таблицы"
 :tables:zentext md/
 
-Таблицу можно встроить с помощью -  [[code ```table]] block 
-
+Таблицу можно встроить с помощью —  [[code ```table]] block 
 
 ```code
   ```table
@@ -349,36 +437,40 @@ __Результат:__
   ```
 ```
 
-
-Еще таблицу можно записать с помощью - `^table{:key[{:column1 "value1" :column2 "value2"}]`
-
-
-```
-    ^table
-    :contacts
-    [{:name "niquola":email "niq.com":phone "+7897989"} 
-    {:name "mary":email "mary.com":phone "+7897555"}]
-```
-
-
-
 __Результат:__
+
 ```table
 name | email | phone
 niquola | niq.com | +7897989 
 mary | mary.com | +7897555 
-
 ```
 
+<br/>
+Еще таблицу можно записать с помощью — `^table{:key[{:column1 "value1" :column2 "value2"}]`
 
+```code
+^table
+[{:name "niquola":email "niq.com":phone "+7897989"} 
+{:name "mary":email "mary.com":phone "+7897555"}]
+```
 
+__Результат:__
+
+^table
+:tables:zentext:contacts
+[{:name "niquola" :email "niq.com" :phone "+7897989"} 
+{:name "mary" :email "mary.com" :phone "+7897555"}]
 
 ^title "Код"
 :code md/
 
-Блок с кодом можно записать как  [[code ```code]]
 
-Список языков -  [[a https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md здесь]]
+^title "Блоки кода"
+:code:blocks md/
+
+Блок с кодом можно записать как [[code ```code]]
+
+Список языков —  [[a https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md здесь]]
 
 ```code
   ```code json
@@ -392,107 +484,8 @@ __Результат:__
 {"a" : 1}
 ```
 
-^title "Диаграмма связей"
-:mindmap-code md/
-
-```code edn
-  :mindmap:sample mindmap/
-
-  zendoc
-  * semantic web
-    * resources
-    * attributes
-    * machine readable
-  * knowlege base
-    * database
-    * links
-    * back links
-  * zen-lang
-    * schema
-  * clojure
-    * EDN
-      * symbols for links
-    * hiccup
-      * ad-hock markup
-    * extension
-```
-
-^title "Пример диаграммы связей"
-:mindmap-code:mindmap-sample mindmap/
-zendoc
-* semantic web
-  * resources
-  * attributes
-  * machine readable
-* knowlege base
-  * database
-  * links
-  * back links
-* zen-lang
-  * schema
-* clojure
-  * EDN
-    * symbols for links
-  * hiccup
-    * ad-hock markup
-  * extension
-
-^disc 45
-^title "Github дискуссии"
-:discussion md/
-
-Можно добавить ссылку на дискуссию либо к заголовку, либо в теле текста [[d 45]]
-
-```code edn
-  ^disc 45
-  :discussion md/
-
-  Можно добавить ссылку на дискуссию либо к заголовку либо в теле текста [[d 45]]
-
-```
-
-:markdown markdown/
-
-```code markdown
-  :markdown markdown/
-
-  Вы можете использовать [markdwon](markdown) - но луче zentext
-
-  * item-1
-  * item-2
-
-```
-
-Вы можете использовать [markdwon](markdown) - `:key markdown/` 
-
-* item-1
-* item-2
-
-^title "Диаграмма"
-:description md/
-
-Для отображения в виде диаграммы нужно использовать нотацию `:any-key mm/ flowchart` 
-```code edn
-    :diagram mm/
-    flowchart TB
-    zendoc-->document
-    zendoc-->resource
-    resource-->db
-    document-->db
-    db[(Database)]
-```
-
-^title "Пример диаграммы"
-:description:diagram mm/
-flowchart
-zendoc-->document
-zendoc-->resource
-resource-->db
-document-->db
-db[(Database)]
-
 ^title "Вкладки"
-:tabs:doc md/
+:code:tabs md/
 
 Вкладки можно вставить с помощью блоков с аннотациями, где
 `tabs` — контейнер, `tab-title` — название вкладки, `tab-content` — ее содержимое,
@@ -537,3 +530,109 @@ db[(Database)]
 ~:yaml:title "YAML"
 ^tab-content
 ~:yaml:content "not written yet"
+
+
+
+^disc 45
+^title "GitHub-дискуссии"
+:discussion md/
+
+Можно добавить ссылку на дискуссию либо к заголовку, либо в теле текста [[d 45]]
+
+```code edn
+  ^disc 45
+  :discussion md/
+
+  Можно добавить ссылку на дискуссию либо к заголовку либо в теле текста [[d 45]]
+
+```
+
+:markdown markdown/
+
+```code markdown
+  :markdown markdown/
+
+  Вы можете использовать [markdown](markdown) — но лучше zentext
+
+  * item-1
+  * item-2
+
+```
+
+Вы можете использовать [markdown](markdown) — `:key markdown/` 
+
+* item-1
+* item-2
+
+^title "Диаграммы"
+:diagrams md/
+
+^title "Диаграмма связей"
+:diagrams:mindmap-code md/
+
+```code edn
+  :mindmap:sample mindmap/
+
+  zendoc
+  * semantic web
+    * resources
+    * attributes
+    * machine readable
+  * knowlege base
+    * database
+    * links
+    * back links
+  * zen-lang
+    * schema
+  * clojure
+    * EDN
+      * symbols for links
+    * hiccup
+      * ad-hock markup
+    * extension
+```
+
+^title "Пример диаграммы связей"
+:diagrams:mindmap-code:mindmap-sample mindmap/
+zendoc
+* semantic web
+  * resources
+  * attributes
+  * machine readable
+* knowlege base
+  * database
+  * links
+  * back links
+* zen-lang
+  * schema
+* clojure
+  * EDN
+    * symbols for links
+  * hiccup
+    * ad-hock markup
+  * extension
+
+^title "Диаграмма"
+:diagrams:description md/
+
+Для отображения в виде диаграммы нужно использовать нотацию `:any-key mm/ flowchart` 
+```code edn
+    :diagram mm/
+    flowchart TB
+    zendoc-->document
+    zendoc-->resource
+    resource-->db
+    document-->db
+    db[(Database)]
+```
+
+^title "Пример диаграммы"
+:diagrams:description:diagram mm/
+flowchart
+zendoc-->document
+zendoc-->resource
+resource-->db
+document-->db
+db[(Database)]
+
+
