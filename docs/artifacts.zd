@@ -30,7 +30,7 @@
 ^title "Профили"
 :profiles md/
 
-The following profiles have been defined for this implementation guide.
+Ниже приведен список профилей, определенных в рамках данного руководства по внедрению.
 
 ^title "Profiles"
 :tag zen.fhir/profile-schema
@@ -38,7 +38,7 @@ The following profiles have been defined for this implementation guide.
 ^title "Расширения"
 :extensions md/ 
 
-The following extensions have been defined for this implementation guide.
+Ниже приведен список расширений, определенных в рамках данного руководства по внедрению.
 
 ^title "Extensions"
 :tag zen.fhir/extension
@@ -46,7 +46,7 @@ The following extensions have been defined for this implementation guide.
 ^title "Наборы значений"
 :valuesets md/ 
 
-The following valuesets have been defined for this implementation guide.
+Ниже приведен список наборов значений, определенных в рамках данного руководства по внедрению.
 
 ^title "ValueSets"
 :tag zen.fhir/value-set
