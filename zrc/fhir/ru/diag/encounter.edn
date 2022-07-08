@@ -2,8 +2,8 @@
 
  import #{fhir
           zen.fhir
-          fhir.ru.core.encounter/CoreEncounter
-          fhir.ru.diag.nosology/DiagnosisNosology}
+          fhir.ru.core.encounter
+          fhir.ru.diag.nosology}
 
  EncounterClinicalDx
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
