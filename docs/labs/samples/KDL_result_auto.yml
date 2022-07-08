@@ -1,0 +1,1109 @@
+resourceType: 'Bundle'
+type: 'document'
+language: 'ru-RU'
+identifier: 
+ system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.51'
+ value: '7854321'
+meta: 
+ versionId: '1'
+entry: 
+ - fullUrl: 'urn:uuid:841EE3E8-C978-3E91-BC85-38E197586A82'
+   resource: 
+    resourceType: 'Composition'
+    type: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
+        code: '7'
+        version: '4.45'
+    date: '2018-12-20T12:20:00+3:00'
+    confidentiality: 'N'
+    identifier: 
+     system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.50'
+     value: '9633'
+    title: 'Протокол лабораторного исследования'
+    section: 
+    - title: 'ДАННЫЕ О ПАЦИЕНТЕ'
+      code: 'recordTarget'
+      entry: 
+      - reference: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+    - title: 'ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА'
+      code: 'author'
+      entry: 
+      - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    - title: 'ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА'
+      code: 'custodian'
+      entry: 
+      - reference: 'urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A'
+    - title: 'ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА'
+      code: 'informationRecipient'
+      entry: 
+      - reference: 'urn:uuid:9B969178-4E65-F8BC-A8CA-E7FACB036CCA'
+    - title: 'ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ'
+      code: 'legalAuthenticator'
+      entry: 
+      - reference: 'urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728'
+    - title: 'СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ'
+      code: 'participantInd'
+      entry: 
+      - reference: 'urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7'
+    - title: 'СВЕДЕНИЯ О НАПРАВИВШЕМ ЛИЦЕ И ОРГАНИЗАЦИИ'
+      code: 'participantRef'
+      entry: 
+      - reference: 'urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F'
+    - title: 'СВЕДЕНИЯ О НАПРАВЛЕНИИ'
+      code: 'order'
+      entry: 
+      - reference: 'urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A'
+    - title: 'ТЕЛО ДОКУМЕНТА'
+      code: 'structuredBody'
+      entry: 
+      - reference: 'urn:uuid:B7A7BEAA-5406-2657-8C32-C50BE18D5878'
+ - fullUrl: 'urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A'
+   resource: 
+    resourceType: 'Organization'
+    identifier: 
+     - value: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312'
+       system: 'urn:ru:frmo:oid'
+       use: 'official'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+     - value: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.0.166444'
+       system: 'urn:ru:frmo:oid'
+       use: 'secondary'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+     - value: 'ЛО-77-01-018580'
+       system: 'urn:oid:1.2.643.5.1.13.2.1.1.1504.101'
+       assigner: 
+        display: 'Федеральная служба по надзору в сфере здравоохранения (Росздравнадзор). Дата регистрации: 14.08.2019.'
+       type: 
+        text: 'Лицензия организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'SL'
+           display: 'State license'
+     - value: '1137746132622'
+       system: 'urn:ru:id:ogrn'
+     - value: '45'
+       system: 'urn:ru:id:okato'
+    name: 'Государственное бюджетное учреждение здравоохранения города Москвы "Городская поликлиника №129 Департамента здравоохранения города Москвы"'
+    address: 
+       text: 'Московская область, город Москва, улица Ладожская, дом 4/6'
+       state: '77'
+       postalCode: '105005'
+       extension: 
+        - fias: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - fias_house: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74997645002'
+       - value: 'mailto: gp129@zdrav.mos.ru'
+ - fullUrl: 'urn:uuid:9B969178-4E65-F8BC-A8CA-E7FACB036CCA'
+   resource: 
+    resourceType: 'Organization'
+    identifier: 
+     - value: 'urn:oid:1.2.643.5.1.13'
+       system: 'urn:ru:frmo:oid'
+       use: 'official'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+    name: 'Министерство здравоохранения Российской Федерации'
+    contact: 
+ - fullUrl: 'urn:uuid:8BC1E147-7ABE-D23E-9E69-E2639F5425BF'
+   resource: 
+    resourceType: 'Organization'
+    identifier: 
+     - value: 'urn:oid:1.2.643.5.1.13.13.99.2.183'
+       system: 'urn:ru:frmo:oid'
+       use: 'official'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+     - value: 'urn:oid:77013'
+       system: 'urn:ru:frmo:oid'
+       use: 'secondary'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+    name: 'ООО "СК "ИНГОССТРАХ-М"'
+    address: 
+       text: 'г Москва, ул Рочдельская, д 15 стр 35'
+       state: '77'
+       postalCode: '123376'
+       extension: 
+        - fias: '6bfbfcbb-87a7-4674-a8e5-bf5f1bbfbf92'
+        - fias_house: '0b33a0e1-3427-409a-a3b7-e57716819f38'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74952323491'
+ - fullUrl: 'urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09'
+   resource: 
+    resourceType: 'Organization'
+    identifier: 
+     - value: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809'
+       system: 'urn:ru:frmo:oid'
+       use: 'official'
+       type: 
+        text: 'ОИД организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PRN'
+           display: 'Provider number'
+    name: 'ГБУЗ "Городская поликлиника № 25 Департамента здравоохранения города Москвы"'
+    address: 
+       text: 'Московская область, Россия, город Москва, улица Миклухо-Маклая, дом 10'
+       state: '77'
+       postalCode: '117198'
+       extension: 
+        - fias: '1dec06af-f015-425b-be4b-253fab5d7ccb'
+        - fias_house: 'b1adc7d0-8160-47d0-9903-d794b72078f6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74954342491'
+       - value: 'tel:+74954342570'
+ - fullUrl: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+   resource: 
+    resourceType: 'Patient'
+    identifier: 
+     - value: '735486'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.10'
+       type: 
+        text: 'Номер пациента в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PI'
+           display: 'Patient internal identifier'
+     - value: '25463625426'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+     - value: '4509,395643'
+       system: 'http://fhir.ru/core/systems/passport-rf'
+       assigner: 
+        reference: 'Organization/2'
+       period: 
+        start: '2005-02-18'
+       type: 
+        text: 'Номер паспорта'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'PPN'
+           display: 'Passport number'
+         - system: 'urn:oid:1.2.643.5.1.13.13.99.2.48'
+           code: '1'
+           version: '5.1'
+           display: 'Паспорт гражданина Российской Федерации'
+     - value: '5256048032'
+       system: 'https://fhir.ru/id/inn'
+       type: 
+        text: 'ИНН'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'SS'
+           display: 'Social Security number'
+     - value: '9876543211234567'
+       system: 'https://fhir.ru/id/enp'
+       type: 
+        text: 'Единый номер застрахованного'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NIIP'
+           display: 'National Insurance Payor Identifier'
+         - system: 'urn:oid:1.2.643.5.1.13.13.11.1035'
+           code: '2'
+           version: '1.3'
+           display: 'Полис ОМС единого образца, бессрочный'
+    name: 
+     - use: 'official'
+       family: 'Новосельцев'
+       given: 
+        - Михаил
+        - Владимирович
+    gender: 'male'
+    birthDate: '1977-11-25'
+    address: 
+     - use: 'home'
+       text: 'Московская область, город Москва, улица Твардовского, дом 5, корпус 1, квартира 42'
+       state: '77'
+       postalCode: '123458'
+       extension: 
+        - fias: '45d96a50-7870-4183-872b-451c6573a7c9'
+        - fias_house: 'f8a876ac-4ea1-4a3e-b255-dd0d0f510802'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+     - use: 'billing'
+       text: 'Московская область, город Москва, улица Твардовского, дом 5, корпус 1, квартира 42'
+       state: '77'
+       postalCode: '123458'
+       extension: 
+        - fias: '45d96a50-7870-4183-872b-451c6573a7c9'
+        - fias_house: 'f8a876ac-4ea1-4a3e-b255-dd0d0f510802'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74951953745'
+       - value: 'tel:+79034752364'
+         use: 'mobile'
+       - value: 'mailto: novosel.m.v@mail.ru'
+    extension: 
+     - url: 'http://fhir.ru/core/sd/core-ex-gender'
+       valueCodeableConcept: 
+        - coding: 
+          - system: '1.2.643.5.1.13.13.11.1040'
+            code: '1'
+            version: '2.1'
+            display: 'Мужской'
+ - fullUrl: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '542177'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '52415377312'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Смирнова'
+       given: 
+        - Александра
+        - Ивановна
+    address: 
+       text: 'Московская область, город Москва, улица Ладожская, дом 4/6'
+       state: '77'
+       postalCode: '105005'
+       extension: 
+        - fias: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - fias_house: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74957443256'
+       - value: 'tel:+79267352628'
+       - value: 'mailto:smirnovа.a.i@rambler.ru'
+ - fullUrl: '413E3A42-755B-4836-BDCD-EEA6FE2ED0C5'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '35'
+         version: '7.5'
+         display: 'врач клинической лабораторной диагностики'
+    practitioner: 
+     reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    organization: 
+     reference: 'urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A'
+ - fullUrl: 'urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728'
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '512174'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '52415372312'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Иванов'
+       given: 
+        - Александр
+        - Игоревич
+    address: 
+       text: 'Московская область, город Москва, улица Ладожская, дом 4/6'
+       state: '77'
+       postalCode: '105005'
+       extension: 
+        - fias: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - fias_house: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+74957443256'
+       - value: 'tel:+79267352628'
+       - value: 'mailto:ivanov.a.i@rambler.ru'
+ - fullUrl: '899EAF72-454C-CAB0-96D0-8D8C561F22E7'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '431'
+         version: '7.5'
+         display: 'заведующий лабораторией медицинской организации'
+    practitioner: 
+     reference: 'urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728'
+    organization: 
+     reference: 'urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A'
+ - fullUrl: 'urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F'
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '183640'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '15679879686'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Поляков'
+       given: 
+        - Александр
+        - Игоревич
+    address: 
+       text: 'Московская область, Россия, город Москва, улица Миклухо-Маклая, дом 10'
+       state: '77'
+       postalCode: '117198'
+       extension: 
+        - fias: '1dec06af-f015-425b-be4b-253fab5d7ccb'
+        - fias_house: 'b1adc7d0-8160-47d0-9903-d794b72078f6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+79065184597'
+ - fullUrl: '1C37AEEC-8465-36AB-977C-9A205420A877'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '109'
+         version: '7.5'
+         display: 'врач-терапевт'
+    practitioner: 
+     reference: 'urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F'
+    organization: 
+     reference: 'urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09'
+ - fullUrl: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '542177'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '52415377312'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Смирнова'
+       given: 
+        - Александра
+        - Ивановна
+    address: 
+       text: 'Московская область, город Москва, улица Ладожская, дом 4/6'
+       state: '77'
+       postalCode: '105005'
+       extension: 
+        - fias: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - fias_house: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+ - fullUrl: '26AA1DB8-9F76-6122-BD42-18AA54D178AD'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '35'
+         version: '7.5'
+         display: 'врач клинической лабораторной диагностики'
+    practitioner: 
+     reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    organization: 
+     reference: 'urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A'
+ - fullUrl: 'urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7'
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '542170'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '10003000607'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Войнова'
+       given: 
+        - Ольга
+        - Ивановна
+    address: 
+       text: 'Московская область, г. Москва, ул. Ладожская, д. 9'
+       state: '77'
+       postalCode: '105005'
+       extension: 
+        - fias: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - fias_house: '5cc60bad-5dfd-4266-abc3-84aed9ededce'
+        - url: 'http://fhir.ru/core/sd/core-ex-state'
+          valueCodeableConcept: 
+           - coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+    contact: 
+     - telecom: 
+       - value: 'tel:+79065184597'
+ - fullUrl: '35B7C11F-D42E-4D4B-96E3-CD54B4126493'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '171'
+         version: '7.5'
+         display: 'медицинская сестра процедурной'
+    practitioner: 
+     reference: 'urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7'
+    organization: 
+     reference: 'urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09'
+ - fullUrl: 'urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97'
+   resource: 
+    resourceType: 'Encounter'
+    identifier: 
+     - value: '5469-16'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.15'
+       type: 
+        coding: 
+         - system: 'urn:oid:http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'ACSN'
+     - value: '5316-16'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.17'
+       type: 
+        coding: 
+         - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
+           code: '41'
+           version: '1.1'
+           display: 'Медицинская карта пациента, получающего медицинскую помощь в амбулаторных условиях'
+         - system: 'urn:oid:1.2.643.5.1.13.13.99.2.723'
+           code: '1'
+           version: '1.1'
+           display: 'Амбулаторная медицинская карта'
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'MR'
+    class: 
+     - system: 'urn:oid:http://terminology.hl7.org/CodeSystem/v3-ActCode'
+       code: 'AMB'
+    period: 
+     start: '2018-12-20T08:30:00+3:00'
+     end: '2018-12-20T19:00:00+3:00'
+    status: 'finished'
+ - fullUrl: 'urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7'
+   resource: 
+    resourceType: 'Coverage'
+    id: 'EE277285-6D67-1DEF-B1EF-BB193EEBD0C7'
+    identifier: 
+     - value: '9876543211234567'
+       type: 
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NIIP'
+       period: 
+        start: '2017-10-25'
+    status: 'active'
+    beneficiary: 
+     reference: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+    payor: 
+     - reference: 'Organization/Payor'
+    type: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1039'
+        code: '1'
+        version: '5.2'
+        display: 'Средства обязательного медицинского страхования'
+      - system: 'http://hl7.org/fhir/ValueSet/coverage-type'
+        code: 'MANDPOL'
+    class: 
+     - type: 
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/coverage-class'
+           code: 'class'
+         - system: 'urn:oid:1.2.643.5.1.13.13.99.2.724'
+           code: '1'
+           version: '1.1'
+           display: 'Полис ОМС'
+       value: 'Тип документа'
+     - type: 
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/coverage-class'
+           code: 'subclass'
+         - system: 'urn:oid:1.2.643.5.1.13.13.11.1035'
+           code: '2'
+           version: '1.3'
+           display: 'Полис ОМС единого образца, бессрочный'
+       value: 'Тип полиса ОМС'
+ - fullUrl: 'urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A'
+   resource: 
+    resourceType: 'Task'
+    id: 'EB3C807C-6E85-DAEB-904D-CF95FAAE375A'
+    status: 'completed'
+    intent: 'order'
+    identifier: 
+     - system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.51'
+       value: '987964'
+    code: 
+     coding: 
+     - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
+       code: '107'
+       version: '4.45'
+    requester: 
+     reference: 'urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F'
+    encounter: 
+     reference: 'urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97'
+    insurance: 
+     reference: 'urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7'
+    basedOn: 
+     - reference: 'urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7'
+     - reference: 'urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A'
+     - reference: 'urn:uuid:8F5A5F52-0542-85A3-B63C-8B3EB6B51329'
+ - fullUrl: 'urn:uuid:B7A7BEAA-5406-2657-8C32-C50BE18D5878'
+   resource: 
+    resourceType: 'Task'
+    id: 'B7A7BEAA-5406-2657-8C32-C50BE18D5878'
+    basedOn: 
+     - reference: 'urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A'
+    status: 'completed'
+    intent: 'filler-order'
+    priority: 'routine'
+    performerType: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1034'
+        code: '2'
+        version: '4.2'
+    executionPeriod: 
+     start: '2018-12-20T08:30:00+3:00'
+     end: '2018-12-20T16:10:00+3:00'
+    output: 
+     - valueReference: 
+        reference: 'urn:uuid:360B8131-EE30-9098-8418-6E3CBF3B462E'
+       type: 
+        coding: 
+         - code: 'DR'
+     - valueReference: 
+        reference: 'urn:uuid:DC19D6DC-ED4A-8C75-A887-6B9AF5DD8995'
+       type: 
+        coding: 
+         - code: 'DR'
+     - valueReference: 
+        reference: 'urn:uuid:CEE4435B-FCE0-FBCD-9341-552EAEF8BBDA'
+       type: 
+        coding: 
+         - code: 'DR'
+ - fullUrl: 'urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7'
+   resource: 
+    resourceType: 'ServiceRequest'
+    id: '31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7'
+    status: 'completed'
+    intent: 'original-order'
+    subject: 
+     reference: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        version: '2.10'
+        display: 'Клинический анализ крови на анализаторе'
+ - fullUrl: 'urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A'
+   resource: 
+    resourceType: 'ServiceRequest'
+    id: 'A732C573-1FE9-81D7-9449-40D7F5AE406A'
+    status: 'completed'
+    intent: 'original-order'
+    subject: 
+     reference: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        version: '2.10'
+        display: 'Микроскопия окрашенных мазков'
+ - fullUrl: 'urn:uuid:8F5A5F52-0542-85A3-B63C-8B3EB6B51329'
+   resource: 
+    resourceType: 'ServiceRequest'
+    id: '8F5A5F52-0542-85A3-B63C-8B3EB6B51329'
+    status: 'completed'
+    intent: 'original-order'
+    subject: 
+     reference: 'urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        version: '2.10'
+        display: 'Иммуногематологическое исследование'
+ - fullUrl: 'urn:uuid:360B8131-EE30-9098-8418-6E3CBF3B462E'
+   resource: 
+    resourceType: 'DiagnosticReport'
+    id: 'DR_Клинический анализ крови на анализаторе'
+    status: 'final'
+    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    category: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
+        code: 'Код профиля!!!'
+        version: '4.75'
+        display: 'Клинический анализ крови на анализаторе'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        code: 'Код НМУ!!!'
+        version: '2.10'
+        display: 'Клинический анализ крови на анализаторе'
+    result: 
+        - reference: 'urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2'
+        - reference: 'urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB'
+ - fullUrl: 'urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2'
+   resource: 
+    resourceType: 'Observation'
+    status: 'final'
+    code: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1080'
+        code: '1017128'
+        version: '3.28'
+        display: 'Гемоглобин общий, массовая концентрация в крови'
+    effectiveDateTime: '2018-12-20T08:55:00+3:00'
+    interpretation: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.99.2.257'
+        code: 'H'
+    specimen: 
+     reference: 'urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5'
+    performer: 
+        - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+        - reference: ''
+    valueQuantity: 
+     system: '1.2.643.5.1.13.13.11.1358'
+     code: '60'
+     value: '166'
+     unit: 'г/л'
+    referenceRange: 
+    - text: '120 - 150 г/л'
+      low: 
+       system: '1.2.643.5.1.13.13.11.1358'
+       code: '60'
+       value: '120'
+       unit: 'г/л'
+      high: 
+       system: '1.2.643.5.1.13.13.11.1358'
+       code: '60'
+       value: '150'
+       unit: 'г/л'
+      type: 
+       coding: 
+        - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
+          code: 'normal'
+    device: 
+     reference: 'urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5'
+ - fullUrl: 'urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB'
+   resource: 
+    resourceType: 'Observation'
+    status: 'final'
+    code: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1080'
+        code: '1017482'
+        version: '3.28'
+        display: 'Шизоциты, обнаружение в крови методом автоматизированного подсчёта'
+    effectiveDateTime: '2018-12-20T08:55:00+3:00'
+    interpretation: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.99.2.257'
+        code: 'A'
+    specimen: 
+     reference: 'urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5'
+    performer: 
+        - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+        - reference: ''
+    valueString: '++'
+    referenceRange: 
+    - text: 'не обнаруживаются'
+      type: 
+       coding: 
+        - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
+          code: 'normal'
+    note: 
+    - text: 'Количество шизоцитов: 8,35% от общего количества эритроцитов'
+      authorReference: 
+       reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+      time: '2018-12-20T16:13:00+3:00'
+    device: 
+     reference: 'urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5'
+ - fullUrl: 'urn:uuid:DC19D6DC-ED4A-8C75-A887-6B9AF5DD8995'
+   resource: 
+    resourceType: 'DiagnosticReport'
+    id: 'DR_Микроскопия окрашенных мазков'
+    status: 'final'
+    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    category: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
+        code: 'Код профиля!!!'
+        version: '4.75'
+        display: 'Микроскопия окрашенных мазков'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        code: 'Код НМУ!!!'
+        version: '2.10'
+        display: 'Микроскопия окрашенных мазков'
+    media: 
+     - reference: 'urn:uuid:56D768A5-9C64-CCE9-9EB8-275CC31A3C50'
+    result: 
+        - reference: 'urn:uuid:B9939D96-E239-79D5-B69B-8EA3D3A57865'
+        - reference: 'urn:uuid:6407722B-1802-E359-AEBC-D13B083E6C46'
+ - fullUrl: 'urn:uuid:B9939D96-E239-79D5-B69B-8EA3D3A57865'
+   resource: 
+    resourceType: 'Observation'
+    status: 'final'
+    code: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1080'
+        code: '1017508'
+        version: '3.28'
+        display: 'Шизоциты, количество в поле зрения в крови методом световой микроскопии'
+    effectiveDateTime: '2018-12-20T10:42:00+3:00'
+    interpretation: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.99.2.257'
+        code: 'HU'
+    specimen: 
+     reference: 'urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2'
+    performer: 
+        - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    valueString: '10-25-30 в поле зрения'
+    referenceRange: 
+    - text: '1 - 3 в поле зрения'
+      low: 
+       system: '1.2.643.5.1.13.13.11.1358'
+       code: '334'
+       value: '1'
+       unit: '1/поле зр.'
+      high: 
+       system: '1.2.643.5.1.13.13.11.1358'
+       code: '334'
+       value: '3'
+       unit: '1/поле зр.'
+      type: 
+       coding: 
+        - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
+          code: 'normal'
+ - fullUrl: 'urn:uuid:6407722B-1802-E359-AEBC-D13B083E6C46'
+   resource: 
+    resourceType: 'Observation'
+    status: 'final'
+    code: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1080'
+        code: '1018738'
+        version: '3.28'
+        display: 'Гиперхромия, обнаружение в крови методом световой микроскопии'
+    effectiveDateTime: '2018-12-20T10:42:00+3:00'
+    specimen: 
+     reference: 'urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2'
+    performer: 
+        - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    valueString: 'умеренная'
+ - fullUrl: 'urn:uuid:56D768A5-9C64-CCE9-9EB8-275CC31A3C50'
+   resource: 
+    resourceType: 'Media'
+    content: 
+     data: 'JVBERi0xLjMNJf0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ...'
+    createdDateTime: '2018-12-20T16:01:00+3:00'
+    device: 
+     reference: 'urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5'
+    operator: 
+     reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    status: 'completed'
+ - fullUrl: 'urn:uuid:CEE4435B-FCE0-FBCD-9341-552EAEF8BBDA'
+   resource: 
+    resourceType: 'DiagnosticReport'
+    id: 'DR_Иммуногематологическое исследование'
+    status: 'final'
+    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    category: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
+        code: 'Код профиля!!!'
+        version: '4.75'
+        display: 'Иммуногематологическое исследование'
+    code: 
+     coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+        code: 'Код НМУ!!!'
+        version: '2.10'
+        display: 'Иммуногематологическое исследование'
+    result: 
+        - reference: 'urn:uuid:6ACC1957-A467-5431-88E6-60CAF898EDDE'
+ - fullUrl: 'urn:uuid:6ACC1957-A467-5431-88E6-60CAF898EDDE'
+   resource: 
+    resourceType: 'Observation'
+    status: 'final'
+    code: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1080'
+        code: '1038629'
+        version: '3.28'
+        display: 'Группа крови AB0 подтверждающим методом'
+    specimen: 
+     reference: 'urn:uuid:45E0AC8C-0132-BD37-95D5-3FE815B974EA'
+    performer: 
+        - reference: 'urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859'
+    valueCodeableConcept: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1061'
+        code: '103'
+        version: '2.1'
+ - fullUrl: 'urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5'
+   resource: 
+    resourceType: 'Device'
+    identifier: 
+     - value: '1234'
+       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
+    deviceName: 
+     name: 'Гематологический анализатор Sysmex KX21'
+     type: 'manufacturer-name'
+ - fullUrl: 'urn:uuid:45E0AC8C-0132-BD37-95D5-3FE815B974EA'
+   resource: 
+    resourceType: 'Specimen'
+    type: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1081'
+        code: '108'
+        version: '2.4'
+        display: 'Кровь венозная'
+    identifier: 
+     - value: '0987654321'
+       system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+    collection: 
+     collector: 
+      reference: 'urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7'
+     collectedDateTime: '2018-12-20T07:05:00+3:00'
+     quantity: 
+      system: '1.2.643.5.1.13.13.11.1358'
+      code: '16'
+      value: '6.5'
+      unit: 'мл'
+     method: 
+      coding: 
+       - system: '1.2.643.5.1.13.13.11.1070'
+         code: 'A11.12.009'
+         version: '2.10'
+         display: 'Взятие крови из периферической вены'
+    container: 
+     identifier: 
+      - value: '0987654321'
+        system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+     description: 'Пробирка для иммуногематологических исследований с ACD. Штрихкод: 0987654321'
+     additiveReference: 
+      - reference: '39A7C6D1-5A78-72FF-954A-8D8096761146'
+ - fullUrl: 'urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5'
+   resource: 
+    resourceType: 'Specimen'
+    type: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1081'
+        code: '108'
+        version: '2.4'
+        display: 'Кровь венозная'
+    identifier: 
+     - value: '1234567890'
+       system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+    collection: 
+     collector: 
+      reference: 'urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7'
+     collectedDateTime: '2018-12-20T07:05:00+3:00'
+     quantity: 
+      system: '1.2.643.5.1.13.13.11.1358'
+      code: '16'
+      value: '5'
+      unit: 'мл'
+     method: 
+      coding: 
+       - system: '1.2.643.5.1.13.13.11.1070'
+         code: 'A11.12.009'
+         version: '2.10'
+         display: 'Взятие крови из периферической вены'
+    container: 
+     identifier: 
+      - value: '1234567890'
+        system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+     description: 'Пробирка для гематологических исследований с K3-ЭДТА. Штрихкод: 1234567890'
+ - fullUrl: 'urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2'
+   resource: 
+    resourceType: 'Specimen'
+    parent: 
+      reference: 'Specimen/parent!!!'
+    type: 
+     coding: 
+      - system: '1.2.643.5.1.13.13.11.1081'
+        code: '330'
+        version: '2.4'
+        display: 'Мазок периферической крови'
+    identifier: 
+     - value: '124562156'
+       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
+    collection: 
+     collector: 
+      reference: ''
+     collectedPeriod: 
+      start: '2018-12-20T10:05:00+3:00'
+      end: '2018-12-20T10:15:00+3:00'
+     quantity: 
+      system: '1.2.643.5.1.13.13.11.1358'
+      code: '128'
+      value: '3'
+      unit: 'Единица'
+     method: 
+      coding: 
+       - system: '1.2.643.5.1.13.13.11.1070'
+         display: 'Приготовление окрашенных мазков крови'
+    processing: 
+     timePeriod: 
+      start: '2018-12-20T10:05:00+3:00'
+      end: '2018-12-20T10:15:00+3:00'
+     procedure: 
+      coding: 
+       - system: '1.2.643.5.1.13.13.11.1070'
+     description: 'Приготовление окрашенных мазков крови'
+    container: 
+     identifier: 
+      - value: '124562156'
+        system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
+     description: 'Микропрепараты 16/15689, 16/15690, 16/156891, окрашенные азур-эозином'
+ - fullUrl: 'urn:uuid:39A7C6D1-5A78-72FF-954A-8D8096761146'
+   resource: 
+    resourceType: 'Substance'
+    identifier: 
+     - value: '9874'
+       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
+    description: 'Гелевые карты для иммуногематологических исследований HEMOS SP'
