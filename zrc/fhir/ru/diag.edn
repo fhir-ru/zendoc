@@ -1,4 +1,0 @@
-{ns fhir.ru.diag
- import #{fhir.ru.diag.nosology
-          fhir.ru.diag.nu
-          fhir.ru.diag.encounter}}

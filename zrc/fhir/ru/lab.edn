@@ -1,2 +1,0 @@
-{ns fhir.ru.lab
- import #{fhir.ru.lab.diagnosticreport}}
