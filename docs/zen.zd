@@ -278,7 +278,7 @@ Zen имeет встроенный язык схем для описания с�
   :zendoc 'valuesets.core-vs-nsi-gender}}
 ```
 
-* результат на нашем сайте: valuesets.vs-administrative-gender
+* результат на нашем сайте: #valuesets.vs-administrative-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
 
 ^title "Extension"
