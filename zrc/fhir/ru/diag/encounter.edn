@@ -113,7 +113,10 @@
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
   :zendoc 'extension.core-ex-diagnosis-type
   :zen.fhir/type "CodeableConcept"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type" 
+  :zen.fhir/value-set
+{:symbol fhir.ru.diag.encounter/CoreVsDiagnosisType
+ :strength :required}
   :type zen/map
   :zen/desc "Тип диагноза"
   :zen.fhir/version "0.5.8"
@@ -123,7 +126,10 @@
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
   :zendoc 'extension.core-ex-diagnosis-rubric
   :zen.fhir/type "CodeableConcept"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric" 
+  :zen.fhir/value-set 
+  {:symbol fhir.ru.diag.encounter/CoreVsDiagnosisRubric
+ :strength :required}
   :type zen/map
   :zen/desc "Рубрика диагноза"
   :zen.fhir/version "0.5.8"
