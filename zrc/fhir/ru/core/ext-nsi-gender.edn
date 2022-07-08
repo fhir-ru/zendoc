@@ -1,6 +1,6 @@
 {ns fhir.ru.core.ext-nsi-gender
 
- import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender/CoreVsNsiGender}
+ import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender}
 
  CoreNsiGender
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
