@@ -1,5 +1,26 @@
-:title "Observation"
+^hide
+:menu-order 3
 
-:summary md/
+^hide
+:icon [:fa-solid :fa-flask]
 
- Observation!
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+
+:title "Случай обслуживания"
+
+:toc
+

@@ -11,4 +11,5 @@
           fhir.ru.lab.diagnosticreport
           fhir.ru.core.vs-nsi-gender
           fhir.ru.core.ext-nsi-gender
-          fhir.ru.core.tutorial-patient}}
+          fhir.ru.core.tutorial-patient
+          fhir.ru.lab.coverage}}

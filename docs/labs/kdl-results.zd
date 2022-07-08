@@ -1,0 +1,38 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa-solid :fa-flask]
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+
+:title "Передача лабораторных исследований КДЛ"
+
+:toc
+
+^title "Определение"
+:description md/
+
+Профиль DiagnosticReport описывает результаты лабораторного исследования.
+
+^title "Профиль на DiagnosticReport"
+^zen/schema
+:profile1 fhir.ru.lab.diagnosticreport/LabDiagnosticReport
+
+^title "Профиль на Coverage"
+^zen/schema
+:profile2 fhir.ru.lab.coverage/CoreCoverage
