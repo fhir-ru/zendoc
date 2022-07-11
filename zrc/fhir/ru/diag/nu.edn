@@ -7,7 +7,7 @@
  {:type zen/map
   :zen/tags #{zen.fhir/profile-schema zen/schema}
   :zen/desc "Нозологическая единица"
-  :zendoc 'diag.DsCondition
+  :zendoc "diag.DsCondition"
   :confirms #{fhir/Condition}
 
   :require #{:clinicalStatus}

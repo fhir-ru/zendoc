@@ -4,7 +4,7 @@
 
  LabDiagnosticReport
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  ;; :zendoc 'labs.DiagnosticReport
+  :zendoc "labs.DiagnosticReport"
   :zen/desc "Лабораторные результаты"
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/DiagnosticReport}

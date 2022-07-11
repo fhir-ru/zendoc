@@ -9,7 +9,7 @@
  CoreObservation
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
   :type zen/map
-  :zendoc 'core.Observation
+  :zendoc "core.Observation"
   :zen/desc "Результат наблюдения"
   :confirms #{fhir/Observation}
   :zen.fhir/version "0.5.8"

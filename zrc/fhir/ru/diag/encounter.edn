@@ -7,7 +7,7 @@
 
  EncounterClinicalDx
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  :zendoc 'diag.DsEncounter
+  :zendoc "diag.DsEncounter"
   :zen/desc "Случай обслуживания"
   :confirms #{fhir.ru.core.encounter/CoreEncounter}
   :zen.fhir/version "0.5.8"
@@ -111,7 +111,7 @@
 
  CoreDiagnosisType
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc 'extension.core-ex-diagnosis-type
+  :zendoc "extension.core-ex-diagnosis-type"
   :zen.fhir/type "CodeableConcept"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type" 
   :zen.fhir/value-set
@@ -124,7 +124,7 @@
 
  CoreDiagnosisRubric
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc 'extension.core-ex-diagnosis-rubric
+  :zendoc "extension.core-ex-diagnosis-rubric"
   :zen.fhir/type "CodeableConcept"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric" 
   :zen.fhir/value-set 
@@ -137,7 +137,7 @@
 
  CoreVsDiagnosisType
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc 'valuesets.vs-diagnosis-type
+  :zendoc "valuesets.vs-diagnosis-type"
   :zen/desc "[Справочник Степень обоснованности диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1)"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree"
                         :zen.fhir/content :not-present}}
@@ -146,7 +146,7 @@
 
  CoreVsDiagnosisRubric
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc 'valuesets.vs-diagnosis-rubric
+  :zendoc "valuesets.vs-diagnosis-rubric"
   :zen/desc "[Справочник Виды нозологических единиц диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3)"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
                         :zen.fhir/content :not-present}}
@@ -155,7 +155,7 @@
 
  CoreVsDiagnosisRubricMain
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc 'valuesets.vs-diagnosis-rubric-main
+  :zendoc "valuesets.vs-diagnosis-rubric-main"
   :zen/desc "CoreVsDiagnosisRubricMain"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
                         :zen.fhir/content :not-present}}
@@ -164,7 +164,7 @@
 
  CoreVsDiagnosisRubricCompl
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc 'valuesets.vs-diagnosis-rubric-compl
+  :zendoc "valuesets.vs-diagnosis-rubric-compl"
   :zen/desc "CoreVsDiagnosisRubricCompl"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
                         :zen.fhir/content :not-present}}
@@ -174,7 +174,7 @@
 
  CoreVsDiagnosisRubricSupl
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc 'valuesets.vs-diagnosis-rubric-supl
+  :zendoc "valuesets.vs-diagnosis-rubric-supl"
   :zen/desc "CoreVsDiagnosisRubricSupl"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
                         :zen.fhir/content :not-present}}

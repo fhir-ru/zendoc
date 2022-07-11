@@ -4,7 +4,7 @@
 
  DiagnosisNosology
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  :zendoc 'diag.DsCondition
+  :zendoc "diag.DsCondition"
   :zen/desc "Нозологическая единица"
   :type zen/map
   :keys

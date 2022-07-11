@@ -162,7 +162,7 @@ Zen имeет встроенный язык схем для описания с�
  CoreObservation
  {:zen/tags #{zen.fhir/profile-schema zen/schema} 
   :type zen/map
-  :zendoc 'core.Observation
+  :zendoc "core.Observation"
   :zen/desc "Результат наблюдения"
   :confirms #{fhir/Observation}
   :zen.fhir/version "0.5.8"
@@ -275,7 +275,7 @@ Zen имeет встроенный язык схем для описания с�
      :zen.fhir/content :not-present}},
   :uri "http://fhir.ru/core/vs/core-vs-nsi-gender"
   :version "2.1"
-  :zendoc 'valuesets.core-vs-nsi-gender}}
+  :zendoc "valuesets.core-vs-nsi-gender"}}
 ```
 
 * результат на нашем сайте: #valuesets.vs-administrative-gender
@@ -302,7 +302,7 @@ Zen имeет встроенный язык схем для описания с�
   :zen.fhir/value-set
   {:symbol fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
    :strength :required}
-  :zendoc 'extension.ext-nsi-gender}}
+  :zendoc "extension.ext-nsi-gender"}}
 ```
 * и страницу для вывода схемы и дополнительной документации - в папке `docs/extension` создаем файл с расширением `.zd`, название которого соответствует пункту "терминологии" соглашения conventions
 * выводим схему на странице документации:

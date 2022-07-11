@@ -27,4 +27,4 @@
                                :display {:zen/desc "Значение для отображения"
                                          :confirms #{fhir/string}}}}}
 
-  :zendoc 'extension.core-ex-nsi-gender}}
+  :zendoc "extension.core-ex-nsi-gender"}}

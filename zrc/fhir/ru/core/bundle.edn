@@ -4,7 +4,7 @@
 
  CoreBundle
  {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  :zendoc 'core.Bundle
+  :zendoc "core.Bundle"
   :zen/desc "CoreBundle"
   :confirms #{fhir/Bundle}
   :zen.fhir/version "0.5.8"

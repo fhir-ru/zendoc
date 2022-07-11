@@ -6,7 +6,7 @@
 
   CorePractitioner
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
-   :zendoc 'core.Practitioner
+   :zendoc "core.Practitioner"
    :zen/desc "Врач/сотрудник"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/Practitioner}
@@ -68,7 +68,7 @@
 
   CorePractitionerRole
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
-   :zendoc 'core.Practitioner
+   :zendoc "core.Practitioner"
    :zen/desc "Роль врача/сотрудника"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/PractitionerRole}
