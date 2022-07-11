@@ -4,16 +4,16 @@
 :icon [:fa-solid :fa-disease]
 
 ^badge
-:authors #{people.vrodionov}
+:authors #{people.<указать автора>}
 
 ^badge
-:groups #{groups.clin}
+:groups #{groups.<указать группу>}
 
 ^badge
 :status :draft
 
 ^badge
-:date:start "2022-02-20"
+:date:start "<указать дату создания>"
 
 ^badge
 :type :profile
