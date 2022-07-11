@@ -2,7 +2,7 @@
 :menu-order 3
 
 ^hide
-:icon [:fa-solid :fa-flask]
+:icon [:fa-solid :fa-heart-pulse]
 
 ^hide
 :menu/first true
@@ -20,7 +20,7 @@
 :maturity 0
 
 
-:title "Случай обслуживания"
+:title "Результат наблюдения"
 
 :toc
 

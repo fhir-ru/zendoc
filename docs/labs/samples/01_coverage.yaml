@@ -1,52 +1,3 @@
-^hide
-:menu-order 1
-
-^hide
-:icon [:fa-solid :fa-flask]
-
-^hide
-:menu/first true
-
-^badge
-:authors #{people.alexandra}
-
-^badge
-:groups #{groups.lab}
-
-^badge
-:status :draft
-
-^badge
-:maturity 0
-
-
-:title "Передача лабораторных исследований КДЛ"
-
-:toc
-
-^title "DiagnosticReport"
-:DiagnosticReport md/
-
-Профиль DiagnosticReport описывает результаты лабораторного исследования.
-
-^title "Профиль на DiagnosticReport"
-^zen/schema
-:DiagnosticReport:profile fhir.ru.lab.diagnosticreport/LabDiagnosticReport
-
-^title "Coverage"
-:Coverage md/
-
-Профиль Coverage описывает страховой полис пациента.
-
-^title "Профиль на Coverage"
-^zen/schema
-:Coverage:profile fhir.ru.lab.coverage/CoreCoverage
-
-^collapse
-^title "Пример Coverage из бандла"
-:Coverage:example md/
-
-```code yaml
 resourceType: "Coverage"
 id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
 identifier:
@@ -89,4 +40,3 @@ class:
           version: "1.3"
           display: "Полис ОМС единого образца, бессрочный"
     value: "Тип полиса ОМС"
-```

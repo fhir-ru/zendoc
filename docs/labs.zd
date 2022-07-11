@@ -8,5 +8,7 @@
 
 ^table
 :profiles
-[{:profile labs.Observation}
- {:profile labs.Condition}]
+[{:profile labs.kdl-results}
+ {:profile labs.DiagnosticReport}
+ {:profile labs.Observation}
+ ]

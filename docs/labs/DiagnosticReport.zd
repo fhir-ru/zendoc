@@ -8,7 +8,7 @@
 :menu/first true
 
 ^badge
-:authors #{people.yana}
+:authors #{people.alexandra}
 
 ^badge
 :groups #{groups.lab}
