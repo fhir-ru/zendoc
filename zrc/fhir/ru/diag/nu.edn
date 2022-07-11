@@ -5,7 +5,7 @@
 
  DsCondition
  {:type zen/map
-  :zen/tags #{zen.fhir/profile-schemazen/schema}
+  :zen/tags #{zen.fhir/profile-schema zen/schema}
   :zen/desc "Нозологическая единица"
   :zendoc 'diag.DsCondition
   :confirms #{fhir/Condition}
@@ -15,13 +15,15 @@
   :keys
   {:assertedDate {:confirms #{fhir/dateTime}
                   :type zen/datetime
-                  :zen.fhir/extensionUri "????"}
+                  ;; :zen.fhir/extensionUri "????"
+                  }
 
    :histology    {:confirms #{fhir/CodeableConcept}
-                  :zen.fhir/extensionUri "????"
-                  :fhir/binding {}}
+                  ;; :zen.fhir/extensionUri "????"
+                  ;; :fhir/binding {}
+                  }
 
-   :code         {:fhir/binding {:zen/desc "ICD-10"}
+   :code         {;; :fhir/binding {:zen/desc "ICD-10"}
                   :confirms #{fhir/CodeableConcept}}
 
    :bodySite     {:type zen/vector
@@ -31,6 +33,7 @@
    :subject      {:confirms #{fhir/Reference}}
 
    :stage {:type zen/map
-           :keys {:type {:fhir/binding {:zen/desc "TBD"}
+           :keys {:type {;;  :fhir/binding {:zen/desc "TBD"}
+
                          :confirms #{fhir/CodeableConcept}}
                   :assessment  {:confirms #{fhir/Reference}}}}}}}

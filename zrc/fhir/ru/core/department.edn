@@ -44,7 +44,8 @@
            :every {:confirms #{fhir/CodeableConcept}
                    :type zen/map
                    :keys {:code {:type zen/string
-                                 :valueset {:id org-type}}}}}
+                                ;;  :valueset {:id org-type}
+                                 }}}}
    :partOf {:type zen/map
             :confirms #{fhir.ru.core.organization/CoreOrganization}
             :zen/desc "Ссылка на организацию-юридическое лицо, которой принадлежит данная организация"}
