@@ -1,5 +1,7 @@
 :title "Административные объекты"
 
+:icon [:fa-solid :fa-hospital-user]
+
 :summary md/
 
 Эта группа работает над двумя задачами.

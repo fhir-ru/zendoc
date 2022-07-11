@@ -1,5 +1,7 @@
 :title "Клиническая рабочая группа"
 
+:icon [:fa-solid :fa-stethoscope]
+
 :summary md/
 
 Terms - #terms.diagnose

@@ -1,5 +1,7 @@
 :title "Лаборатория"
 
+:icon [:fa-solid :fa-flask]
+
 ^title "Участники"
 ^table 
 :members

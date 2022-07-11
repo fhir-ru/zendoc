@@ -1,5 +1,7 @@
 :title "Обучение"
 
+:icon [:fa :fa-user-graduate] 
+
 :summary md/
 
 
@@ -7,8 +9,6 @@
 ^table 
 :members
 [{:person people.niquola}]
-
-
 
 ^meeting-list {:group groups.edu}
 :meetings
