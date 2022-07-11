@@ -17,6 +17,9 @@
   :zen.fhir/name "CoreObservation"
   :zen.fhir/type "Observation"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-observation"
-  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}
-         :encounter {:confirms #{fhir.ru.core.encounter/CoreEncounter}}
-         :performer {:confirms #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}}}
+  :keys {:subject {:confirms #{fhir/Reference zen.fhir/Reference}
+                   :zen.fhir/reference {:refers #{fhir.ru.core.patient/CorePatient}}}
+         :encounter {:confirms #{fhir/Reference zen.fhir/Reference}
+                     :zen.fhir/reference {:refers #{fhir.ru.core.encounter/CoreEncounter}}}
+         :performer {:confirms #{fhir/Reference zen.fhir/Reference}
+                     :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}}}}
