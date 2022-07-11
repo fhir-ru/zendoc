@@ -80,57 +80,89 @@
      (nil? tp) [:div.fa-solid.fa-folder]
      :else (first (last (str/split (str tp) #"/"))))])
 
+
+(defn format-valueset-sch [ztx valueset]
+  (when valueset
+    (let [schema (zen.core/get-symbol ztx (:symbol valueset))
+          standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")
+          zendoc (some-> schema :zendoc name (subs 1) symbol)]
+      {:zendoc (str zendoc)
+       :name (or (and zendoc
+                      (->> (zd.db/get-doc ztx zendoc)
+                           (filter #(= [:title] (:path %)))
+                           (first)
+                           (:data)))
+                 (and standart?
+                      (-> (:uri schema)
+                          (str)
+                          (clojure.string/split #"/")
+                          (last)))
+                 (:symbol valueset))
+       :page-not-found
+       (and (not zendoc)
+            (not standart?))
+       :uri (:uri schema)
+       :strength-ref
+       (case (:strength valueset)
+         :required   "http://hl7.org/fhir/terminologies.html#required"
+         :extensible "http://hl7.org/fhir/terminologies.html#extensible"
+         :preferred  "http://hl7.org/fhir/terminologies.html#preferred"
+         :example    "http://hl7.org/fhir/terminologies.html#example"
+         nil)
+       :description (:zen/desc schema)
+       :strength (name (:strength valueset))})))
+
+(defn schema-name [sym]
+  (when (and sym (not (= sym 'zen/map)))
+    (if (= "schema" (name sym))
+      (last (str/split (namespace sym) #"\."))
+      (name sym))))
+
+(defn format-fhir-type [ztx sch & {:keys [confirms]}]
+  (cond
+    (:zen.fhir/reference sch)
+    (let [refers (get-in sch [:zen.fhir/reference :refers])
+          refers-defs (map #(zen.core/get-symbol ztx %)
+                           refers)
+          refers-names (map #(or (:zen.fhir/name %) (:zen.fhir/type %))
+                            refers-defs)]
+      (str "Reference("
+           (->> refers-names
+                (mapv #(schema-name %))
+                distinct
+                (str/join " | "))
+           ")"))
+
+    confirms
+    (last (keep #(schema-name %) confirms))))
+
+(defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
+  (let [confirms (if (= 'zen/vector tp)
+                   (get-in sch [:every :confirms])
+                   (:confirms sch))]
+    {:type tp
+     :fhir-type (format-fhir-type ztx sch :confirms confirms)
+     :confirms confirms
+     :extension (:fhir/extensionUri sch)
+     :const (-> sch :const :value)
+     :cardinality (format "%s..%s"
+                          (cond (:require opts) "1"
+                                (:minItems opts) (:minItems opts)
+                                :else "0")
+                          (cond
+                            (= 'zen/vector tp) "*"
+                            (:maxItems opts) (:maxItems opts)
+                            :else "1"))
+     :path pth
+     :enum (:enum sch)
+     :valueset (format-valueset-sch ztx (:zen.fhir/value-set sch))
+     :desc (:zen/desc sch)}))
+
+
 (defn flatten-sch [res pth {tp :type :as sch} & [opts ztx]]
   (let [res (if (:skip opts)
               res
-              (conj res (merge opts {:type tp
-                                     :confirms (if (= 'zen/vector tp)
-                                                 (get-in sch [:every :confirms])
-                                                 (:confirms sch))
-                                     :extension (:fhir/extensionUri sch)
-                                     :const (-> sch :const :value)
-                                     :cardinality (format "%s..%s"
-                                                          (cond (:require opts) "1"
-                                                                (:minItems opts) (:minItems opts)
-                                                                :else "0")
-                                                          (cond
-                                                            (= 'zen/vector tp) "*"
-                                                            (:maxItems opts) (:maxItems opts)
-                                                            :else "1"))
-                                     :path pth
-                                     :enum (:enum sch)
-                                     :valueset
-                                     (when-let [valueset (:zen.fhir/value-set sch)]
-                                       (let [schema (zen.core/get-symbol ztx (:symbol valueset))
-                                             standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")
-                                             zendoc (some-> schema :zendoc name (subs 1) symbol)]
-                                         {:zendoc (str zendoc)
-                                          :name (or (and zendoc
-                                                         (->> (zd.db/get-doc ztx zendoc) 
-                                                              (filter #(= [:title] (:path %)))
-                                                              (first)
-                                                              (:data)))
-                                                    (and standart?
-                                                         (-> (:uri schema)
-                                                             (str)
-                                                             (clojure.string/split #"/")
-                                                             (last)))
-                                                    (:symbol valueset))
-                                          :page-not-found
-                                          (and (not zendoc)
-                                               (not standart?))
-                                          :uri (:uri schema)
-                                          :strength-ref
-                                          (case (:strength valueset)
-                                            :required   "http://hl7.org/fhir/terminologies.html#required"
-                                            :extensible "http://hl7.org/fhir/terminologies.html#extensible"
-                                            :preferred  "http://hl7.org/fhir/terminologies.html#preferred"
-                                            :example    "http://hl7.org/fhir/terminologies.html#example"
-                                            nil)
-                                          :description (:zen/desc schema)
-                                          :strength (name (:strength valueset))}))
-                                     
-                                     :desc (:zen/desc sch)})))]
+              (conj res (merge opts (sch-el->row pth sch opts ztx))))]
     (cond
 
       (= tp 'zen/map)
@@ -206,13 +238,6 @@
         :else res)
 
       :else res)))
-
-(defn schema-name [sym]
-  (when (and sym (not (= sym 'zen/map)))
-    (if (= "schema" (name sym))
-      (last (str/split (namespace sym) #"\."))
-      (name sym))
-    ))
 
 (defn schema-connectors [pth]
   (let [lvl (count pth)
@@ -291,16 +316,10 @@
             (schema-name nm)
             (when-let [k (:key (last (:path row)))] (name k)))]]))
 
+
 (defn- render-schema-table-row-type [row]
-  (if (:confirms row)
-    (let [schnames (mapv #(schema-name %) (:confirms row))
-          reference (filter #(= "Reference" %) schnames)]
-      (if-not (empty? reference)
-        (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize (name (:key % ))))
-                                                        (:path row)))) ")")
-        (if (empty? schnames) ""
-            (last schnames))))
-    (when-let [t (:type row)] (schema-name t))))
+  (or (:fhir-type row)
+      (some-> (:type row) schema-name)))
 
 (defn- render-schema-table-row-description [row]
   (list (when-let [d (:desc row)]
