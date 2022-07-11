@@ -8,6 +8,6 @@
 :maturity "0"
 
 ^badge
-:group groups.adm
+:group #{groups.adm}
 
 :title "Ассоциация"

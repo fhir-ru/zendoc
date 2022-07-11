@@ -11,7 +11,7 @@
 :maturity 0
 
 ^badge
-:group groups.adm
+:group #{groups.adm}
 
 ^hide
 :icon [:fa-solid :fa-building] 

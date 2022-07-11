@@ -2,7 +2,7 @@
 :menu-order 8
 
 ^hide
-:icon [:fa-solid :fa-hospital-user] 
+:icon [:fa-solid :fa-heart-pulse] 
 
 ^hide
 :menu/first true
