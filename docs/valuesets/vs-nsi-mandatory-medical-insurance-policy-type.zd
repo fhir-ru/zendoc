@@ -1,0 +1,28 @@
+^hide
+:menu-order 21
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+:title "ValueSet Core-vs-nsi-mandatory-medical-insurance-policy-type"
+
+:summary md/
+
+Описание
+
+^title "Определение"
+:valueset md/
+
+В ValueSet входят все значения справочника НСИ Минздрава Виды полиса обязательного медицинского страхования
+
+^title "Содержимое набора значений"
+^table
+:valueset-content
+[{:code "1" :display "Полис ОМС старого образца"},{:code "2" :display "Полис ОМС единого образца, бессрочный"},{:code "3" :display "Полис ОМС единого образца, со сроком действия"},{:code "4" :display "Временное свидетельство"}]
+

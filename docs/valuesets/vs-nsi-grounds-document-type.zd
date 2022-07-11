@@ -1,0 +1,28 @@
+^hide
+:menu-order 20
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+:title "ValueSet Core-vs-nsi-grounds-document-type"
+
+:summary md/
+
+Описание
+
+^title "Определение"
+:valueset md/
+
+В ValueSet входят все значения справочника НСИ Минздрава Типы документов оснований
+
+^title "Содержимое набора значений"
+^table
+:valueset-content
+[{:code "1" :display "Полис ОМС" :system "urn:oid:1.2.643.5.1.13.13.99.2.724"},{:code "2" :display "Полис ДМС" :system "urn:oid:1.2.643.5.1.13.13.99.2.724"},{:code "3" :display "Договор на оказание платных медицинских услуг" :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}]
+
