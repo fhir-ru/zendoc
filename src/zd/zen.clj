@@ -112,26 +112,42 @@
        :description (:zen/desc schema)
        :strength (name (:strength valueset))})))
 
+(defn schema-name [sym]
+  (when (and sym (not (= sym 'zen/map)))
+    (if (= "schema" (name sym))
+      (last (str/split (namespace sym) #"\."))
+      (name sym))))
+
+(defn format-fhir-type [ztx sch & {:keys [confirms path]}]
+  (cond
+    (:zen.fhir/reference sch)
+    (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize (name (:key % ))))
+                                                    path))) ")")
+
+    confirms
+    (last (keep #(schema-name %) confirms))))
 
 (defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
-  {:type tp
-   :confirms (if (= 'zen/vector tp)
-               (get-in sch [:every :confirms])
-               (:confirms sch))
-   :extension (:fhir/extensionUri sch)
-   :const (-> sch :const :value)
-   :cardinality (format "%s..%s"
-                        (cond (:require opts) "1"
-                              (:minItems opts) (:minItems opts)
-                              :else "0")
-                        (cond
-                          (= 'zen/vector tp) "*"
-                          (:maxItems opts) (:maxItems opts)
-                          :else "1"))
-   :path pth
-   :enum (:enum sch)
-   :valueset (format-valueset-sch ztx (:zen.fhir/value-set sch))
-   :desc (:zen/desc sch)})
+  (let [confirms (if (= 'zen/vector tp)
+                   (get-in sch [:every :confirms])
+                   (:confirms sch))]
+    {:type tp
+     :fhir-type (format-fhir-type ztx sch :confirms confirms :path pth)
+     :confirms confirms
+     :extension (:fhir/extensionUri sch)
+     :const (-> sch :const :value)
+     :cardinality (format "%s..%s"
+                          (cond (:require opts) "1"
+                                (:minItems opts) (:minItems opts)
+                                :else "0")
+                          (cond
+                            (= 'zen/vector tp) "*"
+                            (:maxItems opts) (:maxItems opts)
+                            :else "1"))
+     :path pth
+     :enum (:enum sch)
+     :valueset (format-valueset-sch ztx (:zen.fhir/value-set sch))
+     :desc (:zen/desc sch)}))
 
 
 (defn flatten-sch [res pth {tp :type :as sch} & [opts ztx]]
@@ -214,13 +230,6 @@
 
       :else res)))
 
-(defn schema-name [sym]
-  (when (and sym (not (= sym 'zen/map)))
-    (if (= "schema" (name sym))
-      (last (str/split (namespace sym) #"\."))
-      (name sym))
-    ))
-
 (defn schema-connectors [pth]
   (let [lvl (count pth)
         scale 1]
@@ -298,16 +307,10 @@
             (schema-name nm)
             (when-let [k (:key (last (:path row)))] (name k)))]]))
 
+
 (defn- render-schema-table-row-type [row]
-  (if (:confirms row)
-    (let [schnames (mapv #(schema-name %) (:confirms row))
-          reference (filter #(= "Reference" %) schnames)]
-      (if-not (empty? reference)
-        (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize (name (:key % ))))
-                                                        (:path row)))) ")")
-        (if (empty? schnames) ""
-            (last schnames))))
-    (when-let [t (:type row)] (schema-name t))))
+  (or (:fhir-type row)
+      (some-> (:type row) schema-name)))
 
 (defn- render-schema-table-row-description [row]
   (list (when-let [d (:desc row)]
