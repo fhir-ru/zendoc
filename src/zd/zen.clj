@@ -118,11 +118,16 @@
       (last (str/split (namespace sym) #"\."))
       (name sym))))
 
-(defn format-fhir-type [ztx sch & {:keys [confirms path]}]
+(defn format-fhir-type [ztx sch & {:keys [confirms]}]
   (cond
     (:zen.fhir/reference sch)
-    (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize (name (:key % ))))
-                                                    path))) ")")
+    (let [refers (get-in sch [:zen.fhir/reference :refers])
+          refers-defs (map #(zen.core/get-symbol ztx %)
+                           refers)
+          refers-names (map #(or (:zen.fhir/name %) (:zen.fhir/type %))
+                            refers-defs)]
+      (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize %))
+                                                      refers-names))) ")"))
 
     confirms
     (last (keep #(schema-name %) confirms))))
@@ -132,7 +137,7 @@
                    (get-in sch [:every :confirms])
                    (:confirms sch))]
     {:type tp
-     :fhir-type (format-fhir-type ztx sch :confirms confirms :path pth)
+     :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
      :extension (:fhir/extensionUri sch)
      :const (-> sch :const :value)
