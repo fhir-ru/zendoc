@@ -85,8 +85,8 @@
 
 <ПРИМЕР:>
 ```code edn
-^zen/schema
-:profile fhir.ru.diag.encounter/EncounterClinicalDx
+  ^zen/schema
+  :profile fhir.ru.diag.encounter/EncounterClinicalDx
 ```
 ^zen/schema
 :profile-schema fhir.ru.diag.encounter/EncounterClinicalDx
