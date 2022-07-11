@@ -126,8 +126,12 @@
                            refers)
           refers-names (map #(or (:zen.fhir/name %) (:zen.fhir/type %))
                             refers-defs)]
-      (str "Reference(" (str/join "|" (distinct (mapv #(schema-name (str/capitalize %))
-                                                      refers-names))) ")"))
+      (str "Reference("
+           (->> refers-names
+                (mapv #(schema-name %))
+                distinct
+                (str/join " | "))
+           ")"))
 
     confirms
     (last (keep #(schema-name %) confirms))))
