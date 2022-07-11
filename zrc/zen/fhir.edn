@@ -31,6 +31,23 @@
   :confirms #{version}
   :type zen/map
   :keys {:zendoc {:type zen/symbol}
+         :zen.fhir/id {:type zen/string}
+         :zen.fhir/name {:type zen/string}
+         :zen.fhir/title {:type zen/string}
+         :zen.fhir/status {:type zen/string
+                           :enum [{:value "active"}
+                                  {:value "draft"}
+                                  {:value "retired"}
+                                  {:value "unknown"}]}
+         :zen.fhir/compose {:type zen/map
+                            :keys {:include {:type zen/vector
+                                             :every {:type zen/map
+                                                     :keys {:system {:type zen/string}
+                                                            :concept {:type zen/vector
+                                                                      :every {:type zen/map
+                                                                              :keys {:code {:type zen/string}
+                                                                                     :display {:type zen/string}
+                                                                                     :short {:type zen/string}}}}}}}}}
          :uri {:type zen/string}
          :fhir/code-systems {:type zen/set
                              :every {:type zen/map
