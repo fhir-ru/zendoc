@@ -17,7 +17,7 @@
 :date:start "<указать дату создания>"
 
 ^badge
-:type <:ig-или-:profile>
+:type :ig
 
 :title "Шаблон IG"
 
