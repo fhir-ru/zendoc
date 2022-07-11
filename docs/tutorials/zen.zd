@@ -581,5 +581,18 @@ address:
                                       :zen/desc "Тип идентификатора"}}}}}}}
 ```
 
+^title "Шаблоны из файлов"
+:templates-from-files
 
+^edn
+^title "Ресурс"
+:templates-from-files:resource-profile (load "../../zrc/fhir/ru/support/resource-template.edn" :edn)
 
+^title "Расширение"
+:templates-from-files:extension  (load "../../zrc/fhir/ru/support/extension-template.edn" :edn)
+
+^title "Набор значений"
+:templates-from-files:valueset  (load "../../zrc/fhir/ru/support/valueset-template.edn" :edn)
+
+^title "Тип данных"
+:templates-from-files:datatype  (load "../../zrc/fhir/ru/support/datatype-template.edn" :edn)

@@ -330,7 +330,32 @@ __Результат:__
 ^tab-content
 ~:yaml:content "not written yet"
 
+^title "Код из файла"
+:code:code-from-files md/
 
+```
+  ^yaml
+  ^title "Пример"
+  :samples:one  (load "../core/samples/org-1.yaml" :yaml)
+```
+
+Код можно свернуть:
+
+```
+  ^yaml
+  ^collapse
+  ^title "Пример 2"
+  :samples:one (load "../core/samples/org-1.yaml" :yaml)
+```
+
+^yaml
+^title "Пример 1"
+:code:code-from-files:sample1 (load "../core/samples/org-1.yaml" :yaml)
+
+^yaml
+^collapse
+^title "Пример 2"
+:code:code-from-files:sample2 (load "../core/samples/org-1.yaml" :yaml)
 
 ^disc 45
 ^title "GitHub-дискуссии"

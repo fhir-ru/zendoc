@@ -1,0 +1,18 @@
+{ns fhir.ru.support.resource-template
+ import #{fhir zen.fhir fhir.ru.core.patient}
+
+ CoreCoverage
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Coverage}
+  :zen/desc "Страховой полис"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Coverage"
+  :zen.fhir/id "coverage-lab"
+  :zen.fhir/name "CoverageLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
+  :type zen/map
+  :keys {:beneficiary {:zen/desc "Ссылка на пациента"
+                       :confirms #{fhir/Reference zen.fhir/Reference fhir.ru.core.patient/CorePatient}
+                       :type zen/map
+                       :zen.fhir/reference {:refers
+                                            #{fhir.ru.core.patient/CorePatient}}}}}}

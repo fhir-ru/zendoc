@@ -1,0 +1,25 @@
+{ns fhir.ru.support.datatype-template
+
+ import #{fhir zen.fhir}
+
+ CoreAddress
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zendoc "core.address"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Address}
+  :zen/desc "Адрес"
+  :zen.fhir/id "core-address"
+  :zen.fhir/name "CoreAddress"
+  :zen.fhir/type "Address"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-address"
+
+  :type zen/map
+  :keys
+  {:fias {:type zen/string
+          :confirms #{CoreAddressFias}
+          :zen/desc "Расширение: Код адреса по ФИАС"
+          :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias"}
+   :fias_house {:type zen/string
+                :confirms #{CoreAddressFiasHouse}
+                :zen/desc "Расширение: Код дома по ФИАС"
+                :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias-house"}}}}

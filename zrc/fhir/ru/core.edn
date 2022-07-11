@@ -13,4 +13,8 @@
           fhir.ru.core.ext-nsi-gender
           fhir.ru.core.tutorial-patient
           fhir.ru.lab.coverage
-          fhir.ru.support.datatypes}}
+          fhir.ru.support.datatypes
+          fhir.ru.support.resource-template
+          fhir.ru.support.valueset-template
+          fhir.ru.support.datatype-template
+          fhir.ru.support.extension-template}}

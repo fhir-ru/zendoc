@@ -51,14 +51,6 @@
   :zen.fhir/type "CodeableConcept"
   :type zen/map}
 
-;;  CodeableReference
-;;  {:zen/tags #{zen/schema zen.fhir/structure-schema}
-;;   :zen.fhir/version "0.5.8"
-;;   :confirms #{fhir/CodeableReference}
-;;   :zen/desc "CodeableReference	"
-;;   :zen.fhir/type "CodeableReference	"
-;;   :type zen/map}
-
  Coding
  {:zen/tags #{zen/schema zen.fhir/structure-schema}
   :zen.fhir/version "0.5.8"
@@ -138,12 +130,4 @@
   :zen/desc "Ratio"
   :zen.fhir/type "Ratio"
   :type zen/map}
-
-;;  RatioRange
-;;  {:zen/tags #{zen/schema zen.fhir/structure-schema}
-;;   :zen.fhir/version "0.5.8"
-;;   :confirms #{fhir/RatioRange}
-;;   :zen/desc "RatioRange"
-;;   :zen.fhir/type "RatioRange"
-;;   :type zen/map}
  }
