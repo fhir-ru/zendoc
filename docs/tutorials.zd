@@ -1,0 +1,29 @@
+^hide
+:menu-order 1000
+
+^hide
+:icon [:fa-solid :fa-user-graduate] 
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+
+:title "Tutorials"
+
+:toc
+
+
+^table-of {:namespace "tutorials." :columns [:zd/name]}
+:pages 

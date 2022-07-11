@@ -1,0 +1,100 @@
+
+^hide
+:menu-order 200
+
+^hide
+:icon [:fa :fa-font] 
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status "in progress"
+
+^badge
+:maturity 0
+
+:title "Типы данных"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+^title "Определение"
+:section md/
+
+Страница с [типами данных FHIR](http://hl7.org/fhir/datatypes.html) для удобства разработки.
+См. вкладку Snapshot.
+
+
+^title "Address"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Address
+
+^title "Identifier"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Identifier
+
+^title "Reference"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Reference
+
+^title "HumanName"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/HumanName
+
+^title "ContactPoint"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/ContactPoint
+
+^title "CodeableConcept"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/CodeableConcept
+
+^title "Coding"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Coding
+
+^title "Period"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Period
+
+^title "SampledData"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/SampledData
+
+^title "Timing"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Timing
+
+^title "Signature"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Signature
+
+^title "Annotation"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Annotation
+
+^title "Attachment"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Attachment
+
+^title "Quantity"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Quantity
+
+^title "Range"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Range
+
+^title "Ratio"
+^zen/schema
+:section:profile fhir.ru.support.datatypes/Ratio
+

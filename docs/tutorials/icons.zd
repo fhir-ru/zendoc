@@ -1,0 +1,69 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa :fa-icons] 
+;; <i class="fa-solid fa-microscope"></i>
+;; <i class="fa-solid fa-laptop-code"></i>
+;; <i class="fa-solid fa-hand-holding-heart"></i>
+;; <i class="fa-solid fa-calculator"></i>
+;; <i class="fa-solid fa-boxes-packing"></i>
+;; <i class="fa-solid fa-heart-circle-bolt"></i>
+;; <i class="fa-solid fa-stethoscope"></i>
+;; <i class="fa-solid fa-diamond"></i>
+;; <i class="fa-solid fa-book-medical"></i>
+;; <i class="fa-solid fa-flask-vial"></i>
+;; <i class="fa-solid fa-vial"></i>
+;; <i class="fa-solid fa-user-graduate"></i>
+;; <i class="fa-solid fa-mortar-pestle"></i>
+;; <i class="fa-solid fa-notes-medical"></i>
+;; <i class="fa-solid fa-z"></i>
+;; <i class="fa-solid fa-comment-dollar"></i>
+;; <i class="fa-solid fa-icons"></i>
+;; <i class="fa-solid fa-address-card"></i>
+;; <i class="fa-solid fa-id-card"></i>
+;; <i class="fa-solid fa-syringe"></i>
+;; <i class="fa-solid fa-passport"></i>
+;; <i class="fa-solid fa-folder-tree"></i>
+;; <i class="fa-solid fa-bed-pulse"></i>
+;; <i class="fa-solid fa-bed"></i>
+;; <i class="fa-solid fa-truck-medical"></i>
+;; <i class="fa-solid fa-hospital"></i>
+
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status "in progress"
+
+^badge
+:maturity 0
+
+:title "Иконки"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+^title "Используемые иконки"
+:section md/
+
+^table-of {:namespace "groups." :columns [:zd/name :icon]}
+:section:groups
+
+^table-of {:namespace "core." :columns [:zd/name :icon]}
+:section:core
+
+^table-of {:namespace "diag." :columns [:zd/name :icon]}
+:section:diag
+
+^table-of {:namespace "labs." :columns [:zd/name :icon]}
+:section:labs

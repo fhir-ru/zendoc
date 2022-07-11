@@ -1,0 +1,172 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+;; <i class="fa-solid fa-microscope"></i>
+;; <i class="fa-solid fa-laptop-code"></i>
+;; <i class="fa-solid fa-hand-holding-heart"></i>
+;; <i class="fa-solid fa-calculator"></i>
+;; <i class="fa-solid fa-boxes-packing"></i>
+;; <i class="fa-solid fa-heart-circle-bolt"></i>
+;; <i class="fa-solid fa-stethoscope"></i>
+;; <i class="fa-solid fa-diamond"></i>
+;; <i class="fa-solid fa-book-medical"></i>
+;; <i class="fa-solid fa-flask-vial"></i>
+;; <i class="fa-solid fa-vial"></i>
+;; <i class="fa-solid fa-user-graduate"></i>
+;; <i class="fa-solid fa-mortar-pestle"></i>
+;; <i class="fa-solid fa-notes-medical"></i>
+;; <i class="fa-solid fa-z"></i>
+;; <i class="fa-solid fa-comment-dollar"></i>
+;; <i class="fa-solid fa-icons"></i>
+;; <i class="fa-solid fa-address-card"></i>
+;; <i class="fa-solid fa-id-card"></i>
+;; <i class="fa-solid fa-syringe"></i>
+;; <i class="fa-solid fa-passport"></i>
+;; <i class="fa-solid fa-folder-tree"></i>
+;; <i class="fa-solid fa-bed-pulse"></i>
+;; <i class="fa-solid fa-bed"></i>
+;; <i class="fa-solid fa-truck-medical"></i>
+;; <i class="fa-solid fa-hospital"></i>
+;; <i class="fa-solid fa-heart-pulse"></i>
+;; <i class="fa-solid fa-file-invoice-dollar"></i>
+;; <i class="fa-solid fa-file-invoice"></i>
+;; <i class="fa-solid fa-calendar-days"></i>
+;; <i class="fa-regular fa-calendar-days"></i>
+;; <i class="fa-solid fa-table"></i>
+;; <i class="fa-solid fa-circle-info"></i>
+;; <i class="fa-solid fa-file-contract"></i>
+;; <i class="fa-solid fa-file-medical"></i>
+;; <i class="fa-solid fa-file-prescription"></i>
+;; <i class="fa-solid fa-file-waveform"></i>
+;; <i class="fa-solid fa-photo-film"></i>
+;; <i class="fa-solid fa-file-code"></i>
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status "in progress"
+
+^badge
+:maturity 0
+
+:title "Шаблон страницы"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+^title "Заголовок раздела"
+:section md/
+
+Текст
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.core.observation/CoreObservation
+
+^title "Ресурс Observation"
+:resource md/
+
+Измерения и простые утверждения о пациенте, устройстве или других объектах.
+
+^title "Область применения и использование"
+:resource:scope-and-usage md/
+
+Observations (наблюдения) являются центральным элементом в здравоохранении.
+
+^title "Стандартные профили ресурса Observation"
+:resource:core-profiles md/
+
+Стандартом определены следующие основные профили для ресурса Observation. Если реализации используют этот ресурс 
+при выражении специфических для профиля понятий в виде структурированных данных, они ДОЛЖНЫ соответствовать 
+следующим профилям:
+
+^table
+^title "Стандартные профили ресурса Observation"
+:resource:core-profiles:table
+
+[{:Профиль "[Vital signs](http://hl7.org/fhir/vitalsigns.html)" :Определение "Профиль показателей жизнедеятельности FHIR
+  устанавливает минимальные требования к ресурсу Observation для записи,
+  поиска и извлечения показателей жизнедеятельности (например, температуры,
+  артериального давления, частоты дыхания и т. д.), связанных с пациентом."}
+  ]
+
+
+^title "Пример кода страницы"
+:resource md/
+
+```code zd
+  ^hide
+  :menu-order 1
+
+  ^hide
+  :icon [:fa :fa-graduation-cap] 
+
+  ^hide
+  :menu/first true
+
+  ^badge
+  :authors #{people.alexandra}
+
+  ^badge
+  :groups #{groups.adm}
+
+  ^badge
+  :status "in progress"
+
+  ^badge
+  :maturity 0
+
+  :title "Шаблон страницы"
+
+  ^title "Оглавление"
+  :content-list md/ 
+
+  :toc
+
+  ^title "Заголовок раздела"
+  :section md/
+
+  Текст
+
+  ^title "Профиль"
+  ^zen/schema
+  :section:profile fhir.ru.core.observation/CoreObservation
+
+  ^title "Ресурс Observation"
+  :resource md/
+
+  Измерения и простые утверждения о пациенте, устройстве или других объектах.
+
+  ^title "Область применения и использование"
+  :resource:scope-and-usage md/
+
+  Observations (наблюдения) являются центральным элементом в здравоохранении.
+
+  ^title "Стандартные профили ресурса Observation"
+  :resource:core-profiles md/
+
+  Стандартом определены следующие основные профили для ресурса Observation. Если реализации используют этот ресурс 
+  при выражении специфических для профиля понятий в виде структурированных данных, они ДОЛЖНЫ соответствовать 
+  следующим профилям:
+
+  ^table
+  ^title "Стандартные профили ресурса Observation"
+  :resource:core-profiles:table
+
+  [{:Профиль "[Vital signs](http://hl7.org/fhir/vitalsigns.html)" :Определение "Профиль показателей жизнедеятельности FHIR
+    устанавливает минимальные требования к ресурсу Observation для записи,
+    поиска и извлечения показателей жизнедеятельности (например, температуры,
+    артериального давления, частоты дыхания и т. д.), связанных с пациентом."}
+    ]
+```

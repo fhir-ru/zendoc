@@ -17,235 +17,6 @@
 
 :toc
 
-^title "Разработка проекта"
-:project md/
-
-^title "Пререквизиты"
-:project:prerequisites md/
-
-Необходимо поставить себе:
-* [Docker](https://docs.docker.com/desktop/windows/install/)
-* [VSCode](https://code.visualstudio.com/)
-* Склонировать себе [проект](https://github.com/fhir-ru/zendoc/):
-
-```code bash
-git clone git@github.com:fhir-ru/zendoc.git
-```
-
-либо так, если хотите переименовать папку `zendoc` например в `fhir-ru`:
-
-```code bash
-git clone git@github.com:fhir-ru/zendoc.git fhir-ru
-```
-
-^title "Запуск проекта локально через docker-compose"
-:project:local md/
-
-* Запустить Docker
-* Зайти в папку проекта:
-
-```code bash
-cd zendoc
-```
-или 
-
-```code bash
-cd fhir-ru
-```
-
-* Инициализировать сабмодули:
-
-```code bash
-git submodule init
-git submodule update --recursive
-```
-
-* Открыть проект в VSCode с помощью команды в терминале:
-
-```code bash
-code ./
-```
-
-* В VSCode перейти в терминал и запустить команду:
-
-```code bash
-docker-compose up -d
-```
-
-либо с логами:
-
-```code bash
-docker-compose logs -f
-```
-
-* Когда процесс выполнится, открыть в браузере страницу [http://localhost:3333/](http://localhost:3333/)
-* Внести изменения в файлы проекта, рефрешнуть страницу в браузере (F5)
-
-* Если необходимо, остановить докер можно командой:
-
-```code bash
-docker-compose stop
-```
-
-^title "Обновление проекта до последней версии"
-:project:update md/
-
-* Скачать и установить последнюю версию:
-
-```code bash
-git pull --ff-only
-```
-
-**Ключ `--ff-only` позволяет сделать pull, только если возможен автоматический мерж изменений ваших и на сервере, и прерывает выполнение команды, если есть конфликты.
-
-либо так: 
-
-```code bash
-git pull
-```
-
-* Обновить сабмодули:
-
-```code bash
-git submodule update --recursive
-```
-
-* Рестартануть докер-контейнер:
-
-^title "Отправка ваших изменений на сервер"
-:project:commit md/
-
-Проверка статуса:
-
-```code bash
-git status
-```
-
-Скачать последнюю версию, чтобы избежать мержа:
-
-```code bash
-git pull --ff-only
-```
-
-Добавление всех ваших измененных и новых файлов к коммиту:
-
-```code bash
-git add .
-```
-
-либо можно добавить к коммиту только модифицированные файлы:
-
-```code bash
-git add -u
-```
-
-Если хотите убрать файлы из коммита, воспользуйтесь командой:
-
-```code bash
-git reset head
-```
-
-Дать наименование коммиту:
-
-```code bash
-git commit -m "Ваш текст-пояснение к коммиту"
-```
-
-Отправить ваш коммит на сервер:
-
-```code bash
-git push
-```
-
-Если нужно временно спрятать свои локальные изменения, например в случае конфликтов, когда нужно забрать изменения с сервера:
-
-```code bash
-git stash
-```
-
-Достать спрятанные изменения обратно, например после успешного пулла:
-
-```code bash
-git stash apply
-```
-
-^title "Дополнительная настройка редактора VSCode"
-:project:vscode md/
-
-Для вашего удобства можно настроить редактор VSCode с помощью установки расширений.
-
-* Автоматическое сохранение изменений:
-
-открыть `Settings` / `Auto Save` и выбрать опцию `onFocusChange`.
-
-
-* Автоматическое форматирование:
-
-поставить расширения Prettier и Formatting Toggle. 
-
-^collapse
-^title "Список расширений, которые могут пригодиться"
-:project:vscode-extensions md/
-
-```
-Name: zendoc
-Id: zendoc-vs.zendoc
-Description: semantic wiki syntax
-Version: 0.0.1
-Publisher: zendoc-vs
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=zendoc-vs.zendoc
-
-Name: zen-lsp
-Id: zen-lang.zen-lsp
-Description: 
-Version: 0.0.3
-Publisher: zen-lang
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=zen-lang.zen-lsp
-
-Name: TabOut
-Id: albert.TabOut
-Description: Tab out of quotes, brackets, etc
-Version: 0.2.1
-Publisher: Albert Romkes
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=albert.TabOut
-
-Name: Prettier - Code formatter
-Id: esbenp.prettier-vscode
-Description: Code formatter using prettier
-Version: 9.5.0
-Publisher: Prettier
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-
-Name: Formatting Toggle
-Id: tombonnike.vscode-status-bar-format-toggle
-Description: A VS Code extension that allows you to toggle formatting settings ON and OFF with a simple click.
-Version: 3.0.0
-Publisher: tombonnike
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle
-
-Name: cljfmt
-Id: pedrorgirardi.vscode-cljfmt
-Description: Format Clojure & EDN.
-Version: 1.3.0
-Publisher: Pedro Girardi
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=pedrorgirardi.vscode-cljfmt
-
-Name: Calva: Clojure & ClojureScript Interactive Programming
-Id: betterthantomorrow.calva
-Description: Integrated REPL, formatter, Paredit, and more. Powered by cider-nrepl and clojure-lsp.
-Version: 2.0.287
-Publisher: Better Than Tomorrow
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
-
-Name: Bookmarks
-Id: alefragnani.Bookmarks
-Description: Mark lines and jump to them
-Version: 13.3.0
-Publisher: Alessandro Fragnani
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
-```
-
-
 ^title "Введение в Zendoc"
 :introduction md/
 
@@ -374,7 +145,7 @@ __Результат:__
 * Можно вставить ссылку: `[text](link)` — [text](link)
 * Сослаться на поле в ресурсе: `((resource people.niquola :telegram))` — ((resource people.niquola :telegram))
 
-^title "Заголовоки"
+^title "Заголовки"
 :zentext:title md/
 
 ```
@@ -431,9 +202,12 @@ __Результат:__
 3) item 3
   
 ^title "Таблицы"
-:tables:zentext md/
+:tables md/
 
-Таблицу можно встроить с помощью —  [[code ```table]] block 
+^title "Через блок кода"
+:tables:code md/
+
+Таблицу можно встроить с помощью блока [[code ```table]]:
 
 ```code
   ```table
@@ -451,25 +225,44 @@ niquola | niq.com | +7897989
 mary | mary.com | +7897555 
 ```
 
-<br/>
+^title "Через аннотацию ^table"
+:tables:table md/
+
 Еще таблицу можно записать с помощью — `^table{:key[{:column1 "value1" :column2 "value2"}]`
 
 ```code
-^table
-[{:name "niquola":email "niq.com":phone "+7897989"} 
-{:name "mary":email "mary.com":phone "+7897555"}]
+  ^table
+  :table-contacts
+  [{:name "niquola":email "niq.com":phone "+7897989"} 
+  {:name "mary":email "mary.com":phone "+7897555"}]
 ```
 
 __Результат:__
 
 ^table
-:tables:zentext:contacts
+:tables:code:contacts
 [{:name "niquola" :email "niq.com" :phone "+7897989"} 
 {:name "mary" :email "mary.com" :phone "+7897555"}]
 
+^title "Через аннотацию ^table-of"
+:tables:table-of md/
+
+Способ вывести какие-то сущности:
+
+Пример
+
+```code
+  ^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+  :people
+```
+
+__Результат:__
+
+^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+:tables:table-of:people
+
 ^title "Код"
 :code md/
-
 
 ^title "Блоки кода"
 :code:blocks md/

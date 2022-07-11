@@ -1,0 +1,149 @@
+{ns fhir.ru.support.datatypes
+
+ import #{fhir zen.fhir}
+
+ Address
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Address}
+  :zen/desc "Адрес"
+  :zen.fhir/type "Address"
+  :type zen/map}
+
+ Identifier
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Identifier}
+  :zen/desc "Identifier"
+  :zen.fhir/type "Identifier"
+  :type zen/map}
+
+
+ Reference
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Reference}
+  :zen/desc "Reference"
+  :zen.fhir/type "Reference"
+  :type zen/map}
+
+ HumanName
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/HumanName}
+  :zen/desc "HumanName"
+  :zen.fhir/type "HumanName"
+  :type zen/map}
+
+ ContactPoint
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/ContactPoint}
+  :zen/desc "ContactPoint"
+  :zen.fhir/type "ContactPoint"
+  :type zen/map}
+
+ CodeableConcept
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/CodeableConcept}
+  :zen/desc "CodeableConcept"
+  :zen.fhir/type "CodeableConcept"
+  :type zen/map}
+
+;;  CodeableReference
+;;  {:zen/tags #{zen/schema zen.fhir/structure-schema}
+;;   :zen.fhir/version "0.5.8"
+;;   :confirms #{fhir/CodeableReference}
+;;   :zen/desc "CodeableReference	"
+;;   :zen.fhir/type "CodeableReference	"
+;;   :type zen/map}
+
+ Coding
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Coding}
+  :zen/desc "Coding"
+  :zen.fhir/type "Coding"
+  :type zen/map}
+
+ Period
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Period}
+  :zen/desc "Period"
+  :zen.fhir/type "Period"
+  :type zen/map}
+
+ SampledData
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/SampledData}
+  :zen/desc "SampledData"
+  :zen.fhir/type "SampledData"
+  :type zen/map}
+
+ Timing
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Timing}
+  :zen/desc "Timing"
+  :zen.fhir/type "Timing"
+  :type zen/map}
+
+ Signature
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Signature}
+  :zen/desc "Signature"
+  :zen.fhir/type "Signature"
+  :type zen/map}
+
+ Annotation
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Annotation}
+  :zen/desc "Annotation"
+  :zen.fhir/type "Annotation"
+  :type zen/map}
+
+ Attachment
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Attachment}
+  :zen/desc "Attachment"
+  :zen.fhir/type "Attachment"
+  :type zen/map}
+
+ Quantity
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Quantity}
+  :zen/desc "Quantity"
+  :zen.fhir/type "Quantity"
+  :type zen/map}
+
+ Range
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Range}
+  :zen/desc "Range"
+  :zen.fhir/type "Range"
+  :type zen/map}
+
+ Ratio
+ {:zen/tags #{zen/schema zen.fhir/structure-schema}
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/Ratio}
+  :zen/desc "Ratio"
+  :zen.fhir/type "Ratio"
+  :type zen/map}
+
+;;  RatioRange
+;;  {:zen/tags #{zen/schema zen.fhir/structure-schema}
+;;   :zen.fhir/version "0.5.8"
+;;   :confirms #{fhir/RatioRange}
+;;   :zen/desc "RatioRange"
+;;   :zen.fhir/type "RatioRange"
+;;   :type zen/map}
+ }
