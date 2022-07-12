@@ -85,8 +85,8 @@
   (when valueset
     (let [schema (zen.core/get-symbol ztx (:symbol valueset))
           standart? (clojure.string/includes? (str (:uri schema)) "hl7.org/fhir/ValueSet")
-          zendoc (some-> schema :zendoc name (subs 1) symbol)]
-      {:zendoc (str zendoc)
+          zendoc (some-> schema :zendoc)]
+      {:zendoc zendoc
        :name (or (and zendoc
                       (->> (zd.db/get-doc ztx zendoc)
                            (filter #(= [:title] (:path %)))
@@ -377,7 +377,7 @@
         (render-schema-table-row-type row)]
 
        [:td {:class (c [:text :gray-700] :text-xs)}
-       (render-schema-table-row-description row)]])]])
+        (render-schema-table-row-description row)]])]])
 
 (def style
   [:style
@@ -519,8 +519,7 @@ table.schema td {}
                   :validate {:title "Validate"
                              :content
                              (validation-tab ztx sch-name (when (= "validation" form-type-request)
-                                                            (-> options :page :request :params)))
-                             }
+                                                            (-> options :page :request :params)))}
                   :schema-errors {:title "Schema errors"
                                   :content
                                   (when-let [schema-errors
