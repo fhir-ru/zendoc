@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.servicerequest
+ import #{fhir zen.fhir}
+
+ LabServiceRequest
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/ServiceRequest}
+  :zen/desc "ServiceRequest"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "ServiceRequest"
+  :zen.fhir/id "servicerequest-lab"
+  :zen.fhir/name "ServiceRequestLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/servicerequest-lab"
+  :type zen/map
+  :keys {}}}

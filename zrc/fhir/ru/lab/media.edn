@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.media
+ import #{fhir zen.fhir}
+
+ LabMedia
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Media}
+  :zen/desc "Media"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Media"
+  :zen.fhir/id "media-lab"
+  :zen.fhir/name "MediaLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/media-lab"
+  :type zen/map
+  :keys {}}}

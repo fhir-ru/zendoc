@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.task
+ import #{fhir zen.fhir}
+
+ LabTask
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Task}
+  :zen/desc "Task"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Task"
+  :zen.fhir/id "task-lab"
+  :zen.fhir/name "TaskLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/task-lab"
+  :type zen/map
+  :keys {}}}

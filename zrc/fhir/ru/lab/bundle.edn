@@ -1,0 +1,36 @@
+{ns fhir.ru.lab.bundle
+ import #{fhir zen.fhir fhir.ru.lab.composition fhir.ru.core.patient}
+
+ LabBundle
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Bundle}
+  :zen/desc "Bundle"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Bundle"
+  :zen.fhir/id "bundle-lab"
+  :zen.fhir/name "BundleLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/bundle-lab"
+  :type zen/map
+  :keys {:type {:type zen/string}
+         :entry {:type zen/vector
+                 :every {:type zen/map
+                         :confirms #{fhir/BackboneElement}}
+                 :slicing
+                 {:slices
+                  {"Composition"
+                   {:zen/desc "Composition"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Composition"}}}
+                    :schema {:type zen/vector
+                             :maxItems 1
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.composition/LabComposition}}}}
+                   "Patient"
+                   {:zen/desc "Patient"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Patient"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.patient/CorePatient}}}}}}}}}}

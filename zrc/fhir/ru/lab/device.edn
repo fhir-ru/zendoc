@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.device
+ import #{fhir zen.fhir fhir.ru.core.patient}
+
+ LabDevice
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Device}
+  :zen/desc "Device"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Device"
+  :zen.fhir/id "device-lab"
+  :zen.fhir/name "DeviceLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
+  :type zen/map
+  :keys {}}}

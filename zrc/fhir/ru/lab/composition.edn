@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.composition
+ import #{fhir zen.fhir fhir.ru.core.patient}
+
+ LabComposition
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Composition}
+  :zen/desc "Composition"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Composition"
+  :zen.fhir/id "composition-lab"
+  :zen.fhir/name "CompositionLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/composition-lab"
+  :type zen/map
+  :keys {}}}

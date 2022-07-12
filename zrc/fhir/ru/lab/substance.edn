@@ -1,0 +1,14 @@
+{ns fhir.ru.lab.substance
+ import #{fhir zen.fhir}
+
+ LabSubstance
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :confirms #{fhir/Substance}
+  :zen/desc "Substance"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Substance"
+  :zen.fhir/id "substance-lab"
+  :zen.fhir/name "SubstanceLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/substance-lab"
+  :type zen/map
+  :keys {}}}
