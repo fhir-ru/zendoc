@@ -19,7 +19,7 @@
 ^badge
 :maturity 0
 
-:title "Bundle Profile"
+:title "Specimen Profile"
 
 ^title "Оглавление"
 :content-list md/ 
@@ -33,9 +33,9 @@ TODO
 
 ^title "Профиль"
 ^zen/schema
-:section:profile fhir.ru.lab.bundle/LabBundle
+:section:profile fhir.ru.lab.specimen/LabSpecimen
 
-^title "Ресурс Bundle"
+^title "Ресурс Specimen"
 :resource md/
 
 TODO
@@ -44,3 +44,4 @@ TODO
 :resource:scope-and-usage md/
 
 TODO
+

@@ -1,0 +1,61 @@
+resourceType: "Composition"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1522"
+      code: "7"
+      version: "4.45"
+date: "2018-12-20T12:20:00+3:00"
+confidentiality: "N"
+identifier:
+  system: "urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.50"
+  value: "9633"
+title: "Протокол лабораторного исследования"
+author:
+  - display: "Автор"
+status: "final"
+section:
+  - title: "ДАННЫЕ О ПАЦИЕНТЕ"
+    code:
+      text: "recordTarget"
+    entry:
+      - reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+  - title: "ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА"
+    code:
+      text: "author"
+    entry:
+      - reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+  - title: "ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА"
+    code:
+      text: "custodian"
+    entry:
+      - reference: "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"
+  - title: "ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА"
+    code:
+      text: "informationRecipient"
+    entry:
+      - reference: "urn:uuid:9B969178-4E65-F8BC-A8CA-E7FACB036CCA"
+  - title: "ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ"
+    code:
+      text: "legalAuthenticator"
+    entry:
+      - reference: "urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728"
+  - title: "СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ"
+    code:
+      text: "participantInd"
+    entry:
+      - reference: "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+  - title: "СВЕДЕНИЯ О НАПРАВИВШЕМ ЛИЦЕ И ОРГАНИЗАЦИИ"
+    code:
+      text: "participantRef"
+    entry:
+      - reference: "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+  - title: "СВЕДЕНИЯ О НАПРАВЛЕНИИ"
+    code:
+      text: "order"
+    entry:
+      - reference: "urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A"
+  - title: "ТЕЛО ДОКУМЕНТА"
+    code:
+      text: "structuredBody"
+    entry:
+      - reference: "urn:uuid:B7A7BEAA-5406-2657-8C32-C50BE18D5878"

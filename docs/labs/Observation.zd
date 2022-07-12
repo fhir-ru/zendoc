@@ -1,8 +1,8 @@
 ^hide
-:menu-order 3
+:menu-order 1
 
 ^hide
-:icon [:fa-solid :fa-heart-pulse]
+:icon [:fa :fa-list-check] 
 
 ^hide
 :menu/first true
@@ -14,13 +14,39 @@
 :groups #{groups.lab}
 
 ^badge
-:status :draft
+:status "in progress"
 
 ^badge
 :maturity 0
 
+:title "Observation Profile"
 
-:title "Результат наблюдения"
+^title "Оглавление"
+:content-list md/ 
 
 :toc
+
+^title "Определение"
+:section md/
+
+Результат наблюдения
+
+TODO
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.lab.observation/LabObservation
+
+^title "Ресурс Observation"
+:resource md/
+
+TODO
+
+^title "Область применения и использование"
+:resource:scope-and-usage md/
+
+TODO
+
+
+
 
