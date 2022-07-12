@@ -49,6 +49,6 @@ Ru Core:
  {:profile core.Department}
  {:profile core.Affiliation}]
  
- :feedback md/
+:feedback md/
  
- Есть предложения по улучшению этой страницы? Пиши сюда [[d 94]].
+Есть предложения по улучшению этой страницы? Пиши сюда [[d 94]].
