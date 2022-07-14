@@ -35,6 +35,26 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.core.organization/CoreOrganization
 
+^collapse
+^yaml
+^title "Пример Organization из бандла - 1"
+:section:example1 (load "samples/01_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла - 2"
+:section:example2 (load "samples/02_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла - 3"
+:section:example3 (load "samples/03_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла - 4"
+:section:example4 (load "samples/04_organization.yaml" :yaml)
+
 ^title "Ресурс Organization"
 :resource md/
 

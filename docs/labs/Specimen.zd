@@ -35,6 +35,21 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.specimen/LabSpecimen
 
+^collapse
+^yaml
+^title "Пример Specimen из бандла - 1"
+:section:example1 (load "samples/01_specimen.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Specimen из бандла - 2"
+:section:example2 (load "samples/02_specimen.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Specimen из бандла - 3"
+:section:example3 (load "samples/03_specimen.yaml" :yaml)
+
 ^title "Ресурс Specimen"
 :resource md/
 

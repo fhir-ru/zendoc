@@ -35,6 +35,21 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.servicerequest/LabServiceRequest
 
+^collapse
+^yaml
+^title "Пример ServiceRequest из бандла - 1"
+:section:example1 (load "samples/01_servicerequest.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример ServiceRequest из бандла - 2"
+:section:example2 (load "samples/02_servicerequest.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример ServiceRequest из бандла - 3"
+:section:example3 (load "samples/03_servicerequest.yaml" :yaml)
+
 ^title "Ресурс ServiceRequest"
 :resource md/
 

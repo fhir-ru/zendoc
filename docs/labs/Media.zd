@@ -35,6 +35,11 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.media/LabMedia
 
+^collapse
+^yaml
+^title "Пример Media из бандла"
+:section:example1 (load "samples/01_media.yaml" :yaml)
+
 ^title "Ресурс Media"
 :resource md/
 

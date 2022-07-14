@@ -35,6 +35,16 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.task/LabTask
 
+^collapse
+^yaml
+^title "Пример Task из бандла - 1"
+:section:example1 (load "samples/01_task.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Task из бандла - 2"
+:section:example2 (load "samples/02_task.yaml" :yaml)
+
 ^title "Ресурс Task"
 :resource md/
 

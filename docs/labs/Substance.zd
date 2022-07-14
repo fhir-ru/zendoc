@@ -35,6 +35,11 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.substance/LabSubstance
 
+^collapse
+^yaml
+^title "Пример Substance из бандла - 1"
+:section:example1 (load "samples/01_substance.yaml" :yaml)
+
 ^title "Ресурс Substance"
 :resource md/
 

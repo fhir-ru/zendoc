@@ -35,6 +35,11 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.core.encounter/CoreEncounter
 
+^collapse
+^yaml
+^title "Пример Encounter из бандла"
+:section:example1 (load "samples/01_encounter.yaml" :yaml)
+
 ^title "Ресурс Encounter"
 :resource md/
 

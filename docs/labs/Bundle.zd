@@ -1,5 +1,5 @@
 ^hide
-:menu-order 1
+:menu-order 0
 
 ^hide
 :icon [:fa :fa-list-check] 
@@ -19,7 +19,8 @@
 ^badge
 :maturity 0
 
-:title "Bundle Profile"
+;; :title "Bundle Profile"
+:title "Передача лабораторных исследований КДЛ"
 
 ^title "Оглавление"
 :content-list md/ 
@@ -34,6 +35,11 @@ TODO
 ^title "Профиль"
 ^zen/schema
 :section:profile fhir.ru.lab.bundle/LabBundle
+
+^collapse
+^yaml
+^title "Пример исправленного ресурса Bundle"
+:section:example1 (load "samples/01_bundle_comp_pt.yaml" :yaml)
 
 ^title "Ресурс Bundle"
 :resource md/

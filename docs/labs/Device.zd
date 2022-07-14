@@ -35,6 +35,11 @@ TODO
 ^zen/schema
 :section:profile fhir.ru.lab.device/LabDevice
 
+^collapse
+^yaml
+^title "Пример Device из бандла"
+:section:example1 (load "samples/01_device.yaml" :yaml)
+
 ^title "Ресурс Device"
 :resource md/
 

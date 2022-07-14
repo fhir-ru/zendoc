@@ -1,8 +1,8 @@
 ^hide
-:menu-order 2
+:menu-order 1
 
 ^hide
-:icon [:fa-solid :fa-flask]
+:icon [:fa :fa-list-check] 
 
 ^hide
 :menu/first true
@@ -20,15 +20,31 @@
 :maturity 0
 
 
-:title "Диагностический отчет"
+;; :title "Диагностический отчет"
+:title "DiagnosticReport Profile"
 
 :toc
 
 ^title "Определение"
-:description md/
+:section md/
 
 Профиль DiagnosticReport описывает результаты лабораторного исследования.
 
 ^title "Профиль"
 ^zen/schema
-:profile fhir.ru.lab.diagnosticreport/LabDiagnosticReport
+:section:profile fhir.ru.lab.diagnosticreport/LabDiagnosticReport
+
+^collapse
+^yaml
+^title "Пример DiagnosticReport из бандла - 1"
+:section:example1 (load "samples/01_diagnosticreport.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример DiagnosticReport из бандла - 2"
+:section:example2 (load "samples/02_diagnosticreport.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример DiagnosticReport из бандла - 3"
+:section:example3 (load "samples/03_diagnosticreport.yaml" :yaml)
