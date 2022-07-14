@@ -1,0 +1,46 @@
+^hide
+:menu-order 9
+
+^hide
+:icon [:fa-solid :fa-file-invoice-dollar]
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+:title "Coverage"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+^title "Coverage"
+:Coverage md/
+
+Профиль Coverage описывает страховой полис пациента.
+
+^title "Профиль на Coverage"
+^zen/schema
+:Coverage:profile fhir.ru.core.coverage/CoreCoverage
+
+^title "Ресурс Coverage"
+:resource md/
+
+TODO: перевод ресурса Coverage
+
+^title "Область применения и использование"
+:resource:scope-and-usage md/
+
+TODO: перевод ресурса Coverage

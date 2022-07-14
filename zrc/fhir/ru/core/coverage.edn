@@ -1,0 +1,110 @@
+{ns fhir.ru.core.coverage
+ import #{fhir zen.fhir fhir.ru.core.patient}
+
+ CoreCoverage
+ {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :zendoc "core.Coverage"
+  :confirms #{fhir/Coverage}
+  :zen/desc "Страховой полис"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/type "Coverage"
+  :zen.fhir/id "coverage-lab"
+  :zen.fhir/name "CoverageLab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
+  :type zen/map
+  :keys {:beneficiary {:zen/desc "Ссылка на пациента"
+                       :confirms #{fhir/Reference zen.fhir/Reference fhir.ru.core.patient/CorePatient}
+                       :type zen/map
+                       :zen.fhir/reference {:refers
+                                            #{fhir.ru.core.patient/CorePatient}}}
+         :type {:zen/desc "Тип страхового полиса"
+                :confirms #{fhir/CodeableConcept}
+                :zen.fhir/value-set {:symbol CoreVsNsiMedicalCarePaymentSource :strength :required}}
+         :class {:zen/desc "Дополнительная классификация"
+                ;;  :confirms #{fhir/BackboneElement}
+                 :type zen/vector
+                 :slicing {:slices {"Class1" {:zen/desc "Тип документа"
+                                              :filter {:engine :match
+                                                       :match {:type {:text "Тип документа"}}}
+                                              :schema {:type zen/vector
+                                                       :maxItems 1
+                                                       :every {:type zen/map
+                                                               :require #{:type :value :name}
+                                                               :confirms #{SchemaClass1}}}}
+                                    "Class2" {:zen/desc "Тип полиса ОМС"
+                                              :filter {:engine :match
+                                                       :match {:type {:text "Тип полиса ОМС"}}}
+                                              :schema {:type zen/vector
+                                                       :maxItems 1
+                                                       :every {:type zen/map
+                                                               :require #{:type :value :name}
+                                                               :confirms #{SchemaClass2}}}}}}}}}
+
+ SchemaClass1
+ {:zen/tags #{zen/schema}
+  :zen/desc "Дополнительная классификация - Тип документа"
+  :match {:type {:text "Тип документа"}
+          :name (:zen.match/one-of #{"Полис ОМС" "Полис ДМС" "Договор на оказание платных медицинских услуг"})
+          :value (:zen.match/one-of #{"1" "2" "3"})}}
+
+ SchemaClass2
+ {:zen/tags #{zen/schema}
+  :zen/desc "Дополнительная классификация - Тип полиса ОМС"
+  :match {:type {:text "Тип полиса ОМС"}}}
+
+ CoreVsNsiGroundsDocumentType
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "valuesets.vs-nsi-grounds-document-type"
+  :zen/desc "Справочник НСИ Минздрава Типы документов оснований"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.724",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-grounds-document-type"
+  :version "1.1"
+  :zen.fhir/id "core-vs-nsi-grounds-document-type"
+  :zen.fhir/name "CoreVsNsiGroundsDocumentType"
+  :zen.fhir/title "Core ValueSet Типы документов оснований"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.99.2.724" :concept [{:code "1" :display "Полис ОМС"},{:code "2" :display "Полис ДМС"},{:code "3" :display "Договор на оказание платных медицинских услуг"}]}]}}
+
+ CoreVsNsiMandatoryMedicalInsurancePolicyType
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "valuesets.vs-nsi-mandatory-medical-insurance-policy-type"
+  :zen/desc "Справочник НСИ Минздрава Виды полиса обязательного медицинского страхования"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1035",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-mandatory-medical-insurance-policy-type"
+  :version "1.3"
+  :zen.fhir/id "core-vs-nsi-mandatory-medical-insurance-policy-type"
+  :zen.fhir/name "CoreVsNsiMandatoryMedicalInsurancePolicyType"
+  :zen.fhir/title "Core ValueSet Виды полиса обязательного медицинского страхования"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1035" :concept [{:code "1" :display "Полис ОМС старого образца"},{:code "2" :display "Полис ОМС единого образца, бессрочный"},{:code "3" :display "Полис ОМС единого образца, со сроком действия"},{:code "4" :display "Временное свидетельство"}]}]}}
+
+ CoreVsNsiMedicalCarePaymentSource
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "valuesets.vs-nsi-medical-care-payment-source"
+  :zen/desc "Справочник НСИ Минздрава Источники оплаты медицинской помощи"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1039",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-medical-care-payment-source"
+  :version "5.2"
+  :zen.fhir/id "core-vs-nsi-medical-care-payment-source"
+  :zen.fhir/name "CoreVsNsiMedicalCarePaymentSource"
+  :zen.fhir/title "Core ValueSet Источники оплаты медицинской помощи"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1039" :concept [{:code "1" :display "Средства обязательного медицинского страхования" :short "ОМС"},
+                                                                                      {:code "3" :display "Средства добровольного медицинского страхования" :short "ДМС"},
+                                                                                      {:code "4" :display "Средства пациента" :short "Пациент"},
+                                                                                      {:code "5" :display "Средства третьих физических лиц" :short "Третье лицо (физическое)"},
+                                                                                      {:code "6" :display "Средства третьих юридических лиц" :short "Третье лицо (юридическое)"},
+                                                                                      {:code "8" :display "Средства федерального бюджета" :short "Бюджет федеральный"},
+                                                                                      {:code "9" :display "Средства регионального бюджета" :short "Бюджет региональный"},
+                                                                                      {:code "10" :display "Средства обязательного социального страхования" :short "ФСС"},
+                                                                                      {:code "11" :display "Средства бюджета медицинской организации" :short "Бюджет медицинской организации"},
+                                                                                      {:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный"}]}]}}}
