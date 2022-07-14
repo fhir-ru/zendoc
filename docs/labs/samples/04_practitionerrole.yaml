@@ -1,0 +1,11 @@
+resourceType: "PractitionerRole"
+code:
+  - coding:
+      - system: "1.2.643.5.1.13.13.11.1002"
+        code: "35"
+        version: "7.5"
+        display: "врач клинической лабораторной диагностики"
+practitioner:
+  reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+organization:
+  reference: "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"

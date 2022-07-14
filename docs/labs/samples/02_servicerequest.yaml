@@ -1,0 +1,11 @@
+resourceType: "ServiceRequest"
+id: "A732C573-1FE9-81D7-9449-40D7F5AE406A"
+status: "completed"
+intent: "original-order"
+subject:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+code:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1070"
+      version: "2.10"
+      display: "Микроскопия окрашенных мазков"

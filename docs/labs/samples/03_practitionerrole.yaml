@@ -1,0 +1,11 @@
+resourceType: "PractitionerRole"
+code:
+  - coding:
+      - system: "1.2.643.5.1.13.13.11.1002"
+        code: "109"
+        version: "7.5"
+        display: "врач-терапевт"
+practitioner:
+  reference: "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+organization:
+  reference: "urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09"

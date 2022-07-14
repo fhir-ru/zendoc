@@ -1,0 +1,31 @@
+resourceType: "Task"
+id: "B7A7BEAA-5406-2657-8C32-C50BE18D5878"
+basedOn:
+  - reference: "urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A"
+status: "completed"
+intent: "filler-order"
+priority: "routine"
+performerType:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1034"
+      code: "2"
+      version: "4.2"
+executionPeriod:
+  start: "2018-12-20T08:30:00+3:00"
+  end: "2018-12-20T16:10:00+3:00"
+output:
+  - valueReference:
+      reference: "urn:uuid:360B8131-EE30-9098-8418-6E3CBF3B462E"
+    type:
+      coding:
+        - code: "DR"
+  - valueReference:
+      reference: "urn:uuid:DC19D6DC-ED4A-8C75-A887-6B9AF5DD8995"
+    type:
+      coding:
+        - code: "DR"
+  - valueReference:
+      reference: "urn:uuid:CEE4435B-FCE0-FBCD-9341-552EAEF8BBDA"
+    type:
+      coding:
+        - code: "DR"

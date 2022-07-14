@@ -1,0 +1,11 @@
+resourceType: "ServiceRequest"
+id: "31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7"
+status: "completed"
+intent: "original-order"
+subject:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+code:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1070"
+      version: "2.10"
+      display: "Клинический анализ крови на анализаторе"

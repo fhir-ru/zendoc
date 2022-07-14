@@ -1,0 +1,32 @@
+resourceType: "Specimen"
+type:
+  coding:
+    - system: "1.2.643.5.1.13.13.11.1081"
+      code: "108"
+      version: "2.4"
+      display: "Кровь венозная"
+identifier:
+  - value: "0987654321"
+    system: "1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66"
+collection:
+  collector:
+    reference: "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7"
+  collectedDateTime: "2018-12-20T07:05:00+3:00"
+  quantity:
+    system: "1.2.643.5.1.13.13.11.1358"
+    code: "16"
+    value: "6.5"
+    unit: "мл"
+  method:
+    coding:
+      - system: "1.2.643.5.1.13.13.11.1070"
+        code: "A11.12.009"
+        version: "2.10"
+        display: "Взятие крови из периферической вены"
+container:
+  identifier:
+    - value: "0987654321"
+      system: "1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66"
+  description: "Пробирка для иммуногематологических исследований с ACD. Штрихкод: 0987654321"
+  additiveReference:
+    - reference: "39A7C6D1-5A78-72FF-954A-8D8096761146"

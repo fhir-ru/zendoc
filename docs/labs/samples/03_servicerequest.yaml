@@ -1,0 +1,11 @@
+resourceType: "ServiceRequest"
+id: "8F5A5F52-0542-85A3-B63C-8B3EB6B51329"
+status: "completed"
+intent: "original-order"
+subject:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+code:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1070"
+      version: "2.10"
+      display: "Иммуногематологическое исследование"

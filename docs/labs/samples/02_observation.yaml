@@ -1,0 +1,32 @@
+resourceType: "Observation"
+status: "final"
+code:
+  coding:
+    - system: "1.2.643.5.1.13.13.11.1080"
+      code: "1017482"
+      version: "3.28"
+      display: "Шизоциты, обнаружение в крови методом автоматизированного подсчёта"
+effectiveDateTime: "2018-12-20T08:55:00+3:00"
+interpretation:
+  coding:
+    - system: "1.2.643.5.1.13.13.99.2.257"
+      code: "A"
+specimen:
+  reference: "urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5"
+performer:
+  - reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+  - reference: ""
+valueString: "++"
+referenceRange:
+  - text: "не обнаруживаются"
+    type:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/referencerange-meaning"
+          code: "normal"
+note:
+  - text: "Количество шизоцитов: 8,35% от общего количества эритроцитов"
+    authorReference:
+      reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+    time: "2018-12-20T16:13:00+3:00"
+device:
+  reference: "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5"

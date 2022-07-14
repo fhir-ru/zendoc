@@ -1,0 +1,22 @@
+resourceType: "Task"
+id: "EB3C807C-6E85-DAEB-904D-CF95FAAE375A"
+status: "completed"
+intent: "order"
+identifier:
+  - system: "urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.51"
+    value: "987964"
+code:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1522"
+      code: "107"
+      version: "4.45"
+requester:
+  reference: "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+encounter:
+  reference: "urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97"
+insurance:
+  reference: "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+basedOn:
+  - reference: "urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7"
+  - reference: "urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A"
+  - reference: "urn:uuid:8F5A5F52-0542-85A3-B63C-8B3EB6B51329"

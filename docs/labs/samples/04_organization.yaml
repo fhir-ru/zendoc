@@ -1,0 +1,30 @@
+resourceType: "Organization"
+identifier:
+  - value: "urn:oid:1.2.643.5.1.13.13.12.2.77.7809"
+    system: "urn:ru:frmo:oid"
+    use: "official"
+    type:
+      text: "ОИД организации"
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+          code: "PRN"
+          display: "Provider number"
+name: 'ГБУЗ "Городская поликлиника № 25 Департамента здравоохранения города Москвы"'
+address:
+  text: "Московская область, Россия, город Москва, улица Миклухо-Маклая, дом 10"
+  state: "77"
+  postalCode: "117198"
+  extension:
+    - fias: "1dec06af-f015-425b-be4b-253fab5d7ccb"
+    - fias_house: "b1adc7d0-8160-47d0-9903-d794b72078f6"
+    - url: "http://fhir.ru/core/sd/core-ex-state"
+      valueCodeableConcept:
+        - coding:
+            - system: "1.2.643.5.1.13.13.99.2.206"
+              code: "77"
+              version: "6.3"
+              display: "г. Москва"
+contact:
+  - telecom:
+      - value: "tel:+74954342491"
+      - value: "tel:+74954342570"

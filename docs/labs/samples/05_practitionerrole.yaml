@@ -1,0 +1,11 @@
+resourceType: "PractitionerRole"
+code:
+  - coding:
+      - system: "1.2.643.5.1.13.13.11.1002"
+        code: "171"
+        version: "7.5"
+        display: "медицинская сестра процедурной"
+practitioner:
+  reference: "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7"
+organization:
+  reference: "urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09"

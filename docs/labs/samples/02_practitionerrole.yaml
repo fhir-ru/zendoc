@@ -1,0 +1,11 @@
+resourceType: "PractitionerRole"
+code:
+  - coding:
+      - system: "1.2.643.5.1.13.13.11.1002"
+        code: "431"
+        version: "7.5"
+        display: "заведующий лабораторией медицинской организации"
+practitioner:
+  reference: "urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728"
+organization:
+  reference: "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"

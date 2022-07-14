@@ -1,0 +1,7 @@
+resourceType: "Device"
+identifier:
+  - value: "1234"
+    system: "1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67"
+deviceName:
+  name: "Гематологический анализатор Sysmex KX21"
+  type: "manufacturer-name"

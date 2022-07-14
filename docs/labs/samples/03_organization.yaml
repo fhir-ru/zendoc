@@ -1,0 +1,38 @@
+resourceType: "Organization"
+identifier:
+  - value: "urn:oid:1.2.643.5.1.13.13.99.2.183"
+    system: "urn:ru:frmo:oid"
+    use: "official"
+    type:
+      text: "ОИД организации"
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+          code: "PRN"
+          display: "Provider number"
+  - value: "urn:oid:77013"
+    system: "urn:ru:frmo:oid"
+    use: "secondary"
+    type:
+      text: "ОИД организации"
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+          code: "PRN"
+          display: "Provider number"
+name: 'ООО "СК "ИНГОССТРАХ-М"'
+address:
+  text: "г Москва, ул Рочдельская, д 15 стр 35"
+  state: "77"
+  postalCode: "123376"
+  extension:
+    - fias: "6bfbfcbb-87a7-4674-a8e5-bf5f1bbfbf92"
+    - fias_house: "0b33a0e1-3427-409a-a3b7-e57716819f38"
+    - url: "http://fhir.ru/core/sd/core-ex-state"
+      valueCodeableConcept:
+        - coding:
+            - system: "1.2.643.5.1.13.13.99.2.206"
+              code: "77"
+              version: "6.3"
+              display: "г. Москва"
+contact:
+  - telecom:
+      - value: "tel:+74952323491"

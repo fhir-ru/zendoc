@@ -1,0 +1,17 @@
+resourceType: "Observation"
+status: "final"
+code:
+  coding:
+    - system: "1.2.643.5.1.13.13.11.1080"
+      code: "1038629"
+      version: "3.28"
+      display: "Группа крови AB0 подтверждающим методом"
+specimen:
+  reference: "urn:uuid:45E0AC8C-0132-BD37-95D5-3FE815B974EA"
+performer:
+  - reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+valueCodeableConcept:
+  coding:
+    - system: "1.2.643.5.1.13.13.11.1061"
+      code: "103"
+      version: "2.1"

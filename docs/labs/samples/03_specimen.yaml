@@ -1,0 +1,40 @@
+resourceType: "Specimen"
+parent:
+  reference: "Specimen/parent!!!"
+type:
+  coding:
+    - system: "1.2.643.5.1.13.13.11.1081"
+      code: "330"
+      version: "2.4"
+      display: "Мазок периферической крови"
+identifier:
+  - value: "124562156"
+    system: "1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66"
+collection:
+  collector:
+    reference: ""
+  collectedPeriod:
+    start: "2018-12-20T10:05:00+3:00"
+    end: "2018-12-20T10:15:00+3:00"
+  quantity:
+    system: "1.2.643.5.1.13.13.11.1358"
+    code: "128"
+    value: "3"
+    unit: "Единица"
+  method:
+    coding:
+      - system: "1.2.643.5.1.13.13.11.1070"
+        display: "Приготовление окрашенных мазков крови"
+processing:
+  timePeriod:
+    start: "2018-12-20T10:05:00+3:00"
+    end: "2018-12-20T10:15:00+3:00"
+  procedure:
+    coding:
+      - system: "1.2.643.5.1.13.13.11.1070"
+  description: "Приготовление окрашенных мазков крови"
+container:
+  identifier:
+    - value: "124562156"
+      system: "1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66"
+  description: "Микропрепараты 16/15689, 16/15690, 16/156891, окрашенные азур-эозином"
