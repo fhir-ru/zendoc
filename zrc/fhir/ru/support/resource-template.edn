@@ -1,8 +1,9 @@
 {ns fhir.ru.support.resource-template
  import #{fhir zen.fhir fhir.ru.core.patient}
 
- CoreCoverage
+ ResourceTemplate
  {:zen/tags #{zen/schema zen.fhir/profile-schema}
+  :zendoc "tutorials.zen"
   :confirms #{fhir/Coverage}
   :zen/desc "Страховой полис"
   :zen.fhir/version "0.5.8"

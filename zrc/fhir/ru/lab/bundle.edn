@@ -1,5 +1,15 @@
 {ns fhir.ru.lab.bundle
- import #{fhir zen.fhir fhir.ru.lab.composition fhir.ru.core.patient}
+ import #{fhir
+          zen.fhir
+          fhir.ru.lab.composition
+          fhir.ru.lab.device
+          fhir.ru.lab.media
+          fhir.ru.lab.observation
+          fhir.ru.core.patient
+          fhir.ru.lab.servicerequest
+          fhir.ru.lab.specimen
+          fhir.ru.lab.substance
+          fhir.ru.lab.task}
 
  LabBundle
  {:zen/tags #{zen/schema zen.fhir/profile-schema}
@@ -26,6 +36,62 @@
                              :maxItems 1
                              :every {:type zen/map
                                      :confirms #{fhir.ru.lab.composition/LabComposition}}}}
+                   "Coverage"
+                   {:zen/desc "Coverage"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Coverage"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.coverage/CoreCoverage}}}}
+                   "Device"
+                   {:zen/desc "Device"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Device"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.device/LabDevice}}}}
+                   "DiagnosticReport"
+                   {:zen/desc "DiagnosticReport"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "DiagnosticReport"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.diagnosticreport/LabDiagnosticReport}}}}
+                   "Encounter"
+                   {:zen/desc "Encounter"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Encounter"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.encounter/CoreEncounter}}}}
+                   "Media"
+                   {:zen/desc "Media"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Media"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.media/LabMedia}}}}
+                   "Observation"
+                   {:zen/desc "Observation"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Observation"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.observation/LabObservation}}}}
+                   "Organization"
+                   {:zen/desc "Organization"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Organization"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.organization/CoreOrganization}}}}
                    "Patient"
                    {:zen/desc "Patient"
                     :filter
@@ -33,4 +99,53 @@
                      :match {:resource {:resourceType "Patient"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :confirms #{fhir.ru.core.patient/CorePatient}}}}}}}}}}
+                                     :confirms #{fhir.ru.core.patient/CorePatient}}}}
+                   "Practitioner"
+                   {:zen/desc "Practitioner"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Practitioner"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.practitioner/CorePractitioner}}}}
+                   "PractitionerRole"
+                   {:zen/desc "PractitionerRole"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "PractitionerRole"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.core.practitioner/CorePractitionerRole}}}}
+                   "ServiceRequest"
+                   {:zen/desc "ServiceRequest"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "ServiceRequest"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.servicerequest/LabServiceRequest}}}}
+                   "Specimen"
+                   {:zen/desc "Specimen"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Specimen"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.specimen/LabSpecimen}}}}
+                   "Substance"
+                   {:zen/desc "Substance"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Substance"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.substance/LabSubstance}}}}
+                   "Task"
+                   {:zen/desc "Task"
+                    :filter
+                    {:engine :match
+                     :match {:resource {:resourceType "Task"}}}
+                    :schema {:type zen/vector
+                             :every {:type zen/map
+                                     :confirms #{fhir.ru.lab.task/LabTask}}}}}}}}}}
+

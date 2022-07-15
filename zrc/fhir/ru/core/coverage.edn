@@ -13,7 +13,7 @@
   :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
   :type zen/map
   :keys {:beneficiary {:zen/desc "Ссылка на пациента"
-                       :confirms #{fhir/Reference zen.fhir/Reference fhir.ru.core.patient/CorePatient}
+                       :confirms #{fhir/Reference zen.fhir/Reference}
                        :type zen/map
                        :zen.fhir/reference {:refers
                                             #{fhir.ru.core.patient/CorePatient}}}

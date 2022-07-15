@@ -1,20 +1,35 @@
 {ns fhir.ru.core
- import #{fhir.ru.core.organization
-          fhir.ru.core.patient
-          fhir.ru.core.encounter
-          fhir.ru.core.address
+ import #{fhir.ru.core.address
+          fhir.ru.core.bundle
+          fhir.ru.core.coverage
           fhir.ru.core.department
+          fhir.ru.core.encounter
+          fhir.ru.core.ext-nsi-gender
+          fhir.ru.core.observation
+          fhir.ru.core.organization
+          fhir.ru.core.patient
+          fhir.ru.core.patient2
           fhir.ru.core.practitioner
+          fhir.ru.core.tutorial-patient
+          fhir.ru.core.vs-nsi-gender
+
+          fhir.ru.diag.encounter
           fhir.ru.diag.nosology
           fhir.ru.diag.nu
-          fhir.ru.diag.encounter
+
+          fhir.ru.lab.bundle
+          fhir.ru.lab.composition
+          fhir.ru.lab.device
           fhir.ru.lab.diagnosticreport
-          fhir.ru.core.vs-nsi-gender
-          fhir.ru.core.ext-nsi-gender
-          fhir.ru.core.tutorial-patient
-          fhir.ru.lab.coverage
-          fhir.ru.support.datatypes
-          fhir.ru.support.resource-template
-          fhir.ru.support.valueset-template
+          fhir.ru.lab.media
+          fhir.ru.lab.observation
+          fhir.ru.lab.servicerequest
+          fhir.ru.lab.specimen
+          fhir.ru.lab.substance
+          fhir.ru.lab.task
+
           fhir.ru.support.datatype-template
-          fhir.ru.support.extension-template}}
+          fhir.ru.support.datatypes
+          fhir.ru.support.extension-template
+          fhir.ru.support.resource-template
+          fhir.ru.support.valueset-template}}

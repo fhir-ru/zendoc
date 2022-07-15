@@ -6,7 +6,8 @@
 
   CorePractitioner
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
-   :zendoc "core.Practitioner"
+   :zendoc "core.Practitioner"
+
    :zen/desc "Врач/сотрудник"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/Practitioner}
@@ -68,17 +69,20 @@
 
   CorePractitionerRole
   {:zen/tags #{zen.fhir/profile-schema zen/schema}
-   :zendoc "core.Practitioner"
+   :zendoc "core.Practitioner"
+
    :zen/desc "Роль врача/сотрудника"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/PractitionerRole}
    :type zen/map
    :keys {:practitioner {:zen/desc "Ссылка на ресурс Practitioner"
                          :type zen/map
-                         :confirms #{CorePractitioner}}
+                         :confirms #{fhir/Reference zen.fhir/Reference}
+                         :zen.fhir/reference
+                         {:refers #{fhir.ru.core.practitioner/CorePractitioner}}}
           :organization {:zen/desc "Ссылка на ресурс Organization"
                          :type zen/map
-                         :confirms #{fhir.ru.core.organization/CoreOrganization}
+                         :confirms #{fhir/Reference zen.fhir/Reference}
                          :zen.fhir/reference
                          {:refers #{fhir.ru.core.organization/CoreOrganization}}}}}}
 

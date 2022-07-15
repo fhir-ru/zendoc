@@ -5,7 +5,8 @@
 
  CoreEncounter
  {:zen/tags #{zen/schema zen.fhir/profile-schema}
-  :zendoc "core.Patient"
+  :zendoc "core.Patient"
+
   :zen/desc "Случай обслуживания"
   :confirms #{fhir/Encounter}
   :zen.fhir/version "0.5.8"
@@ -14,4 +15,6 @@
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-encounter"
   :type zen/map
-  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}}}}
+  :keys {:subject {:confirms #{fhir/Reference zen.fhir/Reference}
+                   :zen.fhir/reference
+                   {:refers #{fhir.ru.core.patient/CorePatient}}}}}}
