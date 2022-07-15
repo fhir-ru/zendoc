@@ -2,7 +2,8 @@
  import #{fhir zen.fhir fhir.ru.core.patient}
 
  LabComposition
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Composition"
   :confirms #{fhir/Composition}
   :zen/desc "Composition"
   :zen.fhir/version "0.5.8"

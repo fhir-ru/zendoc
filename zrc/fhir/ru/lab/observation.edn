@@ -2,7 +2,8 @@
  import #{fhir zen.fhir}
 
  LabObservation
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Observation"
   :confirms #{fhir/Observation}
   :zen/desc "Observation"
   :zen.fhir/version "0.5.8"

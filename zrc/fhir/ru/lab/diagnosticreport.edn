@@ -3,7 +3,7 @@
  import #{fhir zen.fhir fhir.ru.core.patient}
 
  LabDiagnosticReport
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/lab-group}
   :zendoc "labs.DiagnosticReport"
   :zen/desc "Лабораторные результаты"
   :zen.fhir/version "0.5.8"

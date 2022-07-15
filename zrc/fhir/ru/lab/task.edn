@@ -2,7 +2,8 @@
  import #{fhir zen.fhir}
 
  LabTask
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Task"
   :confirms #{fhir/Task}
   :zen/desc "Task"
   :zen.fhir/version "0.5.8"

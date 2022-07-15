@@ -12,7 +12,8 @@
           fhir.ru.lab.task}
 
  LabBundle
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Bundle"
   :confirms #{fhir/Bundle}
   :zen/desc "Bundle"
   :zen.fhir/version "0.5.8"

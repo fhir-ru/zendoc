@@ -2,7 +2,8 @@
  import #{fhir zen.fhir}
 
  LabSubstance
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Substance"
   :confirms #{fhir/Substance}
   :zen/desc "Substance"
   :zen.fhir/version "0.5.8"

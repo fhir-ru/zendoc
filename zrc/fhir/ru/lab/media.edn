@@ -2,7 +2,8 @@
  import #{fhir zen.fhir}
 
  LabMedia
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.Media"
   :confirms #{fhir/Media}
   :zen/desc "Media"
   :zen.fhir/version "0.5.8"

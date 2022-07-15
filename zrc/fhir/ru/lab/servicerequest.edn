@@ -2,7 +2,8 @@
  import #{fhir zen.fhir}
 
  LabServiceRequest
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+  :zendoc "labs.ServiceRequest"
   :confirms #{fhir/ServiceRequest}
   :zen/desc "ServiceRequest"
   :zen.fhir/version "0.5.8"
