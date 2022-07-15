@@ -21,70 +21,8 @@
 
 ^collapse
 ^title "Пример ресурса"
-:example-1 md/
-
-Пример в JSON-формате для проверки во встроенном Zen-валидаторе (вкладка Validate над схемой).
-Этот пример должен успешно пройти валидацию, так как для паспорта указан тип идентификатора.
-
-```code json
-{
-  "name": [{
-      "use": "official",
-      "given": [
-        "BARBARA",
-        "A"
-      ],
-      "family": "KENNEDY"
-    }
-  ],
-  "gender": "female",
-  "address": [{
-      "city": "Москва",
-      "line": [
-        "Арбат"
-      ],
-      "state": "MO",
-      "country": "РФ",
-      "postalCode": "64083"
-    }
-  ],
-  "birthDate": "1961-03-03",
-  "identifier": [{
-      "use": "official",
-      "value": "00665282",
-      "system": "mrn",
-      "type": {
-        "text": "Номер медицинской карты",
-        "coding": [{
-            "code": "MR",
-            "display": "Medical record number",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-          }
-        ]
-      }
-    }, {
-      "value": "100160728281",
-      "system": "http://fhir.ru/core/sytems/passport-rf",
-      "type": {
-        "text": "Номер паспорта",
-        "coding": [{
-            "code": "PPN",
-            "display": "Passport number",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-          }, {
-            "code": "1",
-            "display": "Паспорт гражданина Российской Федерации",
-            "system": "http://fhir.ru/core/cs/core-cs-nsi-identity-document"
-          }
-        ]
-      }
-    }
-  ],
-  "id": "002ab5bc-6ba1-4de2-89ee-6afe55d685ff",
-  "resourceType": "Patient"
-}
-```
-
+^yaml
+:example-1 (load "samples/patient.json" :json)
 
 ^title "Идентификаторы пациента (identifier)"
 :elements.identifier md/
