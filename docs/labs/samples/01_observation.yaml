@@ -6,32 +6,34 @@ code:
       code: "1017128"
       version: "3.28"
       display: "Гемоглобин общий, массовая концентрация в крови"
-effectiveDateTime: "2018-12-20T08:55:00+3:00"
+effective:
+  dateTime: "2018-12-20T08:55:00+3:00"
 interpretation:
-  coding:
-    - system: "1.2.643.5.1.13.13.99.2.257"
-      code: "H"
+  - coding:
+      - system: "1.2.643.5.1.13.13.99.2.257"
+        code: "H"
 specimen:
   reference: "urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5"
 performer:
   - reference: "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
   - reference: ""
-valueQuantity:
-  system: "1.2.643.5.1.13.13.11.1358"
-  code: "60"
-  value: "166"
-  unit: "г/л"
+value:
+  Quantity:
+    system: "1.2.643.5.1.13.13.11.1358"
+    code: "60"
+    value: 166
+    unit: "г/л"
 referenceRange:
   - text: "120 - 150 г/л"
     low:
       system: "1.2.643.5.1.13.13.11.1358"
       code: "60"
-      value: "120"
+      value: 120
       unit: "г/л"
     high:
       system: "1.2.643.5.1.13.13.11.1358"
       code: "60"
-      value: "150"
+      value: 150
       unit: "г/л"
     type:
       coding:

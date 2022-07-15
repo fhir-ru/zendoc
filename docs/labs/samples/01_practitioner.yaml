@@ -23,21 +23,21 @@ name:
       - Александра
       - Ивановна
 address:
-  text: "Московская область, город Москва, улица Ладожская, дом 4/6"
-  state: "77"
-  postalCode: "105005"
-  extension:
-    - fias: "212d3123-9c4d-4579-b31a-b5c6e9632b04"
-    - fias_house: "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
-    - url: "http://fhir.ru/core/sd/core-ex-state"
-      valueCodeableConcept:
-        - coding:
-            - system: "1.2.643.5.1.13.13.99.2.206"
-              code: "77"
-              version: "6.3"
-              display: "г. Москва"
-contact:
-  - telecom:
-      - value: "tel:+74957443256"
-      - value: "tel:+79267352628"
-      - value: "mailto:smirnovа.a.i@rambler.ru"
+  - text: "Московская область, город Москва, улица Ладожская, дом 4/6"
+    state: "77"
+    postalCode: "105005"
+    fias: "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+    fias_house: "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
+    extension:
+      - url: "http://fhir.ru/core/sd/core-ex-state"
+        value:
+          CodeableConcept:
+            coding:
+              - system: "1.2.643.5.1.13.13.99.2.206"
+                code: "77"
+                version: "6.3"
+                display: "г. Москва"
+telecom:
+  - value: "tel:+74957443256"
+  - value: "tel:+79267352628"
+  - value: "mailto:smirnovа.a.i@rambler.ru"

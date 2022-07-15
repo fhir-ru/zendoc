@@ -1,13 +1,14 @@
 resourceType: "DiagnosticReport"
 id: "DR_Клинический анализ крови на анализаторе"
 status: "final"
-effectiveDateTime: "2018-12-20T11:11:00+3:00"
+effective:
+  dateTime: "2018-12-20T11:11:00+3:00"
 category:
-  coding:
-    - system: "urn:oid:1.2.643.5.1.13.13.11.1476"
-      code: "Код профиля!!!"
-      version: "4.75"
-      display: "Клинический анализ крови на анализаторе"
+  - coding:
+      - system: "urn:oid:1.2.643.5.1.13.13.11.1476"
+        code: "Код профиля!!!"
+        version: "4.75"
+        display: "Клинический анализ крови на анализаторе"
 code:
   coding:
     - system: "urn:oid:1.2.643.5.1.13.13.11.1070"
@@ -15,5 +16,5 @@ code:
       version: "2.10"
       display: "Клинический анализ крови на анализаторе"
 result:
-  - reference: "urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2"
-  - reference: "urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB"
+  - uri: "urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2"
+  - uri: "urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB"

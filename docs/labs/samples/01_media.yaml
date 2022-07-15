@@ -1,7 +1,8 @@
 resourceType: "Media"
 content:
   data: "JVBERi0xLjMNJf0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ..."
-createdDateTime: "2018-12-20T16:01:00+3:00"
+created:
+  dateTime: "2018-12-20T16:01:00+3:00"
 device:
   reference: "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5"
 operator:
