@@ -15,7 +15,7 @@ requester:
 encounter:
   reference: "urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97"
 insurance:
-  reference: "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+  - reference: "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
 basedOn:
   - reference: "urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7"
   - reference: "urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A"
