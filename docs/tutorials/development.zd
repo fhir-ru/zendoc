@@ -249,3 +249,64 @@ Version: 13.3.0
 Publisher: Alessandro Fragnani
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
 ```
+
+^title "Запуск проекта под Windows WSL2"
+:windows-wsl2 md/
+
+Кроме запуска проекта под Windows в докере, проект можно запустить в WSL - Windows Subsystem for Linux.
+Для этого сначала необходимо [поставить WSL2](https://docs.microsoft.com/ru-ru/windows/wsl/install), [задать пользователя и пароль](https://docs.microsoft.com/ru-ru/windows/wsl/setup/environment#set-up-your-linux-username-and-password), [поставить расширение для VSCode](https://docs.microsoft.com/ru-ru/windows/wsl/tutorials/wsl-vscode).
+
+Также можно поставить Ubuntu на Windows через Microsoft Store.
+
+Найти в Microsoft Store и поставить Windows Terminal.
+
+Запустить Windows Terminal, в нем в панели меню выбрать в выпадающем списке Ubuntu, продолжить работу в этом терминале.
+
+
+[Поставить java](https://medium.com/@pierre.viara/install-java-on-windows-10-linux-subsystem-875f1f286ee8)
+
+Install Java in the terminal with: sudo apt install openjdk-11-jdk
+
+[Поставить clojure](https://dev.to/mrispoli24/setup-clojure-on-windows-wsl-5fhb)
+
+Install leiningen with apt-get: sudo apt-get install leiningen
+
+[Поставить babashka](https://github.com/babashka/babashka#installation)
+
+`bash < <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install)`
+
+[Поставить gh cli](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)  для удобства работы с гитом.
+
+`curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg`
+
+`sudo apt install gh`
+
+`gh auth login`
+
+авторизоваться на GitHub, ввести код (First copy your one-time code)
+
+Сгенерировать ssh-ключ.
+
+Склонировать репозиторий проекта 
+
+`gh repo clone fhir-ru/zendoc`
+
+`cd zendoc/`
+
+`git submodule init`
+
+`git submodule update --recursive``
+
+Установить node_modules с файлами стандарта FHIR, выполнив из папки zrc:
+
+`cd zrc`
+
+`npm install`
+
+`cd ..`
+
+Открыть проект в VSCode:
+
+`code .`
+
+Если при выполнении каких-то команд консоль будет ругаться, то поставить недостающие программы или зависимости.
