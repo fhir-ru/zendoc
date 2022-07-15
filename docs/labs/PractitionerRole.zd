@@ -43,22 +43,22 @@ TODO
 ^collapse
 ^yaml
 ^title "Пример PractitionerRole из бандла - 2"
-:section:example2 (load "samples/02_01_practitionerrole.yaml" :yaml)
+:section:example2 (load "samples/02_practitionerrole.yaml" :yaml)
 
 ^collapse
 ^yaml
 ^title "Пример PractitionerRole из бандла - 3"
-:section:example3 (load "samples/03_01_practitionerrole.yaml" :yaml)
+:section:example3 (load "samples/03_practitionerrole.yaml" :yaml)
 
 ^collapse
 ^yaml
 ^title "Пример PractitionerRole из бандла - 4"
-:section:example4 (load "samples/04_01_practitionerrole.yaml" :yaml)
+:section:example4 (load "samples/04_practitionerrole.yaml" :yaml)
 
 ^collapse
 ^yaml
 ^title "Пример PractitionerRole из бандла - 5"
-:section:example5 (load "samples/05_01_practitionerrole.yaml" :yaml)
+:section:example5 (load "samples/05_practitionerrole.yaml" :yaml)
 
 ^title "Ресурс PractitionerRole"
 :resource md/
