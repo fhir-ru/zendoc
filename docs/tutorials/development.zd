@@ -60,6 +60,13 @@ git submodule init
 git submodule update --recursive
 ```
 
+Установить node_modules с файлами стандарта FHIR, выполнив из папки zrc:
+
+```code bash
+cd zrc
+npm install
+```
+
 * Открыть проект в VSCode с помощью команды в терминале:
 
 ```code bash
@@ -121,6 +128,12 @@ git submodule update --recursive
 git status
 ```
 
+Краткая форма проверки статуса:
+
+```code bash
+git status -bs
+```
+
 Скачать последнюю версию, чтобы избежать мержа:
 
 ```code bash
@@ -137,6 +150,12 @@ git add .
 
 ```code bash
 git add -u
+```
+
+Можно добавлять в коммит изменения из файла по частям:
+
+```code bash
+git add -P
 ```
 
 Если хотите убрать файлы из коммита, воспользуйтесь командой:
