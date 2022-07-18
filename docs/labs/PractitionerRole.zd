@@ -1,4 +1,6 @@
-^hide
+
+
+:summary "Coverage для передачи лабораторных исследований КДЛ"^hide
 :menu-order 1
 
 ^hide
@@ -25,6 +27,8 @@
 :content-list md/ 
 
 :toc
+
+:summary "PractitionerRole для передачи лабораторных исследований КДЛ"
 
 ^title "Определение"
 :section md/

@@ -6,9 +6,6 @@
 
 :title "Лаборатория"
 
-^table
-:profiles
-[{:profile labs.kdl-results}
- {:profile labs.DiagnosticReport}
- {:profile labs.Observation}
- ]
+^title "Профили"
+^table-of {:namespace "labs." :columns [:zd/name :summary]}
+:profiles-table

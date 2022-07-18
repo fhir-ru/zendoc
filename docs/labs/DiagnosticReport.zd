@@ -25,6 +25,8 @@
 
 :toc
 
+:summary "DiagnosticReport для передачи лабораторных исследований КДЛ"
+
 ^title "Определение"
 :section md/
 
