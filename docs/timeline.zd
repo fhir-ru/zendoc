@@ -4,6 +4,6 @@
 ^hide
 :menu-order 99
 
-:title "Timeline"
+:title "История изменений"
 
 :git/timeline
