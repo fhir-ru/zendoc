@@ -117,7 +117,19 @@
 
  lab-group
  {:zen/tags #{zen/schema zen/tag}
-  :zen/desc "Lab Group"}
+  :zen/desc "Лабораторная группа"}
+
+ adm-group
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Административная группа"}
+
+ diag-group
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Клиническая группа"}
+
+ support
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Методические материалы"}
 
  search
  {:zen/tags #{zen/schema zen/tag}
