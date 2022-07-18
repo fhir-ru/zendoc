@@ -438,115 +438,20 @@ address:
 :templates
 
 ^title "Ресурс"
-:templates:resource-profile md/
-
-```code edn
-{ns fhir.ru.lab.coverage
- import #{fhir zen.fhir fhir.ru.core.patient}
-
- CoreCoverage
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
-  :confirms #{fhir/Coverage}
-  :zen/desc "Страховой полис"
-  :zen.fhir/version "0.5.8"
-  :zen.fhir/type "Coverage"
-  :zen.fhir/id "coverage-lab"
-  :zen.fhir/name "CoverageLab"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
-  :type zen/map
-  :keys {:beneficiary {:zen/desc "Ссылка на пациента"
-                       :confirms #{fhir/Reference zen.fhir/Reference fhir.ru.core.patient/CorePatient}
-                       :type zen/map
-                       :zen.fhir/reference {:refers
-                                            #{fhir.ru.core.patient/CorePatient}}}}}}
-```
+^edn
+:templates:resource-profile  (load "../../zrc/fhir/ru/support/resource-template.edn" :edn)
 
 ^title "Расширение"
-:templates:extension md/
-
-```code edn
-{ns fhir.ru.core.ext-nsi-gender
-
- import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender}
-
- CoreNsiGender
- {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zen.fhir/type "Coding"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-nsi-gender"
-  :type zen/map
-  :zen/desc "Кодирование пола по справочнику ФНСИ"
-  :zen.fhir/version "0.5.8"
-  :confirms #{fhir/Coding}
-  :zen.fhir/value-set
-  {:symbol fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
-   :strength :required}
-  ;; :require #{:url :valueCoding}
-  :keys {:url {:zen/desc "http://fhir.ru/core/sd/core-ex-nsi-gender"
-               :confirms #{fhir/uri}}
-         :valueCoding  {:type zen/map
-                        :confirms #{fhir/Coding}
-                        :zen/desc "Значение из справочника https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040"
-                        :require #{:system :code :display}
-                        :keys {:system {:zen/desc "http://fhir.ru/core/systems/nsi-gender"
-                                        :confirms #{fhir/uri}}
-                               :code {:confirms #{fhir/code}
-                                      :zen/desc "Код"}
-                               :display {:zen/desc "Значение для отображения"
-                                         :confirms #{fhir/string}}}}}
-
-  :zendoc 'extension.core-ex-nsi-gender}}
-```  
-
+^edn
+:templates:extension (load "../../zrc/fhir/ru/support/extension-template.edn" :edn)
 
 ^title "Набор значений"
-:templates:valueset md/
-
-```code edn
-{ns fhir.ru.core.vs-nsi-gender
- import #{fhir zen.fhir}
-
- CoreVsNsiGender
- {:zen/tags #{zen.fhir/value-set}
-  :zen/desc "Справочник НСИ Минздрава Пол пациента"
-  :zen.fhir/version "0.5.8"
-  :fhir/code-systems
-  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040",
-     :zen.fhir/content :not-present}}
-  :uri "http://fhir.ru/core/vs/core-vs-nsi-gender"
-  :version "2.1"
-  :zendoc 'valuesets.core-vs-nsi-gender}}
-```
+^edn
+:templates:valueset (load "../../zrc/fhir/ru/support/valueset-template.edn" :edn)
 
 ^title "Тип данных"
-:templates:datatype md/
-
-```code edn
-{ns fhir.ru.core.address
-
- import #{fhir zen.fhir}
-
- CoreAddress
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
-  :zendoc 'core.address
-  :zen.fhir/version "0.5.8"
-  :confirms #{fhir/Address}
-  :zen/desc "Адрес"
-  :zen.fhir/id "core-address"
-  :zen.fhir/name "CoreAddress"
-  :zen.fhir/type "Address"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-address"
-
-  :type zen/map
-  :keys
-  {:fias {:type zen/string
-          :confirms #{CoreAddressFias}
-          :zen/desc "Расширение: Код адреса по ФИАС"
-          :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias"}
-   :fias_house {:type zen/string
-                :confirms #{CoreAddressFiasHouse}
-                :zen/desc "Расширение: Код дома по ФИАС"
-                :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-address-fias-house"}}}}
-```     
+^edn
+:templates:datatype (load "../../zrc/fhir/ru/support/datatype-template.edn" :edn)
 
 ^title "Привязка элемента к набору значений"
 :templates:valueset-binding md/
@@ -554,9 +459,6 @@ address:
 ```code edn
   :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :extensible}
 ```
-
-
-
 
 ^title "Slicing"
 :templates:slicing md/
@@ -581,18 +483,19 @@ address:
                                       :zen/desc "Тип идентификатора"}}}}}}}
 ```
 
-^title "Шаблоны из файлов"
-:templates-from-files
+^title "Добавить новый тэг"
+:templates:new-tag md/
 
-^edn
-^title "Ресурс"
-:templates-from-files:resource-profile (load "../../zrc/fhir/ru/support/resource-template.edn" :edn)
+Открыть файл `zrc/zen/fhir.edn` и добавить новый тэг:
 
-^title "Расширение"
-:templates-from-files:extension  (load "../../zrc/fhir/ru/support/extension-template.edn" :edn)
+```code edn
+ lab-group
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Lab Group"}
+```
 
-^title "Набор значений"
-:templates-from-files:valueset  (load "../../zrc/fhir/ru/support/valueset-template.edn" :edn)
+Затем открыть соответствующие схемы и добавить им новый тэг в список тэгов:
 
-^title "Тип данных"
-:templates-from-files:datatype  (load "../../zrc/fhir/ru/support/datatype-template.edn" :edn)
+```code edn
+  :zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
+```
