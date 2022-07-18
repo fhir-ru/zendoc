@@ -32,15 +32,21 @@
 
 Ниже приведен список профилей, определенных в рамках данного руководства по внедрению.
 
-^title "Profiles"
-:tag zen.fhir/profile-schema
+^title "Административная группа"
+:tag zen.fhir/adm-group
+
+^title "Клиническая группа"
+:tag zen.fhir/diag-group
+
+^title "Лабораторная группа"
+:tag zen.fhir/lab-group
 
 ^title "Расширения"
 :extensions md/ 
 
 Ниже приведен список расширений, определенных в рамках данного руководства по внедрению.
 
-^title "Extensions"
+^title "Расширения"
 :tag zen.fhir/extension
 
 ^title "Наборы значений"
@@ -48,6 +54,11 @@
 
 Ниже приведен список наборов значений, определенных в рамках данного руководства по внедрению.
 
-^title "ValueSets"
+^title "Наборы значений"
 :tag zen.fhir/value-set
+
+
+^title "Наборы значений"
+^table-of {:namespace "valuesets." :columns [:zd/name :id :summary]}
+:valuesets-table
 
