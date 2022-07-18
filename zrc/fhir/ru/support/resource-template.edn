@@ -2,7 +2,7 @@
  import #{fhir zen.fhir fhir.ru.core.patient}
 
  ResourceTemplate
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/support}
   :zendoc "tutorials.zen"
   :confirms #{fhir/Coverage}
   :zen/desc "Страховой полис"

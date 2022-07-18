@@ -3,7 +3,7 @@
           zen.fhir}
 
  DiagnosisNosology
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
   :zendoc "diag.DsCondition"
   :zen/desc "Нозологическая единица"
   :type zen/map

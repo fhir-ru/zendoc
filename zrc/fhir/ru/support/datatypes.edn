@@ -3,7 +3,7 @@
  import #{fhir zen.fhir}
 
  Address
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
@@ -11,7 +11,7 @@
   :type zen/map}
 
  Identifier
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Identifier}
   :zen/desc "Identifier"
@@ -20,7 +20,7 @@
 
 
  Reference
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Reference}
   :zen/desc "Reference"
@@ -28,7 +28,7 @@
   :type zen/map}
 
  HumanName
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/HumanName}
   :zen/desc "HumanName"
@@ -36,7 +36,7 @@
   :type zen/map}
 
  ContactPoint
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/ContactPoint}
   :zen/desc "ContactPoint"
@@ -44,7 +44,7 @@
   :type zen/map}
 
  CodeableConcept
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/CodeableConcept}
   :zen/desc "CodeableConcept"
@@ -52,7 +52,7 @@
   :type zen/map}
 
  Coding
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Coding}
   :zen/desc "Coding"
@@ -60,7 +60,7 @@
   :type zen/map}
 
  Period
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Period}
   :zen/desc "Period"
@@ -68,7 +68,7 @@
   :type zen/map}
 
  SampledData
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/SampledData}
   :zen/desc "SampledData"
@@ -76,7 +76,7 @@
   :type zen/map}
 
  Timing
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Timing}
   :zen/desc "Timing"
@@ -84,7 +84,7 @@
   :type zen/map}
 
  Signature
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Signature}
   :zen/desc "Signature"
@@ -92,7 +92,7 @@
   :type zen/map}
 
  Annotation
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Annotation}
   :zen/desc "Annotation"
@@ -100,7 +100,7 @@
   :type zen/map}
 
  Attachment
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Attachment}
   :zen/desc "Attachment"
@@ -108,7 +108,7 @@
   :type zen/map}
 
  Quantity
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Quantity}
   :zen/desc "Quantity"
@@ -116,7 +116,7 @@
   :type zen/map}
 
  Range
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Range}
   :zen/desc "Range"
@@ -124,7 +124,7 @@
   :type zen/map}
 
  Ratio
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/support}
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Ratio}
   :zen/desc "Ratio"

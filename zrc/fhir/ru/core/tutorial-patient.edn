@@ -5,7 +5,7 @@
           fhir.ru.core.ext-nsi-gender}
 
  TutorialPatient
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/support}
   :zendoc "tutorials.zendoc"
   :zen/desc "Пациент"
   :zen.fhir/version "0.5.8"

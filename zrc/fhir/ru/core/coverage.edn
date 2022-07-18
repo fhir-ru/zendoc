@@ -2,7 +2,7 @@
  import #{fhir zen.fhir fhir.ru.core.patient}
 
  CoreCoverage
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/adm-group}
   :zendoc "core.Coverage"
   :confirms #{fhir/Coverage}
   :zen/desc "Страховой полис"

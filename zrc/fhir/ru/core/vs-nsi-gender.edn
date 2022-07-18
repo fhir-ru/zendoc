@@ -2,7 +2,7 @@
  import #{fhir zen.fhir}
 
  CoreVsNsiGender
- {:zen/tags #{zen.fhir/value-set}
+ {:zen/tags #{zen.fhir/value-set zen.fhir/support}
   :zen/desc "Справочник НСИ Минздрава Пол пациента"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems

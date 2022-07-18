@@ -3,8 +3,9 @@
  import #{fhir zen.fhir}
 
  CoreAddress
- {:zen/tags #{zen/schema zen.fhir/structure-schema}
-  :zendoc "core.address"
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/adm-group}
+  :zendoc "core.address"
+
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Address}
   :zen/desc "Адрес"
@@ -26,7 +27,8 @@
 
  CoreAddressFias
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-address-fias"
+  :zendoc "extension.core-ex-address-fias"
+
   :zen.fhir/type "string"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias"
   :type zen/string
@@ -36,7 +38,8 @@
 
  CoreAddressFiasHouse
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-address-fias-house"
+  :zendoc "extension.core-ex-address-fias-house"
+
   ;; :zen.fhir/type "string"
   ;; :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias-house"
   :type zen/string

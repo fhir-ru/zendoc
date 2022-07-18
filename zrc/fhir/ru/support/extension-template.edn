@@ -3,7 +3,7 @@
  import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender}
 
  CoreNsiGender
- {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/support}
   :zen.fhir/type "Coding"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-nsi-gender"
   :type zen/map

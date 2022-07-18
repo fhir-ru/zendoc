@@ -7,9 +7,10 @@
           fhir.ru.core.encounter}
 
  CoreObservation
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
   :type zen/map
-  :zendoc "core.Observation"
+  :zendoc "core.Observation"
+
   :zen/desc "Результат наблюдения"
   :confirms #{fhir/Observation}
   :zen.fhir/version "0.5.8"

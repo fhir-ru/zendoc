@@ -5,7 +5,7 @@
 
  DsCondition
  {:type zen/map
-  :zen/tags #{zen.fhir/profile-schema zen/schema}
+  :zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
   :zen/desc "Нозологическая единица"
   :zendoc "diag.DsCondition"
   :confirms #{fhir/Condition}

@@ -3,8 +3,9 @@
  import #{fhir zen.fhir}
 
  CoreBundle
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
-  :zendoc "core.Bundle"
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
+  :zendoc "core.Bundle"
+
   :zen/desc "CoreBundle"
   :confirms #{fhir/Bundle}
   :zen.fhir/version "0.5.8"

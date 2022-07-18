@@ -5,7 +5,7 @@
           fhir.ru.core.address}
 
  CorePatient
- {:zen/tags #{zen.fhir/profile-schema zen/schema}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
   :zendoc "core.Patient"
   :zen/desc "Пациент"
   :zen.fhir/version "0.5.8"

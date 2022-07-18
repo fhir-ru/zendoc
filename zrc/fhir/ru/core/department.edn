@@ -5,8 +5,9 @@
           fhir.ru.core.organization}
 
  Department
- {:zen/tags #{zen/schema zen.fhir/profile-schema}
-  :zendoc "core.Department"
+ {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/adm-group}
+  :zendoc "core.Department"
+
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Organization}
   :zen/desc "Организация - Подразделение"
