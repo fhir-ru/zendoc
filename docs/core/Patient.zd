@@ -19,10 +19,38 @@
 ^zen/schema
 :profile fhir.ru.core.patient/CorePatient
 
+^title "О валидации"
+:disclaimer md/
+
+На данный момент на сайте поддержана валидация структур только в [Aidbox-формате](https://docs.aidbox.app/modules-1/fhir-resources/aidbox-and-fhir-formats). Поэтому структура, валидная с точки зрения стандарта FHIR, получает сообщения об ошибках во вкладке Validate в схемах.
+
+Разница форматов описана в документации к Aidbox: [Difference between Aidbox and FHIR formats](https://docs.aidbox.app/modules-1/fhir-resources/aidbox-and-fhir-formats).
+
+Ресурсы в формате стандарта FHIR можно проверить в [официальном валидаторе HL7 FHIR](https://validator.fhir.org).
+
+
 ^collapse
-^title "Пример ресурса"
+^title "Пример ресурса Patient"
 ^yaml
 :example-1 (load "samples/patient.json" :json)
+
+^title "Пример адреса в ресурсе Patient"
+:example-2 md/
+
+^tabs
+:tabs-example
+
+^tab-title
+~:aidbox:title "Aidbox JSON"
+^tab-content
+^yaml
+~:aidbox:content (load "samples/patient-address-aidbox.json" :json)
+
+^tab-title
+~:fhir:title "FHIR JSON"
+^tab-content
+^yaml
+~:fhir:content (load "samples/patient-address.json" :json)
 
 ^title "Идентификаторы пациента (identifier)"
 :elements.identifier md/
