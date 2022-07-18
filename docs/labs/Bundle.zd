@@ -19,8 +19,8 @@
 ^badge
 :maturity 0
 
-;; :title "Bundle Profile"
-:title "Передача лабораторных исследований КДЛ"
+:title "Bundle Profile"
+;; :title "Передача лабораторных исследований КДЛ"
 
 ^title "Оглавление"
 :content-list md/ 
@@ -30,7 +30,10 @@
 ^title "Определение"
 :section md/
 
-TODO
+Передача лабораторных исследований КДЛ
+
+^title "Список профилей лабораторной группы"
+:tag zen.fhir/lab-group
 
 ^title "Профиль"
 ^zen/schema
