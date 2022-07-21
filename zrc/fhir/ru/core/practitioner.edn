@@ -11,6 +11,10 @@
    :zen/desc "Врач/сотрудник"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/Practitioner}
+   :zen.fhir/id "core-practitioner"
+   :zen.fhir/name "CorePractitioner"
+   :zen.fhir/type "Practitioner"
+   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-practitioner"
    :type zen/map
    :keys {:identifier {:zen/desc "Идентификационные данные врача"
                        :type zen/vector
@@ -74,6 +78,10 @@
    :zen/desc "Роль врача/сотрудника"
    :zen.fhir/version "0.5.8"
    :confirms #{fhir/PractitionerRole}
+   :zen.fhir/id "core-practitionerrole"
+   :zen.fhir/name "CorePractitionerRole"
+   :zen.fhir/type "PractitionerRole"
+   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-practitionerrole"
    :type zen/map
    :keys {:practitioner {:zen/desc "Ссылка на ресурс Practitioner"
                          :type zen/map
