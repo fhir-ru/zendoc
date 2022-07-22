@@ -101,7 +101,7 @@
        :page-not-found
        (and (not zendoc)
             (not standart?))
-       :uri (:uri schema)
+       :uri (or zendoc (str (:uri schema)))
        :strength-ref
        (case (:strength valueset)
          :required   "http://hl7.org/fhir/terminologies.html#required"
@@ -341,6 +341,7 @@
            [:a {:href  (if (:zendoc valueset)
                          (str "/" (:zendoc valueset))
                          (:uri valueset))
+                :target "_blank"
                 :class (if (:page-not-found valueset)
                          (c [:text :red-600])
                          (c [:text :blue-600]))}
@@ -348,6 +349,7 @@
            [:span
             "("
             [:a {:href (:strength-ref valueset)
+                 :target "_blank"
                  :class (c [:text :blue-600])}
              (:strength valueset)]
             ") "]
