@@ -88,7 +88,7 @@
           zendoc (some-> schema :zendoc)]
       {:zendoc zendoc
        :name (or (and zendoc
-                      (->> (zd.db/get-doc ztx zendoc)
+                      (->> (zd.db/get-doc ztx (symbol zendoc))
                            (filter #(= [:title] (:path %)))
                            (first)
                            (:data)))
