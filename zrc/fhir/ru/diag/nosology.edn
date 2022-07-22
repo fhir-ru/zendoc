@@ -9,7 +9,7 @@
   :type zen/map
   :keys
   {:code {:confirms #{fhir/Coding}
-          :zen/desc "Код МКБ"}
+          :zen/desc "[Код МКБ](/terms.ICD)"}
 
    :clarifiction {:confirms #{fhir/Coding}
                   :zen/desc "Уточнение форм по синонимам и/или расширениям МКБ"}

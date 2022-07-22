@@ -94,7 +94,7 @@
                                                :type zen/string}}
                                :family {:zen/desc "Фамилия пациента"
                                         :type zen/string}}}}
-         :gender {:zen/desc "Пол пациента"
+         :gender {:zen/desc "[Пол пациента](/core.Patient#:elements.gender)"
                   :confirms #{fhir/code}
                   :type zen/string
                   :enum [{:value "male"}

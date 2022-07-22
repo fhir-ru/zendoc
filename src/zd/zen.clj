@@ -4,6 +4,7 @@
             [zen.core]
             [zd.db]
             [clojure.string :as str]
+            [zd.zentext]
             [clojure.edn]
             [clojure.walk]))
 
@@ -162,7 +163,8 @@
      :path pth
      :enum (:enum sch)
      :valueset (format-valueset-sch ztx (:zen.fhir/value-set sch))
-     :desc (:zen/desc sch)}))
+     :desc (when (seq (:zen/desc sch))
+             (zd.zentext/parse-inline ztx (:zen/desc sch)))}))
 
 
 (defn flatten-sch [res pth {tp :type :as sch} & [opts ztx]]
