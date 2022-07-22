@@ -140,7 +140,10 @@
     confirms (let [sch-name (first confirms)
                    sch (zen.core/get-symbol ztx sch-name)]
                (if (:zen.fhir/type sch)
-                 [:a {:href (:zen.fhir/profileUri sch)} (:zen.fhir/type sch)]
+                 [:a {:href (str "http://hl7.org/fhir/r4b/datatypes.html#"
+                                 (:zen.fhir/type sch))}
+                  
+                  (:zen.fhir/type sch)]
                  [:a {:href (calc-ref sch)} (schema-name sch-name)]))))
 
 
@@ -152,6 +155,7 @@
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
      :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc)#_(:fhir/extensionUri sch)
+     :extension-name (->> sch :confirms first (zen.core/get-symbol ztx) :zen.fhir/profileUri) 
      :const (-> sch :const :value)
      :cardinality (format "%s..%s"
                           (cond (:require opts) "1"
@@ -343,7 +347,7 @@
             [:div {:class (c :text-xs [:text :gray-700])}
              [:b "URL: "]
              [:a {:href (str "/" zendoc) :target "_blank" :class (c [:text :blue-700])}
-              zendoc]]))
+              (:extension-name row)]]))
         (when-let [valueset (:valueset row)]
           [:div
            [:b "Binding: "]
