@@ -122,16 +122,16 @@
   (cond
     (:zen.fhir/reference sch)
     (let [refers (get-in sch [:zen.fhir/reference :refers])
-          refers-defs (map #(zen.core/get-symbol ztx %)
-                           refers)
-          refers-names (map #(or (:zen.fhir/name %) (:zen.fhir/type %))
-                            refers-defs)]
-      (str "Reference("
-           (->> refers-names
-                (mapv #(schema-name %))
-                distinct
-                (str/join " | "))
-           ")"))
+          refers-defs (map #(zen.core/get-symbol ztx %) refers)]
+      [:span "References("
+       (->> (for [refer-schema refers-defs
+                  :let [link (:zendoc refer-schema)]]
+              [:a {:href (str "/" link)}
+               (or (:zen.fhir/name refer-schema)
+                   (:zen.fhir/type refer-schema))])
+            distinct
+            (interpose " | "))
+       ")"])
 
     confirms
     (last (keep #(schema-name %) confirms))))
