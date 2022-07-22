@@ -118,23 +118,28 @@
       (last (str/split (namespace sym) #"\."))
       (name sym))))
 
+(defn calc-ref [refer-schema]
+  (if (:zendoc refer-schema)
+    (str "/" (:zendoc refer-schema))
+    (:zen.fhir/profileUri refer-schema)))
+
 (defn format-fhir-type [ztx sch & {:keys [confirms]}]
   (cond
     (:zen.fhir/reference sch)
     (let [refers (get-in sch [:zen.fhir/reference :refers])
-          refers-defs (map #(zen.core/get-symbol ztx %) refers)]
+          schemas (map #(zen.core/get-symbol ztx %) refers)]
       [:span "Reference("
-       (->> (for [refer-schema refers-defs
-                  :let [link (:zendoc refer-schema)]]
-              [:a {:href (str "/" link)}
+       (->> (for [refer-schema schemas]
+              [:a {:href (calc-ref refer-schema)}
                (or (:zen.fhir/name refer-schema)
                    (:zen.fhir/type refer-schema))])
             distinct
-            (interpose " | "))
-       ")"])
+            (interpose " | ")) ")"])
 
-    confirms
-    (last (keep #(schema-name %) confirms))))
+    confirms (let [sch-name (first confirms)
+                   sch (zen.core/get-symbol ztx sch-name)]
+               [:a {:href (calc-ref sch)}
+                (schema-name sch-name)])))
 
 (defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
   (let [confirms (if (= 'zen/vector tp)
