@@ -16,8 +16,11 @@
 ^badge
 :date:start "2022-06-28"
 
-^badge
-:type :ig
+:тип "Coding"
+
+:id "core-ex-nsi-gender"
+
+:url "http://fhir.ru/core/sd/core-ex-nsi-gender"
 
 :title "core-ex-nsi-gender"
 
@@ -26,3 +29,8 @@
 ^title "Расширение"
 ^zen/schema
 :profile fhir.ru.core.ext-nsi-gender/CoreNsiGender
+
+
+:описание md/
+
+Кодирование пола по справочнику ФНСИ

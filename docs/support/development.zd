@@ -26,6 +26,7 @@
 Необходимо поставить себе:
 * [Docker](https://docs.docker.com/desktop/windows/install/)
 * [VSCode](https://code.visualstudio.com/)
+* [npm](https://nodejs.org/en/download/): см. [How to Install](https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac) или [How to Install](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
 * Склонировать себе [проект](https://github.com/fhir-ru/zendoc/):
 
 ```code bash

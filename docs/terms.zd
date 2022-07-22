@@ -1,7 +1,15 @@
 ^hide
-:menu-order 12
+:menu-order 16
 
 ^hide
-:icon [:fa-solid :fa-box]
+:icon [:fa-solid :fa-circle-info] 
+
+^hide
+:menu/first true
 
 :title "Термины"
+
+:toc
+
+^table-of {:namespace "terms." :columns [:zd/name]}
+:pages 

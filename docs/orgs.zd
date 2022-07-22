@@ -1,5 +1,5 @@
 ^hide
-:menu-order 9
+:menu-order 11
 
 ^hide
 :icon [:fa-regular :fa-building]

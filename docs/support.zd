@@ -1,0 +1,15 @@
+^hide
+:menu-order 15
+
+^hide
+:icon [:fa-solid :fa-file-code]
+
+^hide
+:menu/first true
+
+:title "Методические материалы"
+
+:toc
+
+^table-of {:namespace "tutorials." :columns [:zd/name]}
+:tutorials 

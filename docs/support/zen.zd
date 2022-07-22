@@ -1,0 +1,177 @@
+^hide
+:menu-order 101
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+
+:title "Zen Profiling"
+
+^badge
+:editors [people.alexandra people.varvara]
+
+^badge
+:date:updated "2022-07-03"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+
+^title "Введение в Zen"
+:zen-intro md/
+
+Краткое введение в Zen
+
+:zen-intro:project md/
+
+Zen-проект - это папка, в которой каждый файл - это **namespace**.
+Имя **namespace** можно получить, заменив `/` на `.` в относительном пути файла.
+
+Например, `fhir/ru/patient.edn` => `fhir.ru.patient`.
+
+
+:zen-intro:namespace md/
+
+**namespace** - это структура данных в формате [edn](https://github.com/edn-format/edn),
+а точнее это всегда **map** (словарь, объект), состоящий из ключей и значений.
+
+Почитать про типы данных [edn](https://learnxinyminutes.com/docs/edn/).
+
+```code edn
+{ns fhir.ru.patient
+
+ import #{fhir.v4}
+
+ Patient
+ {:zen/tags #{zen/schema}
+  :confirms #{fhir.v4/Patient}
+  :type zen/map
+  :keys {}
+  }
+
+ Race
+ {:zen/tags #{zen/schema}
+  :type zen/map
+  :keys {}
+  }
+
+ }
+```
+
+Ключ задает имя **модели**, а значение - это ее описание. Модели могут ссылаться друг на друга в рамках namespace просто по имени `Patient`, а между namespace - по полному имени `fhir.ru.patient/Patient`. 
+
+Zen явно управляет зависимостями, поэтому для того, чтобы ссылаться на модели из других namespace, вам нужно сделать `import`.
+
+Дополнительно, в файле `zendoc/zrc/fhir/ru/core.edn` необходимо прописать все созданные неймспейсы.
+
+Пример:
+
+```code edn
+{ns fhir.ru.core
+ import #{fhir.ru.core.organization
+          fhir.ru.core.patient
+          fhir.ru.core.encounter
+          fhir.ru.core.address
+          fhir.ru.core.department
+          fhir.ru.core.practitioner
+          fhir.ru.diag.nosology
+          fhir.ru.diag.nu
+          fhir.ru.diag.encounter
+          fhir.ru.lab.diagnosticreport
+          fhir.ru.core.vs-nsi-gender
+          fhir.ru.core.ext-nsi-gender}}
+```          
+
+^title "Модели"
+:zen-intro:models md/
+
+Модель в zen в общем случае - это произвольная структура данных.
+Модель может быть протэгирована с помощью аттрибута `:zen/tags #{}`, значением которого является множество
+символов, ссылающихся на другие модели. Тэги можно воспринимать как множественную классификацию - типы модели.
+
+^title "Схема"
+:zen-intro:schema md/
+
+Zen имeет встроенный язык схем для описания структуры данных.
+
+Модель интерпретируется как схема, если она имеет тэг `zen/schema`.
+
+^title "Профиль на ресурс"
+:zen-intro:resource-profile md/
+
+Профили и другие артефакты создаются в папке `zrc/fhir\ru` в соответствующей подпапке, например `core`, `diag`, `lab`, в виде файла с расширением `.edn`.
+
+В начале указываем неймспейс в соответствии с путем до нашего файла. Например если путь `zrc/fhir/ru/core/observation.edn`, значит ns будет `fhir.ru.core.observation`.
+
+Дальше нужно указать импортируемые неймспейсы:
+
+* `fhir` - определения FHIR-ресурсов, расширений, типов данных в виде zen-схем в файле `zrc/fhir.edn` (импортируем всегда),
+* `zen.fhir` - дополнительные схемы и определения zen-тегов, находящиеся в файле `zrc/zen/fhir.edn` (импортируем всегда),
+* другие неймспейсы, на которые мы ссылаемся внутри нашей схемы.
+
+Затем указываем символ - название нашей схемы в соответствии с принятыми соглашениями по наименованию схем, и саму схему.
+
+
+В схеме обязательно нужно указать теги `:zen/tags`.
+
+Тэги служат для двух целей:
+* Для валидации. `:zen/tags` - это список схем, которым должна соответствовать наша схема. Если наша схема не соответствует задекларированным тегам, то мы увидим ошибки схемы на табе проверки схемы `Schema errors`.
+* Для автогенерации списков объектов по типам (расширения, профили на ресурсы FHIR, профили на сложные типы данных)
+
+Какие теги и когда использовать:
+
+* `zen/schema` - указываем всегда (для определения расширения, профилей на ресурсы FHIR, профилей на сложные типы данных)
+
+Дополнительно указываем теги:
+* `zen.fhir/profile-schema` - для профилей на ресурсы
+* `zen.fhir/structure-schema``zen.fhir/extension` - для определений расширений
+* `zen.fhir/structure-schema` `zen.fhir/datatype` - для профиля на сложный тип данных 
+
+`:type zen/map` - указываем всегда, это тип нашей схемы
+
+`:zendoc` - ссылка на страницу документации (файл с расширением `.zd`) в нотации Zendoc. Эту ссылку можно скопировать в адресной строке браузера, открыв на сайте соотствующую страницу. 
+
+`:zen/desc` - текстовое описание схемы
+
+`:confirms` - список наследуемых схем. При валидации, экземпляр ресурса будет проверен на соответствие нашей схеме плюс всем перечисленным здесь схемам.
+
+`:zen.fhir/version` - версия zen, сейчас "0.5.8"
+
+`:zen.fhir/id` - соответствует StructureDefinition.id
+
+`:zen.fhir/name` - соответствует StructureDefinition.name
+
+`:zen.fhir/type` - соответствует StructureDefinition.type
+
+`:zen.fhir/profileUri` - соответствует StructureDefinition.url
+
+`:keys` - список элементов ресурса/типа данных, для которых мы хотим ввести ограничения или расширения
+
+Пример определения профиля на ресурс Observation:
+
+```code edn
+{ns fhir.ru.core.observation
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.patient
+          fhir.ru.core.practitioner
+          fhir.ru.core.encounter}
+
+ CoreObservation
+ {:zen/tags #{zen.fhir/profile-schema zen/schema} 
+  :type zen/map
+  :zendoc "core.Observation"
+  :zen/desc "Результат наблюдения"
+  :confirms #{fhir/Observation}
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/id "core-observation"
+  :zen.fhir/name "CoreObservation"
+  :zen.fhir/type "Observation"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-observation"
+  :keys {:subject {:confirms #{fhir.ru.core.patient/CorePatient}}
+         :encounter {:confirms #{fhir.ru.core.encounter/CoreEncounter}}
+         :performer {:confirms #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}}}
+```
+

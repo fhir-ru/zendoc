@@ -1,8 +1,10 @@
 ^hide
-:menu-order 7
+:menu-order 13
 
 ^hide
 :icon [:fa-solid :fa-user-group]
+
+:zd/child-tags #{zendoc/person}
 
 :title "Люди"
 
