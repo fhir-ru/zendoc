@@ -150,7 +150,7 @@
     {:type tp
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
-     :extension (:fhir/extensionUri sch)
+     :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc)#_(:fhir/extensionUri sch)
      :const (-> sch :const :value)
      :cardinality (format "%s..%s"
                           (cond (:require opts) "1"
@@ -337,12 +337,12 @@
            [:b "Fixed value: "]
            [:span {:class (c [:text :green-700])}
             d]])
-        (when-let [d (:extension row)]
-          (let [extension-name (last (clojure.string/split (str d) #"/"))]
+        (when-let [zendoc (:extension row)]
+          (let [extension-name (last (clojure.string/split (str zendoc) #"\."))]
             [:div {:class (c :text-xs [:text :gray-700])}
              [:b "URL: "]
-             [:a {:href (str "/extension." extension-name) :target "_blank" :class (c [:text :blue-700])}
-              d]]))
+             [:a {:href (str "/" zendoc) :target "_blank" :class (c [:text :blue-700])}
+              zendoc]]))
         (when-let [valueset (:valueset row)]
           [:div
            [:b "Binding: "]
