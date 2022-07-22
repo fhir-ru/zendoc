@@ -479,7 +479,7 @@ table.schema td {}
          [:div {:class (c [:text :green-500])}
           [:ul {:class "fa-ul"}
            [:li {:class (c :list-none)}
-            [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"]}]]
+            [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"] :style "padding-top: 3px"}]]
             "Ресурс прошел валидацию."]]]))]))
 
 (defn get-profile-schema-errors
