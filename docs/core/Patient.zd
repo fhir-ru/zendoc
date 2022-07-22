@@ -34,8 +34,12 @@
 ^yaml
 :example-1 (load "samples/patient.json" :json)
 
+^yaml
+^title "Пример из КДЛ"
+:example-2  (load "samples/lab-test-patient.yaml" :yaml)
+
 ^title "Пример адреса в ресурсе Patient"
-:example-2 md/
+:example-3 md/
 
 ^tabs
 :tabs-example

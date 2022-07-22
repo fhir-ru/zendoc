@@ -65,5 +65,5 @@
 ^table-of {:namespace "diag." :columns [:zd/name :icon]}
 :section:diag
 
-^table-of {:namespace "labs." :columns [:zd/name :icon]}
+^table-of {:namespace "lab." :columns [:zd/name :icon]}
 :section:labs

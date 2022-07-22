@@ -1,27 +1,11 @@
 ^hide
-:menu-order 1
+:menu-order 2
 
 ^hide
 :icon [:fa-solid :fa-gem] 
 
 ^hide
 :menu/first true
-
-^badge
-:authors #{people.alexandra} 
-
-^badge
-:groups #{groups.adm}
-
-^badge
-:status :draft
-
-^badge
-:date:update "2022-06-14"
-
-^badge
-:maturity 0
-
 
 :title "FHIR-артефакты"
 
@@ -61,4 +45,8 @@
 ^title "Наборы значений"
 ^table-of {:namespace "valuesets." :columns [:zd/name :id :summary]}
 :valuesets-table
+
+^title "Расширения"
+^table-of {:namespace "artifacts.extension." :columns [:zd/name :id :Описание]}
+:extensions-table
 

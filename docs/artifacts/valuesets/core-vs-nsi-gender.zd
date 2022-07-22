@@ -4,11 +4,12 @@
 ^hide
 :icon [:fa-regular :fa-rectangle-list]
 
-^badge
-:authors #{people.alexandra}
 
 ^badge
 :groups #{groups.adm}
+
+^badge
+:authors #{people.alexandra}
 
 ^badge
 :status :draft
@@ -16,18 +17,29 @@
 ^badge
 :date:start "2022-06-28"
 
+^badge
+:namespace "http://fhir.ru/core/vs"
+
+^badge
+:id "core-vs-nsi-gender"
+
 :title "Пол пациента [все значения]"
+
+:summary md/ 
+Кодирование пола по справочнику ФНСИ
+
+^title "Оглавление"
+:content-list md/ 
 
 :toc
 
-^title "Определение"
+^title "Zen-определение"
 ^zen/schema
 :profile fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
 
-^title "Описание"
-:description md/
 
-	Кодирование пола по справочнику ФНСИ
+^title "FHIR-определение"
+:logical-definition md/ 
 
 ```code json
 {
@@ -60,3 +72,6 @@
   }
 }
 ```
+
+
+;; :nested#:key "value"

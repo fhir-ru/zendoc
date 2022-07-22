@@ -1,0 +1,81 @@
+^hide
+:menu-order 21
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity-level 0
+
+:summary "Core ValueSet Источники оплаты медицинской помощи"
+
+;; :title "ValueSet Core-vs-nsi-medical-care-payment-source"
+
+:defining-url "http://fhir.ru/core/vs/core-vs-nsi-medical-care-payment-source"
+:version "0.0.1"
+:name "CoreVsNsiMedicalCarePaymentSource"
+:title "Core ValueSet Источники оплаты медицинской помощи"
+:definition "Справочник НСИ Минздрава Источники оплаты медицинской помощи"
+:committee #{groups.adm}
+:oid "1.2.643.5.1.13.13.11.1039"
+
+^collapse
+:source-resource md/
+
+```code edn
+CoreVsNsiMedicalCarePaymentSource
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.vs-nsi-medical-care-payment-source"
+  :zen/desc "Справочник НСИ Минздрава Источники оплаты медицинской помощи"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1039",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-medical-care-payment-source"
+  :version "5.2"
+  :zen.fhir/id "core-vs-nsi-medical-care-payment-source"
+  :zen.fhir/name "CoreVsNsiMedicalCarePaymentSource"
+  :zen.fhir/title "Core ValueSet Источники оплаты медицинской помощи"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1039" :concept [{:code "1" :display "Средства обязательного медицинского страхования" :short "ОМС"},
+                                                                                      {:code "3" :display "Средства добровольного медицинского страхования" :short "ДМС"},
+                                                                                      {:code "4" :display "Средства пациента" :short "Пациент"},
+                                                                                      {:code "5" :display "Средства третьих физических лиц" :short "Третье лицо (физическое)"},
+                                                                                      {:code "6" :display "Средства третьих юридических лиц" :short "Третье лицо (юридическое)"},
+                                                                                      {:code "8" :display "Средства федерального бюджета" :short "Бюджет федеральный"},
+                                                                                      {:code "9" :display "Средства регионального бюджета" :short "Бюджет региональный"},
+                                                                                      {:code "10" :display "Средства обязательного социального страхования" :short "ФСС"},
+                                                                                      {:code "11" :display "Средства бюджета медицинской организации" :short "Бюджет медицинской организации"},
+                                                                                      {:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный"}]}]}}
+```
+
+^title "Сводка"
+:valueset-summary md/
+
+Этот набор значений определен проектом FHIR RU CORE.
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения справочника НСИ Минздрава Источники оплаты медицинской помощи
+
+^title "Содержимое набора значений"
+^table
+:valueset-content
+[{:code "1" :display "Средства обязательного медицинского страхования" :short "ОМС"},
+{:code "3" :display "Средства добровольного медицинского страхования" :short "ДМС"},
+{:code "4" :display "Средства пациента" :short "Пациент"},
+{:code "5" :display "Средства третьих физических лиц" :short "Третье лицо (физическое)"},
+{:code "6" :display "Средства третьих юридических лиц" :short "Третье лицо (юридическое)"},
+{:code "8" :display "Средства федерального бюджета" :short "Бюджет федеральный"},
+{:code "9" :display "Средства регионального бюджета" :short "Бюджет региональный"},
+{:code "10" :display "Средства обязательного социального страхования" :short "ФСС"},
+{:code "11" :display "Средства бюджета медицинской организации" :short "Бюджет медицинской организации"},
+{:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный"}]
+

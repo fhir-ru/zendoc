@@ -1,0 +1,42 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-table-list]
+
+^badge
+:authors #{people.alexandra people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-04-04"
+
+^badge
+:type :ig
+
+:title "Реестр идентификаторов"
+
+:toc
+
+^title "Реестр систем идентификаторов"
+^table
+:naming-systems-register
+[
+    {:Идентификатор systems.ns-passport-rf :URI "http://fhir.ru/core/systems/passport-rf
+" :Описание "Паспорт гражданина Российской Федерации" "Тип идентификатора FHIR" "code: PPN, system: http://terminology.hl7.org/CodeSystem/v2-0203, display: Passport number" "Тип идентификатора Ru Core" "code: 1, display: Паспорт гражданина Российской Федерации, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
+    {:Идентификатор systems.ns-medical-birth-certificate :URI "http://fhir.ru/core/systems/medical-birth-certificate" :Описание "Номер медицинского свидетельства о рождении" "Тип идентификатора FHIR" "" "Тип идентификатора Ru Core" "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
+    {:Идентификатор systems.ns-birth-registry-number :URI "http://fhir.ru/core/systems/birth-registry-number
+" :Описание "Номер государственного свидетельства о рождении" "Тип идентификатора FHIR" "" "Тип идентификатора Ru Core" "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
+    {:Идентификатор systems.ns-ffoms-erz :URI "http://fhir.ru/core/systems/ffoms-erz" :Описание "Единый регистр застрахованных лиц (ЕРЗ)"}    
+    {:Идентификатор systems.ns-medical-record-number :URI "http://fhir.ru/core/systems/medical-record-number
+" :Описание "Номер медицинской карты"}    
+]
+
+^title "Реестр систем идентификаторов"
+^table-of {:namespace "artifacts.identifiers." :columns [:zd/name :title]}
+:identifiers-register

@@ -88,7 +88,7 @@
           zendoc (some-> schema :zendoc)]
       {:zendoc zendoc
        :name (or (and zendoc
-                      (->> (zd.db/get-doc ztx zendoc)
+                      (->> (zd.db/get-doc ztx (symbol zendoc))
                            (filter #(= [:title] (:path %)))
                            (first)
                            (:data)))
@@ -101,7 +101,7 @@
        :page-not-found
        (and (not zendoc)
             (not standart?))
-       :uri (:uri schema)
+       :uri (or zendoc (str (:uri schema)))
        :strength-ref
        (case (:strength valueset)
          :required   "http://hl7.org/fhir/terminologies.html#required"
@@ -140,6 +140,7 @@
                    sch (zen.core/get-symbol ztx sch-name)]
                [:a {:href (calc-ref sch)}
                 (schema-name sch-name)])))
+
 
 (defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
   (let [confirms (if (= 'zen/vector tp)
@@ -346,6 +347,7 @@
            [:a {:href  (if (:zendoc valueset)
                          (str "/" (:zendoc valueset))
                          (:uri valueset))
+                :target "_blank"
                 :class (if (:page-not-found valueset)
                          (c [:text :red-600])
                          (c [:text :blue-600]))}
@@ -353,6 +355,7 @@
            [:span
             "("
             [:a {:href (:strength-ref valueset)
+                 :target "_blank"
                  :class (c [:text :blue-600])}
              (:strength valueset)]
             ") "]
@@ -482,7 +485,7 @@ table.schema td {}
          [:div {:class (c [:text :green-500])}
           [:ul {:class "fa-ul"}
            [:li {:class (c :list-none)}
-            [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"]}]]
+            [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"] :style "padding-top: 3px"}]]
             "Ресурс прошел валидацию."]]]))]))
 
 (defn get-profile-schema-errors

@@ -35,7 +35,7 @@
                                   :every {:type zen/map
                                           :confirms #{fhir/Identifier}
                                           :keys {:type {:type zen/map
-                                                        :confirms #{SchemaPassportRF}
+                                                        :confirms #{SchemaPassportRFType}
                                                         :zen/desc "Тип идентификатора"}
                                                  :system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}}}}}
                         "INN"
@@ -43,7 +43,14 @@
                          :filter
                          {:engine :match
                           :match {:system "http://fhir.ru/core/systems/inn"}}
-                         :schema {:type zen/vector, :maxItems 1}}
+                         :schema {:type zen/vector
+                                  :maxItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :keys {:type {:type zen/map
+                                                        :confirms #{SchemaInnType}
+                                                        :zen/desc "Тип идентификатора"}
+                                                 :system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}}}}}
                         "SNILS"
                         {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта застрахованного лица в системе обязательного пенсионного страхования"
                          :filter
@@ -98,7 +105,7 @@
                    :type zen/vector
                    :every {:confirms #{fhir.ru.core.address/CoreAddress}
                            :type zen/map}}}}
- SchemaPassportRF
+ SchemaPassportRFType
  {:zen/tags #{zen/schema}
   :zen/desc "Тип идентификатора - Паспорт РФ. Система http://terminology.hl7.org/CodeSystem/v2-0203 обязательна, далее одна из систем на выбор: http://fhir.ru/core/cs/core-cs-nsi-identity-document | urn:oid:1.2.643.5.1.13.13.99.2.48."
   :match {:coding #{{:code "PPN"
@@ -111,9 +118,22 @@
                                           :display "Паспорт гражданина Российской Федерации"
                                           :system "urn:oid:1.2.643.5.1.13.13.99.2.48"
                                           :version "5.1"}})}}}
+ SchemaInnType
+ {:zen/tags #{zen/schema}
+  :zen/desc "Тип идентификатора - ИНН"
+  :match {:coding #{{:code "PPN"
+                     :display "Passport number"
+                     :system "http://terminology.hl7.org/CodeSystem/v2-0203"}
+                    (:zen.match/one-of #{{:code "1"
+                                          :display "Паспорт гражданина Российской Федерации"
+                                          :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}
+                                         {:code "1"
+                                          :display "Паспорт гражданина Российской Федерации"
+                                          :system "urn:oid:1.2.643.5.1.13.13.99.2.48"
+                                          :version "5.1"}})}}}
  CoreVsAdministrativeGender
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "valuesets.vs-administrative-gender"
+  :zendoc "artifacts.valuesets.vs-administrative-gender"
   :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что в нем отсутствует позиция \"Other\", для совместимости со Справочником НСИ Минздрава Пол пациента"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
@@ -122,7 +142,7 @@
 
  CoreVsIdentifierType
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "valuesets.vs-identifier-type"
+  :zendoc "artifacts.valuesets.vs-identifier-type"
   :zen/desc "Данный ValueSet отличается от стандартного ValueSet FHIR тем, что из него исключены некоторые значения и в него добавлены значения из справочника HL7 Version 2 Table 0203."
   :zen.fhir/version "0.5.8"
   :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203"

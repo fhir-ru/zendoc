@@ -1,0 +1,32 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-solid :fa-notes-medical]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:update "2022-07-22"
+
+^badge
+:type :ig
+
+:title "Реестр расширений"
+
+:toc
+
+^title "Расширения"
+^table-of {:namespace "artifacts.extensions." :columns [:zd/name :id :описание :url :тип]}
+:extensions-table
+
+^title "Расширения (список)"
+:tag zen.fhir/extension
+

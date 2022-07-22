@@ -1,3 +1,6 @@
+^hide
+:icon [:fa-solid :fa-circle-info]
+
 :title "Юридическое Лицо"
 :summary md/
 

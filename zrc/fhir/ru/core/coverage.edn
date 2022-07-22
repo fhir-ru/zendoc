@@ -54,7 +54,7 @@
 
  CoreVsNsiGroundsDocumentType
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "valuesets.vs-nsi-grounds-document-type"
+  :zendoc "artifacts.valuesets.vs-nsi-grounds-document-type"
   :zen/desc "Справочник НСИ Минздрава Типы документов оснований"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems
@@ -70,7 +70,7 @@
 
  CoreVsNsiMandatoryMedicalInsurancePolicyType
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "valuesets.vs-nsi-mandatory-medical-insurance-policy-type"
+  :zendoc "artifacts.valuesets.vs-nsi-mandatory-medical-insurance-policy-type"
   :zen/desc "Справочник НСИ Минздрава Виды полиса обязательного медицинского страхования"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems
@@ -86,7 +86,7 @@
 
  CoreVsNsiMedicalCarePaymentSource
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "valuesets.vs-nsi-medical-care-payment-source"
+  :zendoc "artifacts.valuesets.vs-nsi-medical-care-payment-source"
   :zen/desc "Справочник НСИ Минздрава Источники оплаты медицинской помощи"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems

@@ -1,5 +1,5 @@
 ^hide
-:menu-order 10
+:menu-order 7
 
 ^hide
 :icon [:fa-solid :fa-table-list]
