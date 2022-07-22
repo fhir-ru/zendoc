@@ -112,10 +112,11 @@
 
  CoreDiagnosisType
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-diagnosis-type"
+  :zendoc "artifacts.extensions.core-ex-diagnosis-type"
 
   :zen.fhir/type "CodeableConcept"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
+  :zen.fhir/profileUri "http://hl7.org/fhir/R4B/datatypes.html#CodeableConcept"
+
   :zen.fhir/value-set
   {:symbol fhir.ru.diag.encounter/CoreVsDiagnosisType
    :strength :required}
