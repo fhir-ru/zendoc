@@ -16,12 +16,14 @@
 ^badge
 :date:start "2022-06-24"
 
-:title "ValueSet Core-vs-diagnosis-rubric-supl"
+:title "Core ValueSet Рубрика диагноза (сопутствующий)"
 
 :toc
 
+:url "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-supl"
+
 ^title "Описание"
-:description md/
+:описание md/
 
 В набор значений входят коды из набора значений "Рубрика диагноза", соответсвующие срезу "Сопутствующий".
 
@@ -43,7 +45,7 @@
   "resourceType": "ValueSet",
   "id": "сore-vs-diagnosis-rubric-supl",
   "name": "CoreVsDiagnosisRubricSupl",
-  "title": "Core ValueSet Рубрика диагноза (срез - сопутствующий)",
+  "title": "Core ValueSet Рубрика диагноза (сопутствующий)",
   "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-supl",
   "status": "active",
   "compose": {

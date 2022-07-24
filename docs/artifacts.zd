@@ -31,6 +31,11 @@
 Ниже приведен список расширений, определенных в рамках данного руководства по внедрению.
 
 ^title "Расширения"
+
+^table-of {:namespace "artifacts.extensions." :columns [:zd/name :id :описание :url :тип]}
+:extensions-table
+
+^title "Список расширений"
 :tag zen.fhir/extension
 
 ^title "Наборы значений"
@@ -43,10 +48,8 @@
 
 
 ^title "Наборы значений"
-^table-of {:namespace "valuesets." :columns [:zd/name :id :summary]}
+^table-of {:namespace "artifacts.valuesets." :columns [:zd/name :id :url :описание]}
 :valuesets-table
 
-^title "Расширения"
-^table-of {:namespace "artifacts.extension." :columns [:zd/name :id :Описание]}
-:extensions-table
+
 

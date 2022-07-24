@@ -16,20 +16,21 @@
 ^badge
 :date:start "2022-05-27"
 
+:title "Тип диагноза"
+
+:toc
+
 :тип "CodeableConcept"
 
 :id "core-ex-diagnosis-type"
 
 :url "http://fhir.ru/core/sd/core-ex-diagnosis-type"
 
-:title "core-ex-diagnosis-type"
+:описание md/
 
-:toc
+Тип диагноза
 
 ^title "Профиль"
 ^zen/schema
 :profile fhir.ru.diag.encounter/CoreDiagnosisType
 
-:описание md/
-
-Тип диагноза

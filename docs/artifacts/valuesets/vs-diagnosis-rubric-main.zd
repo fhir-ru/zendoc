@@ -16,12 +16,14 @@
 ^badge
 :date:start "2022-06-24"
 
-:title "ValueSet Core-vs-diagnosis-rubric-main"
+:title "Core ValueSet Рубрика диагноза (основной)"
 
 :toc
 
+:url "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
+
 ^title "Описание"
-:description md/
+:описание md/
 
 В набор значений входят коды из набора значений "Рубрика диагноза", соответсвующие срезу "Основной".
 
@@ -45,7 +47,7 @@
   "resourceType": "ValueSet",
   "id": "сore-vs-diagnosis-rubric-main",
   "name": "CoreVsDiagnosisRubricMain",
-  "title": "Core ValueSet Рубрика диагноза (срез - основной)",
+  "title": "Core ValueSet Рубрика диагноза (основной)",
   "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main",
   "status": "active",
   "compose": {

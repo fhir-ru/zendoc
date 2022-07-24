@@ -16,14 +16,16 @@
 ^badge
 :date:start "2022-06-24"
 
-:title "ValueSet Core-vs-diagnosis-rubric-compl"
+:title "Core ValueSet Рубрика диагноза (осложнение)"
 
 :toc
 
-^title "Описание"
-:description md/
+:url "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl"
 
-В набор значений входят коды из набора значений "Рубрика диагноза", соответсвующие срезу "Осложнение".
+^title "Описание"
+:описание md/
+
+В набор значений входят коды, соответсвующие срезу 'Осложнение'.
 
 ^title "Содержимое набора значений"
 ^table
@@ -45,7 +47,7 @@
   "resourceType": "ValueSet",
   "id": "сore-vs-diagnosis-rubric-compl",
   "name": "CoreVsDiagnosisRubricCompl",
-  "title": "Core ValueSet Рубрика диагноза (срез - осложнение)",
+  "title": "Core ValueSet Рубрика диагноза (осложнение)",
   "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl",
   "status": "active",
   "compose": {

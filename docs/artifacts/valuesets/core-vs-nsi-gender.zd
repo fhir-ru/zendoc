@@ -23,15 +23,16 @@
 ^badge
 :id "core-vs-nsi-gender"
 
-:title "Пол пациента [все значения]"
-
-:summary md/ 
-Кодирование пола по справочнику ФНСИ
-
-^title "Оглавление"
-:content-list md/ 
+:title "Core ValueSet Пол пациента по НСИ"
 
 :toc
+
+:url "http://fhir.ru/core/vs/core-vs-nsi-gender"
+
+:описание md/ 
+Кодирование пола по справочнику ФНСИ
+
+
 
 ^title "Zen-определение"
 ^zen/schema
@@ -46,7 +47,7 @@
   "resourceType": "ValueSet",
   "id": "core-vs-nsi-gender",
   "name": "CoreVsNsiGender",
-  "title": "Core ValueSet Пол пациента",
+  "title": "Core ValueSet Пол пациента по НСИ",
   "url" : "http://fhir.ru/core/vs/core-vs-nsi-gender",
   "status": "active",
   "compose": {

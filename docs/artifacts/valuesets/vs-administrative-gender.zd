@@ -16,14 +16,23 @@
 ^badge
 :date:start "2022-04-12"
 
-:title "ValueSet Core-vs-administrative-gender"
+:title "Core ValueSet Пол пациента"
 
 :toc
 
+:url "http://fhir.ru/core/vs/core-vs-administrative-gender"
+
 ^title "Описание"
+:описание md/
+
+Отличается от стандартного FHIR AdministrativeGender тем, что в нем отсутствует позиция "Other"
+
+^title "Полное описание"
 :description md/
 
 Данный ValueSet отличается от стандартного [ValueSet FHIR](http://hl7.org/fhir/valueset-administrative-gender.html) тем, что в нем отсутствует позиция "Other", для совместимости со [Справочником НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
+
+
 
 ```code json
 {

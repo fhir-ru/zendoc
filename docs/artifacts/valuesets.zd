@@ -48,7 +48,7 @@ TODO
 
 
 ^title "Реестр наборов значений"
-^table-of {:namespace "artifacts.valuesets." :columns [:zd/name :title]}
+^table-of {:namespace "artifacts.valuesets." :columns [:zd/name :url :описание]}
 :valuesets-register
 
 

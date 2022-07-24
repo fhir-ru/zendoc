@@ -10,7 +10,7 @@
 ^badge
 :status :draft
 
-:title "Документы, удостоверяющие личность"
+:name "Core ValueSet Документы, удостоверяющие личность"
 
 :summary md/
 
@@ -22,7 +22,7 @@
 
 Основан на справочнике ["Документы, удостоверяющие личность" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48/passport/6.2)
 
-:title "ValueSet Core-vs-identification-documents"
+
 
 :valueset md/
 

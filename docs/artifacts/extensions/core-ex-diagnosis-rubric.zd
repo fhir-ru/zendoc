@@ -16,9 +16,12 @@
 ^badge
 :date:start "2022-05-27"
 
-:тип "CodeableConcept"
-
 :title "Рубрика диагноза"
+
+:toc
+
+
+:тип "CodeableConcept"
 
 :id "core-ex-diagnosis-rubric"
 
@@ -33,7 +36,6 @@ xxxx
 
 Описание расширения Рубрика диагноза.
 
-:toc
 
 ^title "Профиль"
 ^zen/schema

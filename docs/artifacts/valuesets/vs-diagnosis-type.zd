@@ -16,9 +16,16 @@
 ^badge
 :date:start "2022-06-24"
 
-:title "ValueSet Core-vs-diagnosis-type"
+:title "Core ValueSet Тип диагноза"
+
+:url "http://fhir.ru/core/vs/core-vs-diagnosis-type"
 
 :toc
+
+:описание md/
+
+В набор значений входят все коды из справочника 'Степень обоснованности диагноза'
+
 
 ^title "Описание"
 :description md/
@@ -51,7 +58,7 @@
   "resourceType": "ValueSet",
   "id": "сore-vs-diagnosis-type",
   "name": "CoreVsDiagnosisType",
-  "title": "Core ValueSet Рубрика диагноза",
+  "title": "Core ValueSet Тип диагноза",
   "url" : "http://fhir.ru/core/vs/core-vs-diagnosis-type",
   "status": "active",
   "compose": {
