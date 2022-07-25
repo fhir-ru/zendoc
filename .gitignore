@@ -6,3 +6,4 @@
 zrc/package-lock.json
 ~*.xlsx
 .calva/
+.vscode/
