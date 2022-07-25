@@ -3,13 +3,16 @@
 
  LabComposition
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "labs.Composition"
+  :zendoc "lab.Composition"
   :confirms #{fhir/Composition}
   :zen/desc "Composition"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Composition"
   :zen.fhir/id "composition-lab"
   :zen.fhir/name "CompositionLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/composition-lab"
   :type zen/map
   :keys {}}}

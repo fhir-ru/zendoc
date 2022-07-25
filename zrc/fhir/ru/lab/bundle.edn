@@ -18,13 +18,16 @@
 
  LabBundle
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "labs.Bundle"
+  :zendoc "lab.Bundle"
   :confirms #{fhir/Bundle}
   :zen/desc "Bundle"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Bundle"
   :zen.fhir/id "bundle-lab"
   :zen.fhir/name "BundleLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/bundle-lab"
   :type zen/map
   :keys {:type {:type zen/string}

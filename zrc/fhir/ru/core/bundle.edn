@@ -11,6 +11,9 @@
   :zen.fhir/version "0.5.8"
   :zen.fhir/id "core-bundle"
   :zen.fhir/name "CoreBundle"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "Bundle"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-bundle"
   :type zen/map

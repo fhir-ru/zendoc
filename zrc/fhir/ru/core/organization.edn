@@ -11,6 +11,9 @@
   :confirms #{fhir/Organization}
   :zen.fhir/id "core-organization"
   :zen.fhir/name "CoreOrganization"
+:zen.fhir/abstract false
+:zen.fhir/status "draft"
+:zen.fhir/kind "resource"
   :zen.fhir/type "Organization"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-organization"
   :type zen/map

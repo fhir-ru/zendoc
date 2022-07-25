@@ -3,13 +3,16 @@
 
  LabSpecimen
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "labs.Specimen"
+  :zendoc "lab.Specimen"
   :confirms #{fhir/Specimen}
   :zen/desc "Specimen"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Specimen"
   :zen.fhir/id "specimen-lab"
   :zen.fhir/name "SpecimenLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/specimen-lab"
   :type zen/map
   :keys {}}}

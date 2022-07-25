@@ -11,6 +11,9 @@
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Organization}
   :zen/desc "Организация - Подразделение"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
 
   :type zen/map
   :require #{:name}

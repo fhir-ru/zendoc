@@ -8,6 +8,9 @@
   :zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
   :zen/desc "Нозологическая единица"
   :zendoc "diag.DsCondition"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :confirms #{fhir/Condition}
 
   :require #{:clinicalStatus}

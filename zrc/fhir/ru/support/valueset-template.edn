@@ -3,7 +3,7 @@
 
  ValueSetTemplate
  {:zen/tags #{zen.fhir/value-set zen.fhir/support}
-  :zendoc "artifacts.valuesets.template"
+  :zendoc "artifacts.valuesets.vs-template"
   :zen/desc "Справочник НСИ Минздрава Пол пациента"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems

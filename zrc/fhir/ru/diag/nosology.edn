@@ -6,6 +6,9 @@
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
   :zendoc "diag.DsCondition"
   :zen/desc "Нозологическая единица"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :type zen/map
   :keys
   {:code {:confirms #{fhir/Coding}

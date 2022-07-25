@@ -11,6 +11,9 @@
   :zen/desc "Адрес"
   :zen.fhir/id "core-address"
   :zen.fhir/name "CoreAddress"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
   :zen.fhir/type "Address"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-address"
 
@@ -27,7 +30,7 @@
 
  CoreAddressFias
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-address-fias"
+  :zendoc "artifacts.extensions.core-ex-address-fias"
 
   :zen.fhir/type "string"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias"
@@ -38,7 +41,7 @@
 
  CoreAddressFiasHouse
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-address-fias-house"
+  :zendoc "artifacts.extensions.core-ex-address-fias-house"
 
   ;; :zen.fhir/type "string"
   ;; :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-address-fias-house"

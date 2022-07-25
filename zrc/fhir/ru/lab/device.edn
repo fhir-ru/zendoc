@@ -3,13 +3,16 @@
 
  LabDevice
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "labs.Device"
+  :zendoc "lab.Device"
   :confirms #{fhir/Device}
   :zen/desc "Device"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Device"
   :zen.fhir/id "device-lab"
   :zen.fhir/name "DeviceLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
   :type zen/map
   :keys {}}}

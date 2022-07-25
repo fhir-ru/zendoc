@@ -12,6 +12,9 @@
   :confirms #{fhir/Patient}
   :zen.fhir/id "core-patient"
   :zen.fhir/name "CorePatient"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "Patient"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
   :type zen/map

@@ -2,19 +2,24 @@
 
  import #{fhir zen.fhir fhir.ru.core.vs-nsi-gender}
 
- CoreNsiGender
+ CoreExtensionTemplate
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/support}
-  :zen.fhir/type "Coding"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-nsi-gender"
+  :zen/desc "Шаблон расширения"
+  :zendoc "artifacts.extensions.core-ex-nsi-gender"
   :type zen/map
-  :zen/desc "Кодирование пола по справочнику ФНСИ"
+  :confirms #{fhir/Extension}
   :zen.fhir/version "0.5.8"
-  :confirms #{fhir/Coding}
+  :zen.fhir/id "core-ex-nsi-gender"
+  :zen.fhir/type "Extension"
+  :zen.fhir/name "CoreExtensionTemplate"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/extension-template"
   :zen.fhir/value-set
   {:symbol fhir.ru.core.vs-nsi-gender/CoreVsNsiGender
    :strength :required}
-  ;; :require #{:url :valueCoding}
-  :keys {:url {:zen/desc "http://fhir.ru/core/sd/core-ex-nsi-gender"
+  :keys {:url {:zen/desc "http://fhir.ru/core/sd/extension-template"
                :confirms #{fhir/uri}}
          :valueCoding  {:type zen/map
                         :confirms #{fhir/Coding}
@@ -25,6 +30,4 @@
                                :code {:confirms #{fhir/code}
                                       :zen/desc "Код"}
                                :display {:zen/desc "Значение для отображения"
-                                         :confirms #{fhir/string}}}}}
-
-  :zendoc "extension.core-ex-nsi-gender"}}
+                                         :confirms #{fhir/string}}}}}}}

@@ -3,13 +3,16 @@
 
  LabObservation
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "labs.Observation"
+  :zendoc "lab.Observation"
   :confirms #{fhir/Observation}
   :zen/desc "Observation"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Observation"
   :zen.fhir/id "observation-lab"
   :zen.fhir/name "ObservationLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/observation-lab"
   :type zen/map
   :keys {}}}

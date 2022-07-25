@@ -7,11 +7,14 @@
  TutorialPatient
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/support}
   :zendoc "tutorials.zendoc"
-  :zen/desc "Пациент"
+  :zen/desc "Пример профиля Пациент"
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/Patient}
   :zen.fhir/id "tutorial-patient"
   :zen.fhir/name "TutorialPatient"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "Patient"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/tutorial-patient"
   :type zen/map

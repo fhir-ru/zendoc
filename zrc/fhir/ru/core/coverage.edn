@@ -10,6 +10,9 @@
   :zen.fhir/type "Coverage"
   :zen.fhir/id "coverage-lab"
   :zen.fhir/name "CoverageLab"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
   :type zen/map
   :keys {:beneficiary {:zen/desc "Ссылка на пациента"

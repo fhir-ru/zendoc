@@ -4,12 +4,15 @@
 
  LabDiagnosticReport
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/lab-group}
-  :zendoc "labs.DiagnosticReport"
+  :zendoc "lab.DiagnosticReport"
   :zen/desc "Лабораторные результаты"
   :zen.fhir/version "0.5.8"
   :confirms #{fhir/DiagnosticReport}
   :zen.fhir/id "lab-diagnosticreport"
   :zen.fhir/name "LabDiagnosticReport"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "DiagnosticReport"
   :zen.fhir/profileUri "http://fhir.ru/lab/sd/lab-diagnosticreport"
   :type zen/map

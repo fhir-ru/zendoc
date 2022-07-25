@@ -14,6 +14,9 @@
   :zen.fhir/version "0.5.8"
   :zen.fhir/id "encounter-clinical-dx"
   :zen.fhir/name "EncounterClinicalDx"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/encounter-clinical-dx"
   :type zen/map
@@ -127,7 +130,7 @@
 
  CoreDiagnosisRubric
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
-  :zendoc "extension.core-ex-diagnosis-rubric"
+  :zendoc "artifacts.extensions.core-ex-diagnosis-rubric"
 
   :zen.fhir/type "CodeableConcept"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
