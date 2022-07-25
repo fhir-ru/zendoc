@@ -9,7 +9,6 @@
 
 :title "Термины"
 
-:toc
-
+^title ""
 ^table-of {:namespace "terms." :columns [:zd/name]}
 :pages 

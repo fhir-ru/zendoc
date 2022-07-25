@@ -9,7 +9,6 @@
 
 :title "Методические материалы"
 
-:toc
-
-^table-of {:namespace "tutorials." :columns [:zd/name]}
-:tutorials 
+^title ""
+^table-of {:namespace "support." :columns [:zd/name]}
+:pages 
