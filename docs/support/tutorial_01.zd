@@ -7,10 +7,10 @@
 :title "Как добавить расширение простому типу данных"
 
 ^badge
-:editors [people.alexandra people.vrodionov]
+:editors #{people.alexandra people.vrodionov}
 
 ^badge
-:date:updated "2022-07-03"
+:date:updated "2022-07-23"
 
 ^title "Оглавление"
 :content-list md/ 
@@ -27,12 +27,12 @@
 ^title "Naming System"
 :tutorial:namingsystem md/
 
-Почему NamingSystem, а не CodeSystem - см. #systems.
+Почему NamingSystem, а не CodeSystem - см. #support.systems.
 
 * 1) Создаём определение NamingSystem для справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
 
 * в папке `docs/systems` создаем файл, название которого соответствует пункту "терминологии" соглашения conventions.
-* в файле по шаблону #systems.ns-template заполняем атрибуты. В данном случае кроме своего идентификатора даем ссылку на OID НСИ ЕГИСЗ
+* в файле по шаблону #artifacts.codesystems.cs-template заполняем атрибуты. В данном случае кроме своего идентификатора даем ссылку на OID НСИ ЕГИСЗ
 * получаем следующий текст:
 
 ```code json
@@ -63,13 +63,13 @@
 }
 ```
 
-* результат на нашем сайте: #systems.cs-rosminzdrav-gender
+* результат на нашем сайте: #artifacts.codesystems.cs-rosminzdrav-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/CodeSystem-nsi-cs-1-2-643-5-1-13-13-11-1040.html]]
 
 ^title "ValueSet"
 :tutorial:valueset md/
 
-* 2) Создаём определение набора значений из этого справочника (по шаблону #valuesets.template):
+* 2) Создаём определение набора значений из этого справочника (по шаблону #artifacts.valuesets.vs-template):
 
 ```code json
 {
@@ -120,7 +120,7 @@
   :zendoc "artifacts.valuesets.core-vs-nsi-gender"}}
 ```
 
-* результат на нашем сайте: #valuesets.vs-administrative-gender
+* результат на нашем сайте: #artifacts.valuesets.core-vs-nsi-gender
 * прототип в инструментах FHIR - [[a https://docs.miramedix.ru/fhir/IG/ValueSet-nsi-vs-1-2-643-5-1-13-13-11-1040.html]]
 
 ^title "Extension"
@@ -146,7 +146,7 @@
    :strength :required}
   :zendoc "artifacts.extensions.ext-nsi-gender"}}
 ```
-* и страницу для вывода схемы и дополнительной документации - в папке `docs/extension` создаем файл с расширением `.zd`, название которого соответствует пункту "терминологии" соглашения conventions
+* и страницу для вывода схемы и дополнительной документации - в папке `docs/artifacts/extensions` создаем файл с расширением `.zd`, название которого соответствует пункту "терминологии" соглашения #support.conventions
 * выводим схему на странице документации:
 
 ```code zendoc
@@ -276,68 +276,3 @@ address:
 ^zen/schema
 :tutorial:validation:profile-validation fhir.ru.core.tutorial-patient/TutorialPatient
 
-^title "Шаблоны"
-:templates
-
-^title "Ресурс"
-^edn
-:templates:resource-profile  (load "../../zrc/fhir/ru/support/resource-template.edn" :edn)
-
-^title "Расширение"
-^edn
-:templates:extension (load "../../zrc/fhir/ru/support/extension-template.edn" :edn)
-
-^title "Набор значений"
-^edn
-:templates:valueset (load "../../zrc/fhir/ru/support/valueset-template.edn" :edn)
-
-^title "Тип данных"
-^edn
-:templates:datatype (load "../../zrc/fhir/ru/support/datatype-template.edn" :edn)
-
-^title "Привязка элемента к набору значений"
-:templates:valueset-binding md/
-
-```code edn
-  :zen.fhir/value-set {:symbol CoreVsIdentifierType :strength :extensible}
-```
-
-^title "Slicing"
-:templates:slicing md/
-
-```code edn
-  :type zen/vector
-  :slicing
-    {:slices
-      {"PassportRF"
-      {:zen/desc "Паспорт РФ"
-        :filter
-        {:engine :match
-        :match {:type {:coding #{{:code "PPN"
-                                  :display "Passport number"
-                                  :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}
-        :schema {:type zen/vector
-                :maxItems 1
-                :every {:type zen/map
-                        :confirms #{fhir/Identifier}
-                        :keys {:type {:type zen/map
-                                      :confirms #{SchemaPassportRF}
-                                      :zen/desc "Тип идентификатора"}}}}}}}
-```
-
-^title "Добавить новый тэг"
-:templates:new-tag md/
-
-Открыть файл `zrc/zen/fhir.edn` и добавить новый тэг:
-
-```code edn
- lab-group
- {:zen/tags #{zen/schema zen/tag}
-  :zen/desc "Lab Group"}
-```
-
-Затем открыть соответствующие схемы и добавить им новый тэг в список тэгов:
-
-```code edn
-  :zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-```

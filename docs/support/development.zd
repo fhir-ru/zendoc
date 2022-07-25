@@ -4,7 +4,7 @@
 :icon [:fa :fa-laptop-code] 
 
 ^hide
-:menu-order 1
+:menu-order 4
 
 ^badge
 :editors #{people.alexandra}
@@ -198,10 +198,13 @@ git stash apply
 
 открыть `Settings` / `Auto Save` и выбрать опцию `onFocusChange`.
 
-
 * Автоматическое форматирование:
 
 поставить расширения Prettier и Formatting Toggle. 
+
+* VSCode prevent file Explorer from jumping:
+
+"explorer.autoReveal": false
 
 ^title "Обязательные расширения VSCode"
 :project:vscode-extensions md/

@@ -1,4 +1,4 @@
-:menu-order 1
+:menu-order 7
 
 ^hide
 :icon [:fa-solid :<указать тип иконки>]

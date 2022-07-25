@@ -4,7 +4,7 @@
 :icon [:fa :fa-graduation-cap] 
 
 ^hide
-:menu-order 100
+:menu-order 3
 
 ^badge
 :editors #{people.alexandra people.varvara}
@@ -147,14 +147,24 @@ __Результат:__
 ^title "Текст"
 :zentext md/
 
-* Можно сослаться на человека: [[code @niquola]] — @niquola
-* Можно сослаться на документ: [[code #manifest]] — #manifest
-* Можно вставить код: [[code `code()`]] — `code()`
-* Можно вставить код: `[[code code()]]` — [[code code()]]
+^title "Форматирование"
+:zentext:formatting md/
+
+* Выделить код: [[code `code()`]] — `code()`
+* Либо выделить код: `[[code code()]]` — [[code code()]]
 * Выделить жирным: `**bold**` — **bold**
 * Выделить курсивом: `__italic__` — __italic__
-* Можно вставить ссылку: `[text](link)` — [text](link)
-* Сослаться на поле в ресурсе: `((resource people.niquola :telegram))` — ((resource people.niquola :telegram))
+
+^title "Ссылки"
+:zentext:links md/
+
+* Можно сослаться на человека: [[code @niquola]] — @niquola
+* Можно сослаться на документ: [[code #readme]] — #readme
+* Можно вставить внешнюю или внутреннюю ссылку: `[text](link)` — [text](link)
+* Сослаться на поле в ресурсе (здесь ресурс - это zendoc-страница): `((resource people.niquola :telegram))` — ((resource people.niquola :telegram))
+* Внутри таблиц нужно взять в двойные кавычки: `"((resource people.niquola :telegram))"`
+* Внутренние ссылки: `[соглашения](support.conventions)` - [соглашения](support.conventions)
+* Внутренние ссылки на разделы страниц документации: `[Соглашения/Идентификаторы Coding Systems](support.conventions#:code-systems-naming)` - [Соглашения/Идентификаторы Coding Systems](support.conventions#:code-systems-naming)
 
 ^title "Заголовки"
 :zentext:title md/
@@ -263,14 +273,46 @@ __Результат:__
 Пример
 
 ```code
-  ^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+  ^table-of {:namespace "people." :columns [:zd/name :group :organization :github]}
   :people
 ```
 
 __Результат:__
 
-^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+^table-of {:namespace "people." :columns [:zd/name :group :organization :github]}
 :tables:table-of:people
+
+^title "Таблица из файла .yaml"
+:tables:table-from-file md/
+
+Можно вывести значения из файла .yaml в виде таблицы. Может пригодиться, например, для вывода содержимого набора значений.
+
+```code
+  ^table
+  ^title "Value Set"
+  :values (load "../../core/samples/address-use.yaml" :yaml)
+```
+
+Пример содержимого файла .yaml:
+
+```code yaml
+- code: home
+  display: Адрес постоянной регистрации
+  desc: A communication address at a home.
+- code: work
+  display: Рабочий
+  desc: An office address. First choice for business related contacts during business hours.
+- code: temp
+  display: Адрес фактического проживания
+  desc: A temporary address. The period can provide more detailed information.
+- code: old
+  display: Устаревший
+  desc: This address is no longer in use (or was never correct but retained for records).
+- code: billing
+  display: Почтовый
+  desc: An address to be used to send bills, invoices, receipts etc.
+```
+
 
 ^title "Код"
 :code md/
@@ -475,11 +517,42 @@ db[(Database)]
 :referenced-by md/
 
 Referenced By - список страниц, ссылающихся на открытую страницу.
+Сейчас это только именованные ссылки - бейджики.
+Потом добавится поддержка ссылок на страницу с других страниц документации.
 
 ^title "Схемы на зендок-страницы"
 :shcemas md/
 
 Можно описать страницы документации с помощью схемы и добавить какие-то требования, например что у человека на его странице обязательно должны присутствовать какие-то элементы, например указан емейл.
+
+Для этого надо создать файл `.edn` в папке `docs`, создать схему. 
+
+```code
+{ns zendoc
+
+ person
+ {:zen/desc "Person"
+  :zen/tags #{zen/schema zen/tag}
+  :type zen/map
+  :confirms #{doc}
+  :require #{:name :telegram}
+  :keys {:name     {:type zen/string}
+         :telegram {:type zen/string :zd/annotations {:block :badge}}
+         :github   {:type zen/string :zd/annotations {:block :badge}}
+         :email    {:type zen/string :zd/annotations {:block :badge}}
+         :phone    {:type zen/string :zd/annotations {:block :badge}}
+         :twitter  {:type zen/string :zd/annotations {:block :badge}}
+         :person/avatar   {:type zen/string}}}}
+```
+
+На соответствующей родительской странице документации добавить строчку:
+
+```code
+  ^hide
+  :zd/child-tags #{zendoc/person}
+```
+
+Все вложенные страницы будут валидироваться указанной схемой.
 
 ^title "Ошибки на странице"
 :validation md/

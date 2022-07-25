@@ -1,5 +1,5 @@
 ^hide
-:menu-order 7
+:menu-order 11
 
 ^hide
 :icon [:fa-solid :fa-table-list]
@@ -8,20 +8,40 @@
 :authors #{people.alexandra people.varvara}
 
 ^badge
-:groups #{groups.adm}
-
-^badge
-:status :draft
-
-^badge
-:date:start "2022-04-04"
-
-^badge
 :type :ig
 
-:title "Реестр кодовых систем и идентификаторов"
+:title "Порядок внесения артефактов в реестр"
 
 :toc
+
+^title "Кодовые системы"
+:code-systems md/
+
+TODO
+
+^title "Системы идентификаторов"
+:naming-systems md/
+
+[NamingSystem](http://hl7.org/fhir/namingsystem.html) — курируемое пространство имен, назначающее уникальные в этом пространстве имен символы для идентификации людей, понятий, устройств. Представляет собой "систему" в типах данных Identifier и Coding.
+
+Определяет конкретную кодовую систему или систему идентификаторов, чтобы её можно было внести в реестр, где другие информационные системы смогут её найти и понять идентификатор.
+
+^title "Отличие NamingSystem от CodeSystem"
+:difference md/
+
+Ресурс `CodeSystem` определяет содержимое кодовой системы и её предпочтительный идентификатор. Ресурс `NamingSystem` декларирует существование кодовой системы или системы идентификаторов, а также её возможные и предпочтительный идентификатор. Ключевое различие между этими ресурсами заключается в том, кто создаёт и управляет ими. Ресурсами `CodeSystem` управляет владелец кодовой системы, который может должным образом определять функции и содержимое кодовой системы. 
+
+Ресурсы `NamingSystem` часто создаются третьими сторонами, которые сталкиваются с использованием кодовой системы и хотят описать её применение, но не имеют полномочий определять её функции и содержимое. Кроме того, для одной кодовой системы может быть создано несколько ресурсов `NamingSystem`, но должен быть только один ресурс `CodeSystem`.
+
+^title "Диаграмма выбора типа создаваемого артефакта"
+:diagram-1 mm/
+  flowchart TD
+    artifact([Артефакт]) --> cond1[Это справочник?]
+    cond1 -- Да --> cond2[Внешний?]
+    cond2 -- Да --> id1(NamingSystem.kind = codesystem)
+    cond2 -- Нет --> id2(CodeSystem)
+    cond1 -- Нет --> cond3[Пространство идентификаторов?]    
+    cond3 -- Да --> id3(NamingSystem.kind = identifier)
 
 ^title "Порядок внесения артефактов в реестр"
 :mindmap mindmap/
@@ -42,58 +62,3 @@
   * Это набор значений для элемента профиля?
     * создать ValueSet
     * внести в реестр наборов значений
-
-^title "Диаграмма выбора типа создаваемого артефакта"
-:diagram-1 mm/
-  flowchart TD
-    artifact([Артефакт]) --> cond1[Это справочник?]
-    cond1 -- Да --> cond2[Внешний?]
-    cond2 -- Да --> id1(NamingSystem.kind = codesystem)
-    cond2 -- Нет --> id2(CodeSystem)
-    cond1 -- Нет --> cond3[Пространство идентификаторов?]    
-    cond3 -- Да --> id3(NamingSystem.kind = identifier)
-
-^title "Кодовые системы"
-:code-systems md/
-
-;; [НСИ Минздрава Пол пациента](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040/version/2.1)
-;; [НСИ ФОМС Пол пациента](http://nsi.ffoms.ru/#refbookList?refbookList:filter:$filter=set&refbookList:filter:name=%D0%BF%D0%BE%D0%BB&refbookList:$active=1&refbookList:$selectedId=914/refbookList.refbookList.view$2v914?menu:filter:dictionaryId=914&menu:filter:readOnly=true&menu:$active=1&menu:$selectedId=undefined&refbookSimple0:$active=1&refbookSimple0:page=1&refbookSimple1:$active=1&refbookSimple1:page=1&refbookSimple1:$selectedId=undefined)
-
-^title "Системы идентификаторов"
-:naming-systems md/
-
-[NamingSystem](http://hl7.org/fhir/namingsystem.html) — курируемое пространство имен, назначающее уникальные в этом пространстве имен символы для идентификации людей, понятий, устройств. Представляет собой "систему" в типах данных Identifier и Coding.
-
-Определяет конкретную кодовую систему или систему идентификаторов, чтобы её можно было внести в реестр, где другие информационные системы смогут её найти и понять идентификатор.
-
-^title "Отличие NamingSystem от CodeSystem"
-:naming-systems:difference md/
-
-Ресурс `CodeSystem` определяет содержимое кодовой системы и её предпочтительный идентификатор. Ресурс `NamingSystem` декларирует существование кодовой системы или системы идентификаторов, а также её возможные и предпочтительный идентификатор. Ключевое различие между этими ресурсами заключается в том, кто создаёт и управляет ими. Ресурсами `CodeSystem` управляет владелец кодовой системы, который может должным образом определять функции и содержимое кодовой системы. 
-
-Ресурсы `NamingSystem` часто создаются третьими сторонами, которые сталкиваются с использованием кодовой системы и хотят описать её применение, но не имеют полномочий определять её функции и содержимое. Кроме того, для одной кодовой системы может быть создано несколько ресурсов `NamingSystem`, но должен быть только один ресурс `CodeSystem`.
-
-^title "Реестр кодовых систем"
-^table
-:code-systems-register
-[
-    {:Система artifacts.codesystems.cs-rosminzdrav-gender :URI "((resource artifacts.codesystems.cs-rosminzdrav-gender :system))" :OID "1.2.643.5.1.13.13.11.1040" :Описание "НСИ Минздрава Пол пациента"}
-    {:Система artifacts.codesystems.cs-ffoms-gender :URI "((resource artifacts.codesystems.cs-ffoms-gender :system))" :OID "" :Описание "НСИ ФОМС Пол пациента. Классификатор пола застрахованного (Pol)"}
-    {:Система artifacts.codesystems.cs-nsi-identity-document :URI "((resource artifacts.codesystems.cs-nsi-identity-document :system))" :OID "1.2.643.5.1.13.13.99.2.48" :Описание "НСИ Минздрава Документы, удостоверяющие личность"}     
-    {:Система systems.cs-nsi-diagnosis-justification-degree :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree" :OID "1.2.643.5.1.13.13.99.2.795" :Описание "НСИ Минздрава Справочник Степень обоснованности диагноза"}     
-    {:Система systems.cs-nsi-diagnosis-nosology-kind :URI "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind" :OID "1.2.643.5.1.13.13.11.1077" :Описание "НСИ Минздрава Справочник Виды нозологических единиц диагноза"}     
-]
-
-^title "Реестр систем идентификаторов"
-^table
-:naming-systems-register
-[
-    {:Идентификатор systems.ns-passport-rf :URI "http://fhir.ru/core/systems/passport-rf
-" :Описание "Паспорт гражданина Российской Федерации" "Тип идентификатора FHIR" "code: PPN, system: http://terminology.hl7.org/CodeSystem/v2-0203, display: Passport number" "Тип идентификатора Ru Core" "code: 1, display: Паспорт гражданина Российской Федерации, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
-    {:Идентификатор systems.ns-medical-birth-certificate :URI "http://fhir.ru/core/systems/medical-birth-certificate" :Описание "Номер медицинского свидетельства о рождении" "Тип идентификатора FHIR" "" "Тип идентификатора Ru Core" "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
-    {:Идентификатор systems.ns-birth-registry-number :URI "http://fhir.ru/core/systems/birth-registry-number
-" :Описание "Номер государственного свидетельства о рождении" "Тип идентификатора FHIR" "" "Тип идентификатора Ru Core" "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"}    
-    {:Идентификатор systems.ns-ffoms-erz :URI "http://fhir.ru/core/systems/ffoms-erz" :Описание "Единый регистр застрахованных лиц (ЕРЗ)"}    
-    {:Идентификатор systems.ns-medical-record-number :URI "http://fhir.ru/core/systems/medical-record-number
-" :Описание "Номер медицинской карты"}    
-]
