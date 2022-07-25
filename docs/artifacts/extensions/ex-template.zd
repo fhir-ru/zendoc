@@ -1,0 +1,41 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa-solid :fa-square-plus]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-07-24"
+
+:toc
+
+:summary md/
+Шаблон страницы описания расширения
+
+:title "Шаблон расширения"
+
+^badge
+:id "core-ex-diagnosis-rubric"
+
+^badge
+:url "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
+
+^badge
+:тип "CodeableConcept"
+
+^title "Описание"
+:описание md/
+Описание расширения
+
+^title "Схема"
+^zen/schema
+:profile fhir.ru.diag.encounter/CoreDiagnosisRubric

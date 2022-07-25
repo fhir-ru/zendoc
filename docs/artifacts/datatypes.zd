@@ -1,0 +1,13 @@
+^hide
+:menu-order 6
+
+^hide
+:icon [:fa :fa-font]
+
+:title "Реестр типов данных"
+
+^title ""
+^table-of {:namespace "artifacts.datatypes." :columns [:zd/name :title]}
+:datatypes-register
+
+
