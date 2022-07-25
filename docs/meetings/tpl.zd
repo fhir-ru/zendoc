@@ -10,6 +10,9 @@
 ^badge 
 :participants #{}
 
+^hide
+:icon [:fa-regular :fa-calendar]
+
 :title "template"
 
 :video "" 
