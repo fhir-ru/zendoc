@@ -7,5 +7,5 @@
 :title "Лаборатория"
 
 ^title "Профили"
-^table-of {:namespace "lab." :columns [:zd/name :summary :link]}
+^table-of {:namespace "lab." :columns [:zd/name :summary]}
 :profiles-table

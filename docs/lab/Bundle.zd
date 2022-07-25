@@ -19,9 +19,6 @@
 ^badge
 :maturity 0
 
-^link-badge
-:link lab.Bundle
-
 :title "Bundle Profile"
 ;; :title "Передача лабораторных исследований КДЛ"
 
