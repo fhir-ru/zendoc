@@ -123,7 +123,13 @@ git submodule update --recursive
 ^title "Отправка ваших изменений на сервер"
 :project:commit md/
 
-Проверка статуса:
+Сначала обязательно обновить сабмодули.
+
+```code bash
+git submodule update --recursive
+```
+
+Получить список изменений:
 
 ```code bash
 git status
@@ -134,6 +140,8 @@ git status
 ```code bash
 git status -bs
 ```
+
+В списке ваших изменений не должно быть `modified:   libs/zd (modified content)`.
 
 Скачать последнюю версию, чтобы избежать мержа:
 
@@ -156,7 +164,7 @@ git add -u
 Можно добавлять в коммит изменения из файла по частям:
 
 ```code bash
-git add -P
+git add -p
 ```
 
 Если хотите убрать файлы из коммита, воспользуйтесь командой:
