@@ -1,6 +1,8 @@
 ^badge
 :github "eugenekogan-spb"
 
+:organization orgs.spbmiac
+
 ^badge
 :email "ekogan2000@mail.ru"
 

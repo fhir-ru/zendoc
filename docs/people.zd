@@ -4,9 +4,11 @@
 ^hide
 :icon [:fa-solid :fa-user-group]
 
+^hide
 :zd/child-tags #{zendoc/person}
 
 :title "Люди"
 
-^table-of {:namespace "people." :columns [:zd/name :role :telegram :github]}
+^title ""
+^table-of {:namespace "people." :columns [:zd/name :group :organization :github]}
 :people

@@ -1,5 +1,24 @@
-^badge
-:organization  orgs.samurai
+:organization orgs.samurai
+
+:group groups.adm
+
+^link
+:github "https://github.com/Semalexa"
+
+:email "alexandra@health-samurai.io"
+
+:telegram "@AleksandraPavlyshina"
 
 :title "Александра Павлышина"
+
+^hide
+:name "Александра Павлышина"
+
 :avatar "https://avatars.githubusercontent.com/u/345535?v=4"
+
+^hide
+:git/names ["Alexandra", "Aleksandra"]
+
+:summary md/
+
+BA&QA at Health Samurai
