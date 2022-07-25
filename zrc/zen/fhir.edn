@@ -87,9 +87,21 @@
  structure-schema
  {:zen/tags #{zen/schema zen/tag}
   :confirms #{nested-schema version}
+  :require #{:zendoc :zen.fhir/type :zen.fhir/profileUri}
   :type     zen/map
   :keys     {:zendoc {:type zen/string}
              :zen.fhir/type {:type zen/string}
+             :zen.fhir/abstract {:type zen/boolean}
+             :zen.fhir/status {:type zen/string
+                               :enum [{:value "active"}
+                                      {:value "draft"}
+                                      {:value "retired"}
+                                      {:value "unknown"}]}
+             :zen.fhir/kind {:type zen/string
+                             :enum [{:value "primitive-type"}
+                                    {:value "complex-type"}
+                                    {:value "resource"}
+                                    {:value "logical"}]}
              :zen.fhir/profileUri {:type zen/string}
              :zen.fhir/id {:type zen/string}
              :zen.fhir/name {:type zen/string}}}
