@@ -25,7 +25,7 @@
 ^title "Введение"
 :intro md/
 
-В соответствии с определённой [областью применения](http://fhir-ru.zendoc.me/diag#:scope) данное руководтво посвящено в первую очередь клиническому использованию нозологических единиц в рамках случая оказания медицинской помощи.
+В соответствии с определённой [областью применения](diag#:scope) данное руководтво посвящено в первую очередь клиническому использованию нозологических единиц в рамках случая оказания медицинской помощи.
 
 В руководстве диагноз рассматривается как структурированная с некоторой целью и на определенный момент времени совокупность нозологических единиц.
 
@@ -42,11 +42,12 @@
 
 
 В атрибуте Encounter.diagnosis одна или более нозологическая единица, составляющая диагноз, может быть категоризирована по трём осям:
-1) определённая в FHIR ось "предназначения диагноза", определённая в атрибуте Encounter.diagnosis.use ("billing", "pre-op diagnosis" - по справочнику "DiagnosisRole"  https://www.hl7.org/fhir/valueset-diagnosis-role.html) 
-2) ось с "типом элемента диагноза", определённая в расширении "diagnosis-type" ("Клинический диагноз", "Этапный клинический диагноз" и прочие - по справочнику "Степень обоснованности диагноза" https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795)
-3) ось с "рубрикой элемента диагноза", определённая в расширении "diagnosis-rubric" ("основной"\"осложнение"\"сопутствующее" и другие - по справочнику "Виды нозологических единиц диагноза" https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077)
+1) определённая в FHIR ось "предназначения диагноза", определённая в атрибуте Encounter.diagnosis.use ("billing", "pre-op diagnosis" - по справочнику ["DiagnosisRole"](https://www.hl7.org/fhir/valueset-diagnosis-role.html)) 
+2) ось с "типом элемента диагноза", определённая в расширении "diagnosis-type" ("Клинический диагноз", "Этапный клинический диагноз" и прочие - по справочнику ["Степень обоснованности диагноза"](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795))
+3) ось с "рубрикой элемента диагноза", определённая в расширении "diagnosis-rubric" ("основной"\"осложнение"\"сопутствующее" и другие - по справочнику ["Виды нозологических единиц диагноза"](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077))
 
-При этом, важно соблюдать осмысленные комбинации типов и рубрик диагноза, как определено на [схеме](http://fhir-ru.zendoc.me/diag#:usage:encounter-diagnosis:diagram).
+При этом, важно соблюдать осмысленные комбинации типов и рубрик диагноза, как определено на [схеме](diag#:usage:encounter-diagnosis:diagram).
+
 ```code
 - Если отсутствуют записи из среза "Основной"
     -- то (должны отсутствовать записи из срезов "Сопутствующий" и "Осложенине")
@@ -83,84 +84,23 @@
 ^tabs
 :tabs-example-simple
 ^tab-title
+~:aidbox:title "Aidbox YAML"
+^tab-content
+^yaml
+~:aidbox:content (load "samples/CoreEncounterWithDiagnosisSimpleAidbox.yaml" :yaml)
+
+^tab-title
 ~:json:title "FHIR JSON"
 ^tab-content
-~:json:content md/
-
-
-
-```code json
-{
-        "resourceType": "Encounter",
-        "id": "CoreEncounterWithDiagnosisValidExampleSimple",
-        "status": "planned",
-        "class": {
-          "code": "AMB",
-          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "display": "ambulatory"
-        },
-        "subject": {
-          "reference": "Patient/RuCorePatientInstance",
-          "display": "Иванов Иван Иванович (пациент, соответствующий профилю RuCore - CorePatient)"
-        },
-        "diagnosis": [
-          {
-            "condition": {
-              "reference": "Condition/RuCoreDiagnosisNosologyInstance1",
-              "display": "Нозологическая единица 'S83.0 Вывих надколенника' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
-            },
-            "rank": 1,
-            "extension": [
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "1",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
-                      "display": "Основной"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        ]
-      }
-```
+^yaml
+~:json:content (load "samples/CoreEncounterWithDiagnosisSimpleFHIR.json" :json)
 
 ^tab-title
 ~:yaml:title "FHIR YAML"
 ^tab-content
-~:yaml:content md/
+^yaml
+~:yaml:content (load "samples/CoreEncounterWithDiagnosisSimpleFHIR.yaml" :yaml)
 
-```code yaml
-resourceType: Encounter
-id: CoreEncounterWithDiagnosisValidExampleSimple
-status: planned
-class:
-  code: AMB
-  system: http://terminology.hl7.org/CodeSystem/v3-ActCode
-  display: ambulatory
-subject:
-  reference: Patient/RuCorePatientInstance
-  display: Иванов Иван Иванович (пациент, соответствующий профилю RuCore - CorePatient)
-diagnosis:
-  - condition:
-      reference: Condition/RuCoreDiagnosisNosologyInstance1
-      display:
-        Нозологическая единица 'S83.0 Вывих надколенника' (состояние, соответствующее
-        профилю RuCore - CoreConditionDiagnosisNosology)
-    rank: 1
-    extension:
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-rubric
-        valueCodeableConcept:
-          coding:
-            - code: "1"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind
-              display: Основной
-
-```
 
 ^title "Пример 2"
 :example-complex md/
@@ -171,252 +111,23 @@ diagnosis:
 ^tabs
 :tabs-example-complex
 ^tab-title
+~:aidbox:title "Aidbox YAML"
+^tab-content
+^yaml
+~:aidbox:content  (load "samples/CoreEncounterWithDiagnosisComplexAidbox.yaml" :yaml)
+
+^tab-title
 ~:json:title "FHIR JSON"
 ^tab-content
-~:json:content md/
-
-```code json
-{
-        "resourceType": "Encounter",
-        "id": "CoreEncounterWithDiagnosisValidExampleComplex",
-        "status": "planned",
-        "class": {
-          "code": "IMP",
-          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "display": "inpatient encounter"
-        },
-        "subject": {
-          "reference": "Patient/RuCorePatientInstance",
-          "display": "Иванов Иван Иванович (пациент, соответствующий профилю RuCore - CorePatient)"
-        },
-        "diagnosis": [
-          {
-            "condition": {
-              "reference": "Condition/RuCoreDiagnosisNosologyInstance2",
-              "display": "Нозологическая единица 'I20 Ишемическая болезнь сердца' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
-            },
-            "rank": 1,
-            "extension": [
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "10",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
-                      "display": "Клинический диагноз"
-                    }
-                  ]
-                }
-              },
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "8",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
-                      "display": "Сочетанный"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "condition": {
-              "reference": "Condition/RuCoreDiagnosisNosologyInstance3",
-              "display": "Нозологическая единица 'I49.9 Аритмия' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
-            },
-            "rank": 1,
-            "extension": [
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "10",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
-                      "display": "Клинический диагноз"
-                    }
-                  ]
-                }
-              },
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "8",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
-                      "display": "Сочетанный"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "condition": {
-              "reference": "Condition/RuCoreDiagnosisNosologyInstance4",
-              "display": "Нозологическая единица 'N18 Хроническая болезнь почек' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
-            },
-            "extension": [
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "10",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
-                      "display": "Клинический диагноз"
-                    }
-                  ]
-                }
-              },
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "3",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
-                      "display": "Сопутствующий"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "condition": {
-              "reference": "Condition/RuCoreDiagnosisNosologyInstance5",
-              "display": "Нозологическая единица 'I50 Хроническая сердечная недостаточность' (состояние, соответствующее профилю RuCore - CoreConditionDiagnosisNosology)"
-            },
-            "extension": [
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-type",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "10",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
-                      "display": "Клинический диагноз"
-                    }
-                  ]
-                }
-              },
-              {
-                "url": "http://fhir.ru/core/sd/core-ex-diagnosis-rubric",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "2",
-                      "system": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
-                      "display": "Осложнение основного"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        ]
-      }
-```
+^yaml
+~:json:content (load "samples/CoreEncounterWithDiagnosisComplexFHIR.json" :json)
 
 ^tab-title
 ~:yaml:title "FHIR YAML"
 ^tab-content
-~:yaml:content md/
+^yaml
+~:yaml:content (load "samples/CoreEncounterWithDiagnosisComplexFHIR.yaml" :yaml)
 
-```code yaml
-resourceType: Encounter
-id: CoreEncounterWithDiagnosisValidExampleComplex
-status: planned
-class:
-  code: IMP
-  system: http://terminology.hl7.org/CodeSystem/v3-ActCode
-  display: inpatient encounter
-subject:
-  reference: Patient/RuCorePatientInstance
-  display: Иванов Иван Иванович (пациент, соответствующий профилю RuCore - CorePatient)
-diagnosis:
-  - condition:
-      reference: Condition/RuCoreDiagnosisNosologyInstance2
-      display:
-        Нозологическая единица 'I20 Ишемическая болезнь сердца' (состояние, соответствующее
-        профилю RuCore - CoreConditionDiagnosisNosology)
-    rank: 1
-    extension:
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-type
-        valueCodeableConcept:
-          coding:
-            - code: "10"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree
-              display: Клинический диагноз
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-rubric
-        valueCodeableConcept:
-          coding:
-            - code: "8"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind
-              display: Сочетанный
-  - condition:
-      reference: Condition/RuCoreDiagnosisNosologyInstance3
-      display:
-        Нозологическая единица 'I49.9 Аритмия' (состояние, соответствующее профилю
-        RuCore - CoreConditionDiagnosisNosology)
-    rank: 1
-    extension:
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-type
-        valueCodeableConcept:
-          coding:
-            - code: "10"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree
-              display: Клинический диагноз
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-rubric
-        valueCodeableConcept:
-          coding:
-            - code: "8"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind
-              display: Сочетанный
-  - condition:
-      reference: Condition/RuCoreDiagnosisNosologyInstance4
-      display:
-        Нозологическая единица 'N18 Хроническая болезнь почек' (состояние, соответствующее
-        профилю RuCore - CoreConditionDiagnosisNosology)
-    extension:
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-type
-        valueCodeableConcept:
-          coding:
-            - code: "10"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree
-              display: Клинический диагноз
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-rubric
-        valueCodeableConcept:
-          coding:
-            - code: "3"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind
-              display: Сопутствующий
-  - condition:
-      reference: Condition/RuCoreDiagnosisNosologyInstance5
-      display:
-        Нозологическая единица 'I50 Хроническая сердечная недостаточность' (состояние,
-        соответствующее профилю RuCore - CoreConditionDiagnosisNosology)
-    extension:
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-type
-        valueCodeableConcept:
-          coding:
-            - code: "10"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree
-              display: Клинический диагноз
-      - url: http://fhir.ru/core/sd/core-ex-diagnosis-rubric
-        valueCodeableConcept:
-          coding:
-            - code: "2"
-              system: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind
-              display: Осложнение основного
-
-```
 
 ^title "Полезные ссылки"
 :links md/
