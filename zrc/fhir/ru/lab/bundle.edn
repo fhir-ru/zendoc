@@ -30,7 +30,9 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/bundle-lab"
   :type zen/map
-  :keys {:type {:type zen/string}
+  :keys {:type {:type zen/string
+                :zen/desc "Тип бандла"
+                :const {:value "document"}}
          :entry {:type zen/vector
                  :every {:type zen/map
                          :confirms #{fhir/BackboneElement}}
