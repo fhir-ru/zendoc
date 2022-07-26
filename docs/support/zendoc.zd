@@ -144,6 +144,13 @@ __Результат:__
 
 * `^hiccup`
 
+* `^attribute`
+
+```code
+  ^attribute
+  :part-of core.Organization
+```
+
 ^title "Текст"
 :zentext md/
 
