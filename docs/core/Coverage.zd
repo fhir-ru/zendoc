@@ -19,12 +19,17 @@
 ^badge
 :maturity 0
 
-:title "Coverage"
+:title "Страховое покрытие"
 
 ^title "Оглавление"
 :content-list md/ 
 
 :toc
+
+^hide
+:summary md/
+
+Профиль Coverage описывает страховой полис пациента или другой источник финансирования.
 
 ^title "Coverage"
 :Coverage md/

@@ -34,6 +34,7 @@
 ^yaml
 :example-1 (load "samples/patient.json" :json)
 
+^collapse
 ^yaml
 ^title "Пример из КДЛ"
 :example-2  (load "samples/lab-test-patient.yaml" :yaml)
@@ -67,9 +68,9 @@
 ^title "Документы, удостоверяющие личность"
 :identification-documents md/
 
-При передаче документа, удостоверяющего личность пациента, в атрибуте Identifier.type необходимо указать значение из #valuesets.vs-identification-documents, основанном на справочнике НСИ ЕГИСЗ [Документы, удостоверяющие личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48).
+При передаче документа, удостоверяющего личность пациента, в атрибуте Identifier.type необходимо указать значение из #artifacts.valuesets.vs-identification-documents, основанном на справочнике НСИ ЕГИСЗ [Документы, удостоверяющие личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48).
 Если для данного документа подходит значение типа из базовой спецификации FHIR, необходимо в Identifier.type указать также и это значение первым элементом. Например, для паспорта гражданина РФ указываем типы [PPN, 1], а для свидетельства о рождении тип [6].
-При определении соответствия [кода документа, удостоверяющего личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48) и Identifier Type Code, необходимо использовать маппинг #valuesets.vs-identifier-type
+При определении соответствия [кода документа, удостоверяющего личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48) и Identifier Type Code, необходимо использовать маппинг #artifacts.valuesets.vs-identifier-type
 
 Дискуссия: [[d 111]]
 
@@ -78,7 +79,7 @@
 
 При регистрации полиса ОМС в качестве идентификатора пациента необходимо указать следующее:
 * Identifier.value = номер полиса 
-* Identifier.system = Единый реестр застрахованных лиц #systems.ns-ffoms-erz
+* Identifier.system = Единый реестр застрахованных лиц #artifacts.identifiers.ns-ffoms-erz
 * Identifier.type = NIIP
 
 Дискуссия: [[d 82]]
@@ -139,8 +140,8 @@ name:
 ^title "Пол (gender)"
 :elements.gender md/
 
-* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с #valuesets.vs-administrative-gender . Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со справочником НСИ ЕГИСЗ #systems.cs-rosminzdrav-gender .
-* В Ru Core определены маппинги #systems.cs-rosminzdrav-gender , позволяющие перевести значения пола пациента из кодов FHIR в коды НСИ ЕГИСЗ и наоборот.
+* При передаче ресурса Пациент необходимо указывать значение атрибута Пол в соответствии с #artifacts.valuesets.vs-administrative-gender. Отсутствие значения Other в этом наборе значений связано с необходимостью установления соответствия со справочником НСИ ЕГИСЗ #artifacts.codesystems.cs-rosminzdrav-gender.
+* В Ru Core определены маппинги #artifacts.codesystems.cs-rosminzdrav-gender, позволяющие перевести значения пола пациента из кодов FHIR в коды НСИ ЕГИСЗ и наоборот.
 * В таблице ниже приведены соответствия кодов по указанным справочникам и, дополнительно, по справочнику ФФОМС.
 
 ```table
@@ -155,7 +156,7 @@ name:
 ^title "Адрес (address)"
 :elements.address md/
 
-Должен использоваться профиль #core.address , содержащий расширение для кода адреса для ФИАС и кода дома по ФИАС.
+Должен использоваться профиль #artifacts.datatypes.Address, содержащий расширение для кода адреса для ФИАС и кода дома по ФИАС.
 
 ^title "Использование типа в идентификаторах"
 :elements.identifier.type md/
@@ -177,5 +178,5 @@ name:
 ^table
 ^title "Авторы"
 :authors
-[{:person people.alexandra }
+[{:person people.alexandra}
 {:person people.varvara}]
