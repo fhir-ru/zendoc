@@ -42,13 +42,10 @@ Ru Core:
 * Ведет единый регистр застрахованных
 * Получает от медицинских организаций счета на оплату оказанной медицинской помощи с сопроводительной информацией
 
-
-^table
+^title "Профили"
+^table-of {:namespace "core." :columns [:zd/name :summary]}
 :profiles
-[{:profile core.Organization}
- {:profile core.Department}
- {:profile core.Affiliation}]
  
 :feedback md/
  
-Есть предложения по улучшению этой страницы? Пиши сюда [[d 94]].
+Есть предложения по улучшению этой страницы? Пишите сюда [[d 94]].
