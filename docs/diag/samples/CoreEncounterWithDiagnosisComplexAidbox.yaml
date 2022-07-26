@@ -19,7 +19,7 @@ diagnosis:
       coding:
         - code: "8"
           display: "Сочетанный"
-          system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+          system: "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
     diagnosisType:
       coding:
         - code: "10"
@@ -35,7 +35,7 @@ diagnosis:
       coding:
         - code: "8"
           display: "Сочетанный"
-          system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+          system: "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
     diagnosisType:
       coding:
         - code: "10"
@@ -50,7 +50,7 @@ diagnosis:
       coding:
         - code: "3"
           display: "Сопутствующий"
-          system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+          system: "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
     diagnosisType:
       coding:
         - code: "10"
@@ -65,7 +65,7 @@ diagnosis:
       coding:
         - code: "2"
           display: "Осложнение основного"
-          system: "http://fhir.ru/core/cs/diagnosis-nosology-kinds"
+          system: "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
     diagnosisType:
       coding:
         - code: "10"
