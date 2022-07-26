@@ -53,7 +53,7 @@
                                           :keys {:type {:type zen/map
                                                         :confirms #{SchemaInnType}
                                                         :zen/desc "Тип идентификатора"}
-                                                 :system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}}}}}
+                                                 :system {:const {:value "http://fhir.ru/core/systems/inn"}}}}}}
                         "SNILS"
                         {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта застрахованного лица в системе обязательного пенсионного страхования"
                          :filter
