@@ -25,14 +25,15 @@
                      :type zen/vector
                      :every {:confirms #{fhir/BackboneElement}
                              :type zen/map
-                             :keys {:diagnosisType {:type zen/map
-                                                    :confirms #{CoreDiagnosisType}
-                                                    :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
-                                                    :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"}
-                                    :diagnosisRubric {:type zen/map
-                                                      :confirms #{CoreDiagnosisRubric}
-                                                      :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
-                                                      :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"}}}
+                            ;;  :keys {:diagnosisType {:type zen/map
+                            ;;                         :confirms #{CoreDiagnosisType}
+                            ;;                         :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
+                            ;;                         :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"}
+                            ;;         :diagnosisRubric {:type zen/map
+                            ;;                           :confirms #{CoreDiagnosisRubric}
+                            ;;                           :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
+                            ;;                           :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"}}
+                             }
                      :slicing {:slices {"main" {:zen/desc "Основной"
                                                 :filter {:engine :zen
                                                          :zen {:confirms #{DxSliceMain}}}
@@ -42,17 +43,18 @@
                                                           :require #{:condition :diagnosisType :diagnosisRubric}
                                                           :keys {:condition {:type zen/map
                                                                              :zen/desc "Нозологическая единица"
-                                                                             :confirms #{fhir.ru.diag.nosology/DiagnosisNosology}}
+                                                                             :confirms #{fhir/Reference zen.fhir/Reference}
+                                                                             :zen.fhir/reference {:refers #{fhir.ru.diag.nosology/DiagnosisNosology}}}
                                                                  :diagnosisType {:type zen/map
                                                                                  :confirms #{CoreDiagnosisType}
-                                                                                 :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
+                                                                                 :zen/desc "Расширение: Тип диагноза"
                                                                                  :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
                                                                                  :zen.fhir/value-set {:symbol CoreVsDiagnosisType
                                                                                                       :strength :required
                                                                                                       :zen/desc "Справочник Степень обоснованности диагноза"}}
                                                                  :diagnosisRubric {:type zen/map
                                                                                    :confirms #{CoreDiagnosisRubric}
-                                                                                   :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-main"
+                                                                                   :zen/desc "Расширение: Рубрика диагноза"
                                                                                    :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
                                                                                    :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricMain
                                                                                                         :strength :required
@@ -70,14 +72,14 @@
                                                                                    :confirms #{fhir.ru.diag.nosology/DiagnosisNosology}}
                                                                        :diagnosisType {:type zen/map
                                                                                        :confirms #{CoreDiagnosisType}
-                                                                                       :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
+                                                                                       :zen/desc "Расширение: Тип диагноза"
                                                                                        :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
                                                                                        :zen.fhir/value-set {:symbol CoreVsDiagnosisType
                                                                                                             :strength :required
                                                                                                             :zen/desc "Справочник Степень обоснованности диагноза"}}
                                                                        :diagnosisRubric {:type zen/map
                                                                                          :confirms #{CoreDiagnosisRubric}
-                                                                                         :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-supl"
+                                                                                         :zen/desc "Расширение: Рубрика диагноза"
                                                                                          :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
                                                                                          :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricSupl
                                                                                                               :strength :required
@@ -94,14 +96,14 @@
                                                                                      :confirms #{fhir.ru.diag.nosology/DiagnosisNosology}}
                                                                          :diagnosisType {:type zen/map
                                                                                          :confirms #{CoreDiagnosisType}
-                                                                                         :zen/desc "Расширение: Тип диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-type"
+                                                                                         :zen/desc "Расширение: Тип диагноза"
                                                                                          :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
                                                                                          :zen.fhir/value-set {:symbol CoreVsDiagnosisType
                                                                                                               :strength :required
                                                                                                               :zen/desc "Справочник Степень обоснованности диагноза"}}
                                                                          :diagnosisRubric {:type zen/map
                                                                                            :confirms #{CoreDiagnosisRubric}
-                                                                                           :zen/desc "Расширение: Рубрика диагноза, vs:http://fhir.ru/core/vs/core-vs-diagnosis-rubric-compl"
+                                                                                           :zen/desc "Расширение: Рубрика диагноза"
                                                                                            :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
                                                                                            :zen.fhir/value-set {:symbol CoreVsDiagnosisRubricCompl
                                                                                                                 :strength :required

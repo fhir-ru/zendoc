@@ -37,7 +37,7 @@
                  :slicing
                  {:slices
                   {"Composition"
-                   {:zen/desc "Composition"
+                   {:zen/desc "[Composition](lab.Composition)"
                     :filter
                     {:engine :match
                      :match {:resource {:resourceType "Composition"}}}

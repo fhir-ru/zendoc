@@ -76,7 +76,7 @@
 
   CorePractitionerRole
   {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
-   :zendoc "core.Practitioner"
+   :zendoc "core.PractitionerRole"
 
    :zen/desc "Роль врача/сотрудника"
    :zen.fhir/version "0.5.8"
