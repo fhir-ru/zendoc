@@ -28,10 +28,10 @@
 
 :summary "ServiceRequest для передачи лабораторных исследований КДЛ"
 
-^title "Определение"
+^title "ServiceRequest"
 :section md/
 
-TODO
+Профиль ServiceRequest описывает запросы услуг.
 
 ^title "Профиль"
 ^zen/schema

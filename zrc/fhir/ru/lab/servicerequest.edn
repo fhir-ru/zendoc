@@ -1,11 +1,15 @@
 {ns fhir.ru.lab.servicerequest
- import #{fhir zen.fhir}
+ import #{fhir zen.fhir
+            fhir.ru.core.patient
+            fhir.ru.lab.device
+            fhir/Location
+            fhir/Group}
 
  LabServiceRequest
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
   :zendoc "lab.ServiceRequest"
   :confirms #{fhir/ServiceRequest}
-  :zen/desc "ServiceRequest"
+  :zen/desc "Запрос услуги"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "ServiceRequest"
   :zen.fhir/id "servicerequest-lab"
@@ -15,4 +19,53 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/servicerequest-lab"
   :type zen/map
-  :keys {}}}
+  :keys  { 
+
+      :status
+            {:confirms #{fhir/code},
+            :zen.fhir/value-set
+            {:symbol hl7-fhir-r4-core.value-set.request-status/value-set,
+            :strength :required},
+            :zen/desc
+            "Черновик | Активен | В ожидании | Аннулирован | Завершён | Недействителен | Неизвестен"},
+      :intent
+            {:confirms #{fhir/code},
+            :zen.fhir/value-set
+            {:symbol hl7-fhir-r4-core.value-set.request-intent/value-set,
+            :strength :required},
+            :zen/desc
+            "Предложение | План | Юридический запрос | Заказ | Первичный заказ | Ответный заказ | Заказ исполнения | Подзаказ исполнения | Опция"},
+
+      :subject
+            {:confirms #{fhir/Reference zen.fhir/Reference},
+            :zen.fhir/reference {:refers
+            #{fhir.ru.core.patient/CorePatient
+            fhir.ru.lab.device/LabDevice
+            fhir/Location
+            fhir/Group}},
+            :zen/desc "Физическое или юридическое лицо, для которого заказана услуга"},   
+
+      :code 
+            {:type zen/map
+            :confirms #{fhir/CodeableConcept},
+            :zen/desc "Что запрашивается/заказывается"
+            :keys {
+                  :coding  
+                        {:type zen/vector,
+                        :minItems 1,
+                        :every
+                        {:type zen/map
+                        :confirms #{fhir/Coding}
+                        :keys { 
+                              :code  
+                                    {:type zen/map
+                                    :confirms #{fhir/code}},
+                              :display
+                                    {:type zen/string  
+                                    :confirms #{fhir/string}},
+                              :system
+                                    {:type zen/string  
+                                    :confirms #{fhir/string}}}}}}}
+      
+  }}}
+
