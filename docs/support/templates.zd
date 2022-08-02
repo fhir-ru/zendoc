@@ -25,6 +25,29 @@
 ^edn
 :extension (load "../../zrc/fhir/ru/support/extension-template.edn" :edn)
 
+^title "Указание расширения в профиле"
+:resource-with-extension md/
+
+Элементы:
+* `:confirms` - обязательный. Символ - имя схемы определения расширения.
+* `:fhir/extensionUri` - обязательный. URL расширения.
+* `:zen.fhir/value-set` - необязательный. Можно указать привязку к справочнику.
+* `:type zen/map` - указываем всегда.
+* `:zen/desc` - описание элемента для вывода на схеме.
+
+^title "Пример"
+:resource-with-extension:example md/
+
+```code edn
+  :diagnosisType {:type zen/map
+                  :confirms #{CoreDiagnosisType}
+                  :zen/desc "Расширение: Тип диагноза"
+                  :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
+                  :zen.fhir/value-set {:symbol CoreVsDiagnosisType
+                                      :strength :required
+                                      :zen/desc "Справочник Степень обоснованности диагноза"}}
+```
+
 ^title "Набор значений"
 ^edn
 :valueset (load "../../zrc/fhir/ru/support/valueset-template.edn" :edn)

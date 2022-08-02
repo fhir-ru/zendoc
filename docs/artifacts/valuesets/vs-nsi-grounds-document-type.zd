@@ -10,7 +10,7 @@
 ^badge
 :status :draft
 
-:title "ValueSet Core-vs-nsi-grounds-document-type"
+:title "Core ValueSet Типы документов оснований"
 
 :summary md/
 

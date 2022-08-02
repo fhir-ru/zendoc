@@ -10,7 +10,7 @@
 ^badge
 :status :draft
 
-:title "ValueSet Core-vs-nsi-mandatory-medical-insurance-policy-type"
+:title "Core ValueSet Виды полиса обязательного медицинского страхования"
 
 :summary md/
 
@@ -24,5 +24,5 @@
 ^title "Содержимое набора значений"
 ^table
 :valueset-content
-[{:code "1" :display "Полис ОМС старого образца"},{:code "2" :display "Полис ОМС единого образца, бессрочный"},{:code "3" :display "Полис ОМС единого образца, со сроком действия"},{:code "4" :display "Временное свидетельство"}]
+[{:code "1" :display "Полис ОМС старого образца" :system "urn:oid:1.2.643.5.1.13.13.11.1035"},{:code "2" :display "Полис ОМС единого образца, бессрочный" :system "urn:oid:1.2.643.5.1.13.13.11.1035"},{:code "3" :display "Полис ОМС единого образца, со сроком действия" :system "urn:oid:1.2.643.5.1.13.13.11.1035"},{:code "4" :display "Временное свидетельство" :system "urn:oid:1.2.643.5.1.13.13.11.1035"}]
 
