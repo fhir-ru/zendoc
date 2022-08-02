@@ -56,15 +56,17 @@ resourceType: "Coverage"
 id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
 identifier:
   - value: "9876543211234567"
+    system: "http://fhir.ru/core/systems/oms"
     type:
       coding:
         - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
           code: "NIIP"
-        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
           code: "1"
-          code: "1"
-        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
-          code: "NIIP"
+          display: "Полис ОМС"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "2"
+          display: "Полис ОМС единого образца, бессрочный"
     period:
       start: "2017-10-25"
 status: "active"
@@ -80,13 +82,4 @@ type:
       display: "Средства обязательного медицинского страхования"
     - system: "http://hl7.org/fhir/ValueSet/coverage-type"
       code: "MANDPOL"
-class:
-  - type:
-      text: "Тип документа"
-    value: "1"
-    name: "Полис ОМС"
-  - type:
-      text: "Тип полиса ОМС"
-    value: "2"
-    name: "Полис ОМС единого образца, бессрочный"
 ```
