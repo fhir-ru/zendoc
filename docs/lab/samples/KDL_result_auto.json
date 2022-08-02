@@ -11,7 +11,7 @@
 	},
 	"entry": [
 		{
-			"fullUrl": "urn:uuid:841EE3E8-C978-3E91-BC85-38E197586A82",
+			"fullUrl": "urn:uuid:FD437A4E-3A1D-1772-851E-F909B692A39D",
 			"resource": {
 				"resourceType": "Composition",
 				"type": {
@@ -36,7 +36,7 @@
 						"code": "recordTarget",
 						"entry": [
 							{
-								"reference": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+								"reference": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9"
 							}
 						]
 					},
@@ -45,7 +45,7 @@
 						"code": "author",
 						"entry": [
 							{
-								"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+								"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 							}
 						]
 					},
@@ -54,7 +54,7 @@
 						"code": "custodian",
 						"entry": [
 							{
-								"reference": "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"
+								"reference": "urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123"
 							}
 						]
 					},
@@ -63,7 +63,7 @@
 						"code": "informationRecipient",
 						"entry": [
 							{
-								"reference": "urn:uuid:9B969178-4E65-F8BC-A8CA-E7FACB036CCA"
+								"reference": "urn:uuid:BA6657AD-7046-6F6D-87C5-1E4E6B6B5B04"
 							}
 						]
 					},
@@ -72,7 +72,7 @@
 						"code": "legalAuthenticator",
 						"entry": [
 							{
-								"reference": "urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728"
+								"reference": "urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660"
 							}
 						]
 					},
@@ -81,7 +81,7 @@
 						"code": "participantInd",
 						"entry": [
 							{
-								"reference": "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+								"reference": "urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580"
 							}
 						]
 					},
@@ -90,7 +90,7 @@
 						"code": "participantRef",
 						"entry": [
 							{
-								"reference": "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+								"reference": "urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD"
 							}
 						]
 					},
@@ -99,7 +99,7 @@
 						"code": "order",
 						"entry": [
 							{
-								"reference": "urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A"
+								"reference": "urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437"
 							}
 						]
 					},
@@ -108,7 +108,7 @@
 						"code": "structuredBody",
 						"entry": [
 							{
-								"reference": "urn:uuid:B7A7BEAA-5406-2657-8C32-C50BE18D5878"
+								"reference": "urn:uuid:76F55F44-4A8E-7953-8C77-51E9475DBD32"
 							}
 						]
 					}
@@ -116,7 +116,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A",
+			"fullUrl": "urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123",
 			"resource": {
 				"resourceType": "Organization",
 				"identifier": [
@@ -180,28 +180,34 @@
 				"address": {
 					"text": "Московская область, город Москва, улица Ладожская, дом 4/6",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "105005",
 					"extension": [
 						{
-							"fias": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
 						},
 						{
-							"fias_house": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
 						}
 					]
 				},
@@ -209,10 +215,12 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74997645002"
+								"value": "+74997645002",
+								"system": "phone"
 							},
 							{
-								"value": "mailto: gp129@zdrav.mos.ru"
+								"value": "gp129@zdrav.mos.ru",
+								"system": "email"
 							}
 						]
 					}
@@ -220,7 +228,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:9B969178-4E65-F8BC-A8CA-E7FACB036CCA",
+			"fullUrl": "urn:uuid:BA6657AD-7046-6F6D-87C5-1E4E6B6B5B04",
 			"resource": {
 				"resourceType": "Organization",
 				"identifier": [
@@ -240,12 +248,11 @@
 						}
 					}
 				],
-				"name": "Министерство здравоохранения Российской Федерации",
-				"contact": null
+				"name": "Министерство здравоохранения Российской Федерации"
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:8BC1E147-7ABE-D23E-9E69-E2639F5425BF",
+			"fullUrl": "urn:uuid:33EE1403-66B5-064F-B864-18DFAB8675EA",
 			"resource": {
 				"resourceType": "Organization",
 				"identifier": [
@@ -284,28 +291,34 @@
 				"address": {
 					"text": "г Москва, ул Рочдельская, д 15 стр 35",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "123376",
 					"extension": [
 						{
-							"fias": "6bfbfcbb-87a7-4674-a8e5-bf5f1bbfbf92"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "6bfbfcbb-87a7-4674-a8e5-bf5f1bbfbf92"
 						},
 						{
-							"fias_house": "0b33a0e1-3427-409a-a3b7-e57716819f38"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "0b33a0e1-3427-409a-a3b7-e57716819f38"
 						}
 					]
 				},
@@ -313,7 +326,8 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74952323491"
+								"value": "+74952323491",
+								"system": "phone"
 							}
 						]
 					}
@@ -321,7 +335,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09",
+			"fullUrl": "urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A",
 			"resource": {
 				"resourceType": "Organization",
 				"identifier": [
@@ -345,28 +359,34 @@
 				"address": {
 					"text": "Московская область, Россия, город Москва, улица Миклухо-Маклая, дом 10",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "117198",
 					"extension": [
 						{
-							"fias": "1dec06af-f015-425b-be4b-253fab5d7ccb"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "1dec06af-f015-425b-be4b-253fab5d7ccb"
 						},
 						{
-							"fias_house": "b1adc7d0-8160-47d0-9903-d794b72078f6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "b1adc7d0-8160-47d0-9903-d794b72078f6"
 						}
 					]
 				},
@@ -374,10 +394,12 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74954342491"
+								"value": "+74954342491",
+								"system": "phone"
 							},
 							{
-								"value": "tel:+74954342570"
+								"value": "+74954342570",
+								"system": "phone"
 							}
 						]
 					}
@@ -385,7 +407,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A",
+			"fullUrl": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9",
 			"resource": {
 				"resourceType": "Patient",
 				"identifier": [
@@ -495,28 +517,34 @@
 						"use": "home",
 						"text": "Московская область, город Москва, улица Твардовского, дом 5, корпус 1, квартира 42",
 						"state": "77",
+						"_state": {
+							"extension": [
+								{
+									"url": "http://fhir.ru/core/sd/core-ex-state",
+									"valueCodeableConcept": [
+										{
+											"coding": [
+												{
+													"system": "1.2.643.5.1.13.13.99.2.206",
+													"code": "77",
+													"version": "6.3",
+													"display": "г. Москва"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
 						"postalCode": "123458",
 						"extension": [
 							{
-								"fias": "45d96a50-7870-4183-872b-451c6573a7c9"
+								"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+								"valueString": "45d96a50-7870-4183-872b-451c6573a7c9"
 							},
 							{
-								"fias_house": "f8a876ac-4ea1-4a3e-b255-dd0d0f510802"
-							},
-							{
-								"url": "http://fhir.ru/core/sd/core-ex-state",
-								"valueCodeableConcept": [
-									{
-										"coding": [
-											{
-												"system": "1.2.643.5.1.13.13.99.2.206",
-												"code": "77",
-												"version": "6.3",
-												"display": "г. Москва"
-											}
-										]
-									}
-								]
+								"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+								"valueString": "f8a876ac-4ea1-4a3e-b255-dd0d0f510802"
 							}
 						]
 					},
@@ -524,28 +552,34 @@
 						"use": "billing",
 						"text": "Московская область, город Москва, улица Твардовского, дом 5, корпус 1, квартира 42",
 						"state": "77",
+						"_state": {
+							"extension": [
+								{
+									"url": "http://fhir.ru/core/sd/core-ex-state",
+									"valueCodeableConcept": [
+										{
+											"coding": [
+												{
+													"system": "1.2.643.5.1.13.13.99.2.206",
+													"code": "77",
+													"version": "6.3",
+													"display": "г. Москва"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
 						"postalCode": "123458",
 						"extension": [
 							{
-								"fias": "45d96a50-7870-4183-872b-451c6573a7c9"
+								"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+								"valueString": "45d96a50-7870-4183-872b-451c6573a7c9"
 							},
 							{
-								"fias_house": "f8a876ac-4ea1-4a3e-b255-dd0d0f510802"
-							},
-							{
-								"url": "http://fhir.ru/core/sd/core-ex-state",
-								"valueCodeableConcept": [
-									{
-										"coding": [
-											{
-												"system": "1.2.643.5.1.13.13.99.2.206",
-												"code": "77",
-												"version": "6.3",
-												"display": "г. Москва"
-											}
-										]
-									}
-								]
+								"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+								"valueString": "f8a876ac-4ea1-4a3e-b255-dd0d0f510802"
 							}
 						]
 					}
@@ -554,14 +588,17 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74951953745"
+								"value": "+74951953745",
+								"system": "phone"
 							},
 							{
-								"value": "tel:+79034752364",
-								"use": "mobile"
+								"value": "+79034752364",
+								"use": "mobile",
+								"system": "phone"
 							},
 							{
-								"value": "mailto: novosel.m.v@mail.ru"
+								"value": "novosel.m.v@mail.ru",
+								"system": "email"
 							}
 						]
 					}
@@ -586,7 +623,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859",
+			"fullUrl": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663",
 			"resource": {
 				"resourceType": "Practitioner",
 				"identifier": [
@@ -632,28 +669,34 @@
 				"address": {
 					"text": "Московская область, город Москва, улица Ладожская, дом 4/6",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "105005",
 					"extension": [
 						{
-							"fias": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
 						},
 						{
-							"fias_house": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
 						}
 					]
 				},
@@ -661,13 +704,16 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74957443256"
+								"value": "+74957443256",
+								"system": "phone"
 							},
 							{
-								"value": "tel:+79267352628"
+								"value": "+79267352628",
+								"system": "phone"
 							},
 							{
-								"value": "mailto:smirnovа.a.i@rambler.ru"
+								"value": "smirnovа.a.i@rambler.ru",
+								"system": "email"
 							}
 						]
 					}
@@ -675,7 +721,7 @@
 			}
 		},
 		{
-			"fullUrl": "413E3A42-755B-4836-BDCD-EEA6FE2ED0C5",
+			"fullUrl": "29A52E61-5E4D-B6F8-AACE-5ECBD909F217",
 			"resource": {
 				"resourceType": "PractitionerRole",
 				"code": [
@@ -691,15 +737,15 @@
 					}
 				],
 				"practitioner": {
-					"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+					"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 				},
 				"organization": {
-					"reference": "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"
+					"reference": "urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728",
+			"fullUrl": "urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660",
 			"resource": {
 				"resourceType": "Practitioner",
 				"identifier": [
@@ -745,28 +791,34 @@
 				"address": {
 					"text": "Московская область, город Москва, улица Ладожская, дом 4/6",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "105005",
 					"extension": [
 						{
-							"fias": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
 						},
 						{
-							"fias_house": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
 						}
 					]
 				},
@@ -774,13 +826,16 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+74957443256"
+								"value": "+74957443256",
+								"system": "phone"
 							},
 							{
-								"value": "tel:+79267352628"
+								"value": "+79267352628",
+								"system": "phone"
 							},
 							{
-								"value": "mailto:ivanov.a.i@rambler.ru"
+								"value": "ivanov.a.i@rambler.ru",
+								"system": "email"
 							}
 						]
 					}
@@ -788,7 +843,7 @@
 			}
 		},
 		{
-			"fullUrl": "899EAF72-454C-CAB0-96D0-8D8C561F22E7",
+			"fullUrl": "B92A30B4-197A-9D20-8ADA-A321CD2AB223",
 			"resource": {
 				"resourceType": "PractitionerRole",
 				"code": [
@@ -804,15 +859,15 @@
 					}
 				],
 				"practitioner": {
-					"reference": "urn:uuid:A80EAE15-D252-1F58-9313-9E32EA3AD728"
+					"reference": "urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660"
 				},
 				"organization": {
-					"reference": "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"
+					"reference": "urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F",
+			"fullUrl": "urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD",
 			"resource": {
 				"resourceType": "Practitioner",
 				"identifier": [
@@ -858,28 +913,34 @@
 				"address": {
 					"text": "Московская область, Россия, город Москва, улица Миклухо-Маклая, дом 10",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "117198",
 					"extension": [
 						{
-							"fias": "1dec06af-f015-425b-be4b-253fab5d7ccb"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "1dec06af-f015-425b-be4b-253fab5d7ccb"
 						},
 						{
-							"fias_house": "b1adc7d0-8160-47d0-9903-d794b72078f6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "b1adc7d0-8160-47d0-9903-d794b72078f6"
 						}
 					]
 				},
@@ -887,7 +948,8 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+79065184597"
+								"value": "+79065184597",
+								"system": "phone"
 							}
 						]
 					}
@@ -895,7 +957,7 @@
 			}
 		},
 		{
-			"fullUrl": "1C37AEEC-8465-36AB-977C-9A205420A877",
+			"fullUrl": "D5920C2A-86A7-BF62-A439-C61DA8243775",
 			"resource": {
 				"resourceType": "PractitionerRole",
 				"code": [
@@ -911,15 +973,15 @@
 					}
 				],
 				"practitioner": {
-					"reference": "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+					"reference": "urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD"
 				},
 				"organization": {
-					"reference": "urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09"
+					"reference": "urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859",
+			"fullUrl": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663",
 			"resource": {
 				"resourceType": "Practitioner",
 				"identifier": [
@@ -965,36 +1027,41 @@
 				"address": {
 					"text": "Московская область, город Москва, улица Ладожская, дом 4/6",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "105005",
 					"extension": [
 						{
-							"fias": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
 						},
 						{
-							"fias_house": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "6a5dfa69-aeb3-4422-82a8-3a577f5e36a6"
 						}
 					]
-				},
-				"contact": null
+				}
 			}
 		},
 		{
-			"fullUrl": "26AA1DB8-9F76-6122-BD42-18AA54D178AD",
+			"fullUrl": "D8CB9AAB-2FA5-E117-A59A-9BB9D7B62637",
 			"resource": {
 				"resourceType": "PractitionerRole",
 				"code": [
@@ -1010,15 +1077,15 @@
 					}
 				],
 				"practitioner": {
-					"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+					"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 				},
 				"organization": {
-					"reference": "urn:uuid:AE7840CC-75BC-3196-97B3-85C28FE9C66A"
+					"reference": "urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7",
+			"fullUrl": "urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5",
 			"resource": {
 				"resourceType": "Practitioner",
 				"identifier": [
@@ -1064,28 +1131,34 @@
 				"address": {
 					"text": "Московская область, г. Москва, ул. Ладожская, д. 9",
 					"state": "77",
+					"_state": {
+						"extension": [
+							{
+								"url": "http://fhir.ru/core/sd/core-ex-state",
+								"valueCodeableConcept": [
+									{
+										"coding": [
+											{
+												"system": "1.2.643.5.1.13.13.99.2.206",
+												"code": "77",
+												"version": "6.3",
+												"display": "г. Москва"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"postalCode": "105005",
 					"extension": [
 						{
-							"fias": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias",
+							"valueString": "212d3123-9c4d-4579-b31a-b5c6e9632b04"
 						},
 						{
-							"fias_house": "5cc60bad-5dfd-4266-abc3-84aed9ededce"
-						},
-						{
-							"url": "http://fhir.ru/core/sd/core-ex-state",
-							"valueCodeableConcept": [
-								{
-									"coding": [
-										{
-											"system": "1.2.643.5.1.13.13.99.2.206",
-											"code": "77",
-											"version": "6.3",
-											"display": "г. Москва"
-										}
-									]
-								}
-							]
+							"url": "http://fhir.ru/core/sd/core-ex-address-fias-house",
+							"valueString": "5cc60bad-5dfd-4266-abc3-84aed9ededce"
 						}
 					]
 				},
@@ -1093,7 +1166,8 @@
 					{
 						"telecom": [
 							{
-								"value": "tel:+79065184597"
+								"value": "+79065184597",
+								"system": "phone"
 							}
 						]
 					}
@@ -1101,7 +1175,7 @@
 			}
 		},
 		{
-			"fullUrl": "35B7C11F-D42E-4D4B-96E3-CD54B4126493",
+			"fullUrl": "4259DD81-43F4-2639-B9BF-F86DC7728382",
 			"resource": {
 				"resourceType": "PractitionerRole",
 				"code": [
@@ -1117,15 +1191,15 @@
 					}
 				],
 				"practitioner": {
-					"reference": "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7"
+					"reference": "urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5"
 				},
 				"organization": {
-					"reference": "urn:uuid:C7576C13-A911-BBD6-82A4-D775D1AC1D09"
+					"reference": "urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97",
+			"fullUrl": "urn:uuid:8E692BBD-CA47-912E-9D93-D3517596EB15",
 			"resource": {
 				"resourceType": "Encounter",
 				"identifier": [
@@ -1180,10 +1254,10 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7",
+			"fullUrl": "urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580",
 			"resource": {
 				"resourceType": "Coverage",
-				"id": "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7",
+				"id": "694E64EB-E75C-11B3-9C35-47EAC75D9580",
 				"identifier": [
 					{
 						"value": "9876543211234567",
@@ -1202,7 +1276,7 @@
 				],
 				"status": "active",
 				"beneficiary": {
-					"reference": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+					"reference": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9"
 				},
 				"payor": [
 					{
@@ -1262,10 +1336,10 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A",
+			"fullUrl": "urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437",
 			"resource": {
 				"resourceType": "Task",
-				"id": "EB3C807C-6E85-DAEB-904D-CF95FAAE375A",
+				"id": "D782391F-EDDE-6D67-BC96-2A20595A8437",
 				"status": "completed",
 				"intent": "order",
 				"identifier": [
@@ -1284,35 +1358,35 @@
 					]
 				},
 				"requester": {
-					"reference": "urn:uuid:A24A244B-DA94-CC0D-915D-C79E4771548F"
+					"reference": "urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD"
 				},
 				"encounter": {
-					"reference": "urn:uuid:46988ECB-16ED-CB39-A498-D54F32B49C97"
+					"reference": "urn:uuid:8E692BBD-CA47-912E-9D93-D3517596EB15"
 				},
 				"insurance": {
-					"reference": "urn:uuid:EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+					"reference": "urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580"
 				},
 				"basedOn": [
 					{
-						"reference": "urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7"
+						"reference": "urn:uuid:67BA80AD-57E8-7384-AB18-784A5AC542C5"
 					},
 					{
-						"reference": "urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A"
+						"reference": "urn:uuid:946D5315-E0E3-3939-A42A-220337AB75BF"
 					},
 					{
-						"reference": "urn:uuid:8F5A5F52-0542-85A3-B63C-8B3EB6B51329"
+						"reference": "urn:uuid:73C3293C-72BC-53AA-BC3D-C21143197490"
 					}
 				]
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:B7A7BEAA-5406-2657-8C32-C50BE18D5878",
+			"fullUrl": "urn:uuid:76F55F44-4A8E-7953-8C77-51E9475DBD32",
 			"resource": {
 				"resourceType": "Task",
-				"id": "B7A7BEAA-5406-2657-8C32-C50BE18D5878",
+				"id": "76F55F44-4A8E-7953-8C77-51E9475DBD32",
 				"basedOn": [
 					{
-						"reference": "urn:uuid:EB3C807C-6E85-DAEB-904D-CF95FAAE375A"
+						"reference": "urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437"
 					}
 				],
 				"status": "completed",
@@ -1334,7 +1408,7 @@
 				"output": [
 					{
 						"valueReference": {
-							"reference": "urn:uuid:360B8131-EE30-9098-8418-6E3CBF3B462E"
+							"reference": "urn:uuid:7189E74F-57E7-C24C-8314-6B9DC9BF459E"
 						},
 						"type": {
 							"coding": [
@@ -1346,7 +1420,7 @@
 					},
 					{
 						"valueReference": {
-							"reference": "urn:uuid:DC19D6DC-ED4A-8C75-A887-6B9AF5DD8995"
+							"reference": "urn:uuid:15ABCA1A-EFA8-B497-A554-7D51AAC717C8"
 						},
 						"type": {
 							"coding": [
@@ -1358,7 +1432,7 @@
 					},
 					{
 						"valueReference": {
-							"reference": "urn:uuid:CEE4435B-FCE0-FBCD-9341-552EAEF8BBDA"
+							"reference": "urn:uuid:3BAF60CC-8441-AC1B-B7CA-32C98B7555BB"
 						},
 						"type": {
 							"coding": [
@@ -1372,14 +1446,14 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7",
+			"fullUrl": "urn:uuid:67BA80AD-57E8-7384-AB18-784A5AC542C5",
 			"resource": {
 				"resourceType": "ServiceRequest",
-				"id": "31F2EC8D-C088-8C3C-A28E-A9FC1265F8C7",
+				"id": "67BA80AD-57E8-7384-AB18-784A5AC542C5",
 				"status": "completed",
 				"intent": "original-order",
 				"subject": {
-					"reference": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+					"reference": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9"
 				},
 				"code": {
 					"coding": [
@@ -1393,14 +1467,14 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:A732C573-1FE9-81D7-9449-40D7F5AE406A",
+			"fullUrl": "urn:uuid:946D5315-E0E3-3939-A42A-220337AB75BF",
 			"resource": {
 				"resourceType": "ServiceRequest",
-				"id": "A732C573-1FE9-81D7-9449-40D7F5AE406A",
+				"id": "946D5315-E0E3-3939-A42A-220337AB75BF",
 				"status": "completed",
 				"intent": "original-order",
 				"subject": {
-					"reference": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+					"reference": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9"
 				},
 				"code": {
 					"coding": [
@@ -1414,14 +1488,14 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:8F5A5F52-0542-85A3-B63C-8B3EB6B51329",
+			"fullUrl": "urn:uuid:73C3293C-72BC-53AA-BC3D-C21143197490",
 			"resource": {
 				"resourceType": "ServiceRequest",
-				"id": "8F5A5F52-0542-85A3-B63C-8B3EB6B51329",
+				"id": "73C3293C-72BC-53AA-BC3D-C21143197490",
 				"status": "completed",
 				"intent": "original-order",
 				"subject": {
-					"reference": "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+					"reference": "urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9"
 				},
 				"code": {
 					"coding": [
@@ -1435,7 +1509,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:360B8131-EE30-9098-8418-6E3CBF3B462E",
+			"fullUrl": "urn:uuid:7189E74F-57E7-C24C-8314-6B9DC9BF459E",
 			"resource": {
 				"resourceType": "DiagnosticReport",
 				"id": "DR_Клинический анализ крови на анализаторе",
@@ -1463,16 +1537,16 @@
 				},
 				"result": [
 					{
-						"reference": "urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2"
+						"reference": "urn:uuid:EB528145-ED31-6CEA-944B-B2B2475DAAD5"
 					},
 					{
-						"reference": "urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB"
+						"reference": "urn:uuid:5DCCDB86-A23C-161B-9B76-CC961875A98A"
 					}
 				]
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:08E64C5A-5876-74FF-9B7D-A00850C2CCA2",
+			"fullUrl": "urn:uuid:EB528145-ED31-6CEA-944B-B2B2475DAAD5",
 			"resource": {
 				"resourceType": "Observation",
 				"status": "final",
@@ -1496,11 +1570,11 @@
 					]
 				},
 				"specimen": {
-					"reference": "urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5"
+					"reference": "urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511"
 				},
 				"performer": [
 					{
-						"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+						"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 					},
 					{
 						"reference": ""
@@ -1538,12 +1612,12 @@
 					}
 				],
 				"device": {
-					"reference": "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5"
+					"reference": "urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:71BA67D6-7E84-27D1-A91D-63B9E3279CBB",
+			"fullUrl": "urn:uuid:5DCCDB86-A23C-161B-9B76-CC961875A98A",
 			"resource": {
 				"resourceType": "Observation",
 				"status": "final",
@@ -1567,11 +1641,11 @@
 					]
 				},
 				"specimen": {
-					"reference": "urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5"
+					"reference": "urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511"
 				},
 				"performer": [
 					{
-						"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+						"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 					},
 					{
 						"reference": ""
@@ -1595,18 +1669,18 @@
 					{
 						"text": "Количество шизоцитов: 8,35% от общего количества эритроцитов",
 						"authorReference": {
-							"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+							"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 						},
 						"time": "2018-12-20T16:13:00+3:00"
 					}
 				],
 				"device": {
-					"reference": "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5"
+					"reference": "urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43"
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:DC19D6DC-ED4A-8C75-A887-6B9AF5DD8995",
+			"fullUrl": "urn:uuid:15ABCA1A-EFA8-B497-A554-7D51AAC717C8",
 			"resource": {
 				"resourceType": "DiagnosticReport",
 				"id": "DR_Микроскопия окрашенных мазков",
@@ -1634,21 +1708,21 @@
 				},
 				"media": [
 					{
-						"reference": "urn:uuid:56D768A5-9C64-CCE9-9EB8-275CC31A3C50"
+						"reference": "urn:uuid:34DEB154-01BA-E2EA-A499-17C9DCA91298"
 					}
 				],
 				"result": [
 					{
-						"reference": "urn:uuid:B9939D96-E239-79D5-B69B-8EA3D3A57865"
+						"reference": "urn:uuid:8D8D622B-2416-59D9-BF87-993D6802C7C7"
 					},
 					{
-						"reference": "urn:uuid:6407722B-1802-E359-AEBC-D13B083E6C46"
+						"reference": "urn:uuid:140468C1-AA47-CDD7-95CD-3653A0B8DEAE"
 					}
 				]
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:B9939D96-E239-79D5-B69B-8EA3D3A57865",
+			"fullUrl": "urn:uuid:8D8D622B-2416-59D9-BF87-993D6802C7C7",
 			"resource": {
 				"resourceType": "Observation",
 				"status": "final",
@@ -1672,11 +1746,11 @@
 					]
 				},
 				"specimen": {
-					"reference": "urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2"
+					"reference": "urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA"
 				},
 				"performer": [
 					{
-						"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+						"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 					}
 				],
 				"valueString": "10-25-30 в поле зрения",
@@ -1708,7 +1782,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:6407722B-1802-E359-AEBC-D13B083E6C46",
+			"fullUrl": "urn:uuid:140468C1-AA47-CDD7-95CD-3653A0B8DEAE",
 			"resource": {
 				"resourceType": "Observation",
 				"status": "final",
@@ -1723,19 +1797,27 @@
 					]
 				},
 				"effectiveDateTime": "2018-12-20T10:42:00+3:00",
+				"interpretation": {
+					"extension": [
+						{
+							"url": "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor",
+							"valueString": "NI"
+						}
+					]
+				},
 				"specimen": {
-					"reference": "urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2"
+					"reference": "urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA"
 				},
 				"performer": [
 					{
-						"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+						"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 					}
 				],
 				"valueString": "умеренная"
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:56D768A5-9C64-CCE9-9EB8-275CC31A3C50",
+			"fullUrl": "urn:uuid:34DEB154-01BA-E2EA-A499-17C9DCA91298",
 			"resource": {
 				"resourceType": "Media",
 				"content": {
@@ -1743,16 +1825,16 @@
 				},
 				"createdDateTime": "2018-12-20T16:01:00+3:00",
 				"device": {
-					"reference": "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5"
+					"reference": "urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43"
 				},
 				"operator": {
-					"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+					"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 				},
 				"status": "completed"
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:CEE4435B-FCE0-FBCD-9341-552EAEF8BBDA",
+			"fullUrl": "urn:uuid:3BAF60CC-8441-AC1B-B7CA-32C98B7555BB",
 			"resource": {
 				"resourceType": "DiagnosticReport",
 				"id": "DR_Иммуногематологическое исследование",
@@ -1780,13 +1862,13 @@
 				},
 				"result": [
 					{
-						"reference": "urn:uuid:6ACC1957-A467-5431-88E6-60CAF898EDDE"
+						"reference": "urn:uuid:96153A63-9E7B-E274-9CE2-7A8CD9BE9D42"
 					}
 				]
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:6ACC1957-A467-5431-88E6-60CAF898EDDE",
+			"fullUrl": "urn:uuid:96153A63-9E7B-E274-9CE2-7A8CD9BE9D42",
 			"resource": {
 				"resourceType": "Observation",
 				"status": "final",
@@ -1800,12 +1882,20 @@
 						}
 					]
 				},
+				"interpretation": {
+					"extension": [
+						{
+							"url": "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor",
+							"valueString": "NA"
+						}
+					]
+				},
 				"specimen": {
-					"reference": "urn:uuid:45E0AC8C-0132-BD37-95D5-3FE815B974EA"
+					"reference": "urn:uuid:1589B446-5AA6-75BE-A24D-A565E94BD19E"
 				},
 				"performer": [
 					{
-						"reference": "urn:uuid:0226CC34-5362-561D-B97A-1DAD5D3DE859"
+						"reference": "urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663"
 					}
 				],
 				"valueCodeableConcept": {
@@ -1820,7 +1910,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:64239DC1-EE5A-D938-B969-2B982C8DB9A5",
+			"fullUrl": "urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43",
 			"resource": {
 				"resourceType": "Device",
 				"identifier": [
@@ -1836,7 +1926,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:45E0AC8C-0132-BD37-95D5-3FE815B974EA",
+			"fullUrl": "urn:uuid:1589B446-5AA6-75BE-A24D-A565E94BD19E",
 			"resource": {
 				"resourceType": "Specimen",
 				"type": {
@@ -1857,7 +1947,7 @@
 				],
 				"collection": {
 					"collector": {
-						"reference": "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7"
+						"reference": "urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5"
 					},
 					"collectedDateTime": "2018-12-20T07:05:00+3:00",
 					"quantity": {
@@ -1887,14 +1977,14 @@
 					"description": "Пробирка для иммуногематологических исследований с ACD. Штрихкод: 0987654321",
 					"additiveReference": [
 						{
-							"reference": "39A7C6D1-5A78-72FF-954A-8D8096761146"
+							"reference": "1775049D-207E-BDC8-9CA3-E5ACA466BDF8"
 						}
 					]
 				}
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:62EABEF7-BE84-6122-B3B3-A6A0542F73A5",
+			"fullUrl": "urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511",
 			"resource": {
 				"resourceType": "Specimen",
 				"type": {
@@ -1915,7 +2005,7 @@
 				],
 				"collection": {
 					"collector": {
-						"reference": "urn:uuid:5D7934ED-DAE7-6268-9DED-7A2CB18123A7"
+						"reference": "urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5"
 					},
 					"collectedDateTime": "2018-12-20T07:05:00+3:00",
 					"quantity": {
@@ -1947,7 +2037,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:F3CC67D9-6023-5E8B-ABA3-2EC9C33EB4C2",
+			"fullUrl": "urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA",
 			"resource": {
 				"resourceType": "Specimen",
 				"parent": {
@@ -2018,7 +2108,7 @@
 			}
 		},
 		{
-			"fullUrl": "urn:uuid:39A7C6D1-5A78-72FF-954A-8D8096761146",
+			"fullUrl": "urn:uuid:1775049D-207E-BDC8-9CA3-E5ACA466BDF8",
 			"resource": {
 				"resourceType": "Substance",
 				"identifier": [

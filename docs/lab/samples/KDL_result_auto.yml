@@ -133,7 +133,6 @@ entry:
            code: 'PRN'
            display: 'Provider number'
     name: 'Министерство здравоохранения Российской Федерации'
-    contact: 
  - fullUrl: 'urn:uuid:33EE1403-66B5-064F-B864-18DFAB8675EA'
    resource: 
     resourceType: 'Organization'
@@ -570,7 +569,6 @@ entry:
           valueString: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
           valueString: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
-    contact: 
  - fullUrl: 'D8CB9AAB-2FA5-E117-A59A-9BB9D7B62637'
    resource: 
     resourceType: 'PractitionerRole'
@@ -984,6 +982,10 @@ entry:
         version: '3.28'
         display: 'Гиперхромия, обнаружение в крови методом световой микроскопии'
     effectiveDateTime: '2018-12-20T10:42:00+3:00'
+    interpretation: 
+     extension: 
+      - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
+        valueString: 'NI'
     specimen: 
      reference: 'urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA'
     performer: 
@@ -1030,6 +1032,10 @@ entry:
         code: '1038629'
         version: '3.28'
         display: 'Группа крови AB0 подтверждающим методом'
+    interpretation: 
+     extension: 
+      - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
+        valueString: 'NA'
     specimen: 
      reference: 'urn:uuid:1589B446-5AA6-75BE-A24D-A565E94BD19E'
     performer: 
