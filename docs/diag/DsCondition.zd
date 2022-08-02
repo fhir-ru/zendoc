@@ -40,12 +40,12 @@
 ^title "Профиль (StructureDefinition)"
 :profile:fsh md/
 
-[[a diag/fhir-ru-condition-nu.fsh]]
-[[img diag/fhir-ru-condition-nu.fsh.png]]
+[[a diag/materials/fhir-ru-condition-nu.fsh]]
+[[img diag/materials/fhir-ru-condition-nu.fsh.png]]
 
 ^title "Профиль (Zen-lang|Edn)"
 ^zen/schema
-:profile fhir.ru.diag.nu/DsCondition
+:profile:zen fhir.ru.diag.nu/DsCondition
 
 
 ^title "Примеры"
@@ -53,63 +53,63 @@
 
 ^collapse
 ^title "Пример нозологической единицы"
-:profile:example:fhir-ru-condition-nu-instance-1  md/
-Пример [нозологической единицы](terms.nu#:definition) - [[a diag/fhir-ru-condition-nu-instance-1.fsh]]
-[[img diag/fhir-ru-condition-nu-instance-1.fsh.png]]
+:profile:examples:fhir-ru-condition-nu-instance-1  md/
+Пример [нозологической единицы](terms.nu#:definition) - [[a diag/materials/fhir-ru-condition-nu-instance-1.fsh]]
+[[img diag/materials/fhir-ru-condition-nu-instance-1.fsh.png]]
 
 ^collapse
 ^title "Пример стадирования"
-:profile:example:fhir-ru-observation-nustagingonco-instance-1  md/
-Пример стадирования - [[a diag/fhir-ru-observation-nustagingonco-instance-1.fsh]]
-[[img diag/fhir-ru-observation-nustagingonco-instance-1.fsh.png]]
+:profile:examples:fhir-ru-observation-nustagingonco-instance-1  md/
+Пример стадирования - [[a diag/materials/fhir-ru-observation-nustagingonco-instance-1.fsh]]
+[[img diag/materials/fhir-ru-observation-nustagingonco-instance-1.fsh.png]]
 
 ^collapse
 ^title "Пример tnm-T"
-:profile:example:fhir-ru-observation-tnmt-instance-1  md/
-Пример tnm-T - [[a diag/fhir-ru-observation-tnmt-instance-1.fsh]]
-[[img diag/fhir-ru-observation-tnmt-instance-1.fsh.png]]
+:profile:examples:fhir-ru-observation-tnmt-instance-1  md/
+Пример tnm-T - [[a diag/materials/fhir-ru-observation-tnmt-instance-1.fsh]]
+[[img diag/materials/fhir-ru-observation-tnmt-instance-1.fsh.png]]
 
 ^collapse
 ^title "Пример tnm-N"
-:profile:example:fhir-ru-observation-tnmn-instance-1  md/
-Пример tnm-N - [[a diag/fhir-ru-observation-tnmn-instance-1.fsh]]
-[[img diag/fhir-ru-observation-tnmn-instance-1.fsh.png]]
+:profile:examples:fhir-ru-observation-tnmn-instance-1  md/
+Пример tnm-N - [[a diag/materials/fhir-ru-observation-tnmn-instance-1.fsh]]
+[[img diag/materials/fhir-ru-observation-tnmn-instance-1.fsh.png]]
 
 ^collapse
 ^title "Пример tnm-M"
-:profile:example:fhir-ru-observation-tnmm-instance-1  md/
-Пример tnm-M - [[a diag/fhir-ru-observation-tnmm-instance-1.fsh]]
-[[img diag/fhir-ru-observation-tnmm-instance-1.fsh.png]]
+:profile:examples:fhir-ru-observation-tnmm-instance-1  md/
+Пример tnm-M - [[a diag/materials/fhir-ru-observation-tnmm-instance-1.fsh]]
+[[img diag/materials/fhir-ru-observation-tnmm-instance-1.fsh.png]]
 
 ^collapse
 ^title "Пример пациента"
-:profile:example:fhir-ru-patient-instance-konstantinopolskaya  md/
-Пример пациента - [[a diag/fhir-ru-patient-instance-konstantinopolskaya.fsh]]
-[[img diag/fhir-ru-patient-instance-konstantinopolskaya.fsh.png]]
+:profile:examples:fhir-ru-patient-instance-konstantinopolskaya  md/
+Пример пациента - [[a diag/materials/fhir-ru-patient-instance-konstantinopolskaya.fsh]]
+[[img diag/materials/fhir-ru-patient-instance-konstantinopolskaya.fsh.png]]
 
 ^title "Наборы значений"
 :profile:valuesets md/
 
 ^collapse
 ^title "Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр) [все значения]"
-:profile:valueset:nsi-vs-1-2-643-5-1-13-13-11-1005 md/
-Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр) [все значения] - [[a diag/nsi-vs-1-2-643-5-1-13-13-11-1005.fsh]]
-[[img diag/nsi-vs-1-2-643-5-1-13-13-11-1005.fsh.png]]
+:profile:valuesets:nsi-vs-1-2-643-5-1-13-13-11-1005 md/
+Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр) [все значения] - [[a diag/materials/nsi-vs-1-2-643-5-1-13-13-11-1005.fsh]]
+[[img diag/materials/nsi-vs-1-2-643-5-1-13-13-11-1005.fsh.png]]
 
 ^collapse
 ^title "Набор значений типов стадирования"
-:profile:valueset:fhir-ru-vs-stagetype md/
-Набор значений типов стадирования - [[a diag/fhir-ru-vs-stagetype.fsh]]
-[[img diag/fhir-ru-vs-stagetype.fsh.png]]
+:profile:valuesets:fhir-ru-vs-stagetype md/
+Набор значений типов стадирования - [[a diag/materials/fhir-ru-vs-stagetype.fsh]]
+[[img diag/materials/fhir-ru-vs-stagetype.fsh.png]]
 
 ^title "Справочники"
 :profile:codesystems md/
 
 ^collapse
 ^title "Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр)"
-:profile:codesystem:nsi-cs-1-2-643-5-1-13-13-11-1005 md/
-Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр) - [[a diag/nsi-cs-1-2-643-5-1-13-13-11-1005.fsh]]
-[[img diag/nsi-cs-1-2-643-5-1-13-13-11-1005.fsh.png]]
+:profile:codesystems:nsi-cs-1-2-643-5-1-13-13-11-1005 md/
+Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр) - [[a diag/materials/nsi-cs-1-2-643-5-1-13-13-11-1005.fsh]]
+[[img diag/materials/nsi-cs-1-2-643-5-1-13-13-11-1005.fsh.png]]
 
 ^title "Полезные ссылки"
 :links md/

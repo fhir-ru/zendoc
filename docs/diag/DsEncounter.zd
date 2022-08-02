@@ -75,6 +75,10 @@
 ^zen/schema
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
+^title "DiagnosisNosology"
+^zen/schema
+:profile fhir.ru.diag.nosology/DiagnosisNosology
+
 ^title "Пример 1"
 :examples md/
 
