@@ -29,7 +29,14 @@
 ^title "Coverage"
 :section md/
 
-Профиль Coverage описывает страховой полис пациента.
+Профиль Coverage описан на странице #core.Coverage. Здесь он приведен для валидации примеров из КДЛ.
+
+^title "Используемые наборы значений"
+:section:valuesets md/
+
+* #artifacts.valuesets.vs-nsi-medical-care-payment-source
+* #artifacts.valuesets.vs-nsi-grounds-document-type
+* #artifacts.valuesets.vs-nsi-mandatory-medical-insurance-policy-type
 
 ^title "Профиль на Coverage"
 ^zen/schema
@@ -51,6 +58,11 @@ identifier:
   - value: "9876543211234567"
     type:
       coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+          code: "NIIP"
+        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
+          code: "1"
+          code: "1"
         - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
           code: "NIIP"
     period:
