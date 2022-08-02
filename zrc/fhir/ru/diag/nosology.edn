@@ -5,14 +5,18 @@
  DiagnosisNosology
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
   :zendoc "diag.DsCondition"
+  :confirms #{fhir/Condition}
+  :zen.fhir/version "0.5.8"
   :zen/desc "Нозологическая единица"
+  :zen.fhir/type "Condition"
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "resource"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/condition-clinical-dx"
   :type zen/map
   :keys
   {:code {:confirms #{fhir/Coding}
-          :zen/desc "[Код МКБ](/terms.ICD)"}
+          :zen/desc "[Код МКБ](terms.ICD)"}
 
    :clarifiction {:confirms #{fhir/Coding}
                   :zen/desc "Уточнение форм по синонимам и/или расширениям МКБ"}

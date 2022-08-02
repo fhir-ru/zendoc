@@ -1,13 +1,65 @@
 {ns fhir.ru.diag.nu
 
  import #{fhir
-          zen.fhir}
+          zen.fhir
+          fhir.ru.core.patient
+          fhir.ru.lab.diagnosticreport
+          fhir.ru.lab.observation}
+
+ CoreExConditionAssertedDate
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/diag}
+  :zen/desc "CoreExConditionAssertedDate"
+  :zendoc "artifacts.extensions.core-ex-condition-assertedDate"
+  :type zen/map
+  :confirms #{fhir/Extension}
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/id "core-ex-condition-assertedDate"
+  :zen.fhir/type "Extension"
+  :zen.fhir/name "CoreExConditionAssertedDate"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-condition-assertedDate"}
+
+ CoreExConditionHistology
+ {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/diag}
+  :zen/desc "CoreExConditionHistology"
+  :zendoc "artifacts.extensions.core-ex-condition-histology"
+  :type zen/map
+  :confirms #{fhir/Extension}
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/id "core-ex-condition-histology"
+  :zen.fhir/type "Extension"
+  :zen.fhir/name "CoreExConditionHistology"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-condition-histology"}
+
+ CoreVsICD10
+ {:zen/tags #{zen.fhir/value-set zen.fhir/diag}
+  :zendoc "artifacts.valuesets.vs-icd10"
+  :zen/desc "Справочник ICD 10"
+  :zen.fhir/title "Справочник ICD 10"
+  :zen.fhir/version "0.5.8"
+  :uri "http://fhir.ru/core/vs/core-vs-icd10"}
+
+ CoreVsConditionStageType
+ {:zen/tags #{zen.fhir/value-set zen.fhir/diag}
+  :zendoc "artifacts.valuesets.vs-condition-stage-type"
+  :zen/desc "Справочник ConditionStageType"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/title "Справочник ConditionStageType"
+  :uri "http://fhir.ru/core/vs/core-vs-condition-stage-type"}
 
  DsCondition
- {:type zen/map
-  :zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/diag-group}
+  :type zen/map
   :zen/desc "Нозологическая единица"
   :zendoc "diag.DsCondition"
+  :zen.fhir/version "0.5.8"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/condition-clinical-dx-nu"
+  :zen.fhir/type "Condition"
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "resource"
@@ -16,27 +68,38 @@
   :require #{:clinicalStatus}
 
   :keys
-  {:assertedDate {:confirms #{fhir/dateTime}
-                  :type zen/datetime
-                  ;; :zen.fhir/extensionUri "????"
-                  }
+  {:assertedDate {:type zen/map
+                  :confirms #{CoreExConditionAssertedDate}
+                  :zen/desc "Расширение: assertedDate"
+                  :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-condition-assertedDate"}
 
-   :histology    {:confirms #{fhir/CodeableConcept}
-                  ;; :zen.fhir/extensionUri "????"
-                  ;; :fhir/binding {}
-                  }
+   :histology    {:type zen/map
+                  :confirms #{CoreExConditionHistology}
+                  :zen/desc "Расширение: histology"
+                  :fhir/extensionUri "http://fhir.ru/core/sd/core-ex-condition-histology"}
 
-   :code         {;; :fhir/binding {:zen/desc "ICD-10"}
-                  :confirms #{fhir/CodeableConcept}}
+   :code         {:type zen/map
+                  :confirms #{fhir/CodeableConcept}
+                  :zen.fhir/value-set {:symbol CoreVsICD10
+                                       :strength :required
+                                       :zen/desc "Справочник ICD-10"}}
 
    :bodySite     {:type zen/vector
                   :zen/desc "Локализация заболевания"
                   :every {:confirms #{fhir/CodeableConcept}}}
 
-   :subject      {:confirms #{fhir/Reference}}
+   :subject      {:confirms #{fhir/Reference zen.fhir/Reference}
+                  :zen.fhir/reference {:refers #{fhir.ru.core.patient/CorePatient fhir/Group}}}
 
    :stage {:type zen/map
-           :keys {:type {;;  :fhir/binding {:zen/desc "TBD"}
+           :keys {:type {:zen/desc "Тип"
+                         :confirms #{fhir/CodeableConcept}
+                         :zen.fhir/value-set {:symbol CoreVsConditionStageType :strength :required}}
 
-                         :confirms #{fhir/CodeableConcept}}
-                  :assessment  {:confirms #{fhir/Reference}}}}}}}
+
+                  :assessment  {:type zen/vector
+                                :zen/desc "Formal record of assessment"
+                                :every {:confirms #{fhir/Reference zen.fhir/Reference}
+                                        :zen.fhir/reference {:refers #{fhir.ru.lab.diagnosticreport/LabDiagnosticReport
+                                                                       fhir/ClinicalImpression
+                                                                       fhir.ru.lab.observation/LabObservation}}}}}}}}}
