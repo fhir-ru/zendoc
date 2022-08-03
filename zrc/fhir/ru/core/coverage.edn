@@ -32,13 +32,13 @@
                                                     :display "Полис ОМС"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
-                                  :maxItems 1
                                   :every {:type zen/map
-
                                           :keys {:type {:type zen/map
-
+                                                        :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
+                                                                        :every {:confirms #{fhir/Coding}}
+                                                                        :zen/desc "Значение из справочника"
                                                                         :slicing
                                                                         {:slices
                                                                          {"1"
@@ -46,32 +46,55 @@
 
                                                                            :filter
                                                                            {:engine :match
-                                                                            :match {:coding #{{:code "1"
-                                                                                               :display "Полис ОМС"
-                                                                                               :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}
+                                                                            :match {:system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}
                                                                            :schema {:type zen/vector
+                                                                                    :minItems 1
 
                                                                                     :every {:type zen/map
+                                                                                            :require #{:code :display :system}
                                                                                             :zen.fhir/value-set {:symbol CoreVsNsiGroundsDocumentType :strength :required}
-                                                                                            :const {:value {:code "1"
-                                                                                                            :display "Полис ОМС"
-                                                                                                            :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
+                                                                                            :keys {:code {:zen/desc "Код"
+                                                                                                          :type zen/string
+                                                                                                          :confirms #{fhir/code}
+                                                                                                          :const {:value "1"}}
+                                                                                                   :display {:zen/desc "Значение для отображения"
+                                                                                                             :type zen/string
+                                                                                                             :confirms #{fhir/string}
+                                                                                                             :const {:value "Полис ОМС"}}
+                                                                                                   :system {:zen/desc "Система"
+                                                                                                            :type zen/string
+                                                                                                            :confirms #{fhir/uri}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}
+                                                                                            #_:match #_#{{:code "1"
+                                                                                                          :display "Полис ОМС"
+                                                                                                          :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}
+                                                                                            #_:const #_{:value {:code "1"
+                                                                                                                :display "Полис ОМС"
+                                                                                                                :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                                                                           "2"
                                                                           {:zen/desc "Второй элемент"
 
                                                                            :filter
                                                                            {:engine :match
-                                                                            :match {:coding #{{:code "1"
-                                                                                               :display "Полис ОМС"
-                                                                                               :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}
+                                                                            :match {:system "urn:oid:1.2.643.5.1.13.13.11.1035"}}
                                                                            :schema {:type zen/vector
 
+                                                                                    :minItems 1
                                                                                     :every {:type zen/map
+                                                                                            :require #{:code :display :system}
                                                                                             :zen.fhir/value-set {:symbol CoreVsNsiMandatoryMedicalInsurancePolicyType :strength :required}
-
-                                                                                            :keys {:type {:type zen/map
-
-                                                                                                          :zen/desc "Тип идентификатора"}}}}}}}}}}}}}}
+                                                                                            :keys {:code {:zen/desc "Код"
+                                                                                                          :type zen/string
+                                                                                                          :confirms #{fhir/code}}
+                                                                                                   :display {:zen/desc "Значение для отображения"
+                                                                                                             :type zen/string
+                                                                                                             :confirms #{fhir/string}}
+                                                                                                   :system {:zen/desc "Система"
+                                                                                                            :type zen/string
+                                                                                                            :confirms #{fhir/uri}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.11.1035"}}}
+                                                                                            #_:match #_{:system "urn:oid:1.2.643.5.1.13.13.11.1035"}
+                                                                                            #_:const #_{:value {:system "urn:oid:1.2.643.5.1.13.13.11.1035"}}}}}}}}}}}}}}
                         "DMS"
                         {:zen/desc "Полис ДМС"
                          :filter
@@ -80,13 +103,14 @@
                                                     :display "Полис ДМС"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
-                                  :maxItems 1
                                   :every {:type zen/map
 
                                           :keys {:type {:type zen/map
-
+                                                        :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
+                                                                        :every {:confirms #{fhir/Coding}}
+                                                                        :zen/desc "Значение из справочника"
                                                                         :slicing
                                                                         {:slices
                                                                          {"1"
@@ -94,16 +118,25 @@
 
                                                                            :filter
                                                                            {:engine :match
-                                                                            :match {:coding #{{:code "1"
-                                                                                               :display "Полис ОМС"
-                                                                                               :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}
+                                                                            :match {:system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}
                                                                            :schema {:type zen/vector
 
+                                                                                    :minItems 1
                                                                                     :every {:type zen/map
+                                                                                            :require #{:code :display :system}
                                                                                             :zen.fhir/value-set {:symbol CoreVsNsiGroundsDocumentType :strength :required}
-                                                                                            :const {:value {:code "2"
-                                                                                                            :display "Полис ДМС"
-                                                                                                            :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}
+                                                                                            :keys {:code {:zen/desc "Код"
+                                                                                                          :type zen/string
+                                                                                                          :confirms #{fhir/code}
+                                                                                                          :const {:value "2"}}
+                                                                                                   :display {:zen/desc "Значение для отображения"
+                                                                                                             :type zen/string
+                                                                                                             :confirms #{fhir/string}
+                                                                                                             :const {:value "Полис ДМС"}}
+                                                                                                   :system {:zen/desc "Система"
+                                                                                                            :type zen/string
+                                                                                                            :confirms #{fhir/uri}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}}
                         "Contract"
                         {:zen/desc "Договор на оказание платных медицинских услуг"
                          :filter
@@ -112,13 +145,14 @@
                                                     :display "Договор на оказание платных медицинских услуг"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
-                                  :maxItems 1
                                   :every {:type zen/map
 
                                           :keys {:type {:type zen/map
-
+                                                        :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
+                                                                        :every {:confirms #{fhir/Coding}}
+                                                                        :zen/desc "Значение из справочника"
                                                                         :slicing
                                                                         {:slices
                                                                          {"1"
@@ -126,17 +160,27 @@
 
                                                                            :filter
                                                                            {:engine :match
-                                                                            :match {:coding #{{:code "1"
-                                                                                               :display "Полис ОМС"
+                                                                            :match {:coding #{{:code "3"
+                                                                                               :display "Договор на оказание платных медицинских услуг"
                                                                                                :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}
                                                                            :schema {:type zen/vector
 
+                                                                                    :minItems 1
                                                                                     :every {:type zen/map
+                                                                                            :require #{:code :display :system}
                                                                                             :zen.fhir/value-set {:symbol CoreVsNsiGroundsDocumentType :strength :required}
-
-                                                                                            :const {:value {:code "3"
-                                                                                                            :display "Договор на оказание платных медицинских услуг"
-                                                                                                            :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}}}}
+                                                                                            :keys {:code {:zen/desc "Код"
+                                                                                                          :type zen/string
+                                                                                                          :confirms #{fhir/code}
+                                                                                                          :const {:value "3"}}
+                                                                                                   :display {:zen/desc "Значение для отображения"
+                                                                                                             :type zen/string
+                                                                                                             :confirms #{fhir/string}
+                                                                                                             :const {:value "Договор на оказание платных медицинских услуг"}}
+                                                                                                   :system {:zen/desc "Система"
+                                                                                                            :type zen/string
+                                                                                                            :confirms #{fhir/uri}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}}}}}
          :beneficiary {:zen/desc "Ссылка на пациента"
                        :confirms #{fhir/Reference zen.fhir/Reference}
                        :type zen/map
