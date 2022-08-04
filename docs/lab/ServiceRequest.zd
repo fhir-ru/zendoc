@@ -8,13 +8,13 @@
 :menu/first true
 
 ^badge
-:authors #{people.alexandra}
+:authors #{people.d.semyashov}
 
 ^badge
 :groups #{groups.lab}
 
 ^badge
-:status "in progress"
+:status "done - in review"
 
 ^badge
 :maturity 0
