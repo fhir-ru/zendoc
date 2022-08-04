@@ -55,7 +55,28 @@ TODO: Добавить типизацию [из дискуссии 167](https://
 
 ^title "Профиль"
 ^zen/schema
-:profile fhir.ru.core.organization/CoreOrganization
+:section:profile fhir.ru.core.organization/CoreOrganization
+
+^collapse
+^yaml
+^title "Пример Organization из бандла КДЛ - 1"
+:section:example1 (load "../lab/samples/01_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла КДЛ - 2"
+:section:example2 (load "../lab/samples/02_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла КДЛ - 3"
+:section:example3 (load "../lab/samples/03_organization.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример Organization из бандла КДЛ - 4"
+:section:example4 (load "../lab/samples/04_organization.yaml" :yaml)
+
 
 ^title "Идентификаторы"
 ^disc 45

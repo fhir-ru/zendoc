@@ -28,7 +28,6 @@
 
 Ресурсы в формате стандарта FHIR можно проверить в [официальном валидаторе HL7 FHIR](https://validator.fhir.org).
 
-
 ^collapse
 ^title "Пример ресурса Patient"
 ^yaml
@@ -40,8 +39,13 @@
 :example-2  (load "samples/lab-test-patient.yaml" :yaml)
 
 ^collapse
+^yaml
+^title "Пример Patient из бандла КДЛ"
+:example-3 (load "../lab/samples/01_patient.yaml" :yaml)
+
+^collapse
 ^title "Пример адреса в ресурсе Patient"
-:example-3 md/
+:example-4 md/
 
 ^tabs
 :tabs-example

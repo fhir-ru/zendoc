@@ -30,10 +30,15 @@
 Профиль описывает случай случай оказания медицинской помощи.
 
 ^title "Определение"
-:description md/
+::section md/
 
 Профиль описывает случай случай оказания медицинской помощи.
 
 ^title "Профиль"
 ^zen/schema
-:profile fhir.ru.core.encounter/CoreEncounter
+:section:profile fhir.ru.core.encounter/CoreEncounter
+
+^collapse
+^yaml
+^title "Пример Encounter из бандла"
+:section:example1 (load "../lab/samples/01_encounter.yaml" :yaml)

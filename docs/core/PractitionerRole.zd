@@ -24,5 +24,30 @@
 ^zen/schema
 :profile fhir.ru.core.practitioner/CorePractitionerRole
 
+^collapse
+^yaml
+^title "Пример PractitionerRole из бандла КДЛ - 1"
+:section:example1 (load "../lab/samples/01_practitionerrole.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример PractitionerRole из бандла КДЛ - 2"
+:section:example2 (load "../lab/samples/02_practitionerrole.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример PractitionerRole из бандла КДЛ - 3"
+:section:example3 (load "../lab/samples/03_practitionerrole.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример PractitionerRole из бандла КДЛ - 4"
+:section:example4 (load "../lab/samples/04_practitionerrole.yaml" :yaml)
+
+^collapse
+^yaml
+^title "Пример PractitionerRole из бандла КДЛ - 5"
+:section:example5 (load "../lab/samples/05_practitionerrole.yaml" :yaml)
+
 
 
