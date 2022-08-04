@@ -6,6 +6,19 @@
 
 :title "Лаборатория"
 
+
+^title "Описание"
+:description md/
+
+В настоящее время идёт работа по переложению текущих требований к передаче лабораторных исследований (ПЛИ) с CDA на FHIR.
+
+<br>
+Требования к данным описаны в эксель-файле [Маппинг ПЛИ CDA-FHIR](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit?usp=sharing).
+
+<br>
+Ссылка на актуальное руководство по реализации СЭМД ПЛИ:
+[https://portal.egisz.rosminzdrav.ru/materials/3835](https://portal.egisz.rosminzdrav.ru/materials/3835)
+
 ^title "Профили"
-^table-of {:namespace "lab." :columns [:zd/name :summary]}
+^table-of {:namespace "lab." :columns [:zd/name :summary :status :authors]}
 :profiles-table
