@@ -18,4 +18,5 @@
   :type zen/map
   :keys
   {:subject {:zen/desc "Пациент"
-             :confirms #{zen.fhir/Reference fhir.ru.core.patient/CorePatient}}}}}
+             :confirms #{fhir/Reference zen.fhir/Reference}
+             :zen.fhir/reference {:refers #{fhir.ru.core.patient/CorePatient}}}}}}
