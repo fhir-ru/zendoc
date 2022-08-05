@@ -43,9 +43,12 @@
 * #artifacts.valuesets.vs-nsi-grounds-document-type
 * #artifacts.valuesets.vs-nsi-mandatory-medical-insurance-policy-type
 
+:profile-uri "((ztx-get :symbols fhir.ru.core.coverage/CoreCoverage :zen.fhir/profileUri))"
 ^title "Профиль на Coverage"
 ^zen/schema
 :section:profile fhir.ru.core.coverage/CoreCoverage
+
+
 
 ^collapse
 ^yaml
