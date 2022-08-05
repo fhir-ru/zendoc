@@ -64,8 +64,6 @@ identifier:
     system: "http://fhir.ru/core/systems/oms"
     type:
       coding:
-        - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
-          code: "NIIP"
         - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
           code: "1"
           display: "Полис ОМС"
@@ -87,6 +85,468 @@ type:
       display: "Средства обязательного медицинского страхования"
     - system: "http://hl7.org/fhir/ValueSet/coverage-type"
       code: "MANDPOL"
+```
+
+^collapse
+^title "Фрагменты ПЛИ CDA с разными источниками оплаты"
+:section:payment-source md/
+
+^tabs
+:section:payment-source:examples
+^tab-title
+~:example1:title "ОМС врем 1"
+^tab-content
+~:example1:content md/
+
+**Временное свидетельство (ОМС)**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "1"
+      version: "5.2"
+      display: "Средства обязательного медицинского страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "MANDPOL"
+      display: "mandatory health program"
+identifier:
+  - value: "001005674"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "1"
+          display: "Полис ОМС"
+          version: "1.1"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "4"
+          display: "Временное свидетельство"
+          version: "1.3"          
+    period:
+      start: "20150726"
+      end: "20250726"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "СТРАХОВАЯ МЕДИЦИНСКАЯ КОМПАНИЯ "АСТРАМЕД-МС" (АКЦИОНЕРНОЕ ОБЩЕСТВО)"
+```
+
+^tab-title
+~:example2:title "ОМС 1"
+^tab-content
+~:example2:content md/
+
+**Полис ОМС единого образца, бессрочный**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "1"
+      version: "5.2"
+      display: "Средства обязательного медицинского страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "MANDPOL"
+      display: "mandatory health program"
+identifier:
+  - value: "6651130886005674"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "1"
+          display: "Полис ОМС"
+          version: "1.1"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "2"
+          display: "Полис ОМС единого образца, бессрочный"
+          version: "1.3"          
+    period:
+      start: "20150726"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "СТРАХОВАЯ МЕДИЦИНСКАЯ КОМПАНИЯ "АСТРАМЕД-МС" (АКЦИОНЕРНОЕ ОБЩЕСТВО)"
+```
+
+^tab-title
+~:example3:title "ОМС со сроком 1"
+^tab-content
+~:example3:content md/
+
+**Полис ОМС единого образца, со сроком действия**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "1"
+      version: "5.2"
+      display: "Средства обязательного медицинского страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "MANDPOL"
+      display: "mandatory health program"
+identifier:
+  - value: "6651130886005674"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "1"
+          display: "Полис ОМС"
+          version: "1.1"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "3"
+          display: "Полис ОМС единого образца, со сроком действия"
+          version: "1.3"          
+    period:
+      start: "20150726"
+      end: "20250726"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "СТРАХОВАЯ МЕДИЦИНСКАЯ КОМПАНИЯ "АСТРАМЕД-МС" (АКЦИОНЕРНОЕ ОБЩЕСТВО)"
+
+```
+
+^tab-title
+~:example4:title "ОМС стар 1"
+^tab-content
+~:example4:content md/
+
+**Полис ОМС старого образца**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "1"
+      version: "5.2"
+      display: "Средства обязательного медицинского страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "MANDPOL"
+      display: "mandatory health program"
+identifier:
+  - value: "АА,6651130886005674"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "1"
+          display: "Полис ОМС"
+          version: "1.1"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "1"
+          display: "Полис ОМС старого образца"
+          version: "1.3"          
+    period:
+      start: "20150726"
+      end: "20250726"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "СТРАХОВАЯ МЕДИЦИНСКАЯ КОМПАНИЯ "АСТРАМЕД-МС" (АКЦИОНЕРНОЕ ОБЩЕСТВО)"
+```
+
+^tab-title
+~:example5:title "Бюджет МО 11"
+^tab-content
+~:example5:content md/
+
+**Средства бюджета медицинской организации**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "11"
+      version: "5.2"
+      display: "Средства бюджета медицинской организации"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "Акционерное общество "Центр семейной медицины"
+
+```
+
+^tab-title
+~:example6:title "ДМС 3"
+^tab-content
+~:example6:content md/
+
+**Средства добровольного медицинского страхования**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "3"
+      version: "5.2"
+      display: "Средства добровольного медицинского страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+identifier:
+  - value: "4100,0010056"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "2"
+          display: "Полис ДМС"
+          version: "1.1"
+        - system: "urn:oid:1.2.643.5.1.13.13.11.1035"
+          code: "1"
+          display: "Полис ОМС старого образца"
+          version: "1.3"          
+    period:
+      start: "20150726"
+      end: "20250726"
+status: "active"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "СТРАХОВАЯ МЕДИЦИНСКАЯ КОМПАНИЯ "АСТРАМЕД-МС" (АКЦИОНЕРНОЕ ОБЩЕСТВО)"
+
+```
+
+^tab-title
+~:example7:title "Соц. страх. 10"
+^tab-content
+~:example7:content md/
+
+**Средства обязательного социального страхования**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "10"
+      version: "5.2"
+      display: "Средства обязательного социального страхования"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "Фонд социального страхования Российской Федерации, Свердловское региональное отделение Филиал 13"
+
+```
+
+^tab-title
+~:example8:title "Пациент 4"
+^tab-content
+~:example8:content md/
+
+**Средства пациента**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "4"
+      version: "5.2"
+      display: "Средства пациента"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+identifier:
+  - value: "0010056"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "3"
+          display: "Договор на оказание платных медицинских услуг"
+          version: "1.1"     
+    period:
+      start: "20220726"
+      end: "20220728"
+payor:
+  - display: "???"
+
+```
+
+^tab-title
+~:example9:title "Рег. бюджет 9"
+^tab-content
+~:example9:content md/
+
+**Средства регионального бюджета**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "9"
+      version: "5.2"
+      display: "Средства регионального бюджета"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "???"
+
+```
+
+^tab-title
+~:example10:title "Физ. лиц 5"
+^tab-content
+~:example10:content md/
+
+**Средства третьих физических лиц**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "5"
+      version: "5.2"
+      display: "Средства третьих физических лиц"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+identifier:
+  - value: "0010056"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "3"
+          display: "Договор на оказание платных медицинских услуг"
+          version: "1.1"     
+    period:
+      start: "20220726"
+      end: "20220728"
+payor:
+  - display: "???"
+
+```
+
+^tab-title
+~:example11:title "Юр. лиц 6"
+^tab-content
+~:example11:content md/
+
+**Средства третьих юридических лиц**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "6"
+      version: "5.2"
+      display: "Средства третьих юридических лиц"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+identifier:
+  - value: "0010056"
+    system: "http://fhir.ru/core/systems/oms"
+    type:
+      coding:
+        - system: "urn:oid:1.2.643.5.1.13.13.99.2.724"
+          code: "3"
+          display: "Договор на оказание платных медицинских услуг"
+          version: "1.1"     
+    period:
+      start: "20220726"
+      end: "20220728"
+payor:
+  - display: 'Акционерное общество "Уралсевергаз"'
+
+```
+
+^tab-title
+~:example12:title "Фед. бюджет 8"
+^tab-content
+~:example12:content md/
+
+**Средства федерального бюджета**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "8"
+      version: "5.2"
+      display: "Средства федерального бюджета"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "???"
+
+```
+
+^tab-title
+~:example13:title "Фед. и рег. бюджет 12"
+^tab-content
+~:example13:content md/
+
+**Средства федерального и регионального бюджета**
+
+```code yaml
+resourceType: "Coverage"
+id: "EE277285-6D67-1DEF-B1EF-BB193EEBD0C7"
+type:
+  coding:
+    - system: "urn:oid:1.2.643.5.1.13.13.11.1039"
+      code: "12"
+      version: "5.2"
+      display: "Средства федерального и регионального бюджета"
+    - system: "http://hl7.org/fhir/ValueSet/coverage-type"
+      code: "???"
+      display: "???"
+beneficiary:
+  reference: "urn:uuid:AF08D148-AB7C-A569-A46C-C2667F4B573A"
+payor:
+  - display: "???"
+
 ```
 
 ^title "Ресурс Coverage"
