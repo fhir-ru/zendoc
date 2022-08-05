@@ -98,6 +98,24 @@ docker-compose stop
 ^title "Обновление проекта до последней версии"
 :project:update md/
 
+* Просто скачать изменения без мержа:
+
+```code bash
+git fetch
+```
+
+* Просмотреть изменения файлов (статистику) на сервере по сравнению с вашей версией:
+
+```code bash
+git --stat origin/main..main
+```
+
+* Просмотреть изменения кода на сервере по сравнению с вашей версией:
+
+```code bash
+git origin/main..main
+```
+
 * Скачать и установить последнюю версию:
 
 ```code bash
@@ -129,7 +147,7 @@ git submodule update --recursive
 git submodule update --recursive
 ```
 
-Получить список изменений:
+Получить список ваших изменений:
 
 ```code bash
 git status
@@ -139,6 +157,12 @@ git status
 
 ```code bash
 git status -bs
+```
+
+Посмотреть статистику ваших текущих изменений:
+
+```code bash
+git diff --stat
 ```
 
 В списке ваших изменений не должно быть `modified:   libs/zd (modified content)`.
