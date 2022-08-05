@@ -12,6 +12,12 @@
             [clojure.java.shell]
             [zen.dev]))
 
+(defmethod zd.methods/inline-function :ztx-get
+  [ztx m path]
+  (if-let [value (get-in @ztx path)]
+    value
+    [:div "Could not find " (pr-str path)]))
+
 
 ;; NOTE: to fix YAML parser producing lazy seqs and ordered maps/sets
 ;; lazy seqs can't be indexed and all of them ugly printed
