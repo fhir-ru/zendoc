@@ -27,9 +27,9 @@
 ^title "Naming System"
 :tutorial:namingsystem md/
 
-Почему NamingSystem, а не CodeSystem - см. #support.systems.
+Почему NamingSystem, а не CodeSystem - см. [Отличие NamingSystem от CodeSystem](support.systems#:difference).
 
-* 1) Создаём определение NamingSystem для справочника ФНСИ - "Пол пациента" (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
+* 1) Создаём определение NamingSystem для справочника ФНСИ [1.2.643.5.1.13.13.11.1040 - "Пол пациента"](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1040):
 
 * в папке `docs/systems` создаем файл, название которого соответствует пункту "терминологии" соглашения conventions.
 * в файле по шаблону #artifacts.codesystems.cs-template заполняем атрибуты. В данном случае кроме своего идентификатора даем ссылку на OID НСИ ЕГИСЗ
