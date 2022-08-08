@@ -21,19 +21,30 @@
          :identifier {:zen/desc "Идентификаторы"
                       :type zen/vector
                       :every {:type zen/map
-                              :confirms #{fhir/Identifier}}
+                              :confirms #{fhir/Identifier}
+                              :require #{:system}}
                       :slicing
-                      {:slices
+                      {:rest {:type zen/vector
+                              :maxItems 0}
+                       :slices
                        {"OMS"
                         {:zen/desc "Полис ОМС"
                          :filter
                          {:engine :match
-                          :match {:type {:coding #{{:code "1"
+                          :match {;; :system {}
+                                  :type {:coding #{{:code "1"
                                                     :display "Полис ОМС"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
                                   :every {:type zen/map
-                                          :keys {:type {:type zen/map
+                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                                          :type zen/string
+                                                          :confirms #{fhir/uri}
+                                                          :enum [{:value "http://fhir.ru/core/systems/oms-old"}
+                                                                 {:value "http://fhir.ru/core/systems/oms"}
+                                                                 {:value "http://fhir.ru/core/systems/oms-with-date"}
+                                                                 {:value "http://fhir.ru/core/systems/oms-temp"}]}
+                                                 :type {:type zen/map
                                                         :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
@@ -64,13 +75,7 @@
                                                                                                    :system {:zen/desc "Система"
                                                                                                             :type zen/string
                                                                                                             :confirms #{fhir/uri}
-                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}
-                                                                                            #_:match #_#{{:code "1"
-                                                                                                          :display "Полис ОМС"
-                                                                                                          :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}
-                                                                                            #_:const #_{:value {:code "1"
-                                                                                                                :display "Полис ОМС"
-                                                                                                                :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}
                                                                           "2"
                                                                           {:zen/desc "Второй элемент"
 
@@ -92,20 +97,23 @@
                                                                                                    :system {:zen/desc "Система"
                                                                                                             :type zen/string
                                                                                                             :confirms #{fhir/uri}
-                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.11.1035"}}}
-                                                                                            #_:match #_{:system "urn:oid:1.2.643.5.1.13.13.11.1035"}
-                                                                                            #_:const #_{:value {:system "urn:oid:1.2.643.5.1.13.13.11.1035"}}}}}}}}}}}}}}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.11.1035"}}}}}}}}}}}}}}}
                         "DMS"
                         {:zen/desc "Полис ДМС"
                          :filter
                          {:engine :match
-                          :match {:type {:coding #{{:code "2"
+                          :match {;; :system {}
+                                  :type {:coding #{{:code "2"
                                                     :display "Полис ДМС"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
                                   :every {:type zen/map
 
-                                          :keys {:type {:type zen/map
+                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                                          :type zen/string
+                                                          :confirms #{fhir/uri}
+                                                          :const {:value "http://fhir.ru/core/systems/dms"}}
+                                                 :type {:type zen/map
                                                         :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
@@ -141,13 +149,18 @@
                         {:zen/desc "Договор на оказание платных медицинских услуг"
                          :filter
                          {:engine :match
-                          :match {:type {:coding #{{:code "3"
+                          :match {;; :system {}
+                                  :type {:coding #{{:code "3"
                                                     :display "Договор на оказание платных медицинских услуг"
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
                                   :every {:type zen/map
 
-                                          :keys {:type {:type zen/map
+                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                                          :type zen/string
+                                                          :confirms #{fhir/uri}
+                                                          :const {:value "http://fhir.ru/core/systems/contract"}}
+                                                 :type {:type zen/map
                                                         :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
@@ -160,9 +173,7 @@
 
                                                                            :filter
                                                                            {:engine :match
-                                                                            :match {:coding #{{:code "3"
-                                                                                               :display "Договор на оказание платных медицинских услуг"
-                                                                                               :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}
+                                                                            :match {:system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}
                                                                            :schema {:type zen/vector
 
                                                                                     :minItems 1
@@ -185,27 +196,7 @@
                        :confirms #{fhir/Reference zen.fhir/Reference}
                        :type zen/map
                        :zen.fhir/reference {:refers
-                                            #{fhir.ru.core.patient/CorePatient}}}
-
-         #_:class #_{:zen/desc "Дополнительная классификация"
-                ;;  :confirms #{fhir/BackboneElement}
-                     :type zen/vector
-                     :slicing {:slices {"Class1" {:zen/desc "Тип документа"
-                                                  :filter {:engine :match
-                                                           :match {:type {:text "Тип документа"}}}
-                                                  :schema {:type zen/vector
-                                                           :maxItems 1
-                                                           :every {:type zen/map
-                                                                   :require #{:type :value :name}
-                                                                   :confirms #{SchemaClass1}}}}
-                                        "Class2" {:zen/desc "Тип полиса ОМС"
-                                                  :filter {:engine :match
-                                                           :match {:type {:text "Тип полиса ОМС"}}}
-                                                  :schema {:type zen/vector
-                                                           :maxItems 1
-                                                           :every {:type zen/map
-                                                                   :require #{:type :value :name}
-                                                                   :confirms #{SchemaClass2}}}}}}}}}
+                                            #{fhir.ru.core.patient/CorePatient}}}}}
 
  SchemaClass1
  {:zen/tags #{zen/schema}
