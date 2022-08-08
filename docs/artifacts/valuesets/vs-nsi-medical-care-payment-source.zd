@@ -15,6 +15,8 @@
 
 :summary "Core ValueSet Источники оплаты медицинской помощи"
 
+:toc
+
 ;; :title "ValueSet Core-vs-nsi-medical-care-payment-source"
 
 :defining-url "http://fhir.ru/core/vs/core-vs-nsi-medical-care-payment-source"
@@ -79,3 +81,24 @@ CoreVsNsiMedicalCarePaymentSource
 {:code "11" :display "Средства бюджета медицинской организации" :short "Бюджет медицинской организации"},
 {:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный"}]
 
+
+^title "Маппинг"
+:valueset-mapping md/
+
+Маппинг справочника [1.2.643.5.1.13.13.11.1039](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1039) на FHIR-справочник [Coverage Type and Self-Pay Codes](http://hl7.org/fhir/ValueSet/coverage-type). 
+
+Источник маппинга: [Маппинг ПЛИ CDA-FHIR/Coverage.type](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit#gid=2142566896).
+
+^title "Таблица соответствия справочников"
+^table
+:valueset-mapping:table
+[{:code "1" :display "Средства обязательного медицинского страхования" :short "ОМС" "Code" "MANDPOL" "Display" "mandatory health program" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "3" :display "Средства добровольного медицинского страхования" :short "ДМС" "Code" "EHCPOL" "Display" "extended healthcare" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "4" :display "Средства пациента" :short "Пациент" "Code" "pay" "Display" "Pay" "System" "http://terminology.hl7.org/CodeSystem/coverage-selfpay"},
+{:code "5" :display "Средства третьих физических лиц" :short "Третье лицо (физическое)" "Code" "pay" "Display" "Pay" "System" "http://terminology.hl7.org/CodeSystem/coverage-selfpay"},
+{:code "6" :display "Средства третьих юридических лиц" :short "Третье лицо (юридическое)" "Code" "EAP" "Display" "employee assistance program" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "8" :display "Средства федерального бюджета" :short "Бюджет федеральный" "Code" "PUBLICPOL" "Display" "public healthcare" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "9" :display "Средства регионального бюджета" :short "Бюджет региональный" "Code" "PUBLICPOL" "Display" "public healthcare" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "10" :display "Средства обязательного социального страхования" :short "ФСС" "Code" "WCBPOL" "Display" "worker's compensation" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "11" :display "Средства бюджета медицинской организации" :short "Бюджет медицинской организации" "Code" "EAP" "Display" "employee assistance program" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"},
+{:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный" "Code" "PUBLICPOL" "Display" "public healthcare" "System" "http://terminology.hl7.org/CodeSystem/v3-ActCode"}]
