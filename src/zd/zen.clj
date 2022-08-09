@@ -179,11 +179,7 @@
     (cond
 
       (= tp 'zen/map)
-      (let [ks (->> (if (:match opts)
-                      (select-keys
-                       (:keys sch)
-                       (keys (:match opts)))
-                      (:keys sch))
+      (let [ks (->> (:keys sch)
                     (sort-by (fn [[_ v]] (:row (meta v)))))]
         (loop [[[k v] & ks] ks
                res res]
