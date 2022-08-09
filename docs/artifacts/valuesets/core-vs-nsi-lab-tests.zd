@@ -1,0 +1,55 @@
+^hide
+:menu-order 0
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+:title "Федеральный справочник лабораторных исследований. Справочник лабораторных тестов"
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity-level 0
+
+
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+:toc
+
+
+
+:defining-url "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :uri))"
+:version "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :version))"
+:name ""
+:summary-title "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen/desc))"
+:definition ""
+:committee #{groups.adm}
+:oid "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/oid))"
+:source-resource ""
+
+
+
+^title "Сводка"
+:summary-1 md/
+
+Этот набор значений определен проектом FHIR RU CORE.
+
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения справочника ((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/oid)) - [Федеральный справочник лабораторных исследований. Справочник лабораторных тестов](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1080).
+
+^title "Содержимое набора значений"
+^table
+:valueset-expansion
+[
+    {:Код "Код" :Наименование "Наименование" :Система "Система"}
+]
+
