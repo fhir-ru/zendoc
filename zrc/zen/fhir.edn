@@ -39,6 +39,7 @@
                                   {:value "draft"}
                                   {:value "retired"}
                                   {:value "unknown"}]}
+         :zen.fhir/oid {:type zen/string}
          :zen.fhir/compose {:type zen/map
                             :keys {:include {:type zen/vector
                                              :every {:type zen/map
