@@ -107,13 +107,13 @@ git fetch
 * Просмотреть изменения файлов (статистику) на сервере по сравнению с вашей версией:
 
 ```code bash
-git --stat origin/main..main
+git diff --stat origin/main..main
 ```
 
 * Просмотреть изменения кода на сервере по сравнению с вашей версией:
 
 ```code bash
-git origin/main..main
+git diff origin/main..main
 ```
 
 * Скачать и установить последнюю версию:
