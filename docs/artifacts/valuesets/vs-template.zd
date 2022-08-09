@@ -24,13 +24,13 @@
 
 
 
-:defining-url ""
-:version "0.0.1"
+:defining-url "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :uri))"
+:version "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :version))"
 :name ""
-:summary-title ""
+:summary-title "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen/desc))"
 :definition ""
-:committee ""
-:oid ""
+:committee #{groups.adm}
+:oid "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/oid))"
 :source-resource ""
 
 
