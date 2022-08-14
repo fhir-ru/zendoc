@@ -56,6 +56,34 @@
           }
         ]
       }
+    },
+    {
+      "value": "6685000585",
+      "system": "http://fhir.ru/core/systems/inn",
+      "type": {
+        "text": "ИНН",
+        "coding": [
+          {
+            "code": "TAX",
+            "display": "Tax ID number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      }
+    },
+    {
+      "value": "029-280-555 71",
+      "system": "http://fhir.ru/core/systems/snils",
+      "type": {
+        "text": "СНИЛС",
+        "coding": [
+          {
+            "code": "SB",
+            "display": "Social Beneficiary Identifier",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      }
     }
   ],
   "id": "002ab5bc-6ba1-4de2-89ee-6afe55d685ff",

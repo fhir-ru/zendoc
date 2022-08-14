@@ -38,8 +38,8 @@ identifier:
       text: "ИНН"
       coding:
         - system: "http://terminology.hl7.org/CodeSystem/v2-0203"
-          code: "SS"
-          display: "Social Security number"
+          code: "SB"
+          display: "Social Beneficiary Identifier"
   - value: "9876543211234567"
     system: "https://fhir.ru/id/enp"
     type:
