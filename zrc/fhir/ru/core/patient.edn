@@ -2,7 +2,8 @@
 
  import #{fhir
           zen.fhir
-          fhir.ru.core.address}
+          fhir.ru.core.address
+          fhir.ru.core.vs}
 
  CorePatient
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
@@ -28,19 +29,52 @@
                         {:zen/desc "Паспорт РФ"
                          :filter
                          {:engine :match
-                          :match {:type {:coding #{{:code "PPN"
-                                                    :display "Passport number"
-                                                    :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}
-
-
+                          :match {:system "http://fhir.ru/core/systems/passport-rf"}}
                          :schema {:type zen/vector
                                   :maxItems 1
                                   :every {:type zen/map
                                           :confirms #{fhir/Identifier}
-                                          :keys {:type {:type zen/map
-                                                        :confirms #{SchemaPassportRFType}
-                                                        :zen/desc "Тип идентификатора"}
-                                                 :system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}}}}}
+                                          :require #{:system :value :type}
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}
+                                                 :type {:type zen/map
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 2 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+
+                                                                                                               :every {:type zen/map
+                                                                                                                       :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                            :strength :extensible}
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :keys {:code {:const {:value "PPN"}}
+                                                                                                                              :display {:const {:value "Passport number"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}
+                                                                                           "core-cs-nsi-identity-document" {:filter {:engine :match
+                                                                                                                                     :match {:system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}
+                                                                                                                            :schema {:type zen/vector
+                                                                                                                                     :every {:type zen/map
+                                                                                                                                             :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsIdentityDocument :strength :required}
+                                                                                                                                             :require #{:code :display :system}
+                                                                                                                                             :keys {:code {:const {:value "1"}}
+                                                                                                                                                    :display {:const {:value "Паспорт гражданина Российской Федерации"}}
+                                                                                                                                                    :system {:const {:value "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}}}}}
+                                                                                           "oid-48" {:filter {:engine :match
+                                                                                                              :match {:system "urn:oid:1.2.643.5.1.13.13.99.2.48"}}
+                                                                                                     :schema {:type zen/vector
+                                                                                                              :every {:type zen/map
+                                                                                                                      :require #{:code :display :system}
+                                                                                                                      :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsIdentityDocument :strength :required}
+                                                                                                                      :keys {:code {:const {:value "1"}}
+                                                                                                                             :display {:const {:value "Паспорт гражданина Российской Федерации"}}
+                                                                                                                             :system {:const {:value "urn:oid:1.2.643.5.1.13.13.99.2.48"}}}}}}}
+                                                                                  :rest {:type zen/vector
+                                                                                         :maxItems 0}}}}}}}}}
                         "INN"
                         {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
                          :filter
@@ -50,54 +84,178 @@
                                   :maxItems 1
                                   :every {:type zen/map
                                           :confirms #{fhir/Identifier}
-                                          :keys {:type {:type zen/map
-                                                        :confirms #{SchemaInnType}
-                                                        :zen/desc "Тип идентификатора"}
-                                                 :system {:const {:value "http://fhir.ru/core/systems/inn"}}}}}}
+                                          :require #{:system :value :type} ;; TODO: fix - не отображается на схеме элемент :value
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/inn"}}
+                                                 :type {:type zen/map
+                                                        :match {:coding #{{:code "TAX"
+                                                                           :display "Tax ID number"
+                                                                           :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 1 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+                                                                                                               :every {:type zen/map
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                            :strength :extensible}
+                                                                                                                       :keys {:code {:const {:value "TAX"}}
+                                                                                                                              :display {:const {:value "Tax ID number"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}}
+                                                                                  :rest {:type zen/map
+                                                                                         :confirms #{fhir/Coding}}}}}}}}}}
                         "SNILS"
                         {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта застрахованного лица в системе обязательного пенсионного страхования"
                          :filter
                          {:engine :match
                           :match {:system "http://fhir.ru/core/systems/snils"}}
-                         :schema {:type zen/vector, :maxItems 1}}
-                        "ENP"
-                        {:zen/desc "ЕНП"
-                         :filter
-                         {:engine :match
-                          :match {:system "http://fhir.ru/core/systems/enp"}}
-                         :schema {:type zen/vector, :maxItems 1}}
-                        "BirthCertificate"
-                        {:zen/desc "Свидетельство о рождении"
-                         :filter
-                         {:engine :match
-                          :match {:system "http://fhir.ru/core/systems/birth-certificate"}}
-                         :schema {:type zen/vector, :maxItems 1}}
+                         :schema {:type zen/vector
+                                  :maxItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :require #{:system :value :type} ;; TODO: fix - не отображается на схеме элемент :value
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/snils"}}
+                                                 :type {:type zen/map
+                                                        :match {:coding #{{:code "SB"
+                                                                           :display "Social Beneficiary Identifier"
+                                                                           :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 1 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+                                                                                                               :every {:type zen/map
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                            :strength :extensible}
+                                                                                                                       :keys {:code {:const {:value "SB"}}
+                                                                                                                              :display {:const {:value "Social Beneficiary Identifier"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}}
+                                                                                  :rest {:type zen/map
+                                                                                         :confirms #{fhir/Coding}}}}}}}}}}
+                        ;; "ENP" ;; что такое ЕНП?
+                        ;; {:zen/desc "ЕНП"
+                        ;;  :filter
+                        ;;  {:engine :match
+                        ;;   :match {:system "http://fhir.ru/core/systems/enp"}}
+                        ;;  :schema {:type zen/vector
+                        ;;           :maxItems 1}}
                         "InsuranceOMS"
                         {:zen/desc "Идентификация по номеру полиса ОМС. Система идентификации - Единый реестр застрахованных ФФОМС"
                          :filter
                          {:engine :match
-                          :match {:system "http://fhir.ru/core/systems/ffoms-erz"}}
-                         :schema {:type zen/vector, :maxItems 1}}
-                        "Newborn"
-                        {:zen/desc "Идентификатор для новорожденного до государственной регистрации рождения (когда предъявлен полис матери)"
+                          :match {:system "http://fhir.ru/core/systems/ffoms-erz"}} ;; это разные системы с http://fhir.ru/core/systems/oms ?
+                         :schema {:type zen/vector
+                                  :maxItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :require #{:system :value :type} ;; TODO: fix - не отображается на схеме элемент :value
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/ffoms-erz"}}
+                                                 :type {:type zen/map
+                                                        :match {:coding #{#_{:code "NI"
+                                                                             :display "National unique individual identifier"
+                                                                             :system "http://terminology.hl7.org/CodeSystem/v2-0203"}
+                                                                          {:code "SB"
+                                                                           :display "Social Beneficiary Identifier"
+                                                                           :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 1 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+                                                                                                               :every {:type zen/map
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                            :strength :extensible}
+                                                                                                                       :keys {:code {:const {:value "SB"}}
+                                                                                                                              :display {:const {:value "Social Beneficiary Identifier"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}}
+                                                                                  :rest {:type zen/map
+                                                                                         :confirms #{fhir/Coding}}}}}}}}}}
+
+                        "BirthCertificate"
+                        {:zen/desc "Номер государственного свидетельства о рождении"
                          :filter
                          {:engine :match
-                          :match {:system "http://fhir.ru/core/systems/newborn"}}
-                         :schema {:type zen/vector, :maxItems 1}}}}}
+                          :match {:system "http://fhir.ru/core/systems/birth-certificate"}}
+                         :schema {:type zen/vector
+                                  :maxItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :require #{:system :value :type} ;; TODO: fix - не отображается на схеме элемент :value
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/birth-certificate"}}
+                                                 :type {:type zen/map
+                                                        :match {:coding #{{:code "BCT"
+                                                                           :display "Birth Certificate"
+                                                                           :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 1 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+                                                                                                               :every {:type zen/map
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsIdentifierType :strength :required}
+                                                                                                                       :keys {:code {:const {:value "BCT"}}
+                                                                                                                              :display {:const {:value "Birth Certificate"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}
+                                                                                           "core-cs-nsi-identity-document" {:filter {:engine :match
+                                                                                                                                     :match {:system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}
+                                                                                                                            :schema {:type zen/vector
+                                                                                                                                     :every {:type zen/map
+                                                                                                                                             :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsIdentityDocument :strength :required}
+                                                                                                                                             :require #{:code :display :system}
+                                                                                                                                             :keys {:code {:const {:value "6"}}
+                                                                                                                                                    :display {:const {:value "Свидетельство о рождении"}}
+                                                                                                                                                    :system {:const {:value "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}}}}}
+                                                                                           "oid-48" {:filter {:engine :match
+                                                                                                              :match {:system "urn:oid:1.2.643.5.1.13.13.99.2.48"}}
+                                                                                                     :schema {:type zen/vector
+                                                                                                              :every {:type zen/map
+                                                                                                                      :require #{:code :display :system}
+                                                                                                                      :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsIdentityDocument :strength :required}
+                                                                                                                      :keys {:code {:const {:value "6"}}
+                                                                                                                             :display {:const {:value "Свидетельство о рождении"}}
+                                                                                                                             :system {:const {:value "urn:oid:1.2.643.5.1.13.13.99.2.48"}}}}}}}
+                                                                                  :rest {:type zen/map
+                                                                                         :confirms #{fhir/Coding}}}}}}}}}}
+                        ;; "Newborn"
+                        #_{:zen/desc "Идентификатор для новорожденного до государственной регистрации рождения (когда предъявлен полис матери)"
+                           :filter
+                           {:engine :match
+                            :match {:system "http://fhir.ru/core/systems/newborn"}}
+                           :schema {:type zen/vector, :maxItems 1}}}}}
          :name {:zen/desc "ФИО пациента"
                 :type zen/vector
                 :every {:confirms #{fhir/HumanName}
                         :type zen/map
                         :keys {:use {:confirms #{fhir/code}
                                      :type zen/string
-                                     :zen/desc "Фиксированное значение official"}
+                                     :zen/desc "Фиксированное значение official"
+                                     :const {:value "official"}}
                                :given {:zen/desc "Имя и отчество пациента. Первым должно идти имя, вторым - отчество"
                                        :type zen/vector
                                        :every {:confirms #{fhir/string}
                                                :type zen/string}}
                                :family {:zen/desc "Фамилия пациента"
                                         :type zen/string}}}}
-         :gender {:zen/desc "[Пол пациента](/core.Patient#:elements.gender)"
+         :gender {:zen/desc "[Пол пациента](/core.Patient#:elements:gender)"
                   :confirms #{fhir/code}
                   :type zen/string
                   :enum [{:value "male"}
@@ -121,19 +279,7 @@
                                           :display "Паспорт гражданина Российской Федерации"
                                           :system "urn:oid:1.2.643.5.1.13.13.99.2.48"
                                           :version "5.1"}})}}}
- SchemaInnType
- {:zen/tags #{zen/schema}
-  :zen/desc "Тип идентификатора - ИНН"
-  :match {:coding #{{:code "PPN"
-                     :display "Passport number"
-                     :system "http://terminology.hl7.org/CodeSystem/v2-0203"}
-                    (:zen.match/one-of #{{:code "1"
-                                          :display "Паспорт гражданина Российской Федерации"
-                                          :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}
-                                         {:code "1"
-                                          :display "Паспорт гражданина Российской Федерации"
-                                          :system "urn:oid:1.2.643.5.1.13.13.99.2.48"
-                                          :version "5.1"}})}}}
+
  CoreVsAdministrativeGender
  {:zen/tags #{zen.fhir/value-set}
   :zendoc "artifacts.valuesets.vs-administrative-gender"
