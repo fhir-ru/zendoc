@@ -15,36 +15,32 @@
 ^badge
 :maturity-level 0
 
-
+:toc
 
 :summary md/
 Этот набор значений определен проектом FHIR RU CORE.
 
-:toc
+^table
+^title "Summary"
+:summary-table
 
-
-
-:defining-url "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :uri))"
-:version "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :version))"
-:name ""
-:summary-title "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen/desc))"
-:definition ""
-:committee #{groups.adm}
-:oid "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/oid))"
-:source-resource ""
-
-
-
-^title "Сводка"
-:summary-1 md/
-
-Этот набор значений определен проектом FHIR RU CORE.
-
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen/desc))"}
+{:name "Committee:" :value #{groups.adm}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
 
 ^title "Логическое определение содержимого"
 :content-logical-definition md/
 
 В ValueSet входят все значения справочника <кодовая система>
+
+^title "Описание"
+:description md/
 
 ^title "Содержимое набора значений"
 ^table
@@ -53,3 +49,115 @@
     {:Код "Код" :Наименование "Наименование" :Система "Система"}
 ]
 
+^collapse
+;; ^edn TODO: fix
+^title "ZEN Definition for Value Set CoreVsLabTests"
+:valueset-zen-definition "((ztx-get :symbols fhir.ru.lab.observation/CoreVsLabTests))"
+
+^collapse
+^title "JSON Definition for Value Set CoreVsLabTests"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-identifier-type",
+  "name": "CoreVsIdentifierType",
+  "title": "Core ValueSet Тип идентификатора",
+  "url" : "http://fhir.ru/core/vs/core-vs-identifier-type",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "concept": [
+          {
+            "code": "PPN",
+            "display": "Passport number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер паспорта"
+            }
+          },
+          {
+            "code": "MR",
+            "display": "Medical record number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинской карты"
+            }
+          },
+          {
+            "code": "BCT",
+            "display": "Birth Certificate",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинского свидетельства о рождении"
+            }
+          },
+          {
+            "code": "BR",
+            "display": "Birth registry number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер государственного свидетельства о рождении"
+            }
+          },
+          {
+            "code": "DC",
+            "display": "Death Certificate ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о смерти (государственного?)"
+            }
+          },
+          {
+            "code": "FDR",
+            "display": "Fetal Death Report ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)"
+            }
+          },
+          {
+            "code": "MRT",
+            "display": "Temporary Medical Record Number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Временный номер медицинской карты"
+            }
+          },
+          {
+            "code": "SB",
+            "display": "Social Beneficiary Identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "СНИЛС либо ФФОМС ЕРЗ (ОМС)"
+            }
+          },
+          {
+            "code": "PI",
+            "display": "Patient internal identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер пациента в МИС"
+            }
+          },
+          {
+            "code": "TAX",
+            "display": "Tax ID number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "ИНН"
+            }
+          }
+          
+        ]
+      }
+    ]
+  }
+}
+```
+
+^title "Справочная информация"
+:support md/

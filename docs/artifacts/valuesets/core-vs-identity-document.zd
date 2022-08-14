@@ -10,13 +10,38 @@
 ^badge
 :status :draft
 
-:name "Core ValueSet Документы, удостоверяющие личность"
+:title "Core Value Set Документы, удостоверяющие личность"
+
+:toc
 
 :summary md/
+Этот набор значений определен проектом FHIR RU CORE.
 
-Для документов, удостоверяющих личность, определены  NamingSystem и ValueSet на основе справочника НСИ ЕГИСЗ и маппинг кодов документов на Identifier Type Codes
+^table
+^title "Summary"
+:summary-table
 
-:title "NamingSystem Core-ns-identification-documents"
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :zen/desc))"}
+{:name "Committee:" :value #{groups.adm}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения из справочника ["Документы, удостоверяющие личность" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48).
+
+^title "Описание"
+:description md/
+
+Для документов, удостоверяющих личность, определены NamingSystem и ValueSet на основе справочника НСИ ЕГИСЗ и маппинг кодов документов на Identifier Type Codes.
+
+
 
 :naming-system md/
 
@@ -24,24 +49,21 @@
 
 
 
-:valueset md/
-
-В ValueSet входят все значения справочника
-
-^title "Маппинг типов идентификаторов"
-:elements.identifier.type.mapping md/
+^title "Содержимое набора значений и маппинг"
+:valueset-content md/
 
 Маппинг справочника "Документы, удостоверяющие личность" на справочник [Identifier Type Codes](http://hl7.org/fhir/valueset-identifier-type.html)
 
+^title "Маппинг типов идентификаторов"
 ^table
-:identifier-types
+:valueset-content:mapping
 [
-    {:Код "1" :Наименование "Паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
-    {:Код "42" :Наименование "Заграничный паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
-    {:Код "2" :Наименование "Паспорт гражданина Российской Федерации, являющийся основным документом, удостоверяющим личность гражданина Российской Федерации за пределами территории Российской Федерации, в том числе содержащий электронный носитель информации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
+    {:Код "1" :Наименование "Паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
+    {:Код "42" :Наименование "Заграничный паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
+    {:Код "2" :Наименование "Паспорт гражданина Российской Федерации, являющийся основным документом, удостоверяющим личность гражданина Российской Федерации за пределами территории Российской Федерации, в том числе содержащий электронный носитель информации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
     {:Код "5" :Наименование "Временное удостоверение личности гражданина РФ (форма № 2П)" :Code "" :System "" :Display "" :Перевод ""}
-    {:Код "3" :Наименование "Дипломатический паспорт" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
-    {:Код "4" :Наименование "Служебный паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
+    {:Код "3" :Наименование "Дипломатический паспорт" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
+    {:Код "4" :Наименование "Служебный паспорт гражданина Российской Федерации" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
     {:Код "6" :Наименование "Свидетельство о рождении" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "22" :Наименование "Свидетельство об усыновлении" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "23" :Наименование "Свидетельство об установлении отцовства" :Code "" :System "" :Display "" :Перевод ""}
@@ -56,8 +78,8 @@
     {:Код "29" :Наименование "Военный билет офицера запаса" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "30" :Наименование "Удостоверение личности сотрудника МВД России" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "31" :Наименование "Служебное (ведомственное) удостоверение личности сотрудника (ФСБ, ФСО, Росгвардии, Прокуратуры, Следственного комитета и т.д.)" :Code "" :System "" :Display "" :Перевод ""}
-    {:Код "7" :Наименование "Паспорт моряка (удостоверение личности моряка)" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
-    {:Код "39" :Наименование "Паспорт Минморфлота" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
+    {:Код "7" :Наименование "Паспорт моряка (удостоверение личности моряка)" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
+    {:Код "39" :Наименование "Паспорт Минморфлота" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
     {:Код "10" :Наименование "Паспорт иностранного гражданина либо иной документ, установленный федеральным законом или признаваемый в соответствии с международным договором Российской Федерации в качестве документа, удостоверяющего личность иностранного гражданина" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "32" :Наименование "Свидетельство о рождении, выданное уполномоченным органом иностранного государства" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "18" :Наименование "Документ, удостоверяющий личность лица без гражданства, выданный иностранным государством" :Code "" :System "" :Display "" :Перевод ""}
@@ -74,13 +96,42 @@
     {:Код "19" :Наименование "Иные документы, предусмотренные федеральным законом или признаваемые в соответствии с международным договором Российской Федерации в качестве документов, удостоверяющих личность лица без гражданства" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "16" :Наименование "Разрешение на временное проживание (для лиц без гражданства)" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "44" :Наименование "Вид на жительство иностранного гражданина" :Code "" :System "" :Display "" :Перевод ""}
-    {:Код "36" :Наименование "Водительское удостоверение" :Code "DL" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Driver's license number" :Перевод "Водительские права"}
+    {:Код "36" :Наименование "Водительское удостоверение" :Code "DL" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Driver's license number" :Перевод "Номер водительского удостоверения"}
     {:Код "37" :Наименование "Удостоверение на право приобретения оружия" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "38" :Наименование "Охотничий билет" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "40" :Наименование "Документы, подтверждающие факт регистрации по месту жительства" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "45" :Наименование "Свидетельство о регистрации по месту жительства" :Code "" :System "" :Display "" :Перевод ""}
     {:Код "46" :Наименование "Свидетельство о регистрации по месту пребывания" :Code "" :System "" :Display "" :Перевод ""}
-    {:Код "20" :Наименование "Паспорт гражданина СССР" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
-    {:Код "21" :Наименование "Заграничный паспорт гражданина СССР" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Паспорт"}
+    {:Код "20" :Наименование "Паспорт гражданина СССР" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
+    {:Код "21" :Наименование "Заграничный паспорт гражданина СССР" :Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Перевод "Номер паспорта"}
 ]
 
+^collapse
+;; ^edn TODO: fix
+^title "ZEN Definition for Value Set CoreVsIdentityDocument"
+:valueset-zen-definition "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument))"
+ 
+^collapse
+^title "JSON Definition for Value Set CoreVsIdentityDocument"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-identity-document",
+  "name": "CoreVsIdentityDocument",
+  "title": "Core ValueSet Документы, удостоверяющие личность",
+  "url" : "http://fhir.ru/core/vs/core-vs-identity-document",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:oid:1.2.643.5.1.13.13.99.2.48"        
+      }
+    ]
+  }
+}
+```
+
+;; ^title "Справочная информация"
+;; :support md/

@@ -1,0 +1,184 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:update "2022-08-13"
+
+:title "Core ValueSet Тип идентификатора"
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType :zen/desc))"}
+{:name "Committee:" :value #{groups.adm}}
+{:name "OID:" :value ""}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят некоторые значения из [справочника HL7 Version 2 Table 0203](http://hl7.org/fhir/R4/v2/0203/index.html).
+
+^title "Описание"
+:description md/
+
+Данный ValueSet отличается от стандартного [ValueSet FHIR](http://hl7.org/fhir/R4/valueset-identifier-type.html) тем, что из него исключены некоторые значения и в него добавлены значения из [справочника HL7 Version 2 Table 0203](http://hl7.org/fhir/R4/v2/0203/index.html).
+
+
+^title "Содержимое набора значений"
+^table
+:valueset-content
+[
+    {:Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Наименование "Номер паспорта" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/passport-rf" }
+    {:Code "MR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Medical record number" :Наименование "Номер медицинской карты" "Соответствующая система идентификатора" "* Формируется по правилу " }
+    {:Code "BR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth registry number" :Наименование "Номер медицинского свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/medical-birth-certificate" }
+    {:Code "BCT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth Certificate" :Наименование "Номер государственного свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/birth-certificate" }
+    {:Code "DC" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/death-certificate" }
+    {:Code "FDR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/fetal-death-certificate" }
+    {:Code "MRT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" "Соответствующая система идентификатора" "" }
+    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "СНИЛС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/snils" }
+    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "Единый регистр застрахованных лиц (ЕРЗ)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/ffoms-erz" }
+    {:Code "PI" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/patient-internal-identifier" }
+    {:Code "TAX" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Tax ID number" :Наименование "ИНН" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/inn" }
+]
+
+^collapse
+;; ^edn TODO: fix
+^title "ZEN Definition for Value Set CoreVsLabTests"
+:valueset-zen-definition "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentifierType))"
+ 
+^collapse
+^title "JSON Definition for Value Set CoreVsLabTests"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-identifier-type",
+  "name": "CoreVsIdentifierType",
+  "title": "Core ValueSet Тип идентификатора",
+  "url" : "http://fhir.ru/core/vs/core-vs-identifier-type",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "concept": [
+          {
+            "code": "PPN",
+            "display": "Passport number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер паспорта"
+            }
+          },
+          {
+            "code": "MR",
+            "display": "Medical record number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинской карты"
+            }
+          },
+          {
+            "code": "BCT",
+            "display": "Birth Certificate",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер государственного свидетельства о рождении"
+            }
+          },
+          {
+            "code": "BR",
+            "display": "Birth registry number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер медицинского свидетельства о рождении"
+            }
+          },
+          {
+            "code": "DC",
+            "display": "Death Certificate ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о смерти (государственного?)"
+            }
+          },
+          {
+            "code": "FDR",
+            "display": "Fetal Death Report ID",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)"
+            }
+          },
+          {
+            "code": "MRT",
+            "display": "Temporary Medical Record Number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Временный номер медицинской карты"
+            }
+          },
+          {
+            "code": "SB",
+            "display": "Social Beneficiary Identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "СНИЛС"
+            }
+          },
+          {
+            "code": "PI",
+            "display": "Patient internal identifier",
+            "designation": {
+              "language": "ru-RU",
+              "value": "Номер пациента в МИС"
+            }
+          },
+          {
+            "code": "TAX",
+            "display": "Tax ID number",
+            "designation": {
+              "language": "ru-RU",
+              "value": "ИНН"
+            }
+          }
+          
+        ]
+      }
+    ]
+  }
+}
+```
+
+^title "Справочная информация"
+:support md/
+
+* [Страховой номер индивидуального лицевого счёта](https://panor.ru/articles/strakhovoy-nomer-individualnogo-litsevogo-scheta/1958.html): СНИЛС задумывался как российский аналог американской карточки социального страхования.
+* [Цифровой полис ОМС](https://zdrav.expert/index.php/Статья:Цифровой_полис_ОМС): Ожидается, что цифровой полис будет автоматически формироваться при рождении ребенка или получении российского гражданства. Кроме того, полис будет автоматически формироваться при появлении соответствующих записей в реестре ЗАГС или по заявлению застрахованного. Также власти планируют привязать данные Федерального регистра льготного лекарственного обеспечения к порталу Госуслуг, чтобы каждый россиянин знал о своем праве на льготные лекарства и мог их получить. К концу июня 2022 года уже есть подписанный президентом Владимиром Путиным закон, позволяющий гражданам России получать полисы не только в виде бумажных или пластиковых документов, но и в цифровом формате. Согласно закону, данные о полисах будут вноситься в единый реестр застрахованных лиц, формироваться он будет на основании записей территориальных фондов ОМС на основании сведений, предоставляемых госорганами, включая ЗАГС.
+* [ITIN](https://4b.ua/ru/blog/what-is-itin-and-how-to-get-it-from-abroad/)
+* [Идентификационные номера налогоплательщика (TIN)](https://www.irs.gov/ru/individuals/international-taxpayers/taxpayer-identification-numbers-tin): Идентификационный номер налогоплательщика (TIN) представляет собой идентификационный номер, используемый Налоговым управлением США при администрировании соблюдения налогового законодательства. Этот номер выдается Администрацией социального обеспечения (SSA) или Налоговым управление США (IRS). Номер социального обеспечения (SSN) выдается Администрацией социального обеспечения (SSA), а все другие идентификационные номер налогоплательщика (TIN) выдаются Налоговым управление США (IRS).

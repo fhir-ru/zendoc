@@ -1,0 +1,36 @@
+{ns fhir.ru.core.vs
+ import #{fhir zen.fhir}
+
+ CoreVsIdentifierType
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-identifier-type"
+  :zen/desc "Данный ValueSet отличается от стандартного [ValueSet FHIR](http://hl7.org/fhir/R4/valueset-identifier-type.html) тем, что из него исключены некоторые значения и в него добавлены значения из [справочника HL7 Version 2 Table 0203](http://hl7.org/fhir/R4/v2/0203/index.html)."
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0203",
+     :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-vs-identifier-type"
+  :version "1.1"
+  :zen.fhir/id "core-vs-identifier-type"
+  :zen.fhir/name "CoreVsIdentifierType"
+  :zen.fhir/title "Core ValueSet Тип идентификатора"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "http://terminology.hl7.org/CodeSystem/v2-0203" :concept [{:code "1" :display "Полис ОМС"}
+                                                                                                  {:code "2" :display "Полис ДМС"}
+                                                                                                  {:code "3" :display "Договор на оказание платных медицинских услуг"}]}]}}
+ CoreVsIdentityDocument
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-identity-document"
+  :zen/desc "Основан на справочнике [\"Документы, удостоверяющие личность\" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48",
+     :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-vs-identity-document"
+  :version "1.1"
+  :zen.fhir/id "core-vs-identity-document"
+  :zen.fhir/name "CoreVsIdentityDocument"
+  :zen.fhir/title "Core ValueSet Документы, удостоверяющие личность"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.99.2.48"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.99.2.48"}]}}}
