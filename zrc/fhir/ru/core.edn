@@ -12,6 +12,7 @@
           fhir.ru.core.practitioner
           fhir.ru.core.tutorial-patient
           fhir.ru.core.vs-nsi-gender
+          fhir.ru.core.vs
 
           fhir.ru.diag.encounter
           fhir.ru.diag.nosology
