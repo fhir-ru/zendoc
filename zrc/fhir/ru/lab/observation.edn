@@ -77,6 +77,8 @@
   :zendoc "artifacts.valuesets.core-vs-nsi-lab-tests"
   :zen/desc "Федеральный справочник лабораторных исследований. Справочник лабораторных тестов"
   :zen.fhir/version "0.5.8"
+  :zen.fhir/name "CoreVsLabTests"
+  :zen.fhir/title "Core Value Set Lab Tests"
   :fhir/code-systems
   #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1080",
      :zen.fhir/content :not-present}}
