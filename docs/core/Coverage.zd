@@ -44,6 +44,7 @@
 * #artifacts.valuesets.vs-nsi-mandatory-medical-insurance-policy-type
 
 :profile-uri "((ztx-get :symbols fhir.ru.core.coverage/CoreCoverage :zen.fhir/profileUri))"
+
 ^title "Профиль на Coverage"
 ^zen/schema
 :section:profile fhir.ru.core.coverage/CoreCoverage
@@ -611,12 +612,26 @@ payor:
 "Виды полиса обязательного медицинского страхования" "-"}
 ]
 
+^title "Справочная информация"
+:support md/
+
+Определение подходящего значения в справочнике [https://terminology.hl7.org/3.1.0/CodeSystem-v2-0203.html](https://terminology.hl7.org/3.1.0/CodeSystem-v2-0203.html):
+
+* [Zulip-chat/v2 Identifier Type](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/v2.20Identifier.20Type): SB was introduced as a generic type that was country independent and that was a true "type" - i.e. it didn't refer to a specific identifier system.
+* [In Table 0203 Explain the difference between SS and SB](https://jira.hl7.org/browse/FHIR-32659): Gist is that SB is a generic - it encompasses U.S. Social Security Number, Canadian Social Insurance Number and all sorts of other national (and sometimes regional) identifiers for this purpose.  SS shouldn't really exist as it's not an identifier "type" but actually refers to a specific namespace.  However, it's been used in the US for decades, so we can't exactly make it go away.  In FHIR, if you're sending a US SSN, the Identifier.type is expected to be "SB". This code system is now managed in THO - terminology.hl7.org
+* [HL7 Terminology (THO)](https://terminology.hl7.org/3.1.0/CodeSystem-v2-0203.html)
+* [Zulip-chat/IdentifierType](https://chat.fhir.org/#narrow/stream/179202-terminology/topic/IdentifierType): In FHIR, you're expected to use SB. It's in the extensible value set, and SS is not. (Because SS refers to a specific identifier namespace rather than a generic type of identifiers.)
+* [Zulip-chat/Identifier Type Codes](https://chat.fhir.org/#narrow/stream/179202-terminology/topic/Identifier.20Type.20Codes)
+* [Zulip-chat/Medicare beneficiary identifier identifier type](https://chat.fhir.org/#narrow/stream/179190-united-states/topic/Medicare.20beneficiary.20identifier.20identifier.20type)
+* [FHIR-37739 Clarify the use of Identifier.type](https://jira.hl7.org/browse/FHIR-37739)
+* [Zulip-chat/Extensible binding of Identifier.type](https://chat.fhir.org/#narrow/stream/179177-conformance/topic/Extensible.20binding.20of.20Identifier.2Etype)
+
 ^title "Ресурс Coverage"
-:resource md/
+:support:resource md/
 
 TODO: перевод ресурса Coverage
 
 ^title "Область применения и использование"
-:resource:scope-and-usage md/
+:support:resource:scope-and-usage md/
 
 TODO: перевод ресурса Coverage
