@@ -7,15 +7,22 @@ identifier:
 meta: 
  versionId: '1'
 entry: 
- - fullUrl: 'urn:uuid:FD437A4E-3A1D-1772-851E-F909B692A39D'
+ - fullUrl: 'urn:uuid:66201AE4-508C-58E1-99E9-3B1C58B0291C'
    resource: 
     resourceType: 'Composition'
     type: 
      coding: 
+      - system: 'http://loinc.org'
+        code: '11502-2'
+        display: 'Laboratory report'
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
         code: '7'
         version: '4.45'
-    date: '2018-12-20T12:20:00+3:00'
+        display: 'Протокол лабораторного исследования'
+    author: 
+     - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+    status: 'final'
+    date: '2018-12-20T12:20:00+03:00'
     confidentiality: 'N'
     identifier: 
      system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.50'
@@ -23,42 +30,60 @@ entry:
     title: 'Протокол лабораторного исследования'
     section: 
     - title: 'ДАННЫЕ О ПАЦИЕНТЕ'
-      code: 'recordTarget'
+      code: 
+       coding: 
+        - display: 'recordTarget'
       entry: 
-      - reference: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+      - reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
     - title: 'ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА'
-      code: 'author'
+      code: 
+       coding: 
+        - display: 'author'
       entry: 
-      - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+      - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     - title: 'ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА'
-      code: 'custodian'
+      code: 
+       coding: 
+        - display: 'custodian'
       entry: 
-      - reference: 'urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123'
+      - reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
     - title: 'ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА'
-      code: 'informationRecipient'
+      code: 
+       coding: 
+        - display: 'informationRecipient'
       entry: 
-      - reference: 'urn:uuid:BA6657AD-7046-6F6D-87C5-1E4E6B6B5B04'
+      - reference: 'urn:uuid:40D5A596-E79A-9364-BFD8-771CC6E74C73'
     - title: 'ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ'
-      code: 'legalAuthenticator'
+      code: 
+       coding: 
+        - display: 'legalAuthenticator'
       entry: 
-      - reference: 'urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660'
+      - reference: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
     - title: 'СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ'
-      code: 'participantInd'
+      code: 
+       coding: 
+        - display: 'participantInd'
       entry: 
-      - reference: 'urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580'
+      - reference: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
     - title: 'СВЕДЕНИЯ О НАПРАВИВШЕМ ЛИЦЕ И ОРГАНИЗАЦИИ'
-      code: 'participantRef'
+      code: 
+       coding: 
+        - display: 'participantRef'
       entry: 
-      - reference: 'urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD'
+      - reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
     - title: 'СВЕДЕНИЯ О НАПРАВЛЕНИИ'
-      code: 'order'
+      code: 
+       coding: 
+        - display: 'order'
       entry: 
-      - reference: 'urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437'
+      - reference: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
     - title: 'ТЕЛО ДОКУМЕНТА'
-      code: 'structuredBody'
+      code: 
+       coding: 
+        - display: 'structuredBody'
       entry: 
-      - reference: 'urn:uuid:76F55F44-4A8E-7953-8C77-51E9475DBD32'
- - fullUrl: 'urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123'
+      - reference: 'urn:uuid:2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
+ - fullUrl: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -102,11 +127,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '105005'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -119,7 +144,7 @@ entry:
          system: 'phone'
        - value: 'gp129@zdrav.mos.ru'
          system: 'email'
- - fullUrl: 'urn:uuid:BA6657AD-7046-6F6D-87C5-1E4E6B6B5B04'
+ - fullUrl: 'urn:uuid:40D5A596-E79A-9364-BFD8-771CC6E74C73'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -133,7 +158,7 @@ entry:
            code: 'PRN'
            display: 'Provider number'
     name: 'Министерство здравоохранения Российской Федерации'
- - fullUrl: 'urn:uuid:33EE1403-66B5-064F-B864-18DFAB8675EA'
+ - fullUrl: 'urn:uuid:FBE42CE9-2E91-F445-B3ED-4BBC58982067'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -163,11 +188,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '123376'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -178,7 +203,7 @@ entry:
      - telecom: 
        - value: '+74952323491'
          system: 'phone'
- - fullUrl: 'urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A'
+ - fullUrl: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -199,11 +224,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '117198'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -216,7 +241,7 @@ entry:
          system: 'phone'
        - value: '+74954342570'
          system: 'phone'
- - fullUrl: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+ - fullUrl: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
    resource: 
     resourceType: 'Patient'
     identifier: 
@@ -288,11 +313,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '123458'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -306,11 +331,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '123458'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -329,12 +354,12 @@ entry:
     extension: 
      - url: 'http://fhir.ru/core/sd/core-ex-gender'
        valueCodeableConcept: 
-        - coding: 
-          - system: '1.2.643.5.1.13.13.11.1040'
-            code: '1'
-            version: '2.1'
-            display: 'Мужской'
- - fullUrl: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        coding: 
+         - system: '1.2.643.5.1.13.13.11.1040'
+           code: '1'
+           version: '2.1'
+           display: 'Мужской'
+ - fullUrl: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -367,11 +392,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '105005'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -386,7 +411,7 @@ entry:
          system: 'phone'
        - value: 'smirnovа.a.i@rambler.ru'
          system: 'email'
- - fullUrl: '29A52E61-5E4D-B6F8-AACE-5ECBD909F217'
+ - fullUrl: '5BC49767-4D1D-C0B9-A619-6A3E457841D7'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -396,10 +421,10 @@ entry:
          version: '7.5'
          display: 'врач клинической лабораторной диагностики'
     practitioner: 
-     reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     organization: 
-     reference: 'urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123'
- - fullUrl: 'urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660'
+     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+ - fullUrl: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -432,11 +457,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '105005'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -451,7 +476,7 @@ entry:
          system: 'phone'
        - value: 'ivanov.a.i@rambler.ru'
          system: 'email'
- - fullUrl: 'B92A30B4-197A-9D20-8ADA-A321CD2AB223'
+ - fullUrl: 'C4A613B9-15DC-6624-97EA-A20CBDB347AE'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -461,10 +486,10 @@ entry:
          version: '7.5'
          display: 'заведующий лабораторией медицинской организации'
     practitioner: 
-     reference: 'urn:uuid:6D61F7B4-39EB-C8A9-A71C-B65D2ECA8660'
+     reference: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
     organization: 
-     reference: 'urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123'
- - fullUrl: 'urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD'
+     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+ - fullUrl: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -497,11 +522,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '117198'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -512,7 +537,7 @@ entry:
      - telecom: 
        - value: '+79065184597'
          system: 'phone'
- - fullUrl: 'D5920C2A-86A7-BF62-A439-C61DA8243775'
+ - fullUrl: 'B88B5A2F-9DBA-36A9-923E-A7713DD5D3BC'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -522,10 +547,10 @@ entry:
          version: '7.5'
          display: 'врач-терапевт'
     practitioner: 
-     reference: 'urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD'
+     reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
     organization: 
-     reference: 'urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A'
- - fullUrl: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+     reference: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
+ - fullUrl: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -558,18 +583,18 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '105005'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
           valueString: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
           valueString: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
- - fullUrl: 'D8CB9AAB-2FA5-E117-A59A-9BB9D7B62637'
+ - fullUrl: '951363A1-445A-1693-A476-7EA4E182094A'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -579,10 +604,67 @@ entry:
          version: '7.5'
          display: 'врач клинической лабораторной диагностики'
     practitioner: 
-     reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     organization: 
-     reference: 'urn:uuid:BA300D31-6994-C7B9-854B-7D5335D1B123'
- - fullUrl: 'urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5'
+     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+ - fullUrl: 
+   resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '542323'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.70'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '52415377312'
+       system: 'urn:oid:1.2.643.100.3'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+       family: 'Добролюбова'
+       given: 
+        - Валентина
+        - Николаевна
+    address: 
+       text: 'Московская область, город Москва, улица Ладожская, дом 4/6'
+       state: '77'
+       _state: 
+        extension: 
+         - url: 'http://fhir.ru/core/sd/core-ex-state'
+           valueCodeableConcept: 
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
+       postalCode: '105005'
+       extension: 
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
+          valueString: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
+          valueString: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
+ - fullUrl: 'B60D1085-845A-FAF7-8871-CEB07477AC51'
+   resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: '1.2.643.5.1.13.13.11.1002'
+         code: '177'
+         version: '7.5'
+         display: 'медицинский лабораторный техник (фельдшер-лаборант)'
+    practitioner: 
+     reference: ''
+    organization: 
+     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+ - fullUrl: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -615,11 +697,11 @@ entry:
         extension: 
          - url: 'http://fhir.ru/core/sd/core-ex-state'
            valueCodeableConcept: 
-            - coding: 
-              - system: '1.2.643.5.1.13.13.99.2.206'
-                code: '77'
-                version: '6.3'
-                display: 'г. Москва'
+            coding: 
+             - system: '1.2.643.5.1.13.13.99.2.206'
+               code: '77'
+               version: '6.3'
+               display: 'г. Москва'
        postalCode: '105005'
        extension: 
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
@@ -630,7 +712,7 @@ entry:
      - telecom: 
        - value: '+79065184597'
          system: 'phone'
- - fullUrl: '4259DD81-43F4-2639-B9BF-F86DC7728382'
+ - fullUrl: 'A9EB56E6-AA5C-C711-8CBE-A9EC25469327'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -640,10 +722,10 @@ entry:
          version: '7.5'
          display: 'медицинская сестра процедурной'
     practitioner: 
-     reference: 'urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5'
+     reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
     organization: 
-     reference: 'urn:uuid:989214E8-D881-16E4-9784-E3E47021E32A'
- - fullUrl: 'urn:uuid:8E692BBD-CA47-912E-9D93-D3517596EB15'
+     reference: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
+ - fullUrl: 'urn:uuid:C1943662-1C57-80C2-A252-08DA9BED9840'
    resource: 
     resourceType: 'Encounter'
     identifier: 
@@ -671,13 +753,13 @@ entry:
      - system: 'urn:oid:http://terminology.hl7.org/CodeSystem/v3-ActCode'
        code: 'AMB'
     period: 
-     start: '2018-12-20T08:30:00+3:00'
-     end: '2018-12-20T19:00:00+3:00'
+     start: '2018-12-20T08:30:00+03:00'
+     end: '2018-12-20T19:00:00+03:00'
     status: 'finished'
- - fullUrl: 'urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580'
+ - fullUrl: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
    resource: 
     resourceType: 'Coverage'
-    id: '694E64EB-E75C-11B3-9C35-47EAC75D9580'
+    id: '73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
     identifier: 
      - value: '9876543211234567'
        type: 
@@ -688,7 +770,7 @@ entry:
         start: '2017-10-25'
     status: 'active'
     beneficiary: 
-     reference: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
     payor: 
      - reference: 'Organization/Payor'
     type: 
@@ -718,10 +800,10 @@ entry:
            version: '1.3'
            display: 'Полис ОМС единого образца, бессрочный'
        value: 'Тип полиса ОМС'
- - fullUrl: 'urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437'
+ - fullUrl: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
    resource: 
     resourceType: 'Task'
-    id: 'D782391F-EDDE-6D67-BC96-2A20595A8437'
+    id: 'BA8828B3-4933-B991-B231-35B999D59DE8'
     status: 'completed'
     intent: 'order'
     identifier: 
@@ -733,21 +815,21 @@ entry:
        code: '107'
        version: '4.45'
     requester: 
-     reference: 'urn:uuid:45CE9E1A-B495-7FF9-A26E-39579D4D16DD'
+     reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
     encounter: 
-     reference: 'urn:uuid:8E692BBD-CA47-912E-9D93-D3517596EB15'
+     reference: 'urn:uuid:C1943662-1C57-80C2-A252-08DA9BED9840'
     insurance: 
-     reference: 'urn:uuid:694E64EB-E75C-11B3-9C35-47EAC75D9580'
+     reference: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
     basedOn: 
-     - reference: 'urn:uuid:67BA80AD-57E8-7384-AB18-784A5AC542C5'
-     - reference: 'urn:uuid:946D5315-E0E3-3939-A42A-220337AB75BF'
-     - reference: 'urn:uuid:73C3293C-72BC-53AA-BC3D-C21143197490'
- - fullUrl: 'urn:uuid:76F55F44-4A8E-7953-8C77-51E9475DBD32'
+     - reference: 'urn:uuid:B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
+     - reference: 'urn:uuid:B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
+     - reference: 'urn:uuid:71AC5EEE-3C49-3836-A535-99315A448F2C'
+ - fullUrl: 'urn:uuid:2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
    resource: 
     resourceType: 'Task'
-    id: '76F55F44-4A8E-7953-8C77-51E9475DBD32'
+    id: '2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
     basedOn: 
-     - reference: 'urn:uuid:D782391F-EDDE-6D67-BC96-2A20595A8437'
+     - reference: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
     status: 'completed'
     intent: 'filler-order'
     priority: 'routine'
@@ -757,69 +839,69 @@ entry:
         code: '2'
         version: '4.2'
     executionPeriod: 
-     start: '2018-12-20T08:30:00+3:00'
-     end: '2018-12-20T16:10:00+3:00'
+     start: '2018-12-20T08:30:00+03:00'
+     end: '2018-12-20T16:10:00+03:00'
     output: 
      - valueReference: 
-        reference: 'urn:uuid:7189E74F-57E7-C24C-8314-6B9DC9BF459E'
+        reference: 'urn:uuid:48C186F1-2E14-460C-8CD0-2535761486D6'
        type: 
         coding: 
          - code: 'DR'
      - valueReference: 
-        reference: 'urn:uuid:15ABCA1A-EFA8-B497-A554-7D51AAC717C8'
+        reference: 'urn:uuid:551BC9CA-ECAA-5423-A1C2-0F8F1488DC53'
        type: 
         coding: 
          - code: 'DR'
      - valueReference: 
-        reference: 'urn:uuid:3BAF60CC-8441-AC1B-B7CA-32C98B7555BB'
+        reference: 'urn:uuid:BE96299B-C4DA-17A5-95CE-8EF638BDE555'
        type: 
         coding: 
          - code: 'DR'
- - fullUrl: 'urn:uuid:67BA80AD-57E8-7384-AB18-784A5AC542C5'
+ - fullUrl: 'urn:uuid:B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
    resource: 
     resourceType: 'ServiceRequest'
-    id: '67BA80AD-57E8-7384-AB18-784A5AC542C5'
+    id: 'B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Клинический анализ крови на анализаторе'
- - fullUrl: 'urn:uuid:946D5315-E0E3-3939-A42A-220337AB75BF'
+ - fullUrl: 'urn:uuid:B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
    resource: 
     resourceType: 'ServiceRequest'
-    id: '946D5315-E0E3-3939-A42A-220337AB75BF'
+    id: 'B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Микроскопия окрашенных мазков'
- - fullUrl: 'urn:uuid:73C3293C-72BC-53AA-BC3D-C21143197490'
+ - fullUrl: 'urn:uuid:71AC5EEE-3C49-3836-A535-99315A448F2C'
    resource: 
     resourceType: 'ServiceRequest'
-    id: '73C3293C-72BC-53AA-BC3D-C21143197490'
+    id: '71AC5EEE-3C49-3836-A535-99315A448F2C'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:7227DAC1-39FC-39AE-A867-CE9E2DE6F6A9'
+     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Иммуногематологическое исследование'
- - fullUrl: 'urn:uuid:7189E74F-57E7-C24C-8314-6B9DC9BF459E'
+ - fullUrl: 'urn:uuid:48C186F1-2E14-460C-8CD0-2535761486D6'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Клинический анализ крови на анализаторе'
     status: 'final'
-    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    effectiveDateTime: '2018-12-20T11:11:00+03:00'
     category: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
@@ -833,70 +915,70 @@ entry:
         version: '2.10'
         display: 'Клинический анализ крови на анализаторе'
     result: 
-        - reference: 'urn:uuid:EB528145-ED31-6CEA-944B-B2B2475DAAD5'
-        - reference: 'urn:uuid:5DCCDB86-A23C-161B-9B76-CC961875A98A'
- - fullUrl: 'urn:uuid:EB528145-ED31-6CEA-944B-B2B2475DAAD5'
+        - reference: 'urn:uuid:8AF79A06-C2F0-9EFD-BDED-6FC188CB22D8'
+        - reference: 'urn:uuid:C6D05F47-82AC-F752-961D-6B3CED1D4859'
+ - fullUrl: 'urn:uuid:8AF79A06-C2F0-9EFD-BDED-6FC188CB22D8'
    resource: 
     resourceType: 'Observation'
     status: 'final'
     code: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1080'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1080'
         code: '1017128'
         version: '3.28'
         display: 'Гемоглобин общий, массовая концентрация в крови'
-    effectiveDateTime: '2018-12-20T08:55:00+3:00'
+    effectiveDateTime: '2018-12-20T08:55:00+03:00'
     interpretation: 
-     coding: 
-      - system: '1.2.643.5.1.13.13.99.2.257'
+     - coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
         code: 'H'
     specimen: 
-     reference: 'urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511'
+     reference: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
     performer: 
-        - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
         - reference: ''
     valueQuantity: 
-     system: '1.2.643.5.1.13.13.11.1358'
+     system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
      code: '60'
-     value: '166'
+     value: 166
      unit: 'г/л'
     referenceRange: 
     - text: '120 - 150 г/л'
       low: 
-       system: '1.2.643.5.1.13.13.11.1358'
+       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
        code: '60'
-       value: '120'
+       value: 120
        unit: 'г/л'
       high: 
-       system: '1.2.643.5.1.13.13.11.1358'
+       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
        code: '60'
-       value: '150'
+       value: 150
        unit: 'г/л'
       type: 
        coding: 
         - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
           code: 'normal'
     device: 
-     reference: 'urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43'
- - fullUrl: 'urn:uuid:5DCCDB86-A23C-161B-9B76-CC961875A98A'
+     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
+ - fullUrl: 'urn:uuid:C6D05F47-82AC-F752-961D-6B3CED1D4859'
    resource: 
     resourceType: 'Observation'
     status: 'final'
     code: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1080'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1080'
         code: '1017482'
         version: '3.28'
         display: 'Шизоциты, обнаружение в крови методом автоматизированного подсчёта'
-    effectiveDateTime: '2018-12-20T08:55:00+3:00'
+    effectiveDateTime: '2018-12-20T08:55:00+03:00'
     interpretation: 
-     coding: 
-      - system: '1.2.643.5.1.13.13.99.2.257'
+     - coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
         code: 'A'
     specimen: 
-     reference: 'urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511'
+     reference: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
     performer: 
-        - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
         - reference: ''
     valueString: '++'
     referenceRange: 
@@ -908,16 +990,16 @@ entry:
     note: 
     - text: 'Количество шизоцитов: 8,35% от общего количества эритроцитов'
       authorReference: 
-       reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
-      time: '2018-12-20T16:13:00+3:00'
+       reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+      time: '2018-12-20T16:13:00+03:00'
     device: 
-     reference: 'urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43'
- - fullUrl: 'urn:uuid:15ABCA1A-EFA8-B497-A554-7D51AAC717C8'
+     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
+ - fullUrl: 'urn:uuid:551BC9CA-ECAA-5423-A1C2-0F8F1488DC53'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Микроскопия окрашенных мазков'
     status: 'final'
-    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    effectiveDateTime: '2018-12-20T11:11:00+03:00'
     category: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
@@ -931,83 +1013,83 @@ entry:
         version: '2.10'
         display: 'Микроскопия окрашенных мазков'
     media: 
-     - reference: 'urn:uuid:34DEB154-01BA-E2EA-A499-17C9DCA91298'
+     - reference: 'urn:uuid:DE681F23-45B2-9D30-A1C7-727E04D77A76'
     result: 
-        - reference: 'urn:uuid:8D8D622B-2416-59D9-BF87-993D6802C7C7'
-        - reference: 'urn:uuid:140468C1-AA47-CDD7-95CD-3653A0B8DEAE'
- - fullUrl: 'urn:uuid:8D8D622B-2416-59D9-BF87-993D6802C7C7'
+        - reference: 'urn:uuid:965BCBDB-3DCA-A8A7-9BE9-2ED357DCD31D'
+        - reference: 'urn:uuid:F5303C91-C18C-CAE9-B206-9D7033BC11B1'
+ - fullUrl: 'urn:uuid:965BCBDB-3DCA-A8A7-9BE9-2ED357DCD31D'
    resource: 
     resourceType: 'Observation'
     status: 'final'
     code: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1080'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1080'
         code: '1017508'
         version: '3.28'
         display: 'Шизоциты, количество в поле зрения в крови методом световой микроскопии'
-    effectiveDateTime: '2018-12-20T10:42:00+3:00'
+    effectiveDateTime: '2018-12-20T10:42:00+03:00'
     interpretation: 
-     coding: 
-      - system: '1.2.643.5.1.13.13.99.2.257'
+     - coding: 
+      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
         code: 'HU'
     specimen: 
-     reference: 'urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA'
+     reference: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
     performer: 
-        - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     valueString: '10-25-30 в поле зрения'
     referenceRange: 
     - text: '1 - 3 в поле зрения'
       low: 
-       system: '1.2.643.5.1.13.13.11.1358'
+       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
        code: '334'
-       value: '1'
+       value: 1
        unit: '1/поле зр.'
       high: 
-       system: '1.2.643.5.1.13.13.11.1358'
+       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
        code: '334'
-       value: '3'
+       value: 3
        unit: '1/поле зр.'
       type: 
        coding: 
         - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
           code: 'normal'
- - fullUrl: 'urn:uuid:140468C1-AA47-CDD7-95CD-3653A0B8DEAE'
+ - fullUrl: 'urn:uuid:F5303C91-C18C-CAE9-B206-9D7033BC11B1'
    resource: 
     resourceType: 'Observation'
     status: 'final'
     code: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1080'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1080'
         code: '1018738'
         version: '3.28'
         display: 'Гиперхромия, обнаружение в крови методом световой микроскопии'
-    effectiveDateTime: '2018-12-20T10:42:00+3:00'
+    effectiveDateTime: '2018-12-20T10:42:00+03:00'
     interpretation: 
      extension: 
       - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
         valueString: 'NI'
     specimen: 
-     reference: 'urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA'
+     reference: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
     performer: 
-        - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     valueString: 'умеренная'
- - fullUrl: 'urn:uuid:34DEB154-01BA-E2EA-A499-17C9DCA91298'
+ - fullUrl: 'urn:uuid:DE681F23-45B2-9D30-A1C7-727E04D77A76'
    resource: 
     resourceType: 'Media'
     content: 
      data: 'JVBERi0xLjMNJf0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ...'
-    createdDateTime: '2018-12-20T16:01:00+3:00'
+    createdDateTime: '2018-12-20T16:01:00+03:00'
     device: 
-     reference: 'urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43'
+     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
     operator: 
-     reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     status: 'completed'
- - fullUrl: 'urn:uuid:3BAF60CC-8441-AC1B-B7CA-32C98B7555BB'
+ - fullUrl: 'urn:uuid:BE96299B-C4DA-17A5-95CE-8EF638BDE555'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Иммуногематологическое исследование'
     status: 'final'
-    effectiveDateTime: '2018-12-20T11:11:00+3:00'
+    effectiveDateTime: '2018-12-20T11:11:00+03:00'
     category: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1476'
@@ -1021,14 +1103,14 @@ entry:
         version: '2.10'
         display: 'Иммуногематологическое исследование'
     result: 
-        - reference: 'urn:uuid:96153A63-9E7B-E274-9CE2-7A8CD9BE9D42'
- - fullUrl: 'urn:uuid:96153A63-9E7B-E274-9CE2-7A8CD9BE9D42'
+        - reference: 'urn:uuid:F27A6E32-EBA6-1B51-AACA-B9312A2F6496'
+ - fullUrl: 'urn:uuid:F27A6E32-EBA6-1B51-AACA-B9312A2F6496'
    resource: 
     resourceType: 'Observation'
     status: 'final'
     code: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1080'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1080'
         code: '1038629'
         version: '3.28'
         display: 'Группа крови AB0 подтверждающим методом'
@@ -1037,135 +1119,136 @@ entry:
       - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
         valueString: 'NA'
     specimen: 
-     reference: 'urn:uuid:1589B446-5AA6-75BE-A24D-A565E94BD19E'
+     reference: 'urn:uuid:A7A75331-6531-8030-96FF-6E26E80C9A87'
     performer: 
-        - reference: 'urn:uuid:2C3F558B-8A8B-669D-8147-3C15B259C663'
+        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
     valueCodeableConcept: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1061'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1061'
         code: '103'
         version: '2.1'
- - fullUrl: 'urn:uuid:C1C22541-AEFA-A65A-BFAE-B41B7333CE43'
+ - fullUrl: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
    resource: 
     resourceType: 'Device'
     identifier: 
      - value: '1234'
-       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
     deviceName: 
-     name: 'Гематологический анализатор Sysmex KX21'
-     type: 'manufacturer-name'
- - fullUrl: 'urn:uuid:1589B446-5AA6-75BE-A24D-A565E94BD19E'
+     - name: 'Гематологический анализатор Sysmex KX21'
+       type: 'manufacturer-name'
+ - fullUrl: 'urn:uuid:A7A75331-6531-8030-96FF-6E26E80C9A87'
    resource: 
     resourceType: 'Specimen'
     type: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1081'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1081'
         code: '108'
         version: '2.4'
         display: 'Кровь венозная'
     identifier: 
      - value: '0987654321'
-       system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
     collection: 
      collector: 
-      reference: 'urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5'
-     collectedDateTime: '2018-12-20T07:05:00+3:00'
+      reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+     collectedDateTime: '2018-12-20T07:05:00+03:00'
      quantity: 
-      system: '1.2.643.5.1.13.13.11.1358'
+      system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
       code: '16'
-      value: '6.5'
+      value: 6.5
       unit: 'мл'
      method: 
       coding: 
-       - system: '1.2.643.5.1.13.13.11.1070'
+       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
          code: 'A11.12.009'
          version: '2.10'
          display: 'Взятие крови из периферической вены'
     container: 
-     identifier: 
-      - value: '0987654321'
-        system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
-     description: 'Пробирка для иммуногематологических исследований с ACD. Штрихкод: 0987654321'
-     additiveReference: 
-      - reference: '1775049D-207E-BDC8-9CA3-E5ACA466BDF8'
- - fullUrl: 'urn:uuid:47E92D1C-52BB-F687-95B4-192480B73511'
+     - description: 'Пробирка для иммуногематологических исследований с ACD. Штрихкод: 0987654321'
+       identifier: 
+        - value: '0987654321'
+          system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+       additiveReference: 
+        reference: '15951D6B-96FC-343C-AC58-29511D1AE2D4'
+ - fullUrl: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
    resource: 
     resourceType: 'Specimen'
     type: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1081'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1081'
         code: '108'
         version: '2.4'
         display: 'Кровь венозная'
     identifier: 
      - value: '1234567890'
-       system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
     collection: 
      collector: 
-      reference: 'urn:uuid:3EE921C5-8519-50C7-8DCD-784A896448C5'
-     collectedDateTime: '2018-12-20T07:05:00+3:00'
+      reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+     collectedDateTime: '2018-12-20T07:05:00+03:00'
      quantity: 
-      system: '1.2.643.5.1.13.13.11.1358'
+      system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
       code: '16'
-      value: '5'
+      value: 5
       unit: 'мл'
      method: 
       coding: 
-       - system: '1.2.643.5.1.13.13.11.1070'
+       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
          code: 'A11.12.009'
          version: '2.10'
          display: 'Взятие крови из периферической вены'
     container: 
-     identifier: 
-      - value: '1234567890'
-        system: '1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
-     description: 'Пробирка для гематологических исследований с K3-ЭДТА. Штрихкод: 1234567890'
- - fullUrl: 'urn:uuid:D9AF41ED-3BA9-0EE4-9D7F-3D2579EED2DA'
+     - description: 'Пробирка для гематологических исследований с K3-ЭДТА. Штрихкод: 1234567890'
+       identifier: 
+        - value: '1234567890'
+          system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
+ - fullUrl: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
    resource: 
     resourceType: 'Specimen'
     parent: 
-      reference: 'Specimen/parent!!!'
+      - reference: 'Specimen/parent!!!'
     type: 
      coding: 
-      - system: '1.2.643.5.1.13.13.11.1081'
+      - system: 'urn:oid:1.2.643.5.1.13.13.11.1081'
         code: '330'
         version: '2.4'
         display: 'Мазок периферической крови'
     identifier: 
      - value: '124562156'
-       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
     collection: 
-     collector: 
-      reference: ''
      collectedPeriod: 
-      start: '2018-12-20T10:05:00+3:00'
-      end: '2018-12-20T10:15:00+3:00'
+      start: '2018-12-20T10:05:00+03:00'
+      end: '2018-12-20T10:15:00+03:00'
      quantity: 
-      system: '1.2.643.5.1.13.13.11.1358'
+      system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
       code: '128'
-      value: '3'
+      value: 3
       unit: 'Единица'
      method: 
       coding: 
-       - system: '1.2.643.5.1.13.13.11.1070'
+       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
          display: 'Приготовление окрашенных мазков крови'
     processing: 
-     timePeriod: 
-      start: '2018-12-20T10:05:00+3:00'
-      end: '2018-12-20T10:15:00+3:00'
-     procedure: 
-      coding: 
-       - system: '1.2.643.5.1.13.13.11.1070'
-     description: 'Приготовление окрашенных мазков крови'
+     - timePeriod: 
+        start: '2018-12-20T10:05:00+03:00'
+        end: '2018-12-20T10:15:00+03:00'
+       procedure: 
+        coding: 
+         - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
+       description: 'Приготовление окрашенных мазков крови'
     container: 
-     identifier: 
-      - value: '124562156'
-        system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
-     description: 'Микропрепараты 16/15689, 16/15690, 16/156891, окрашенные азур-эозином'
- - fullUrl: 'urn:uuid:1775049D-207E-BDC8-9CA3-E5ACA466BDF8'
+     - description: 'Микропрепараты 16/15689, 16/15690, 16/156891, окрашенные азур-эозином'
+       identifier: 
+        - value: '124562156'
+          system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
+ - fullUrl: 'urn:uuid:15951D6B-96FC-343C-AC58-29511D1AE2D4'
    resource: 
     resourceType: 'Substance'
     identifier: 
      - value: '9874'
-       system: '1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
+       system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.67'
     description: 'Гелевые карты для иммуногематологических исследований HEMOS SP'
+    code: 
+     coding: 
+      - display: 'Гелевые карты для иммуногематологических исследований HEMOS SP'
