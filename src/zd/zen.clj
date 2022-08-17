@@ -139,12 +139,14 @@
 
     confirms (let [sch-name (first confirms)
                    sch (zen.core/get-symbol ztx sch-name)]
-               (if (:zen.fhir/type sch)
-                 [:a {:href (str "http://hl7.org/fhir/r4b/datatypes.html#"
-                                 (:zen.fhir/type sch))}
-                  
-                  (:zen.fhir/type sch)]
-                 [:a {:href (calc-ref sch)} (schema-name sch-name)]))))
+               [:a {:href (calc-ref sch)}
+                (schema-name sch-name)]
+               #_(if (:zen.fhir/type sch)
+                   [:a {:href (str "http://hl7.org/fhir/r4b/datatypes.html#"
+                                   (:zen.fhir/type sch))}
+
+                    (:zen.fhir/type sch)]
+                   [:a {:href (calc-ref sch)} (schema-name sch-name)]))))
 
 
 (defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
