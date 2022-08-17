@@ -129,7 +129,7 @@
     (:zen.fhir/reference sch)
     (let [refers (get-in sch [:zen.fhir/reference :refers])
           schemas (map #(zen.core/get-symbol ztx %) refers)]
-      [:span "Reference("
+      [:span [:a {:href "http://hl7.org/fhir/R4B/references.html#Reference"} "Reference"] "("
        (->> (for [refer-schema schemas]
               [:a {:href (calc-ref refer-schema)}
                (or (:zen.fhir/name refer-schema)
