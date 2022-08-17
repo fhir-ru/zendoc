@@ -35,11 +35,11 @@
 
 ^title "Обзорная диаграмма"
 ^img 
-:diagram:img "diag/diagnosis_diagram.png"
+:diagram:img "diag/materials/diagnosis_diagram.png"
 
 ^title "Обзорная диаграмма [svg]"
 ^img 
-:diagram:svg "diag/diagnosis_diagram.svg"
+:diagram:svg "diag/materials/diagnosis_diagram.svg"
 
 ^title "Обзорная диаграмма [mermaid]"
 :diagram:mm mm/
@@ -98,7 +98,7 @@ direction LR
 
 ^title "Пример структуры клинического диагноза как набора нозологических единиц"
 ^img {:style "height:655px width:964px" }
-:usage:encounter-diagnosis:diagram "diag/encounter-diagnosis-diagram.png"
+:usage:encounter-diagnosis:diagram "diag/materials/encounter-diagnosis-diagram.png"
 
 ^title "Логическая модель нозологической единицы"
 ^zen/schema
@@ -193,8 +193,6 @@ direction LR
 ^title "Полезные ссылки"
 :links md/
 
-[[a https://github.com/fhir-ru/core/discussions/47 Основная страница проекта fhir-ru на github.com для обсуждения клинического диагноза]]  ([[d 47]])
-
-[[a https://github.com/fhir-ru/core/discussions/72 Основная страница проекта fhir-ru на github.com для обсуждения нозологической единицы]] ([[d 72]])
-
-[[a https://docs.google.com/spreadsheets/d/1WDC22c-qnWYEJZmdKcfuIqz_OvZaC_z4b5Vg5R5YSnI/edit?usp=sharing Обсуждение логической структуры нозологической единицы в Google Sheet]]
+* [Основная страница проекта fhir-ru на github.com для обсуждения клинического диагноза](https://github.com/fhir-ru/core/discussions/47) [[d 47]]
+* [Основная страница проекта fhir-ru на github.com для обсуждения нозологической единицы](https://github.com/fhir-ru/core/discussions/72) [[d 72]]
+* [Обсуждение логической структуры нозологической единицы в Google Sheet](https://docs.google.com/spreadsheets/d/1WDC22c-qnWYEJZmdKcfuIqz_OvZaC_z4b5Vg5R5YSnI/edit?usp=sharing)
