@@ -1,23 +1,50 @@
 {ns fhir.ru.core.coverage
- import #{fhir zen.fhir fhir.ru.core.patient}
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.patient
+          fhir.ru.financial.patient
+          fhir.ru.financial.relatedperson
+          fhir.ru.financial.organization}
 
  CoreCoverage
- {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/adm-group}
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
   :zendoc "core.Coverage"
   :confirms #{fhir/Coverage}
-  :zen/desc "Страховой полис"
+  :zen/desc "Страховое покрытие"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Coverage"
-  :zen.fhir/id "coverage-lab"
-  :zen.fhir/name "CoverageLab"
+  :zen.fhir/id "core-coverage"
+  :zen.fhir/name "CoreCoverage"
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "resource"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/coverage-lab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-coverage"
   :type zen/map
-  :keys {:type {:zen/desc "Тип страхового полиса"
+  :require #{:payor :_payor}
+  :keys {:type {:zen/desc "Тип страхового покрытия"
+                :type zen/map
                 :confirms #{fhir/CodeableConcept}
                 :zen.fhir/value-set {:symbol CoreVsNsiMedicalCarePaymentSource :strength :required}}
+
+
+         :payor {:type zen/vector
+                 :minItems 1
+                 :every {:type zen/map
+                         :confirms #{fhir/Reference zen.fhir/Reference}
+                         :zen.fhir/reference {:refers #{fhir.ru.financial.patient/FinancialPatient
+                                                        fhir.ru.financial.relatedperson/FinancialRelatedPerson
+                                                        fhir.ru.financial.organization/FinancialOrganization}}}}
+         :_payor {:type zen/map
+                  :confirms #{fhir/Reference zen.fhir/Reference}
+                  :zen.fhir/reference {:refers #{fhir.ru.financial.patient/FinancialPatient
+                                                 fhir.ru.financial.relatedperson/FinancialRelatedPerson
+                                                 fhir.ru.financial.organization/FinancialOrganization}}}
+         :beneficiary {:zen/desc "Ссылка на пациента"
+                       :confirms #{fhir/Reference zen.fhir/Reference}
+                       :type zen/map
+                       :zen.fhir/reference {:refers
+                                            #{fhir.ru.core.patient/CorePatient}}}
          :identifier {:zen/desc "Идентификаторы"
                       :type zen/vector
                       :every {:type zen/map
@@ -37,7 +64,8 @@
                                                     :system "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}
                          :schema {:type zen/vector
                                   :every {:type zen/map
-                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                          :keys {:value {:type zen/string}
+                                                 :system {:zen/desc "Пространство имен идентификаторов"
                                                           :type zen/string
                                                           :confirms #{fhir/uri}
                                                           :enum [{:value "http://fhir.ru/core/systems/oms-old"}
@@ -109,7 +137,8 @@
                          :schema {:type zen/vector
                                   :every {:type zen/map
 
-                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                          :keys {:value {:type zen/string}
+                                                 :system {:zen/desc "Пространство имен идентификаторов"
                                                           :type zen/string
                                                           :confirms #{fhir/uri}
                                                           :const {:value "http://fhir.ru/core/systems/dms"}}
@@ -156,7 +185,8 @@
                          :schema {:type zen/vector
                                   :every {:type zen/map
 
-                                          :keys {:system {:zen/desc "Пространство имен идентификаторов"
+                                          :keys {:value {:type zen/string}
+                                                 :system {:zen/desc "Пространство имен идентификаторов"
                                                           :type zen/string
                                                           :confirms #{fhir/uri}
                                                           :const {:value "http://fhir.ru/core/systems/contract"}}
@@ -191,12 +221,7 @@
                                                                                                    :system {:zen/desc "Система"
                                                                                                             :type zen/string
                                                                                                             :confirms #{fhir/uri}
-                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}}}}}
-         :beneficiary {:zen/desc "Ссылка на пациента"
-                       :confirms #{fhir/Reference zen.fhir/Reference}
-                       :type zen/map
-                       :zen.fhir/reference {:refers
-                                            #{fhir.ru.core.patient/CorePatient}}}}}
+                                                                                                            :const {:value "urn:oid:1.2.643.5.1.13.13.99.2.724"}}}}}}}}}}}}}}}}}}}}
 
  SchemaClass1
  {:zen/tags #{zen/schema}

@@ -1,0 +1,61 @@
+{ns fhir.ru.financial.patient
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.patient}
+
+ FinancialPatient
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
+  :zendoc "finance.Patient"
+  :zen/desc "Пациент"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir.ru.core.patient/CorePatient}
+  :zen.fhir/id "financial-patient"
+  :zen.fhir/name "FinancialPatient"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
+  :zen.fhir/type "Patient"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/financial-patient"
+  :type zen/map
+  :require #{:identifier}
+  :keys {:identifier {:zen/desc "Идентификаторы пациента"
+                      :type zen/vector
+                      :every {:confirms #{fhir/Identifier}
+                              :type zen/map}
+                      :slicing
+                      {:slices
+                       {"INN"
+                        {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+                         :filter
+                         {:engine :match
+                          :match {:system "http://fhir.ru/core/systems/inn"}}
+                         :schema {:type zen/vector
+                                  :minItems 1
+                                  :every {:type zen/map
+                                          :confirms #{fhir/Identifier}
+                                          :require #{:system :value} ;; TODO: fix - не отображается на схеме элемент :value
+                                          :keys {:system {:const {:value "http://fhir.ru/core/systems/inn"}}
+                                                 :value {:type zen/string}
+                                                 :type {:type zen/map
+                                                        :match {:coding #{{:code "TAX"
+                                                                           :display "Tax ID number"
+                                                                           :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
+                                                        :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
+                                                        :keys {:coding {:type zen/vector
+                                                                        :minItems 1 ;;TODO: fix - не отображается на схеме                                                                        
+                                                                        :every {:type zen/map
+                                                                                :confirms #{fhir/Coding}}
+                                                                        :slicing {:slices {"v2-0203" {:filter {:engine :match
+                                                                                                               :match {:system "http://terminology.hl7.org/CodeSystem/v2-0203"}}
+                                                                                                      :schema {:type zen/vector
+                                                                                                               :minItems 1
+                                                                                                               :every {:type zen/map
+                                                                                                                       :require #{:code :display :system}
+                                                                                                                       :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                            :strength :extensible}
+                                                                                                                       :keys {:code {:const {:value "TAX"}}
+                                                                                                                              :display {:const {:value "Tax ID number"}}
+                                                                                                                              :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}}
+                                                                                  :rest {:type zen/map
+                                                                                         :confirms #{fhir/Coding}}}}}}}}}}}}}}}}

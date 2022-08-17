@@ -8,7 +8,6 @@
           fhir.ru.core.observation
           fhir.ru.core.organization
           fhir.ru.core.patient
-          fhir.ru.core.patient2
           fhir.ru.core.practitioner
           fhir.ru.core.tutorial-patient
           fhir.ru.core.vs-nsi-gender
@@ -28,6 +27,10 @@
           fhir.ru.lab.specimen
           fhir.ru.lab.substance
           fhir.ru.lab.task
+
+          fhir.ru.financial.patient
+          fhir.ru.financial.relatedperson
+          fhir.ru.financial.organization
 
           fhir.ru.support.datatype-template
           fhir.ru.support.datatypes

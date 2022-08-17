@@ -1,0 +1,40 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa-solid :fa-file-invoice-dollar]
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.alexandra}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity 0
+
+
+:title "Пациент-плательщик"
+
+:toc
+
+^hide
+:summary md/
+
+Пациент с обязательным указанием ИНН.
+
+^title "Определение"
+::section md/
+
+Пациент с обязательным указанием ИНН.
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.financial.patient/FinancialPatient
+
