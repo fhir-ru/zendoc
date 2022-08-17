@@ -124,18 +124,27 @@
     (str "/" (:zendoc refer-schema))
     (:zen.fhir/profileUri refer-schema)))
 
+(defn map-reference
+  [ztx refers]
+  (let [schemas (map #(zen.core/get-symbol ztx %) refers)]
+    [:span [:a {:href "http://hl7.org/fhir/R4B/references.html#Reference"} "Reference"] "("
+     (->> (for [refer-schema schemas]
+            [:a {:href (calc-ref refer-schema)}
+             (or (:zen.fhir/name refer-schema)
+                 (:zen.fhir/type refer-schema))])
+          distinct
+          (interpose " | ")) ")"]))
+
 (defn format-fhir-type [ztx sch & {:keys [confirms]}]
+  (println sch)
   (cond
     (:zen.fhir/reference sch)
-    (let [refers (get-in sch [:zen.fhir/reference :refers])
-          schemas (map #(zen.core/get-symbol ztx %) refers)]
-      [:span [:a {:href "http://hl7.org/fhir/R4B/references.html#Reference"} "Reference"] "("
-       (->> (for [refer-schema schemas]
-              [:a {:href (calc-ref refer-schema)}
-               (or (:zen.fhir/name refer-schema)
-                   (:zen.fhir/type refer-schema))])
-            distinct
-            (interpose " | ")) ")"])
+    (let [refers (get-in sch [:zen.fhir/reference :refers])]
+      (map-reference ztx refers))
+
+    (get-in sch [:every :zen.fhir/reference])
+    (let [refers  (get-in sch [:every :zen.fhir/reference :refers])]
+      (map-reference ztx refers))
 
     confirms (let [sch-name (first confirms)
                    sch (zen.core/get-symbol ztx sch-name)]
@@ -156,8 +165,8 @@
     {:type tp
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
-     :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc)#_(:fhir/extensionUri sch)
-     :extension-name (->> sch :confirms first (zen.core/get-symbol ztx) :zen.fhir/profileUri) 
+     :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc) #_(:fhir/extensionUri sch)
+     :extension-name (->> sch :confirms first (zen.core/get-symbol ztx) :zen.fhir/profileUri)
      :const (-> sch :const :value)
      :cardinality (format "%s..%s"
                           (cond (:require opts) "1"
