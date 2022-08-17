@@ -489,7 +489,7 @@ table.schema td {}
           [:ul {:class "fa-ul"}
            [:li {:class (c :list-none)}
             [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"] :style "padding-top: 3px"}]]
-            "Ресурс прошел валидацию."]]]))]))
+            "Ресурс прошел валидацию"]]]))]))
 
 (defn get-profile-schema-errors
   [ztx schema-name]
@@ -523,18 +523,23 @@ table.schema td {}
           :validate
           :differential)]
     (render-tabs id
-                 {:differential {:title "Differential"
+                 {:differential {:title "Схема различий"
                                  :content (schema-table sch ztx)}
-                  :snapshot {:title "Snapshot"
+                  :snapshot {:title "Полная схема"
                              :content (schema-table snapshot ztx)}
-                  :validate {:title "Validate"
+                  :validate {:title "Проверка экземпляров по схеме"
                              :content
                              (validation-tab ztx sch-name (when (= "validation" form-type-request)
                                                             (-> options :page :request :params)))}
-                  :schema-errors {:title "Schema errors"
+                  :schema-errors {:title "Проверка правильности схемы"
                                   :content
-                                  (when-let [schema-errors
-                                             (seq (get-profile-schema-errors ztx sch-name))]
+                                  (if-let [schema-errors
+                                           (seq (get-profile-schema-errors ztx sch-name))]
                                     (for [error schema-errors]
-                                      (zen-message-view ztx sch-name error)))}}
+                                      (zen-message-view ztx sch-name error))
+                                    [:div {:class (c [:text :green-500])}
+                                     [:ul {:class "fa-ul"}
+                                      [:li {:class (c :list-none)}
+                                       [:span {:class "fa-li"} [:i {:class ["fa-solid" "fa-check-square"] :style "padding-top: 3px"}]]
+                                       "Схема валидна"]]])}}
                  active-tab)))
