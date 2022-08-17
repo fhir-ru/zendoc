@@ -35,11 +35,6 @@
                          :zen.fhir/reference {:refers #{fhir.ru.financial.patient/FinancialPatient
                                                         fhir.ru.financial.relatedperson/FinancialRelatedPerson
                                                         fhir.ru.financial.organization/FinancialOrganization}}}}
-         :_payor {:type zen/map
-                  :confirms #{fhir/Reference zen.fhir/Reference}
-                  :zen.fhir/reference {:refers #{fhir.ru.financial.patient/FinancialPatient
-                                                 fhir.ru.financial.relatedperson/FinancialRelatedPerson
-                                                 fhir.ru.financial.organization/FinancialOrganization}}}
          :beneficiary {:zen/desc "Ссылка на пациента"
                        :confirms #{fhir/Reference zen.fhir/Reference}
                        :type zen/map
