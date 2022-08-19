@@ -485,7 +485,7 @@ table.schema td {}
         (when data
           (zen.core/validate ztx #{schema-name} data))]
     [:div
-     [:form {:id "form-validate" :action "" :method "POST"}
+     [:form {:id "form-validate" :action "#form-validate" :method "POST"}
       [:input {:class (c :hidden) :name "form-type" :value "validation"}]
       [:textarea {:name "data" :class (c [:my 2] :w-full :border) :rows 20}
        (get http-params "data")]
