@@ -425,7 +425,8 @@ table.schema td {}
 
 .tabs input[type=\"radio\"]:checked + .tabh {
   border-bottom: 2px solid #888;
-  font-weight: 500;
+  font-weight: 600;
+  background: rgba(247,250,252,var(--bg-opacity));
 }
 
 .tabs input[type=\"radio\"]:checked + .tabh + .tabe {
@@ -434,7 +435,7 @@ table.schema td {}
 "])
 
 (def tab-cls
-  (c [:px 2] :cursor-pointer {:margin-bottom "-1px" :border-bottom "2px solid transparent"}
+  (c [:px 2] :cursor-pointer {:margin-bottom "16px" :border-bottom "2px solid transparent" :font-weight "600"}
      [:hover [:bg :gray-100]]))
 
 (defn get-schema&path-from-error [{:keys [schema]}]
