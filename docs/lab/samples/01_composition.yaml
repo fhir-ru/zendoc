@@ -1,8 +1,12 @@
 resourceType: "Composition"
 type:
   coding:
+    - system: "http://loinc.org"
+      code: "11502-2"
+      display: "Laboratory report"
     - system: "urn:oid:1.2.643.5.1.13.13.11.1522"
       code: "7"
+      display: "Протокол лабораторного исследования"
       version: "4.45"
 date: "2018-12-20T12:20:00+3:00"
 confidentiality: "N"

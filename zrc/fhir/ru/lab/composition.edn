@@ -1,5 +1,11 @@
 {ns fhir.ru.lab.composition
- import #{fhir zen.fhir fhir.ru.core.patient}
+ import #{fhir zen.fhir
+          fhir.ru.core.patient
+          fhir.ru.core.practitioner
+          fhir.ru.lab.device
+          fhir.ru.financial.relatedperson
+          fhir.ru.core.organization
+          hl7-fhir-r4-core.value-set.v3-ConfidentialityClassification}
 
  LabComposition
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
@@ -8,11 +14,64 @@
   :zen/desc "Composition"
   :zen.fhir/version "0.5.8"
   :zen.fhir/type "Composition"
-  :zen.fhir/id "composition-lab"
-  :zen.fhir/name "CompositionLab"
+  :zen.fhir/id "lab-composition"
+  :zen.fhir/name "LabComposition"
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "resource"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/composition-lab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/lab-composition"
   :type zen/map
-  :keys {}}}
+  :require #{:author :date :status :title :type}
+  :keys {:author {:type zen/vector
+                  :zen/desc "Определяет, кто несет ответственность за информацию в композиции, это не обязательно тот, кто её вводил."
+                  :every {:type zen/map
+                          :confirms #{zen.fhir/Reference fhir/Reference}
+                          :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner
+                                                         fhir.ru.core.practitioner/CorePractitionerRole
+                                                         fhir.ru.lab.device/LabDevice
+                                                         fhir.ru.core.patient/CorePatient
+                                                         fhir.ru.financial.relatedperson/FinancialRelatedPerson
+                                                         fhir.ru.core.organization/CoreOrganization}}}}
+         :confidentiality {:type zen/string
+                           :confirms #{fhir/code}
+                           :zen/desc "Уровень конфиденциальности медицинского документа"
+                           :zen.fhir/value-set
+                           {:symbol
+                            CoreVsNsiConfidentiality
+                            :strength :required}}
+         :date {:type zen/string
+                :confirms #{fhir/dateTime}
+                :zen/desc "Дата последнего изменения"}
+         :identifier {:zen/desc "Идентификаторы"
+                      :type zen/map
+                      :keys {:value {:type zen/string
+                                     :confirms #{fhir/string}
+                                     :zen/desc "Уникальный ИД набора версий документа"}
+                             :system {:type zen/string
+                                      :confirms #{fhir/uri}
+                                      :zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.50"}}}
+         :section {:zen/desc ""}
+         :status {:zen/desc ""}
+         :title {:zen/desc ""}
+         :type {:type zen/map
+                :zen/desc ""
+                :confirms #{fhir/CodeableConcept}
+                :match {:coding #{{:code "11502-2" :display "Laboratory report" :system "http://loinc.org"}
+                                  {:code "7" :display "Протокол лабораторного исследования" :system "urn:oid:1.2.643.5.1.13.13.11.1522"}}}}}}
+
+ CoreVsNsiConfidentiality
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-nsi-confidentiality"
+  :zen/desc "Справочник НСИ Минздрава Уровень конфиденциальности медицинского документа"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.285",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-nsi-confidentiality"
+  :version "1.2"
+  :zen.fhir/id "core-vs-nsi-confidentiality"
+  :zen.fhir/name "CoreVsNsiConfidentiality"
+  :zen.fhir/title "Core ValueSet Уровень конфиденциальности медицинского документа"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.99.2.285"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.99.2.285" :concept [{:code "N" :display "Обычный"},{:code "R" :display "Ограниченный"},{:code "V" :display "Крайне ограниченный"}]}]}}}
