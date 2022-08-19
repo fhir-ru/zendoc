@@ -147,16 +147,21 @@
   [nm params]
   {:block :plain :content :tabs :tabs params})
 
-
 (defmethod render-content :tabs
   [ztx  {ann :annotations data :data path :path :as options}]
   (let [path (:path options)
-        data (->> (get-in options [:page :doc])
-                  (filter #(#{:tab-title :tab-content} (get-in % [:annotations :type])))
-                  (filterv #(= (subvec (:path %) 0 (count path)) path))
-                  (reduce (fn [acc block]
-                            (assoc-in acc (subvec (:path block) (count path))
-                                      (render-content ztx block))) {}))
+        data-blocks (->> (get-in options [:page :doc])
+                         (filter #(#{:tab-title :tab-content} (get-in % [:annotations :type])))
+                         (filterv #(= (subvec (:path %) 0 (count path)) path)))
+        blocks-order (distinct (map #(nth (:path %) (count path)) data-blocks))
+        data         (reduce (fn [acc block]
+                               (assoc-in acc (subvec (:path block) (count path))
+                                         (render-content ztx block)))
+                             {}
+                             data-blocks)
+        ordered-data (->> blocks-order
+                          (mapcat #(find data %))
+                          (apply array-map))
         id (->> (:path options)
                 (mapv #(str/replace % "_" "__"))
                 (str/join "_"))]
@@ -168,7 +173,7 @@
                                                    [:hover [:text :gray-600]]))}])
        (zd.impl/keypath path (or (:title ann) (let [k (last path)] (zd.impl/capitalize k))))]]
      [:div.zd-content
-      (zd.zen/render-tabs id data (first (keys data)))]]))
+      (zd.zen/render-tabs id ordered-data (first (keys ordered-data)))]]))
 
 (defmethod annotation :tab-title
   [nm params]
