@@ -51,11 +51,8 @@
 
 ^collapse
 ^title "Пример адреса в ресурсе Patient"
-:examples:example-4 md/
-
 ^tabs
 :examples:tabs-example
-
 ^tab-title
 ~:aidbox:title "Aidbox JSON"
 ^tab-content
