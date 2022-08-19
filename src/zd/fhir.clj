@@ -149,7 +149,7 @@
 
 
 (defmethod render-content :tabs
-  [ztx options]
+  [ztx  {ann :annotations data :data path :path :as options}]
   (let [path (:path options)
         data (->> (get-in options [:page :doc])
                   (filter #(#{:tab-title :tab-content} (get-in % [:annotations :type])))
@@ -160,7 +160,15 @@
         id (->> (:path options)
                 (mapv #(str/replace % "_" "__"))
                 (str/join "_"))]
-    (zd.zen/render-tabs id data (first (keys data)))))
+    [:div {:class (str " " (when (:collapse ann) "zd-toggle") " " (when (get-in ann [:collapse :open]) "zd-open"))}
+     [(keyword (str "h" (inc (count path)))) {:class (str "zd-block-title " (name (c :flex :items-baseline)))}
+      [:div {:class (c :flex :flex-1)}
+       (when (:collapse ann)
+         [:i.fas.fa-chevron-right {:class (name (c [:mr 2] [:text :gray-500] :cursor-pointer
+                                                   [:hover [:text :gray-600]]))}])
+       (zd.impl/keypath path (or (:title ann) (let [k (last path)] (zd.impl/capitalize k))))]]
+     [:div.zd-content
+      (zd.zen/render-tabs id data (first (keys data)))]]))
 
 (defmethod annotation :tab-title
   [nm params]

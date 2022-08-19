@@ -93,10 +93,8 @@ type:
 
 ^collapse
 ^title "Фрагменты ПЛИ CDA -> FHIR с разными источниками оплаты"
-:section:payment-source md/
-
 ^tabs
-:section:payment-source:examples
+:section:payment-source
 ^tab-title
 ~:aaa:title "ОМС врем 1"
 ^tab-content
