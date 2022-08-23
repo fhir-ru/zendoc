@@ -328,8 +328,8 @@ __Результат:__
 
 ```code
   ^table
-  ^title "Value Set"
-  :values (load "../../core/samples/address-use.yaml" :yaml)
+  ^title "Value Set - Таблица из файла .yaml"
+  :tables:from-yaml (load "../core/samples/address-use.yaml" :yaml)
 ```
 
 Пример содержимого файла .yaml:
@@ -352,6 +352,11 @@ __Результат:__
   desc: An address to be used to send bills, invoices, receipts etc.
 ```
 
+__Результат:__
+
+^table
+^title "Value Set - Таблица из файла .yaml"
+:tables:from-yaml (load "../core/samples/address-use.yaml" :yaml)
 
 ^title "Код"
 :code md/
