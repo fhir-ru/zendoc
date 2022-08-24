@@ -7,20 +7,20 @@ identifier:
 meta: 
  versionId: '1'
 entry: 
- - fullUrl: 'urn:uuid:66201AE4-508C-58E1-99E9-3B1C58B0291C'
+ - fullUrl: 'urn:uuid:9FE3AF48-2FA0-922C-9146-5EF6422A66B5'
    resource: 
     resourceType: 'Composition'
     type: 
      coding: 
-      - system: 'http://loinc.org'
-        code: '11502-2'
-        display: 'Laboratory report'
-      - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
-        code: '7'
-        version: '4.45'
-        display: 'Протокол лабораторного исследования'
+       - system: 'http://loinc.org'
+         code: '11502-2'
+         display: 'Laboratory report'
+       - system: 'urn:oid:1.2.643.5.1.13.13.11.1522'
+         code: '7'
+         version: '4.45'
+         display: 'Протокол лабораторного исследования'
     author: 
-     - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+     - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     status: 'final'
     date: '2018-12-20T12:20:00+03:00'
     confidentiality: 'N'
@@ -34,56 +34,56 @@ entry:
        coding: 
         - display: 'recordTarget'
       entry: 
-      - reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+      - reference: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
     - title: 'ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА'
       code: 
        coding: 
         - display: 'author'
       entry: 
-      - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+      - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     - title: 'ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА'
       code: 
        coding: 
         - display: 'custodian'
       entry: 
-      - reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+      - reference: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
     - title: 'ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА'
       code: 
        coding: 
         - display: 'informationRecipient'
       entry: 
-      - reference: 'urn:uuid:40D5A596-E79A-9364-BFD8-771CC6E74C73'
+      - reference: 'urn:uuid:B3356B27-C9C4-198A-992E-6C271BD4680A'
     - title: 'ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ'
       code: 
        coding: 
         - display: 'legalAuthenticator'
       entry: 
-      - reference: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
+      - reference: 'urn:uuid:5659372F-41CB-4CDF-97EE-8D96CBD2CAED'
     - title: 'СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ'
       code: 
        coding: 
         - display: 'participantInd'
       entry: 
-      - reference: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
+      - reference: 'urn:uuid:4F165727-4982-EA86-8C7B-9C03125208A8'
     - title: 'СВЕДЕНИЯ О НАПРАВИВШЕМ ЛИЦЕ И ОРГАНИЗАЦИИ'
       code: 
        coding: 
         - display: 'participantRef'
       entry: 
-      - reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
+      - reference: 'urn:uuid:CC7B8257-DD6E-8F7C-91D9-DCCE1C341EF4'
     - title: 'СВЕДЕНИЯ О НАПРАВЛЕНИИ'
       code: 
        coding: 
         - display: 'order'
       entry: 
-      - reference: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
+      - reference: 'urn:uuid:C13A752B-E81B-6773-9193-E174DB4A4105'
     - title: 'ТЕЛО ДОКУМЕНТА'
       code: 
        coding: 
         - display: 'structuredBody'
       entry: 
-      - reference: 'urn:uuid:2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
- - fullUrl: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+      - reference: 'urn:uuid:C4474517-3D9B-E581-A6E2-E95273F2058E'
+ - fullUrl: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -144,7 +144,7 @@ entry:
          system: 'phone'
        - value: 'gp129@zdrav.mos.ru'
          system: 'email'
- - fullUrl: 'urn:uuid:40D5A596-E79A-9364-BFD8-771CC6E74C73'
+ - fullUrl: 'urn:uuid:B3356B27-C9C4-198A-992E-6C271BD4680A'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -158,7 +158,7 @@ entry:
            code: 'PRN'
            display: 'Provider number'
     name: 'Министерство здравоохранения Российской Федерации'
- - fullUrl: 'urn:uuid:FBE42CE9-2E91-F445-B3ED-4BBC58982067'
+ - fullUrl: 'urn:uuid:3CA31E7A-10E3-D734-AD45-DD693E40596A'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -203,7 +203,7 @@ entry:
      - telecom: 
        - value: '+74952323491'
          system: 'phone'
- - fullUrl: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
+ - fullUrl: 'urn:uuid:E197D7CC-198C-6F2A-AB7F-D3A4DB6192A5'
    resource: 
     resourceType: 'Organization'
     identifier: 
@@ -241,7 +241,7 @@ entry:
          system: 'phone'
        - value: '+74954342570'
          system: 'phone'
- - fullUrl: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+ - fullUrl: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
    resource: 
     resourceType: 'Patient'
     identifier: 
@@ -359,7 +359,7 @@ entry:
            code: '1'
            version: '2.1'
            display: 'Мужской'
- - fullUrl: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+ - fullUrl: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -411,7 +411,7 @@ entry:
          system: 'phone'
        - value: 'smirnovа.a.i@rambler.ru'
          system: 'email'
- - fullUrl: '5BC49767-4D1D-C0B9-A619-6A3E457841D7'
+ - fullUrl: '1989DE32-BC5D-C696-A79C-54D422438E64'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -421,10 +421,10 @@ entry:
          version: '7.5'
          display: 'врач клинической лабораторной диагностики'
     practitioner: 
-     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+     reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     organization: 
-     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
- - fullUrl: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
+     reference: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
+ - fullUrl: 'urn:uuid:5659372F-41CB-4CDF-97EE-8D96CBD2CAED'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -476,7 +476,7 @@ entry:
          system: 'phone'
        - value: 'ivanov.a.i@rambler.ru'
          system: 'email'
- - fullUrl: 'C4A613B9-15DC-6624-97EA-A20CBDB347AE'
+ - fullUrl: 'A3A51E4A-F657-B4DC-9234-F05B45257E1B'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -486,10 +486,10 @@ entry:
          version: '7.5'
          display: 'заведующий лабораторией медицинской организации'
     practitioner: 
-     reference: 'urn:uuid:91598A9E-6DC9-3192-9D8A-552D37CFACD0'
+     reference: 'urn:uuid:5659372F-41CB-4CDF-97EE-8D96CBD2CAED'
     organization: 
-     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
- - fullUrl: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
+     reference: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
+ - fullUrl: 'urn:uuid:CC7B8257-DD6E-8F7C-91D9-DCCE1C341EF4'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -537,7 +537,7 @@ entry:
      - telecom: 
        - value: '+79065184597'
          system: 'phone'
- - fullUrl: 'B88B5A2F-9DBA-36A9-923E-A7713DD5D3BC'
+ - fullUrl: '19AC6B3E-514A-2D27-B7F6-BB32AFC964B4'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -547,10 +547,10 @@ entry:
          version: '7.5'
          display: 'врач-терапевт'
     practitioner: 
-     reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
+     reference: 'urn:uuid:CC7B8257-DD6E-8F7C-91D9-DCCE1C341EF4'
     organization: 
-     reference: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
- - fullUrl: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+     reference: 'urn:uuid:E197D7CC-198C-6F2A-AB7F-D3A4DB6192A5'
+ - fullUrl: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -594,7 +594,7 @@ entry:
           valueString: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
           valueString: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
- - fullUrl: '951363A1-445A-1693-A476-7EA4E182094A'
+ - fullUrl: 'A93ECA17-1AC7-089D-9495-8AA2AECE25B4'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -604,9 +604,9 @@ entry:
          version: '7.5'
          display: 'врач клинической лабораторной диагностики'
     practitioner: 
-     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+     reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     organization: 
-     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
+     reference: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
  - fullUrl: 
    resource: 
     resourceType: 'Practitioner'
@@ -651,7 +651,7 @@ entry:
           valueString: '212d3123-9c4d-4579-b31a-b5c6e9632b04'
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
           valueString: '6a5dfa69-aeb3-4422-82a8-3a577f5e36a6'
- - fullUrl: 'B60D1085-845A-FAF7-8871-CEB07477AC51'
+ - fullUrl: 'EEDE3E2C-BE7E-3769-85B1-41D3CFC7A415'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -663,8 +663,8 @@ entry:
     practitioner: 
      reference: ''
     organization: 
-     reference: 'urn:uuid:5B938127-3E21-74F2-91BB-94A7771B926B'
- - fullUrl: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+     reference: 'urn:uuid:BB3143F3-AE44-CB62-A24D-A78304E1D1B4'
+ - fullUrl: 'urn:uuid:8533299D-13A7-4D5F-9CC9-59A91D12576D'
    resource: 
     resourceType: 'Practitioner'
     identifier: 
@@ -712,7 +712,7 @@ entry:
      - telecom: 
        - value: '+79065184597'
          system: 'phone'
- - fullUrl: 'A9EB56E6-AA5C-C711-8CBE-A9EC25469327'
+ - fullUrl: '475A6D77-9AF1-8193-97F9-B4DD5D83D7F0'
    resource: 
     resourceType: 'PractitionerRole'
     code: 
@@ -722,10 +722,10 @@ entry:
          version: '7.5'
          display: 'медицинская сестра процедурной'
     practitioner: 
-     reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+     reference: 'urn:uuid:8533299D-13A7-4D5F-9CC9-59A91D12576D'
     organization: 
-     reference: 'urn:uuid:F25312EE-CABF-7161-B3D9-FCC046761B2E'
- - fullUrl: 'urn:uuid:C1943662-1C57-80C2-A252-08DA9BED9840'
+     reference: 'urn:uuid:E197D7CC-198C-6F2A-AB7F-D3A4DB6192A5'
+ - fullUrl: 'urn:uuid:933917E4-C64E-9961-AAED-08E6A8875641'
    resource: 
     resourceType: 'Encounter'
     identifier: 
@@ -750,16 +750,16 @@ entry:
          - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
            code: 'MR'
     class: 
-     - system: 'urn:oid:http://terminology.hl7.org/CodeSystem/v3-ActCode'
-       code: 'AMB'
+      - system: 'urn:oid:http://terminology.hl7.org/CodeSystem/v3-ActCode'
+        code: 'AMB'
     period: 
      start: '2018-12-20T08:30:00+03:00'
      end: '2018-12-20T19:00:00+03:00'
     status: 'finished'
- - fullUrl: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
+ - fullUrl: 'urn:uuid:4F165727-4982-EA86-8C7B-9C03125208A8'
    resource: 
     resourceType: 'Coverage'
-    id: '73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
+    id: '4F165727-4982-EA86-8C7B-9C03125208A8'
     identifier: 
      - value: '9876543211234567'
        type: 
@@ -770,7 +770,7 @@ entry:
         start: '2017-10-25'
     status: 'active'
     beneficiary: 
-     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+     reference: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
     payor: 
      - reference: 'Organization/Payor'
     type: 
@@ -800,10 +800,10 @@ entry:
            version: '1.3'
            display: 'Полис ОМС единого образца, бессрочный'
        value: 'Тип полиса ОМС'
- - fullUrl: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
+ - fullUrl: 'urn:uuid:C13A752B-E81B-6773-9193-E174DB4A4105'
    resource: 
     resourceType: 'Task'
-    id: 'BA8828B3-4933-B991-B231-35B999D59DE8'
+    id: 'C13A752B-E81B-6773-9193-E174DB4A4105'
     status: 'completed'
     intent: 'order'
     identifier: 
@@ -815,21 +815,21 @@ entry:
        code: '107'
        version: '4.45'
     requester: 
-     reference: 'urn:uuid:41159D04-F405-8726-98B2-BAAE4A6C6309'
+     reference: 'urn:uuid:CC7B8257-DD6E-8F7C-91D9-DCCE1C341EF4'
     encounter: 
-     reference: 'urn:uuid:C1943662-1C57-80C2-A252-08DA9BED9840'
+     reference: 'urn:uuid:933917E4-C64E-9961-AAED-08E6A8875641'
     insurance: 
-     reference: 'urn:uuid:73D7E99E-361E-BEA9-91DA-6F0C83BE7886'
+     reference: 'urn:uuid:4F165727-4982-EA86-8C7B-9C03125208A8'
     basedOn: 
-     - reference: 'urn:uuid:B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
-     - reference: 'urn:uuid:B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
-     - reference: 'urn:uuid:71AC5EEE-3C49-3836-A535-99315A448F2C'
- - fullUrl: 'urn:uuid:2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
+     - reference: 'urn:uuid:73AB9C2C-3E11-C672-831B-8837BB6EB1AB'
+     - reference: 'urn:uuid:0664FCA6-B457-E2A5-8316-E87F3664828E'
+     - reference: 'urn:uuid:8EA7A1BB-7235-C18B-A5FC-AED62ECA6032'
+ - fullUrl: 'urn:uuid:C4474517-3D9B-E581-A6E2-E95273F2058E'
    resource: 
     resourceType: 'Task'
-    id: '2258B9F7-A384-74C1-A3D7-5D1A2B02FEAE'
+    id: 'C4474517-3D9B-E581-A6E2-E95273F2058E'
     basedOn: 
-     - reference: 'urn:uuid:BA8828B3-4933-B991-B231-35B999D59DE8'
+     - reference: 'urn:uuid:C13A752B-E81B-6773-9193-E174DB4A4105'
     status: 'completed'
     intent: 'filler-order'
     priority: 'routine'
@@ -843,60 +843,60 @@ entry:
      end: '2018-12-20T16:10:00+03:00'
     output: 
      - valueReference: 
-        reference: 'urn:uuid:48C186F1-2E14-460C-8CD0-2535761486D6'
+        reference: 'urn:uuid:8624AD73-D65C-374D-A66D-9E85D44350BD'
        type: 
         coding: 
          - code: 'DR'
      - valueReference: 
-        reference: 'urn:uuid:551BC9CA-ECAA-5423-A1C2-0F8F1488DC53'
+        reference: 'urn:uuid:DC320263-FD9B-240C-AC57-8C8335958691'
        type: 
         coding: 
          - code: 'DR'
      - valueReference: 
-        reference: 'urn:uuid:BE96299B-C4DA-17A5-95CE-8EF638BDE555'
+        reference: 'urn:uuid:C1C739EE-A0AE-0E14-AC11-8568B75169B9'
        type: 
         coding: 
          - code: 'DR'
- - fullUrl: 'urn:uuid:B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
+ - fullUrl: 'urn:uuid:73AB9C2C-3E11-C672-831B-8837BB6EB1AB'
    resource: 
     resourceType: 'ServiceRequest'
-    id: 'B5D9CE51-E821-DB88-A344-5A5A58CCEFCA'
+    id: '73AB9C2C-3E11-C672-831B-8837BB6EB1AB'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+     reference: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Клинический анализ крови на анализаторе'
- - fullUrl: 'urn:uuid:B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
+ - fullUrl: 'urn:uuid:0664FCA6-B457-E2A5-8316-E87F3664828E'
    resource: 
     resourceType: 'ServiceRequest'
-    id: 'B9EA1DC7-9ECD-5173-BB3B-F79ACABC5970'
+    id: '0664FCA6-B457-E2A5-8316-E87F3664828E'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+     reference: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Микроскопия окрашенных мазков'
- - fullUrl: 'urn:uuid:71AC5EEE-3C49-3836-A535-99315A448F2C'
+ - fullUrl: 'urn:uuid:8EA7A1BB-7235-C18B-A5FC-AED62ECA6032'
    resource: 
     resourceType: 'ServiceRequest'
-    id: '71AC5EEE-3C49-3836-A535-99315A448F2C'
+    id: '8EA7A1BB-7235-C18B-A5FC-AED62ECA6032'
     status: 'completed'
     intent: 'original-order'
     subject: 
-     reference: 'urn:uuid:F6E9AE74-BE93-E360-9EBD-BD3887B46DE2'
+     reference: 'urn:uuid:86DCABF5-76A3-68C8-9839-7AD65428395D'
     code: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1070'
         version: '2.10'
         display: 'Иммуногематологическое исследование'
- - fullUrl: 'urn:uuid:48C186F1-2E14-460C-8CD0-2535761486D6'
+ - fullUrl: 'urn:uuid:8624AD73-D65C-374D-A66D-9E85D44350BD'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Клинический анализ крови на анализаторе'
@@ -915,9 +915,9 @@ entry:
         version: '2.10'
         display: 'Клинический анализ крови на анализаторе'
     result: 
-        - reference: 'urn:uuid:8AF79A06-C2F0-9EFD-BDED-6FC188CB22D8'
-        - reference: 'urn:uuid:C6D05F47-82AC-F752-961D-6B3CED1D4859'
- - fullUrl: 'urn:uuid:8AF79A06-C2F0-9EFD-BDED-6FC188CB22D8'
+        - reference: 'urn:uuid:4B6CB716-5B5C-29E4-B2F9-9E94D17B4668'
+        - reference: 'urn:uuid:4931D2AE-3ED7-7CD6-9562-913A83F7064B'
+ - fullUrl: 'urn:uuid:4B6CB716-5B5C-29E4-B2F9-9E94D17B4668'
    resource: 
     resourceType: 'Observation'
     status: 'final'
@@ -930,13 +930,14 @@ entry:
     effectiveDateTime: '2018-12-20T08:55:00+03:00'
     interpretation: 
      - coding: 
-      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
-        code: 'H'
+       - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
+         code: 'H'
+       - system: 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
+         code: 'H'
     specimen: 
-     reference: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
+     reference: 'urn:uuid:455549B4-99FE-4CC6-A772-F39A2ABC6179'
     performer: 
-        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
-        - reference: ''
+        - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     valueQuantity: 
      system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
      code: '60'
@@ -959,8 +960,8 @@ entry:
         - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
           code: 'normal'
     device: 
-     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
- - fullUrl: 'urn:uuid:C6D05F47-82AC-F752-961D-6B3CED1D4859'
+     reference: 'urn:uuid:9921ADA6-37FC-678A-8AD5-26C56B7B8341'
+ - fullUrl: 'urn:uuid:4931D2AE-3ED7-7CD6-9562-913A83F7064B'
    resource: 
     resourceType: 'Observation'
     status: 'final'
@@ -973,13 +974,14 @@ entry:
     effectiveDateTime: '2018-12-20T08:55:00+03:00'
     interpretation: 
      - coding: 
-      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
-        code: 'A'
+       - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
+         code: 'A'
+       - system: 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
+         code: 'A'
     specimen: 
-     reference: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
+     reference: 'urn:uuid:455549B4-99FE-4CC6-A772-F39A2ABC6179'
     performer: 
-        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
-        - reference: ''
+        - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     valueString: '++'
     referenceRange: 
     - text: 'не обнаруживаются'
@@ -990,11 +992,11 @@ entry:
     note: 
     - text: 'Количество шизоцитов: 8,35% от общего количества эритроцитов'
       authorReference: 
-       reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+       reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
       time: '2018-12-20T16:13:00+03:00'
     device: 
-     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
- - fullUrl: 'urn:uuid:551BC9CA-ECAA-5423-A1C2-0F8F1488DC53'
+     reference: 'urn:uuid:9921ADA6-37FC-678A-8AD5-26C56B7B8341'
+ - fullUrl: 'urn:uuid:DC320263-FD9B-240C-AC57-8C8335958691'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Микроскопия окрашенных мазков'
@@ -1013,11 +1015,11 @@ entry:
         version: '2.10'
         display: 'Микроскопия окрашенных мазков'
     media: 
-     - reference: 'urn:uuid:DE681F23-45B2-9D30-A1C7-727E04D77A76'
+     - reference: 'urn:uuid:98913402-688C-1615-A895-EC96B214BE5A'
     result: 
-        - reference: 'urn:uuid:965BCBDB-3DCA-A8A7-9BE9-2ED357DCD31D'
-        - reference: 'urn:uuid:F5303C91-C18C-CAE9-B206-9D7033BC11B1'
- - fullUrl: 'urn:uuid:965BCBDB-3DCA-A8A7-9BE9-2ED357DCD31D'
+        - reference: 'urn:uuid:83EEFD6C-F43A-05A2-8468-54C566D6BA6E'
+        - reference: 'urn:uuid:A839B7E4-AD46-04FB-A948-CD18617A76EF'
+ - fullUrl: 'urn:uuid:83EEFD6C-F43A-05A2-8468-54C566D6BA6E'
    resource: 
     resourceType: 'Observation'
     status: 'final'
@@ -1030,12 +1032,14 @@ entry:
     effectiveDateTime: '2018-12-20T10:42:00+03:00'
     interpretation: 
      - coding: 
-      - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
-        code: 'HU'
+       - system: 'urn:oid:1.2.643.5.1.13.13.99.2.257'
+         code: 'HU'
+       - system: 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
+         code: 'HU'
     specimen: 
-     reference: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
+     reference: 'urn:uuid:2B421AD8-CF81-954A-963D-2698B250CE43'
     performer: 
-        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+        - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     valueString: '10-25-30 в поле зрения'
     referenceRange: 
     - text: '1 - 3 в поле зрения'
@@ -1053,7 +1057,7 @@ entry:
        coding: 
         - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
           code: 'normal'
- - fullUrl: 'urn:uuid:F5303C91-C18C-CAE9-B206-9D7033BC11B1'
+ - fullUrl: 'urn:uuid:A839B7E4-AD46-04FB-A948-CD18617A76EF'
    resource: 
     resourceType: 'Observation'
     status: 'final'
@@ -1065,26 +1069,26 @@ entry:
         display: 'Гиперхромия, обнаружение в крови методом световой микроскопии'
     effectiveDateTime: '2018-12-20T10:42:00+03:00'
     interpretation: 
-     extension: 
-      - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
-        valueString: 'NI'
+     - extension: 
+       - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
+         valueCode: 'NI'
     specimen: 
-     reference: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
+     reference: 'urn:uuid:2B421AD8-CF81-954A-963D-2698B250CE43'
     performer: 
-        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+        - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     valueString: 'умеренная'
- - fullUrl: 'urn:uuid:DE681F23-45B2-9D30-A1C7-727E04D77A76'
+ - fullUrl: 'urn:uuid:98913402-688C-1615-A895-EC96B214BE5A'
    resource: 
     resourceType: 'Media'
     content: 
      data: 'JVBERi0xLjMNJf0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ0xLjMNJ...'
     createdDateTime: '2018-12-20T16:01:00+03:00'
     device: 
-     reference: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
+     reference: 'urn:uuid:9921ADA6-37FC-678A-8AD5-26C56B7B8341'
     operator: 
-     reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+     reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     status: 'completed'
- - fullUrl: 'urn:uuid:BE96299B-C4DA-17A5-95CE-8EF638BDE555'
+ - fullUrl: 'urn:uuid:C1C739EE-A0AE-0E14-AC11-8568B75169B9'
    resource: 
     resourceType: 'DiagnosticReport'
     id: 'DR_Иммуногематологическое исследование'
@@ -1103,8 +1107,8 @@ entry:
         version: '2.10'
         display: 'Иммуногематологическое исследование'
     result: 
-        - reference: 'urn:uuid:F27A6E32-EBA6-1B51-AACA-B9312A2F6496'
- - fullUrl: 'urn:uuid:F27A6E32-EBA6-1B51-AACA-B9312A2F6496'
+        - reference: 'urn:uuid:AC6CBAB3-C14E-C334-B44B-ACB5CBD35853'
+ - fullUrl: 'urn:uuid:AC6CBAB3-C14E-C334-B44B-ACB5CBD35853'
    resource: 
     resourceType: 'Observation'
     status: 'final'
@@ -1115,19 +1119,19 @@ entry:
         version: '3.28'
         display: 'Группа крови AB0 подтверждающим методом'
     interpretation: 
-     extension: 
-      - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
-        valueString: 'NA'
+     - extension: 
+       - url: 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor'
+         valueCode: 'NA'
     specimen: 
-     reference: 'urn:uuid:A7A75331-6531-8030-96FF-6E26E80C9A87'
+     reference: 'urn:uuid:E3655F98-2D0C-B4E7-A639-87AB12218E35'
     performer: 
-        - reference: 'urn:uuid:77CA6D65-A2B8-2143-96DE-D85D4635B617'
+        - reference: 'urn:uuid:D73D12ED-CF4A-9F61-B249-58E8EB6B9711'
     valueCodeableConcept: 
      coding: 
       - system: 'urn:oid:1.2.643.5.1.13.13.11.1061'
         code: '103'
         version: '2.1'
- - fullUrl: 'urn:uuid:E584B41E-18D7-7D7A-AD7D-E64748BECB64'
+ - fullUrl: 'urn:uuid:9921ADA6-37FC-678A-8AD5-26C56B7B8341'
    resource: 
     resourceType: 'Device'
     identifier: 
@@ -1136,7 +1140,7 @@ entry:
     deviceName: 
      - name: 'Гематологический анализатор Sysmex KX21'
        type: 'manufacturer-name'
- - fullUrl: 'urn:uuid:A7A75331-6531-8030-96FF-6E26E80C9A87'
+ - fullUrl: 'urn:uuid:E3655F98-2D0C-B4E7-A639-87AB12218E35'
    resource: 
     resourceType: 'Specimen'
     type: 
@@ -1150,7 +1154,7 @@ entry:
        system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
     collection: 
      collector: 
-      reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+      reference: 'urn:uuid:8533299D-13A7-4D5F-9CC9-59A91D12576D'
      collectedDateTime: '2018-12-20T07:05:00+03:00'
      quantity: 
       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
@@ -1169,8 +1173,8 @@ entry:
         - value: '0987654321'
           system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
        additiveReference: 
-        reference: '15951D6B-96FC-343C-AC58-29511D1AE2D4'
- - fullUrl: 'urn:uuid:5FED6BD8-3661-E53D-87C5-EB6DC11B69A7'
+        reference: 'F495D5C3-5177-9052-9B9E-C893E599CBAB'
+ - fullUrl: 'urn:uuid:455549B4-99FE-4CC6-A772-F39A2ABC6179'
    resource: 
     resourceType: 'Specimen'
     type: 
@@ -1184,7 +1188,7 @@ entry:
        system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
     collection: 
      collector: 
-      reference: 'urn:uuid:03AC8AAE-D22B-2637-9416-EC09BABCDCBC'
+      reference: 'urn:uuid:8533299D-13A7-4D5F-9CC9-59A91D12576D'
      collectedDateTime: '2018-12-20T07:05:00+03:00'
      quantity: 
       system: 'urn:oid:1.2.643.5.1.13.13.11.1358'
@@ -1202,7 +1206,7 @@ entry:
        identifier: 
         - value: '1234567890'
           system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.7809.100.1.1.66'
- - fullUrl: 'urn:uuid:937E64C8-2993-5C11-825B-055EC4867408'
+ - fullUrl: 'urn:uuid:2B421AD8-CF81-954A-963D-2698B250CE43'
    resource: 
     resourceType: 'Specimen'
     parent: 
@@ -1242,7 +1246,7 @@ entry:
        identifier: 
         - value: '124562156'
           system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.66'
- - fullUrl: 'urn:uuid:15951D6B-96FC-343C-AC58-29511D1AE2D4'
+ - fullUrl: 'urn:uuid:F495D5C3-5177-9052-9B9E-C893E599CBAB'
    resource: 
     resourceType: 'Substance'
     identifier: 
