@@ -15,4 +15,31 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
   :type zen/map
-  :keys {}}}
+  :keys {
+	:deviceName {
+		:type zen/vector
+		:zen/desc ""
+		}
+	:identifier {
+		:type zen/map
+		:zen/desc "Идентификаторы"
+		:keys {
+			:assigner {
+				:confirms #{fhir/Reference zen.fhir/Reference}
+				:zen.fhir/reference {
+					:refers #{fhir.ru.core.organization/CoreOrganization}
+				}
+			}
+			:system {
+				:type zen/string
+				:confirms #{fhir/uri}
+				:zen/desc "Должен формироваться специальным образом"	
+			}
+			:value {
+				:type zen/string
+				:confirms #{fhir/string}
+				:zen/desc ""
+			}
+		}
+	}
+  }}}
