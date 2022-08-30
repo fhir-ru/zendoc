@@ -184,14 +184,16 @@
                                                                                                                        :keys {:code {:const {:value "MR"}}
                                                                                                                               :display {:const {:value "Medical record number"}}
                                                                                                                               :system {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}
-                                                                                           "med-cards-as-identifiers" {:filter {:engine :match
+                                                                                           "med-cards-as-identifiers" {:zen/desc "Кодированное значение по справочнику urn:oid:1.2.643.5.1.13.13.11.1522"
+                                                                                                                       :filter {:engine :match
                                                                                                                                 :match {:system "urn:oid:1.2.643.5.1.13.13.11.1522"}}
                                                                                                                        :schema {:type zen/vector
                                                                                                                                 :minItems 1
                                                                                                                                 :every {:type zen/map
                                                                                                                                         :require #{:code :display :system}
-                                                                                                                                        :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
-                                                                                                                                                             :strength :extensible}
+
+                                                                                                                                        ;; :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
+                                                                                                                                                            ;;  :strength :extensible}
                                                                                                                                         :keys {;;  :code {:const {:value "MR"}}
                                                                                                                                               ;;  :display {:const {:value "Medical record number"}}
                                                                                                                                                :system {:const {:value "urn:oid:1.2.643.5.1.13.13.11.1522"}}}}}}}
