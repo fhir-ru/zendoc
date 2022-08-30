@@ -70,22 +70,29 @@
 				:confirms #{fhir/CodeableConcept}
 				:zen/desc ""
 				:keys {
-                  :coding  
-                        {:type zen/vector,
-                        :minItems 1,
-                        :every
-                        {:type zen/map
-                        :confirms #{fhir/Coding}
-                        :keys { 
-                              :code  
-                                    {:type zen/map
-                                    :confirms #{fhir/code}},
-                              :display
-                                    {:type zen/string  
-                                    :confirms #{fhir/string}},
-                              :system
-                                    {:type zen/string  
-                                    :confirms #{fhir/string}}}}}}
+					:coding {
+						:type zen/vector
+						:minItems 1
+						:every {
+							:type zen/map
+							:confirms #{fhir/Coding}
+							:keys {
+								:code {
+									:type zen/map
+									:confirms #{fhir/code}
+								}
+								:display {
+									:type zen/string
+									:confirms #{fhir/string}
+								}
+								:system {
+									:type zen/string
+									:confirms #{fhir/string}
+								}
+							}
+						}
+					}
+				}
 			}
 			:use {
 				:confirms #{fhir/code}
