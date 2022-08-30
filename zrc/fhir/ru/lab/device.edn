@@ -58,6 +58,7 @@
 					:zen/desc ""
 				}
 				:period {
+					:type zen/map
 					:confirms #{fhir/Period}
 					:keys {
 						:start {
