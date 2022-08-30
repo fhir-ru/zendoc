@@ -1,0 +1,73 @@
+^hide
+:menu-order 0
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+:title "Core ValueSet Справочник кодов интерпретации результатов"
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity-level 0
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :zen/desc))"}
+{:name "Committee:" :value #{groups.adm}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения справочника [1.2.643.5.1.13.13.99.2.257](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.257)
+
+^title "Описание"
+:description md/
+
+^title "Содержимое набора значений"
+^table
+:valueset-expansion
+[
+    {:Код "Код" :Наименование "Наименование" :Система "Система"}
+]
+
+^collapse
+;; ^edn TODO: fix
+^title "ZEN Definition for Value Set CoreVsResultInterpretation"
+:valueset-zen-definition "((ztx-get :symbols fhir.ru.lab.observation/CoreVsResultInterpretation))"
+
+^collapse
+^title "JSON Definition for Value Set CoreVsResultInterpretation"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-nsi-result-interpretation",
+  "name": "CoreVsResultInterpretation",
+  "title": "Core ValueSet Справочник кодов интерпретации результатов",
+  "url" : "http://fhir.ru/core/vs/core-vs-nsi-result-interpretation",
+  "status": "active"  
+}
+```
+
+^title "Справочная информация"
+:support md/
