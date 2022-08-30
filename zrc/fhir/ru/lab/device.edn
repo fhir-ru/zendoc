@@ -1,5 +1,7 @@
 {ns fhir.ru.lab.device
- import #{fhir zen.fhir fhir.ru.core.patient}
+ import #{  fhir zen.fhir 
+			fhir.ru.core.patient 
+			fhir.ru.core.organization}
 
  LabDevice
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
@@ -15,4 +17,87 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
   :type zen/map
-  :keys {}}}
+  :keys {
+	:deviceName {
+		:type zen/vector
+		:zen/desc "Устройство"
+		:keys {
+			:type {
+				:confirms #{fhir/code}
+				:zen.fhir/value-set {
+					:symbol hl7-fhir-r4-core.value-set.device-nametype/value-set
+					:strength :required
+				}
+				:zen/desc ""
+			}
+		}
+	}
+	:identifier {
+		:type zen/vector
+		:zen/desc "Идентификаторы"
+		:keys {
+			:assigner {
+				:confirms #{fhir/Reference zen.fhir/Reference}
+				:zen.fhir/reference {
+					:refers #{fhir.ru.core.organization/CoreOrganization}
+				}
+			}
+			:system {
+				:type zen/string
+				:confirms #{fhir/uri} 
+				:zen/desc "Должен формироваться специальным образом"	
+			}
+			:value {
+				:type zen/string
+				:confirms #{fhir/string}
+				:zen/desc ""
+			}
+			:period {
+				:confirms #{fhir/Period}
+				:keys {
+					:start {
+						:confirms #{fhir/dateTime}
+						:zen/desc "Начало временного промежутка"
+					}
+					:end {
+						:confirms #{fhir/dateTime}
+						:zen/desc "Окончание временного промежутка"
+					}
+				}
+			}
+			:type {
+				:type zen/map
+				:confirms #{fhir/CodeableConcept}
+				:zen/desc ""
+				:keys {
+					:coding {
+						:type zen/vector
+						:minItems 1
+						:every {
+							:type zen/map
+							:confirms #{fhir/Coding}
+							:keys {
+								:code {
+									:type zen/map
+									:confirms #{fhir/code}
+								}
+								:display {
+									:type zen/string
+									:confirms #{fhir/string}
+								}
+								:system {
+									:type zen/string
+									:confirms #{fhir/string}
+								}
+							}
+						}
+					}
+				}
+			}
+			:use {
+				:confirms #{fhir/code}
+				:zen/desc ""
+			}
+		}
+	}
+  }}}
