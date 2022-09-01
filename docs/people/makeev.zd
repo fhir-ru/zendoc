@@ -1,0 +1,15 @@
+:organization orgs.helix
+
+:group groups.lab
+
+^link
+:github "https://github.com/makeevmr"
+
+:email "art.makeev2016@yandex.ru"
+
+:telegram "@makeevmr"
+
+:title "Макеев Артем"
+
+^hide
+:name "Макеев Артем"
