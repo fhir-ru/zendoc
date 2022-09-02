@@ -10,7 +10,7 @@
 ^badge
 :status :draft
 
-:name "Core ValueSet Типы медицинских карты для идентификации пациента"
+:title "Core ValueSet Типы медицинских карт для идентификации пациента"
 
 :summary md/
 

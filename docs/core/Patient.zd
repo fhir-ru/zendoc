@@ -22,6 +22,7 @@
 ^zen/schema
 :profile fhir.ru.core.patient/CorePatient
 
+^collapse
 ^title "О валидации FHIR и Aidbox"
 :disclaimer md/
 
@@ -31,39 +32,25 @@
 
 Ресурсы в формате стандарта FHIR можно проверить в [официальном валидаторе HL7 FHIR](https://validator.fhir.org).
 
-^title "Примеры ресурсов"
+
+^title "Примеры"
 :examples
 
 ^collapse
 ^title "Пример ресурса Patient"
-^yaml
-:examples:example-1 (load "samples/patient.json" :json)
-
-^collapse
-^yaml
-^title "Пример из КДЛ"
-:examples:example-2  (load "samples/lab-test-patient.yaml" :yaml)
-
-^collapse
-^yaml
-^title "Пример Patient из бандла КДЛ"
-:examples:example-3 (load "../lab/samples/01_patient.yaml" :yaml)
-
-^collapse
-^title "Пример адреса в ресурсе Patient"
 ^tabs
 :examples:tabs-example
 ^tab-title
-~:aidbox:title "Aidbox JSON"
+~:aidbox:title "Aidbox/JSON"
 ^tab-content
 ^yaml
-~:aidbox:content (load "samples/patient-address-aidbox.json" :json)
+~:aidbox:content (load "samples/patient-aidbox.json" :json)
 
 ^tab-title
-~:fhir:title "FHIR JSON"
+~:fhir:title "FHIR/JSON"
 ^tab-content
 ^yaml
-~:fhir:content (load "samples/patient-address.json" :json)
+~:fhir:content (load "samples/patient.json" :json)
 
 ^title "Элементы ресурса"
 :elements md/

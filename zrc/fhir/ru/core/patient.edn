@@ -35,9 +35,13 @@
                                   :every {:type zen/map
                                           :confirms #{fhir/Identifier}
                                           :require #{:system :value}
-                                          :keys {:value {:type zen/string}
-                                                 :system {:const {:value "http://fhir.ru/core/systems/passport-rf"}}
+                                          :keys {:value {:type zen/string
+                                                         :confirms #{fhir/string}}
+                                                 :system {:type zen/string
+                                                          :confirms #{fhir/uri}
+                                                          :const {:value "http://fhir.ru/core/systems/passport-rf"}}
                                                  :type {:type     zen/map
+                                                        :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
 
                                                         :keys     {:coding {:type    zen/vector
@@ -55,7 +59,7 @@
                                                                                                                                                     :require            #{:code :display :system}
                                                                                                                                                     :keys               {:code    {:const {:value "PPN"}}
                                                                                                                                                                          :display {:const {:value "Passport number"}}
-                                                                                                                                                                         :system  {:const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}
+                                                                                                                                                                         :system  {:confirms #{fhir/uri} :const {:value "http://terminology.hl7.org/CodeSystem/v2-0203"}}}}}}
                                                                                                "core-cs-nsi-identity-document" {:filter {:engine :match
                                                                                                                                          :match  {:system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"}}
                                                                                                                                 :schema {:type  zen/vector
@@ -192,8 +196,8 @@
                                                                                                                                 :every {:type zen/map
                                                                                                                                         :require #{:code :display :system}
 
-                                                                                                                                        ;; :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set,
-                                                                                                                                                            ;;  :strength :extensible}
+                                                                                                                                        :zen.fhir/value-set {:symbol CoreVsMedCardsAsIdentifiers
+                                                                                                                                                             :strength :extensible}
                                                                                                                                         :keys {;;  :code {:const {:value "MR"}}
                                                                                                                                               ;;  :display {:const {:value "Medical record number"}}
                                                                                                                                                :system {:const {:value "urn:oid:1.2.643.5.1.13.13.11.1522"}}}}}}}
@@ -348,6 +352,22 @@
   :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/administrative-gender"
                         :zen.fhir/content :not-present}}
   :uri "http://fhir.ru/core/vs/core-vs-administrative-gender"}
+
+ CoreVsMedCardsAsIdentifiers
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.vs-med-cards-as-identifiers"
+  :zen/desc "Типы медицинских карт для идентификации пациента"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1522",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/vs/core-vs-med-cards-as-identifiers"
+  :version "1.1"
+  :zen.fhir/id "core-vs-med-cards-as-identifiers"
+  :zen.fhir/name "CoreVsMedCardsAsIdentifiers"
+  :zen.fhir/title "Core ValueSet Типы медицинских карт для идентификации пациента"
+  :zen.fhir/status "active"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1522" :concept [{:code "63" :display "История развития ребенка"},{:code "189" :display "Карта профилактических прививок"},{:code "42" :display "Контрольная карта диспансерного наблюдения"},{:code "193" :display "Медицинская карта ортодонтического пациента"},{:code "41" :display "Медицинская карта пациента, получающего медицинскую помощь в амбулаторных условиях"},{:code "84" :display "Медицинская карта ребенка для образовательных учреждений дошкольного, начального общего, основного общего, среднего (полного) общего образования, учреждений начального и среднего профессионального образования, детских домов и школ-интернатов"},{:code "61" :display "Медицинская карта стоматологического больного"},{:code "196" :display "Карта персонального учета пациента с ВИЧ-инфекцией"},{:code "201" :display "Обменная карта беременной, роженицы и родильницы"}]}]}}
 
  CoreVsIdentifierType
  {:zen/tags #{zen.fhir/value-set}

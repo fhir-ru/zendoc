@@ -1,0 +1,73 @@
+^hide
+:menu-order 10
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+:title "Core ValueSet Уровень конфиденциальности медицинского документа"
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:maturity-level 0
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :zen/desc))"}
+{:name "Committee:" :value #{groups.adm}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения справочника НСИ Минздрава [Уровень конфиденциальности медицинского документа](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.285).
+
+^title "Описание"
+:description md/
+
+^title "Содержимое набора значений"
+^table
+:valueset-expansion
+[
+    {"Уникальный идентификатор" "1" :Код "N" :Название "Обычный" :Описание "Обычные правила доступа. Доступ имеют любые авторизованные лица, заинтересованные в данной информации."}
+    {"Уникальный идентификатор" "2" :Код "R" :Название "Ограниченный" :Описание "Ограниченный доступ означает разрешение доступа к документу только персоналу, который непосредственно участвует в оказании медицинской помощи пациенту."}
+    {"Уникальный идентификатор" "3" :Код "V" :Название "Крайне ограниченный" :Описание "Очень ограниченный доступ означает необходимость получения персонального разрешения от организации, хранящей документ, для доступа к данным."}
+]
+
+
+;; ^table
+^title "Value Set из файла .csv"
+:valueset-expansion-from-csv (load "../../terminology/1.2.643.5.1.13.13.99.2.285_1.2.csv" :csv)
+
+^collapse
+;; ^edn TODO: fix
+^title "ZEN Definition for Value Set CoreVsLabTests"
+:valueset-zen-definition "((ztx-get :symbols fhir.ru.lab.composition/CoreVsNsiConfidentiality))"
+
+^collapse
+^title "JSON Definition for Value Set CoreVsLabTests"
+:valueset-json-definition md/
+
+```code json
+TODO
+```
+
+^title "Справочная информация"
+:support md/
