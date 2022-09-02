@@ -31,6 +31,9 @@
 ^badge
 :system "http://fhir.ru/core/systems/gender"
 
+^badge
+:OID "1.2.643.5.1.13.13.11.1040"
+
 ^title "Naming System"
 :code-systems-naming md/
 

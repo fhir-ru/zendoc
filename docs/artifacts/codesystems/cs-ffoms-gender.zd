@@ -31,13 +31,14 @@
 ^badge
 :system "http://fhir.ru/core/systems/ffoms-gender"
 
+^badge
+:OID "Отсутствует"
+
 ^title "Naming System"
 :code-systems-naming md/
 
 
 [Справочник НСИ ФОМС Пол пациента](http://nsi.ffoms.ru/#refbookList?refbookList:filter:$filter=set&refbookList:filter:name=%D0%BF%D0%BE%D0%BB&refbookList:$active=1&refbookList:$selectedId=914/refbookList.refbookList.view$2v914?menu:filter:dictionaryId=914&menu:filter:readOnly=true&menu:$active=1&menu:$selectedId=undefined&refbookSimple0:$active=1&refbookSimple0:page=1&refbookSimple1:$active=1&refbookSimple1:page=1&refbookSimple1:$selectedId=undefined)
-
-
 
 ```code json
 {

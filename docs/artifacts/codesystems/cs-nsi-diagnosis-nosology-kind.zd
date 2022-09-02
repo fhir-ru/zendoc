@@ -1,0 +1,77 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:updated "2022-09-02"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Справочник Виды нозологических единиц диагноза"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы в кодинге при указании рубрики диагноза
+
+^badge
+:system "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1077"
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Справочник Виды нозологических единиц диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3)
+
+```code json
+{
+  "id": "core-cs-nsi-diagnosis-nosology-kind",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsDiagnosisNosologyKind",
+  "description": "НСИ Минздрава Справочник Степень обоснованности диагноза",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Справочник Виды нозологических единиц диагноза, 
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.11.1077</li>\n    
+    <li>Дополнительный OID: 1.2.643.5.1.13.2.1.1.1504.4</li>\n   
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1077",
+      "comment": "Основной"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.2.1.1.1504.4",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+    }
+  ]
+}
+```code
+

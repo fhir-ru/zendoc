@@ -1,0 +1,77 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.varvara}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:updated "2022-09-02"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Справочник Степень обоснованности диагноза"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы в кодинге при указании типа диагноза
+
+^badge
+:system "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree"
+
+^badge
+:OID "1.2.643.5.1.13.13.99.2.795"
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Справочник Степень обоснованности диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1)
+
+```code json
+{
+  "id": "core-cs-nsi-diagnosis-justification-degree",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsDiagnosisJustificationDegree",
+  "description": "НСИ Минздрава Справочник Степень обоснованности диагноза",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Справочник Степень обоснованности диагноза, 
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.99.2.795</li>\n    
+    <li>Дополнительный OID: 1.2.643.5.1.13.13.11.1076</li>\n   
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.99.2.795",
+      "comment": "Основной"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1076",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+    }
+  ]
+}
+```code
+

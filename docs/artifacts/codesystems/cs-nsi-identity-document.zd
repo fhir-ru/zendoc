@@ -31,10 +31,14 @@
 ^badge
 :system "http://fhir.ru/core/cs/core-cs-nsi-identity-document"
 
+^badge
+:OID "1.2.643.5.1.13.13.99.2.48"
+
 ^title "Naming System"
 :code-systems-naming md/
 
 [НСИ Минздрава Документы, удостоверяющие личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)
+
 
 ```code json
 {
