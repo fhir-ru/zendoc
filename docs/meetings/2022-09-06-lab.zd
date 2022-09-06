@@ -1,0 +1,13 @@
+^badge 
+:date "2022-09-06"
+:title "Встреча 2022-09-06 (lab)"
+
+^badge 
+:groups #{groups.lab}
+
+:video "https://youtu.be/FpLJKi6erIM" 
+
+
+:discussion md/
+
+С.Елфимов и Е.Коган кратко обсудили, какие решения по профилированию ресурсов отражены в Excel-файле лабораторной группы
