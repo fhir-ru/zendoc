@@ -33,6 +33,12 @@
 
 Профиль ServiceRequest описывает запросы услуг.
 
+^title "Введение"
+:intro md/
+
+ServiceRequest — это запись запроса на процедуру, диагностику или другую услугу, которая должна быть запланирована, предложена или выполнена, в зависимости от значения поля ServiceRequest.intent.
+Если в атрибуте Subject указан пациент, то необходимо использование профиля CorePatient.
+
 ^title "Профиль"
 ^zen/schema
 :section:profile fhir.ru.lab.servicerequest/LabServiceRequest
