@@ -19,6 +19,7 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/servicerequest-lab"
   :type zen/map
+  :require #{:status :intent :subject}
   :keys  { 
 
       :status
@@ -49,6 +50,7 @@
             {:type zen/map
             :confirms #{fhir/CodeableConcept},
             :zen/desc "Что запрашивается/заказывается"
+            :require #{:coding}
             :keys {
                   :coding  
                         {:type zen/vector,
