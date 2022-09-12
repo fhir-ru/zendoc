@@ -15,4 +15,123 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/specimen-lab"
   :type zen/map
-  :keys {}}}
+  :keys {
+	:collection {
+		:type zen/map
+		:confirms #{fhir/BackboneElement}
+		:zen/desc "Детали коллекции"
+		:keys {
+			:collected {
+				:fhir/polymorphic true
+				:type zen/map
+				:zen/desc "Время сбора"
+				:keys {
+					:dateTime {
+						:confirms #{fhir/dateTime}
+					}
+				}
+			}
+			:collector {
+				:confirms #{fhir/Reference zen.fhir/Reference}
+            	:zen.fhir/reference {
+					:refers #{  fhir.ru.core.practitioner/CorePractitioner 
+								fhir.ru.core.practitioner/CorePractitionerRole}
+				}
+				:zen/desc "Кто собирал образец"
+			}
+			:method {
+				:type zen/map
+                :confirms #{fhir/CodeableConcept}
+				:zen/desc "Техника, используемая для сбора"
+				:keys {
+					:coding {
+						:type zen/vector
+						:minItems 1
+						:zen/desc "Код, определяемый терминологической системой"
+						:every {
+							:type zen/map
+							:confirms #{fhir/Coding}
+							:keys {
+								:code {
+									:type zen/map
+									:confirms #{fhir/code}
+									:zen/desc "Символ в синтаксисе, определяемом системой"
+								}
+								:display {
+									:type zen/string
+									:confirms #{fhir/string}
+									:zen/desc "Представление, определенное системой"
+								}
+								:system {
+									:type zen/string
+									:confirms #{fhir/string}
+									:zen/desc "Идентичность терминологической системы"
+								}
+								:version {
+									:type zen/string
+									:confirms #{fhir/string}
+									:zen/desc "Версия системы"
+								}
+							}
+						}
+					}
+				}
+			}
+			:quantity {
+				:type zen/map
+				:confirms #{fhir/SimpleQuantity}
+				:zen/desc "Количество собранного образца"
+				:keys {
+					:code {
+						:type zen/string
+                        :confirms #{fhir/code}
+						:zen/desc "Кодированная форма узла"
+					}
+					:system {
+						:type zen/string
+                        :confirms #{fhir/uri}
+						:zen/desc "Система, определяющая форму кодированного узла"
+					}
+					:unit {
+						:type zen/string
+						:confirms #{fhir/string}
+						:zen/desc "Представление узла"
+					}
+					:value {
+						:type zen/string
+						:confirms #{fhir/decimal}
+						:zen/desc "Числовое значение"
+					}
+				}
+			}
+		}
+	}
+	:container {
+		:type zen/vector
+		:confirms #{fhir/BackboneElement}
+		:zen/desc "Прямой контейнер образца"
+		:every {
+			:type zen/map
+			:keys {
+				:additive {
+					:fhir/polymorphic true
+					:type zen/map
+					:zen/desc "Добавка, связанная с контейнером"
+					:keys {
+						:Reference {
+							:confirms #{fhir/Reference zen.fhir/Reference}
+							:zen.fhir/reference {
+								:refers #{fhir.ru.lab.substance/LabSubstance}
+							}
+						}
+					}
+				}
+				:description {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Текстовое описание контейнера"
+				}
+			}
+		}
+	}
+  }}}}
