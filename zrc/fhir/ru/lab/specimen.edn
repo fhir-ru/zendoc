@@ -134,4 +134,14 @@
 			}
 		}
 	}
+	:identifier {
+		:type zen/vector
+		:zen/desc "Идентификатор контейнера"
+		:every {
+			:type zen/map
+			:keys {
+				
+			}
+		}
+	}
   }}}}

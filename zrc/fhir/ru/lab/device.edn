@@ -18,23 +18,6 @@
   :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
   :type zen/map
   :keys {
-	:deviceName {
-		:type zen/vector
-		:zen/desc "Устройство"
-		:every {
-			:type zen/map
-			:keys {
-				:type {
-					:confirms #{fhir/code}
-					:zen.fhir/value-set {
-						:symbol hl7-fhir-r4-core.value-set.device-nametype/value-set
-						:strength :required
-					}
-					:zen/desc ""
-				}
-			}
-		}
-	}
 	:identifier {
 		:type zen/vector
 		:zen/desc "Идентификаторы"
@@ -50,7 +33,7 @@
 				:system {
 					:type zen/string
 					:confirms #{fhir/uri} 
-					:zen/desc "Должен формироваться специальным образом"	
+					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67"	
 				}
 				:value {
 					:type zen/string
