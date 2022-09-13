@@ -21,15 +21,14 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-coverage"
   :type zen/map
-  :require #{:payor :_payor}
+  :require #{:payor}
   :keys {:type {:zen/desc "Тип страхового покрытия"
                 :type zen/map
                 :confirms #{fhir/CodeableConcept}
                 :zen.fhir/value-set {:symbol CoreVsNsiMedicalCarePaymentSource :strength :required}}
-
-
          :payor {:type zen/vector
                  :minItems 1
+                 :zen/desc "Плательщик: пациент, родственник или организация"
                  :every {:type zen/map
                          :confirms #{fhir/Reference zen.fhir/Reference}
                          :zen.fhir/reference {:refers #{fhir.ru.financial.patient/FinancialPatient
@@ -139,6 +138,7 @@
                                                           :const {:value "http://fhir.ru/core/systems/dms"}}
                                                  :type {:type zen/map
                                                         :confirms #{fhir/CodeableConcept}
+                                                        :match {:coding #{{:system "urn:oid:1.2.643.5.1.13.13.99.2.724" :code "2" :display "Полис ДМС"}}}
                                                         :zen/desc "Тип идентификатора"
                                                         :keys {:coding {:type zen/vector
                                                                         :every {:confirms #{fhir/Coding}}
@@ -181,10 +181,11 @@
                                   :every {:type zen/map
 
                                           :keys {:value {:type zen/string}
-                                                 :system {:zen/desc "Пространство имен идентификаторов"
+                                                 :system {:zen/desc "Пространство имен номера контракта"
                                                           :type zen/string
                                                           :confirms #{fhir/uri}
-                                                          :const {:value "http://fhir.ru/core/systems/contract"}}
+                                                          ;; :const {:value "http://fhir.ru/core/systems/contract"}
+                                                          }
                                                  :type {:type zen/map
                                                         :confirms #{fhir/CodeableConcept}
                                                         :zen/desc "Тип идентификатора"
