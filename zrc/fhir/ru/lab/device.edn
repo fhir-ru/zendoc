@@ -17,10 +17,37 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/device-lab"
   :type zen/map
+  :require #{:identifier}
   :keys {
+	:deviceName {
+		:type zen/vector
+		:zen/desc "Название устройства, данное производителем. Используется в ПЛИ."
+		:every {
+			:type zen/map
+			:require #{:name :type}
+			:keys {
+				:name {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Имя, которое идентифицирует устройство. Используется в ПЛИ."
+					:minItems 1
+				}
+				:type {
+					:confirms #{fhir/code}
+					:zen.fhir/value-set {
+						:symbol hl7-fhir-r4-core.value-set.device-nametype/value-set
+						:strength :required
+					}
+					:zen/desc "Название метки UDI | Удобное для пользователя название | Название, переданное пользователем| Название производителя | Название модели | Прочее. Используется в ПЛИ"
+					:minItems 1
+				}
+			}
+		}
+	}
 	:identifier {
 		:type zen/vector
-		:zen/desc "Идентификаторы"
+		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ. "
+		:minItems 1
 		:every {
 			:type zen/map
 			:keys {
@@ -29,63 +56,41 @@
 					:zen.fhir/reference {
 						:refers #{fhir.ru.core.organization/CoreOrganization}
 					}
+					:zen/desc "Организация, выдавшая id"
 				}
 				:system {
 					:type zen/string
 					:confirms #{fhir/uri} 
-					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67"	
-				}
-				:value {
-					:type zen/string
-					:confirms #{fhir/string}
-					:zen/desc ""
-				}
-				:period {
-					:type zen/map
-					:confirms #{fhir/Period}
-					:keys {
-						:start {
-							:confirms #{fhir/dateTime}
-							:zen/desc "Начало временного промежутка"
-						}
-						:end {
-							:confirms #{fhir/dateTime}
-							:zen/desc "Окончание временного промежутка"
-						}
-					}
+					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67. Используется в ПЛИ"	
 				}
 				:type {
 					:type zen/map
 					:confirms #{fhir/CodeableConcept}
-					:zen/desc ""
+					:zen/desc "Описание идентификатора"
+					:require #{:coding}
 					:keys {
 						:coding {
 							:type zen/vector
+							:zen/desc "Код, определяемый терминологической системой"
 							:minItems 1
 							:every {
 								:type zen/map
 								:confirms #{fhir/Coding}
 								:keys {
-									:code {
-										:type zen/map
-										:confirms #{fhir/code}
-									}
-									:display {
-										:type zen/string
-										:confirms #{fhir/string}
-									}
 									:system {
 										:type zen/string
 										:confirms #{fhir/string}
+										:zen/desc "Идентичность терминологической системы"
 									}
 								}
 							}
 						}
 					}
 				}
-				:use {
-					:confirms #{fhir/code}
-					:zen/desc ""
+				:value {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Уникальное значение. Используется в ПЛИ"
 				}
 			}
 		}
