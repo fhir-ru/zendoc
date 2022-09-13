@@ -36,7 +36,7 @@
 
 Профиль Coverage описывает страховой полис пациента или другой источник финансирования.
 
-Указание кода по базовому FHIR для типа Coverage.type не обязательно, но если указано, то следует использовать [данный маппинг](artifacts.valuesets.vs-nsi-medical-care-payment-source#:valueset-mapping).
+Указание кода по базовому FHIR для типа Coverage.type не обязательно, но если указано, то следует использовать [данное отображение](artifacts.valuesets.vs-nsi-medical-care-payment-source#:valueset-mapping).
 
 ^title "Используемые наборы значений"
 :section:valuesets md/

@@ -13,7 +13,7 @@
 В настоящее время идёт работа по переложению текущих требований к передаче лабораторных исследований (ПЛИ) с CDA на FHIR.
 
 
-Требования к данным описаны в эксель-файле [Маппинг ПЛИ CDA-FHIR](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit?usp=sharing).
+Требования к данным описаны в эксель-файле [Отображение ПЛИ CDA-FHIR](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit?usp=sharing).
 
 
 Ссылка на актуальное руководство по реализации СЭМД ПЛИ:

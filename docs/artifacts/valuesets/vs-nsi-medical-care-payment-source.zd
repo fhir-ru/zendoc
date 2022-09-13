@@ -82,12 +82,12 @@ CoreVsNsiMedicalCarePaymentSource
 {:code "12" :display "Средства федерального и регионального бюджета" :short "Бюджет федеральный и региональный"}]
 
 
-^title "Маппинг"
+^title "Отображение"
 :valueset-mapping md/
 
-Маппинг справочника [1.2.643.5.1.13.13.11.1039](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1039) на FHIR-справочник [Coverage Type and Self-Pay Codes](http://hl7.org/fhir/ValueSet/coverage-type). 
+Отображение справочника [1.2.643.5.1.13.13.11.1039](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1039) на FHIR-справочник [Coverage Type and Self-Pay Codes](http://hl7.org/fhir/ValueSet/coverage-type). 
 
-Источник маппинга: [Маппинг ПЛИ CDA-FHIR/Coverage.type](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit#gid=2142566896).
+Источник отображения: [Отображение ПЛИ CDA-FHIR/Coverage.type](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit#gid=2142566896).
 
 ^title "Таблица соответствия справочников"
 ^table

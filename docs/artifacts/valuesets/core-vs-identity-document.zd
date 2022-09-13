@@ -39,7 +39,7 @@
 ^title "Описание"
 :description md/
 
-Для документов, удостоверяющих личность, определены NamingSystem и ValueSet на основе справочника НСИ ЕГИСЗ и маппинг кодов документов на Identifier Type Codes.
+Для документов, удостоверяющих личность, определены NamingSystem и ValueSet на основе справочника НСИ ЕГИСЗ и отображение кодов документов на Identifier Type Codes.
 
 
 
@@ -49,12 +49,12 @@
 
 
 
-^title "Содержимое набора значений и маппинг"
+^title "Содержимое набора значений и отображение"
 :valueset-content md/
 
-Маппинг справочника "Документы, удостоверяющие личность" на справочник [Identifier Type Codes](http://hl7.org/fhir/valueset-identifier-type.html)
+Отображение справочника "Документы, удостоверяющие личность" на справочник [Identifier Type Codes](http://hl7.org/fhir/valueset-identifier-type.html)
 
-^title "Маппинг типов идентификаторов"
+^title "Отображение типов идентификаторов"
 ^table
 :valueset-content:mapping
 [
