@@ -23,7 +23,7 @@
 
 :toc
 
-^title "Реестр систем идентификаторов"
+^title "Реестр систем идентификации"
 ^table
 :naming-systems-register
 [
@@ -37,6 +37,6 @@
 " :Описание "Номер медицинской карты"}    
 ]
 
-^title "Реестр систем идентификаторов"
+^title "Реестр систем идентификации"
 ^table-of {:namespace "artifacts.identifiers." :columns [:zd/name :title]}
 :identifiers-register

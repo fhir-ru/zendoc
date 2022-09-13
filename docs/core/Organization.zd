@@ -82,7 +82,7 @@ TODO: Добавить типизацию [из дискуссии 167](https://
 ^disc 45
 :identifier:summary md/
 
-Ниже приведен набор возможных систем для идентификаторов
+Ниже приведен набор возможных систем идентификации
 
 ^table
 :identifier:values (load "samples/org-ids.yaml" :yaml)
