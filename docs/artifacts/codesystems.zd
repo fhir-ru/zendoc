@@ -19,11 +19,11 @@
 ^badge
 :type :ig
 
-:title "Реестр кодовых систем"
+:title "Реестр систем кодирования"
 
 :toc
 
-^title "Реестр кодовых систем"
+^title "Реестр систем кодирования"
 ^table-of {:namespace "artifacts.codesystems." :columns [:zd/name :title :system :OID]}
 :codesystems-register
 

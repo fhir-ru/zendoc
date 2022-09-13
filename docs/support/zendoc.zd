@@ -279,7 +279,7 @@ __Результат:__
 :tables:table:example2 md/
 
 ```code
-  ^title "Реестр кодовых систем"
+  ^title "Реестр систем кодирования"
   ^table
   :tables:code:code-systems-register
   [
@@ -293,7 +293,7 @@ __Результат:__
 
 __Результат:__
 
-^title "Реестр кодовых систем"
+^title "Реестр систем кодирования"
 ^table
 :tables:code:code-systems-register
 [

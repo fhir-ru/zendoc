@@ -52,17 +52,17 @@
 ^table
 :valueset-content
 [
-    {:Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Наименование "Номер паспорта" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/passport-rf" }
-    {:Code "MR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Medical record number" :Наименование "Номер медицинской карты" "Соответствующая система идентификатора" "* Формируется по правилу " }
-    {:Code "BR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth registry number" :Наименование "Номер медицинского свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/medical-birth-certificate" }
-    {:Code "BCT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth Certificate" :Наименование "Номер государственного свидетельства о рождении" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/birth-certificate" }
-    {:Code "DC" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/death-certificate" }
-    {:Code "FDR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/fetal-death-certificate" }
-    {:Code "MRT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" "Соответствующая система идентификатора" "" }
-    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "СНИЛС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/snils" }
-    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "Единый регистр застрахованных лиц (ЕРЗ)" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/ffoms-erz" }
-    {:Code "PI" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/patient-internal-identifier" }
-    {:Code "TAX" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Tax ID number" :Наименование "ИНН" "Соответствующая система идентификатора" "http://fhir.ru/core/systems/inn" }
+    {:Code "PPN" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Passport number" :Наименование "Номер паспорта" "Соответствующая система идентификации" "http://fhir.ru/core/systems/passport-rf" }
+    {:Code "MR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Medical record number" :Наименование "Номер медицинской карты" "Соответствующая система идентификации" "* Формируется по правилу " }
+    {:Code "BR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth registry number" :Наименование "Номер медицинского свидетельства о рождении" "Соответствующая система идентификации" "http://fhir.ru/core/systems/medical-birth-certificate" }
+    {:Code "BCT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Birth Certificate" :Наименование "Номер государственного свидетельства о рождении" "Соответствующая система идентификации" "http://fhir.ru/core/systems/birth-certificate" }
+    {:Code "DC" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Death Certificate ID" :Наименование "Номер свидетельства о смерти (государственного?)" "Соответствующая система идентификации" "http://fhir.ru/core/systems/death-certificate" }
+    {:Code "FDR" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Fetal Death Report ID" :Наименование "Номер свидетельства о перинатальной смерти (медицинского? потому что государственного отдельного нет)" "Соответствующая система идентификации" "http://fhir.ru/core/systems/fetal-death-certificate" }
+    {:Code "MRT" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Temporary Medical Record Number" :Наименование "Временный номер медицинской карты" "Соответствующая система идентификации" "" }
+    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "СНИЛС" "Соответствующая система идентификации" "http://fhir.ru/core/systems/snils" }
+    {:Code "SB" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Social Beneficiary Identifier" :Наименование "Единый регистр застрахованных лиц (ЕРЗ)" "Соответствующая система идентификации" "http://fhir.ru/core/systems/ffoms-erz" }
+    {:Code "PI" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Patient internal identifier" :Наименование "Номер пациента в МИС" "Соответствующая система идентификации" "http://fhir.ru/core/systems/patient-internal-identifier" }
+    {:Code "TAX" :System "http://terminology.hl7.org/CodeSystem/v2-0203" :Display "Tax ID number" :Наименование "ИНН" "Соответствующая система идентификации" "http://fhir.ru/core/systems/inn" }
 ]
 
 ^collapse
