@@ -30,7 +30,6 @@
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Имя, которое идентифицирует устройство. Используется в ПЛИ."
-					:minItems 1
 				}
 				:type {
 					:confirms #{fhir/code}
@@ -39,7 +38,6 @@
 						:strength :required
 					}
 					:zen/desc "Название метки UDI | Удобное для пользователя название | Название, переданное пользователем| Название производителя | Название модели | Прочее. Используется в ПЛИ"
-					:minItems 1
 				}
 			}
 		}
@@ -47,7 +45,6 @@
 	:identifier {
 		:type zen/vector
 		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ. "
-		:minItems 1
 		:every {
 			:type zen/map
 			:keys {
@@ -72,7 +69,6 @@
 						:coding {
 							:type zen/vector
 							:zen/desc "Код, определяемый терминологической системой"
-							:minItems 1
 							:every {
 								:type zen/map
 								:confirms #{fhir/Coding}
