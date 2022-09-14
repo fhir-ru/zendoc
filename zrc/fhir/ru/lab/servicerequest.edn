@@ -49,7 +49,6 @@
       :code 
             {:type zen/map
             :confirms #{fhir/CodeableConcept},
-            :zen/desc "Что запрашивается/заказывается"
             :require #{:coding}
             :keys {
                   :coding  
@@ -61,13 +60,13 @@
                         :keys { 
                               :code  
                                     {:type zen/map
-                                    :confirms #{fhir/code}},
+                                    :zen.fhir/value-set {:symbol CoreCsNsiRangeOfMedicalServices :strength :required}
+                                    :confirms #{fhir/code}
+                                    :zen/desc "Код услуги должен указывается по справочнику НСИ ЕГИСЗ"},
+                                    
                               :display
                                     {:type zen/string  
                                     :confirms #{fhir/string}},
                               :system
                                     {:type zen/string  
-                                    :confirms #{fhir/string}}}}}}}
-      
-  }}}
-
+                                    :confirms #{fhir/string}}}}}}}}}}

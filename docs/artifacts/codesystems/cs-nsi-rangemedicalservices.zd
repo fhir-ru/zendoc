@@ -1,0 +1,41 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.vladimirinv}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:updated "2022-09-09"
+
+^badge
+:type :ig
+
+:title "Справочник НСИ Минздрава Номенклатура медицинских услуг"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы в кодинге при указании в качестве кода услуги:
+
+^badge
+:system "http://fhir.ru/core/systems/CoreCsNsiRangeOfMedicalServices"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1070"
+
+^title "Naming System"
+:code-systems-naming md/
+
+[Справочник НСИ Минздрава Номенклатура медицинских услуг](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10)
+
