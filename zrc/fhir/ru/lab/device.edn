@@ -21,7 +21,7 @@
   :keys {
 	:deviceName {
 		:type zen/vector
-		:zen/desc "Название устройства, данное производителем. Используется в ПЛИ."
+		:zen/desc "Наименование из cправочника оборудования ЛИС. Используется в ПЛИ."
 		:every {
 			:type zen/map
 			:require #{:name :type}
@@ -86,7 +86,7 @@
 				:value {
 					:type zen/string
 					:confirms #{fhir/string}
-					:zen/desc "Уникальное значение. Используется в ПЛИ"
+					:zen/desc "ID из cправочника оборудования ЛИС Используется в ПЛИ"
 				}
 			}
 		}
