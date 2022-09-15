@@ -24,11 +24,7 @@
 		:zen/desc "Наименование из cправочника оборудования ЛИС. Используется в ПЛИ."
 		:every {
 			:type zen/map
-<<<<<<< HEAD
 			:confirms #{fhir/BackboneElement}
-=======
-			:confirms #{fhir/Reference}
->>>>>>> c25173f1b96486ccff5124199b2233cd2963aae2
 			:require #{:name :type}
 			:keys {
 				:name {
@@ -52,11 +48,7 @@
 		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ. "
 		:every {
 			:type zen/map
-<<<<<<< HEAD
 			:confirms #{fhir/Identifier}
-=======
-			:confirms #{fhir/identifier}
->>>>>>> c25173f1b96486ccff5124199b2233cd2963aae2
 			:keys {
 				:assigner {
 					:confirms #{fhir/Reference zen.fhir/Reference}
