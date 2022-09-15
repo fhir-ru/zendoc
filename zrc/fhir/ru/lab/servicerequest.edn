@@ -60,7 +60,7 @@
                         :keys { 
                               :code  
                                     {:type zen/map
-                                    :zen.fhir/value-set {:symbol CoreCsNsiRangeOfMedicalServices :strength :required}
+                                    :zen.fhir/value-set {:symbol CoreVsNsirangemedicalservices :strength :required}
                                     :confirms #{fhir/code}
                                     :zen/desc "Код услуги должен указывается по справочнику НСИ ЕГИСЗ"},
                                     
@@ -69,4 +69,21 @@
                                     :confirms #{fhir/string}},
                               :system
                                     {:type zen/string  
-                                    :confirms #{fhir/string}}}}}}}}}}
+                                    :confirms #{fhir/string}}}}}}}}}
+
+CoreVsNsirangemedicalservices
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.vs-nsi-rangemedicalservices"
+  :zen/desc "Справочник НСИ Минздрава Номенклатура медицинских услуг"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.285",
+     :zen.fhir/content :not-present}},
+  :uri "http://fhir.ru/core/systems/core-vs-nsi-Range-Of-MedicalServices"
+  :version "2.10"
+  :zen.fhir/id "core-vs-nsi-rangemedicalservices"
+  :zen.fhir/name "CoreVsNsirangemedicalservices"
+  :zen.fhir/title "Core ValueSet Номенклатура медицинских услуг"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.11.1070"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1070"}]}}}
