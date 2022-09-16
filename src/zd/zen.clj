@@ -164,12 +164,16 @@
      :extension-name (->> sch :confirms first (zen.core/get-symbol ztx) :zen.fhir/profileUri)
      :const (-> sch :const :value)
      :cardinality (format "%s..%s"
-                          (cond (:require opts) "1"
-                                (:minItems opts) (:minItems opts)
-                                :else "0")
+                          (cond
+                            (:require opts) "1"
+                            (:require sch)  "1"
+                            (:minItems opts) (:minItems opts)
+                            (:minItems sch) (:minItems sch)
+                            :else "0")
                           (cond
                             (= 'zen/vector tp) "*"
                             (:maxItems opts) (:maxItems opts)
+                            (:maxItems sch)  (:maxItems sch)
                             :else "1"))
      :path pth
      :enum (:enum sch)

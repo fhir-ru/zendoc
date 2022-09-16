@@ -21,8 +21,9 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/lab-composition"
   :type zen/map
-  :require #{:author :date :status :title :type}
+  :require #{:date :status :title :type}
   :keys {:author {:type zen/vector
+                  :minItems 1
                   :zen/desc "Определяет, кто несет ответственность за информацию в композиции, это не обязательно тот, кто её вводил."
                   :every {:type zen/map
                           :confirms #{zen.fhir/Reference fhir/Reference}
