@@ -150,7 +150,19 @@
                                     {:value "logical"}]}
              :zen.fhir/profileUri {:type zen/string}
              :zen.fhir/id {:type zen/string}
-             :zen.fhir/name {:type zen/string}}}
+             :zen.fhir/name {:type zen/string}
+             :zen.fhir/constraint {:type zen/vector
+                                   :every {:type zen/map
+                                           :require #{:key :severity :human}
+                                           :keys {:key {:type zen/string}
+                                                  :requirements {:type zen/string}
+                                                  :severity {:type zen/string
+                                                             :enum [{:value "error"}
+                                                                    {:value "warning"}]}
+                                                  :human {:type zen/string}
+                                                  :expression {:type zen/string}
+                                                  :xpath {:type zen/string}
+                                                  :source {:type zen/string}}}}}}
 
  base-schema
  {:zen/tags #{zen/schema zen/tag}
