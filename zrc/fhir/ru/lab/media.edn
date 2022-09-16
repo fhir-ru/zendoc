@@ -15,4 +15,55 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/media-lab"
   :type zen/map
-  :keys {}}}
+  :require #{:content :status}
+  :keys {
+	:content {
+		:type zen/map
+		:confirms #{fhir/Attachment}
+		:zen/desc "Используется в ПЛИ"
+		:keys {
+			:data {
+				:type zen/string
+				:confirms #{fhir/base64Binary}
+				:zen/desc "Используется в ПЛИ"
+			}
+		}
+	}
+	:created {
+		:fhir/polymorphic true
+		:type zen/map
+		:zen/desc "Используется в ПЛИ"
+		:keys {
+			:dateTime {
+				:type zen/string
+				:confirms #{fhir/dateTime}
+				:zen/desc "Используется в ПЛИ"
+			}
+		}
+	}
+	:device {
+		:confirms #{fhir/Reference zen.fhir/Reference}
+		:zen.fhir/reference {
+		:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}
+		}
+		:zen/desc "Используется в ПЛИ"
+	}
+	:operator {
+		:confirms #{fhir/Reference zen.fhir/Reference}
+		:zen.fhir/reference {
+		:refers #{	fhir.ru.core.practitioner/CorePractitioner 
+					fhir.ru.core.practitioner/CorePractitionerRole
+					fhir.ru.core.organization/CoreOrganization
+					fhir.ru.lab.device/LabDevice
+					fhir.ru.core.patient/CorePatient
+					fhir.ru.financial.relatedperson/FinancialRelatedPerson}
+		}
+		:zen/desc "Используется в ПЛИ"
+	}
+	:status {
+		:type zen/string
+		:confirms #{fhir/code}
+		:zen/desc "Используется в ПЛИ"
+
+	}
+  }}}

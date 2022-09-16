@@ -65,12 +65,12 @@
 				:type {
 					:type zen/map
 					:confirms #{fhir/CodeableConcept}
-					:zen/desc "Описание идентификатора"
+					:zen/desc "Тип идентификатора"
 					:require #{:coding}
 					:keys {
 						:coding {
 							:type zen/vector
-							:zen/desc "Код, определяемый терминологической системой"
+							:zen/desc "Код, определяемый системой кодирования"
 							:every {
 								:type zen/map
 								:confirms #{fhir/Coding}
