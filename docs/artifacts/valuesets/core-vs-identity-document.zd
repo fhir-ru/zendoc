@@ -109,7 +109,10 @@
 ^collapse
 ;; ^edn TODO: fix
 ^title "ZEN Definition for Value Set CoreVsIdentityDocument"
-:valueset-zen-definition "((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument))"
+:valueset-zen-definition md/
+
+((ztx-get :symbols fhir.ru.core.vs/CoreVsIdentityDocument))
+
  
 ^collapse
 ^title "JSON Definition for Value Set CoreVsIdentityDocument"

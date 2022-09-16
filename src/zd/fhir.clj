@@ -10,12 +10,14 @@
             [zd.git]
             [zen.core]
             [clojure.java.shell]
+            [clojure.pprint]
             [zen.dev]))
 
 (defmethod zd.methods/inline-function :ztx-get
   [ztx m path]
   (if-let [value (get-in @ztx path)]
-    value
+    [:pre [:code {:class (str "language-clojure")}
+           (with-out-str (clojure.pprint/pprint value))]]
     [:div "Could not find " (pr-str path)]))
 
 
