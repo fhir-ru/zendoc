@@ -59,6 +59,51 @@
                                                                       {:value :not-present}]}}}}
          :version {:type zen/string}}}
 
+ naming-system
+ {:zen/tags #{zen/schema zen/tag}
+  :zen/desc "Naming System"
+  :type zen/map
+  :require #{:zen.fhir/uniqueId}
+  :keys {:zendoc {:type zen/string}
+         :zen.fhir/id {:type zen/string}
+         :zen.fhir/name {:type zen/string}
+        ;;  :zen.fhir/title {:type zen/string}
+         :zen.fhir/status {:type zen/string
+                           :enum [{:value "active"}
+                                  {:value "draft"}
+                                  {:value "retired"}
+                                  {:value "unknown"}]}
+         :zen.fhir/kind {:type zen/string
+                         :enum [{:value "codesystem"}
+                                {:value "identifier"}
+                                {:value "root"}]}
+         :zen.fhir/date {:type zen/datetime}
+         :zen.fhir/publisher {:type zen/string}
+         :zen.fhir/contact {:type zen/vector
+                            :every {:type zen/map
+                                    :confirms #{fhir/ContactDetail}}}
+         :zen.fhir/responsible {:type zen/string}
+         :zen.fhir/type {:type zen/map
+                         :confirms #{fhir/CodeableConcept}}
+         :zen.fhir/useContext {:type zen/vector
+                               :every {:type zen/map
+                                       :confirms #{fhir/UsageContext}}}
+         :zen.fhir/jurisdiction {:type zen/vector
+                                 :every {:type zen/map
+                                         :confirms #{fhir/CodeableConcept}}}
+         :zen.fhir/usage {:type zen/string}
+         :zen.fhir/uniqueId {:type zen/vector
+                             :minItems 1
+                             :every {:type zen/map
+                                     :require #{:type :value}
+                                     :confirms #{fhir/BackboneElement}
+                                     :keys {:type {:type zen/string}
+                                            :value {:type zen/string}
+                                            :preferred {:type zen/boolean}
+                                            :comment {:type zen/string}
+                                            :period {:type zen/map
+                                                     :confirms #{fhir/Period}}}}}}}
+
  nested-schema
  {:zen/tags #{zen/schema}
   :type zen/map
