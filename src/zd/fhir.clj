@@ -16,8 +16,10 @@
 (defmethod zd.methods/inline-function :ztx-get
   [ztx m path]
   (if-let [value (get-in @ztx path)]
-    [:pre [:code {:class (str "language-clojure")}
-           (with-out-str (clojure.pprint/pprint value))]]
+    (if (string? value)
+      value
+      [:pre [:code {:class (str "language-clojure")}
+                 (with-out-str (clojure.pprint/pprint value))]])
     [:div "Could not find " (pr-str path)]))
 
 
