@@ -20,6 +20,9 @@
   :zen.fhir/type "Encounter"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/encounter-clinical-dx"
   :type zen/map
+  :zen.fhir/constraint [{:key "ru-core-diag-1"
+                         :human "Правило проверки массива диагнозов: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
+                         :expression "(slice(http://fhir.ru/core/sd/encounter-clinical-dx, additional) or slice(http://fhir.ru/core/sd/encounter-clinical-dx, complication)) and slice(http://fhir.ru/core/sd/encounter-clinical-dx, main)"}]
   :keys {:diagnosis {:zen/desc "Диагноз"
                      :confirms #{ConstraintRule2}
                      :type zen/vector
@@ -117,36 +120,60 @@
 
  CoreDiagnosisType
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+  :zen/desc "Тип диагноза"
   :zendoc "artifacts.extensions.core-ex-diagnosis-type"
-
+  :confirms #{fhir/Extension}
   :zen.fhir/type "CodeableConcept"
+
+  :zen.fhir/id "core-ex-diagnosis-type"
+;; :zen.fhir/type "Extension"
+  :zen.fhir/name "CoreDiagnosisType"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
+
+
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-type"
 
   :zen.fhir/value-set
   {:symbol fhir.ru.diag.encounter/CoreVsDiagnosisType
    :strength :required}
   :type zen/map
-  :zen/desc "Тип диагноза"
   :zen.fhir/version "0.5.8"
-  :confirms #{fhir/CodeableConcept}}
+  :keys {:url {:zen/desc "http://fhir.ru/core/sd/core-ex-diagnosis-type"
+               :confirms #{fhir/uri}}
+         :valueCodeableConcept {:type zen/map
+                                :confirms #{fhir/CodeableConcept}
+                                :zen/desc "Значение из справочника CoreVsDiagnosisType"}}}
 
  CoreDiagnosisRubric
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension}
+  :zen/desc "Рубрика диагноза"
   :zendoc "artifacts.extensions.core-ex-diagnosis-rubric"
-
+  :confirms #{fhir/Extension}
   :zen.fhir/type "CodeableConcept"
+
+  :zen.fhir/id "core-ex-diagnosis-rubric"
+;; :zen.fhir/type "Extension"
+  :zen.fhir/name "CoreDiagnosisRubric"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "complex-type"
+
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-diagnosis-rubric"
   :zen.fhir/value-set
   {:symbol fhir.ru.diag.encounter/CoreVsDiagnosisRubric
    :strength :required}
   :type zen/map
-  :zen/desc "Рубрика диагноза"
-  :zen.fhir/version "0.5.8"
-  :confirms #{fhir/CodeableConcept}}
+
+  :zen.fhir/version "0.5.8"}
 
  CoreVsDiagnosisType
  {:zen/tags #{zen.fhir/value-set}
   :zendoc "artifacts.valuesets.vs-diagnosis-type"
+
+  :zen.fhir/name "CoreVsDiagnosisType"
+  :zen.fhir/title "Core Value Set Diagnosis Type"
 
   :zen/desc "[Справочник Степень обоснованности диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1)"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree"
@@ -157,6 +184,9 @@
  CoreVsDiagnosisRubric
  {:zen/tags #{zen.fhir/value-set}
   :zendoc "artifacts.valuesets.vs-diagnosis-rubric"
+
+  :zen.fhir/name "CoreVsDiagnosisRubric"
+  :zen.fhir/title "Core Value Set Diagnosis Rubric"
 
   :zen/desc "[Справочник Виды нозологических единиц диагноза](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3)"
   :fhir/code-systems #{{:fhir/url "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind"
