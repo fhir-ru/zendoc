@@ -122,8 +122,7 @@
 (defn calc-ref [refer-schema]
   (if (:zendoc refer-schema)
     (str "/" (:zendoc refer-schema))
-    (str "http://hl7.org/fhir/r4b/datatypes.html#"
-                                  (:zen.fhir/type refer-schema))))
+    (str "http://hl7.org/fhir/r4b/datatypes.html#" (:zen.fhir/type refer-schema))))
 
 (defn map-reference
   [ztx refers]
@@ -137,7 +136,6 @@
           (interpose " | ")) ")"]))
 
 (defn format-fhir-type [ztx sch & {:keys [confirms]}]
-  (println sch)
   (cond
     (:zen.fhir/reference sch)
     (let [refers (get-in sch [:zen.fhir/reference :refers])]
@@ -146,6 +144,11 @@
     (get-in sch [:every :zen.fhir/reference])
     (let [refers  (get-in sch [:every :zen.fhir/reference :refers])]
       (map-reference ztx refers))
+
+    (contains? (:zen/tags sch) 'zen.fhir/profile-schema)
+    [:a {:href (format "http://hl7.org/fhir/r4b/%s.html#resource"
+                       (clojure.string/lower-case (str (:zen.fhir/type sch))))}
+     (:zen.fhir/type sch)]
 
     confirms (let [sch-name (first confirms)
                    sch (zen.core/get-symbol ztx sch-name)]
