@@ -21,6 +21,7 @@
 		:type zen/map
 		:confirms #{fhir/Attachment}
 		:zen/desc "Используется в ПЛИ"
+		:maxItems 1
 		:keys {
 			:data {
 				:type zen/string
@@ -33,6 +34,7 @@
 		:fhir/polymorphic true
 		:type zen/map
 		:zen/desc "Используется в ПЛИ"
+		:maxItems 1
 		:keys {
 			:dateTime {
 				:type zen/string
@@ -46,6 +48,7 @@
 		:zen.fhir/reference {
 		:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}
 		}
+		:maxItems 1
 		:zen/desc "Используется в ПЛИ"
 	}
 	:operator {
@@ -58,6 +61,7 @@
 					fhir.ru.core.patient/CorePatient
 					fhir.ru.financial.relatedperson/FinancialRelatedPerson}
 		}
+		:maxItems 1
 		:zen/desc "Используется в ПЛИ"
 	}
 	:status {
