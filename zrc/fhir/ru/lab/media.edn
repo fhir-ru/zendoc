@@ -18,17 +18,20 @@
   :require #{:content :status}
   :keys {
 	:content {
-		:type zen/map
-		:confirms #{fhir/Attachment}
+		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:maxItems 1
-		:keys {
-			:data {
-				:type zen/string
-				:confirms #{fhir/base64Binary}
-				:zen/desc "Используется в ПЛИ"
-			}
-		}
+        :every {
+            :confirms #{fhir/Attachment}
+            :type zen/map
+            :keys {
+                :data {
+                    :type zen/string
+                    :confirms #{fhir/base64Binary}
+                    :zen/desc "Используется в ПЛИ"
+                }
+            }
+        }
 	}
 	:created {
 		:fhir/polymorphic true
@@ -61,13 +64,12 @@
 					fhir.ru.core.patient/CorePatient
 					fhir.ru.financial.relatedperson/FinancialRelatedPerson}
 		}
-		:maxItems 1
+        :maxItems 1
 		:zen/desc "Используется в ПЛИ"
 	}
 	:status {
 		:type zen/string
 		:confirms #{fhir/code}
 		:zen/desc "Используется в ПЛИ"
-
-	}
+    }
   }}}

@@ -15,4 +15,22 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/substance-lab"
   :type zen/map
-  :keys {}}}
+  :require #{:code}
+  :keys {
+	:code {
+		:type zen/map
+		:confirms #{fhir/CodeableConcept}
+		:zen/desc ""
+		:require #{:coding}
+		:keys {
+			:coding {
+				:type zen/vector
+				:zen/desc ""
+				:every {
+					:type zen/map
+					:confirms #{fhir/Coding}
+				}
+			}
+		}
+	}
+  }}}

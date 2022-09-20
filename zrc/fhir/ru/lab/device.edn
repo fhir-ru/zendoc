@@ -74,7 +74,6 @@
 							:every {
 								:type zen/map
 								:confirms #{fhir/Coding}
-								:keys {}
 							}
 						}
 					}
