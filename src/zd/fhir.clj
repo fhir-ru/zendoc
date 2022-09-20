@@ -270,9 +270,13 @@
                                (zd.impl/symbol-link ztx x)]))
                  (apply conj [:div]))]])])]))
 
+(defmethod zd.core/op ::readme-redir
+  [_ztx _op _req]
+  {:status  302
+   :headers {"Location" "/readme"}})
+
 (def routes
-  {:GET {:op {:status  302
-              :headers {"Location" "/readme"}}}})
+  {:GET {:op ::readme-redir}})
 
 (defn -main [& [port reload :as args]]
   (println :args args)
