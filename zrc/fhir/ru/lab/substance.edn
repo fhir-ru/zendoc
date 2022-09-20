@@ -33,4 +33,67 @@
 			}
 		}
 	}
+	:description {
+		:type zen/string
+		:confirms #{fhir/string}
+		:zen/desc "Используется в ПЛИ"
+	}
+	:identifier {
+		:type zen/vector
+		:zen/desc "Используется в ПЛИ"
+		:every {
+			:type zen/map
+			:confirms #{fhir/Identifier}
+			:keys {
+				:assigner {
+					:confirms #{fhir/Reference zen.fhir/Reference}
+					:zen.fhir/reference {
+						:refers #{fhir.ru.core.organization/CoreOrganization}
+					}
+					:zen/desc ""
+				}
+				:system {
+					:type zen/string
+					:confirms #{fhir/uri} 
+					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67. Используется в ПЛИ"	
+				}
+				:type {
+					:type zen/map
+					:confirms #{fhir/CodeableConcept}
+					:zen/desc ""
+					:keys {
+						:coding {
+							:type zen/vector
+							:zen/desc ""
+							:every {
+								:type zen/map
+								:confirms #{fhir/Coding}	
+								:keys {
+									:code {
+										:confirms #{fhir/code}
+										:zen.fhir/value-set {
+											:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set
+											:strength :required
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				:use {
+					:confirms #{fhir/code}
+					:zen.fhir/value-set {
+						:symbol hl7-fhir-r4-core.value-set.identifier-use/value-set
+						:strength :required
+					}
+				}
+				:value {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Используется в ПЛИ"
+				}
+			}
+		}
+	}
   }}}

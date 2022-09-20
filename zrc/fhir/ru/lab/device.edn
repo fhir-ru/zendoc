@@ -45,7 +45,7 @@
 	}
 	:identifier {
 		:type zen/vector
-		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ. "
+		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ"
 		:every {
 			:type zen/map
 			:confirms #{fhir/Identifier}
