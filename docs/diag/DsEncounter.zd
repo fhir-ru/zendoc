@@ -75,6 +75,13 @@
 ^zen/schema
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
+^title "Ограничения"
+^table
+:constraints
+[{:Ключ "ru-core-diag-1"
+                         :Описание "Правило проверки массива диагнозов: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
+                         :Выражение "(slice(http://fhir.ru/core/sd/encounter-clinical-dx, additional) or slice(http://fhir.ru/core/sd/encounter-clinical-dx, complication)) and slice(http://fhir.ru/core/sd/encounter-clinical-dx, main)"}]
+
 ^title "DiagnosisNosology"
 ^zen/schema
 :profile fhir.ru.diag.nosology/DiagnosisNosology
