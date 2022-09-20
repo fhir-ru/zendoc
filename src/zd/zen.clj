@@ -178,11 +178,8 @@
                             (cond
                               (:maxItems sch)  (:maxItems sch)
                               (:maxItems opts) (:maxItems opts)
-                              (and tp
-                                   (not= 'zen/vector tp)
-                                   (not= 'zen/map tp))
-                              "1"
-                              :else "*")))
+                              (= 'zen/vector tp) "*"
+                              :else "1")))
      :path pth
      :enum (:enum sch)
      :valueset (format-valueset-sch ztx (:zen.fhir/value-set sch))
