@@ -18,26 +18,22 @@
   :require #{:content :status}
   :keys {
 	:content {
-		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
-		:maxItems 1
-        :every {
-            :confirms #{fhir/Attachment}
-            :type zen/map
-            :keys {
-                :data {
-                    :type zen/string
-                    :confirms #{fhir/base64Binary}
-                    :zen/desc "Используется в ПЛИ"
-                }
-            }
-        }
+		:confirms #{fhir/Attachment}
+		:type zen/map
+		:keys {
+			:data {
+				:type zen/string
+				:confirms #{fhir/base64Binary}
+				:zen/desc "Используется в ПЛИ"
+			}
+		}
 	}
 	:created {
 		:fhir/polymorphic true
 		:type zen/map
 		:zen/desc "Используется в ПЛИ"
-		:maxItems 1
+
 		:keys {
 			:dateTime {
 				:type zen/string
@@ -54,7 +50,6 @@
 		:zen/desc "Используется в ПЛИ"
 	}
 	:operator {
-		:type zen/map
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
 		:refers #{	fhir.ru.core.practitioner/CorePractitioner 
@@ -67,8 +62,11 @@
 		:zen/desc "Используется в ПЛИ"
 	}
 	:status {
-		:type zen/string
 		:confirms #{fhir/code}
+		:zen.fhir/value-set {
+			:symbol hl7-fhir-r4-core.value-set.event-status/value-set
+			:strength :required
+		}
 		:zen/desc "Используется в ПЛИ"
     }
   }}}

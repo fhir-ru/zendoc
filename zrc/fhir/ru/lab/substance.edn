@@ -29,6 +29,22 @@
 				:every {
 					:type zen/map
 					:confirms #{fhir/Coding}
+					:keys {
+						:code {
+							:type zen/string
+							:confirms #{fhir/code}
+							:const {
+								:value "105590001"
+							}
+						}
+						:system {
+							:type zen/string
+                            :confirms #{fhir/uri}
+							:const {
+								:value "http://snomed.info/sct"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -74,6 +90,13 @@
 										:zen.fhir/value-set {
 											:symbol hl7-fhir-r4-core.value-set.identifier-type/value-set
 											:strength :required
+										}
+									}
+									:system {
+										:type zen/string
+										:confirms #{fhit/uri}
+										:const {
+											:value "http://terminology.hl7.org/CodeSystem/v2-0203"
 										}
 									}
 								}
