@@ -8,7 +8,7 @@
 :menu/first true
 
 ^badge
-:authors #{}
+:authors #{people.makeev}
 
 ^badge
 :groups #{groups.lab}
