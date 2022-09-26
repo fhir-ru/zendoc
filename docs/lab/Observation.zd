@@ -26,7 +26,9 @@
 
 :toc
 
-:summary "Observation для передачи лабораторных исследований КДЛ"
+:summary "Справочник и наборы значений для Code, Interpretation, Quantity.unit
+Ссылка hasMember, identifier.Assigner, note.AuthorReference, performer – на наш профиль. TODO: нечетко указана привязка справочника единиц измерения в referenceRange - к value или unit, не все ссылки профилированы.
+QUESTION - как указать, в каком случае применяются справочник групп крови, микробов и т.п."
 
 ^title "Определение"
 :section md/
