@@ -14,7 +14,7 @@
 :groups #{groups.lab}
 
 ^badge
-:status "not started"
+:status "in progress"
 
 ^badge
 :maturity 0
@@ -26,7 +26,9 @@
 
 :toc
 
-:summary "Specimen для передачи лабораторных исследований КДЛ"
+:summary "Ссылки Collector, container.additiveReference, identifier.assigner - на наши профили, 
+collection.method.coding.system и collection.quantity.system, processing.procedure.coding.system, type.coding.system по НСИ ЕГИСЗ, 
+identifier.system – специальным образом."
 
 ^title "Определение"
 :section md/
