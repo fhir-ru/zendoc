@@ -8,7 +8,7 @@
 :menu/first true
 
 ^badge
-:authors #{}
+:authors #{people.vladimirinv}
 
 ^badge
 :groups #{groups.lab}
@@ -25,7 +25,7 @@
 
 :toc
 
-:summary "DiagnosticReport для передачи лабораторных исследований КДЛ"
+:summary "Справочники НСИ для category, code. Ссылки Performer, Result, Specimen – на наши профили"
 
 ^title "Определение"
 :section md/
