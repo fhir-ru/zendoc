@@ -27,7 +27,8 @@
 
 :toc
 
-:summary "Bundle для передачи лабораторных исследований КДЛ"
+:summary "Type = document, ссылки entry – на профили Lab или RuCore. 
+TODO: неверное высвечивание типа атрибутов, добавить entry на остальные профили."
 
 ^title "Определение"
 :section md/
