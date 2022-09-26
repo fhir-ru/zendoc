@@ -14,7 +14,7 @@
 :groups #{groups.adm}
 
 ^badge
-:status :draft
+:status "done"
 
 ^badge
 :maturity 0
@@ -26,7 +26,7 @@
 
 ^hide
 :summary md/
-Профиль описывает измерения и простые утверждения о пациенте.
+Атрибуты subject, encounter, performer должны быть сслками на профили RuCore.
 
 ^title "Определение"
 :description md/
