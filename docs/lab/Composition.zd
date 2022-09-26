@@ -14,7 +14,7 @@
 :groups #{groups.lab}
 
 ^badge
-:status "in progress"
+:status "done"
 
 ^badge
 :maturity 0
@@ -26,7 +26,7 @@
 
 :toc
 
-:summary "Composition для передачи лабораторных исследований КДЛ"
+:summary "Ссылка author - на наши профили, confidentiality - по набору значений НСИ, identifier.System - по специальному правилу."
 
 ^title "Определение"
 :section md/
