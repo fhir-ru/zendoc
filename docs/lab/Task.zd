@@ -26,7 +26,8 @@
 
 :toc
 
-:summary "Task для передачи лабораторных исследований КДЛ"
+:summary "Для направления: code.coding.system – НСИ ЕГИСЗ, ссылки encounter, identifier.assigner, requester, insurance – на наши профили, identifier.system – специальным образом
+Для результата: code.coding.system, performerType.coding.system, priority – по НСИ ЕГИСЗ, ссылки basedOn, output.type – на наши профили."
 
 ^title "Определение"
 :section md/
