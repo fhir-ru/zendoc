@@ -7,7 +7,10 @@
 :groups #{groups.adm}
 
 ^badge
-:status :draft
+:authors #{people.alexandra}
+
+^badge
+:status "done"
 
 :title "Роль сотрудника"
 
@@ -18,9 +21,10 @@
 
 :summary md/
 
-Профиль "Роль сотрудника" предназначен для описания роли врача, медицинского работника, специалиста.
+Ресурс PractitionerRole предназначен для описания роли (должности) врача, медицинского работника, специалиста. 
+Профиль определяет, что ссылки Practitioner и Organisation должны быть на соответствующие профили RuCore.
 
-^title "Профиль на ресурс PractitionerRole"
+^title "Профиль ресурса PractitionerRole"
 ^zen/schema
 :profile fhir.ru.core.practitioner/CorePractitionerRole
 
