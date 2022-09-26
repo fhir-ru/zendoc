@@ -14,7 +14,7 @@
 :groups #{groups.lab}
 
 ^badge
-:status "done - in review"
+:status "in progress"
 
 ^badge
 :maturity 0
@@ -26,7 +26,7 @@
 
 :toc
 
-:summary "ServiceRequest для передачи лабораторных исследований КДЛ"
+:summary "Обязательность status, intent. Обязательность code.coding.code и заполнение по НСИ. TODO: оформить страницы ValueSet и CodeSystem с [описанием справочника услуг](http://fhir.ru/artifacts.valuesets.vs-nsi-rangemedicalservices)"
 
 ^title "ServiceRequest"
 :section md/
