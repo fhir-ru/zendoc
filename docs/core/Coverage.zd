@@ -14,7 +14,7 @@
 :groups #{groups.adm}
 
 ^badge
-:status :draft
+:status "in progress"
 
 ^badge
 :maturity 0
@@ -29,7 +29,10 @@
 ^hide
 :summary md/
 
-Профиль Coverage описывает страховой полис пациента или другой источник финансирования.
+Type по справочнику НСИ. 
+Специальное указание идентификаторов для ОМС, ДМС и платных услуг, со ссылками на справочники НСИ. 
+Ссылки payor, beneficiary – на наши профили.
+QUESTION: Возможно, следует поменять кодирование Contract
 
 ^title "Coverage"
 :section md/
