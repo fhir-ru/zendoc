@@ -43,7 +43,7 @@ Ru Core:
 * Получает от медицинских организаций счета на оплату оказанной медицинской помощи с сопроводительной информацией
 
 ^title "Профили"
-^table-of {:namespace "core." :columns [:zd/name :summary]}
+^table-of {:namespace "core." :columns [:zd/name :summary :status :authors]}
 :profiles
  
 :feedback md/
