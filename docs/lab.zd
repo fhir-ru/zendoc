@@ -19,6 +19,18 @@
 Ссылка на актуальное руководство по реализации СЭМД ПЛИ:
 [https://portal.egisz.rosminzdrav.ru/materials/3835](https://portal.egisz.rosminzdrav.ru/materials/3835)
 
-^title "Профили"
+^title "Лабораторные профили"
 ^table-of {:namespace "lab." :columns [:zd/name :summary :status :authors]}
 :profiles-table
+
+^title "Другие профили"
+^table
+:other-profiles-table
+
+[{:name core.Patient :summary "((resource core.Patient :summary))" :status "((resource core.Patient :status))"} 
+{:name core.Encounter :summary "((resource core.Encounter :summary))" :status "((resource core.Encounter :status))"}
+{:name core.Practitioner :summary "((resource core.Practitioner :summary))" :status "((resource core.Practitioner :status))"}
+{:name core.PractitionerRole :summary "((resource core.PractitionerRole :summary))" :status "((resource core.PractitionerRole :status))"}
+{:name core.Organization :summary "((resource core.Organization :summary))" :status "((resource core.Organization :status))"}
+{:name core.Coverage :summary "((resource core.Coverage :summary))" :status "((resource core.Coverage :status))"}
+  ]
