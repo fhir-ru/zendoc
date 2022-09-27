@@ -1,0 +1,70 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-09-26"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Справочник лабораторных материалов и образцов"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы:
+
+^badge
+:system "http://fhir.ru/core/cs/core-cs-nsi-laboratory-materials-and-samples"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1081"
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Федеральный справочник лабораторных исследований. Справочник лабораторных материалов и образцов](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4)
+
+```code json
+{
+  "id": "core-cs-nsi-laboratory-materials-and-samples",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsiLaboratoryMaterialsAndSamples",
+  "description": "НСИ Минздрава Федеральный справочник лабораторных исследований. Справочник лабораторных материалов и образцов",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Федеральный справочник лабораторных исследований. Справочник лабораторных материалов и образцов, 
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.11.1081</li>\n    
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-laboratory-materials-and-samples</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1358",
+      "comment": "Основной"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-laboratory-materials-and-samples",
+    }
+  ]
+}
+```code
