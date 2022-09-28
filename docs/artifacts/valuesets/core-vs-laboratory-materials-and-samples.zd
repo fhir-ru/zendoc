@@ -1,0 +1,80 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+:title "Core ValueSet Справочник лабораторных материалов и образцов"
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :zen/desc))"}
+{:name "Committee:" :value #{groups.lab}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения из справочника ["Справочник лабораторных материалов и образцов" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4).
+
+^title "Описание"
+:description md/
+
+Для Единиц измерения определены CodingSystem и ValueSet на основе справочника НСИ ЕГИСЗ.
+
+
+:Coding-system md/
+
+Основан на справочнике ["Справочник лабораторных материалов и образцов" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4)
+
+
+^collapse
+^title "ZEN Definition for ValueSet CoreVsLaboratoryMaterialsAndSamples"
+:valueset-zen-definition md/
+
+((ztx-get :symbols fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples))
+
+
+^collapse
+^title "JSON Definition for ValueSet CoreVsLaboratoryMaterialsAndSamples"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-laboratory-materials-and-samples",
+  "name": "CoreVsLaboratoryMaterialsAndSamples",
+  "title": "Core ValueSet Справочник лабораторных материалов и образцов",
+  "url" : "http://fhir.ru/core/vs/core-vs-laboratory-materials-and-samples",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:oid:1.2.643.5.1.13.13.11.1081"        
+      }
+    ]
+  }
+}
+```

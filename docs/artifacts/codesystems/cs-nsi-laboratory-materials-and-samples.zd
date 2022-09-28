@@ -34,7 +34,7 @@
 ^badge
 :OID "1.2.643.5.1.13.13.11.1081"
 
-^title "Naming System"
+^title "Coding System"
 :code-systems-naming md/
 
 [НСИ Минздрава Федеральный справочник лабораторных исследований. Справочник лабораторных материалов и образцов](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4)
@@ -42,7 +42,7 @@
 ```code json
 {
   "id": "core-cs-nsi-laboratory-materials-and-samples",
-  "resourceType": "NamingSystem",  
+  "resourceType": "CodingSystem",  
   "status": "active",    
   "kind": "codesystem",
   "name": "CoreNsiLaboratoryMaterialsAndSamples",

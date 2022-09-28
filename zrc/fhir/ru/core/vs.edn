@@ -33,4 +33,40 @@
   :zen.fhir/title "Core ValueSet Документы, удостоверяющие личность"
   :zen.fhir/status "active"
   :zen.fhir/oid "1.2.643.5.1.13.13.99.2.48"
-  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.99.2.48"}]}}}
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.99.2.48"}]}}
+  
+
+ CoreVsMeasurementUnits
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-measurement-units"
+  :zen/desc "Основан на справочнике [\"Единицы измерения\" НСИ ЕГИСЗ](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12)"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12",
+     :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-vs-measurement-units"
+  :version "1.1"
+  :zen.fhir/id "core-vs-measurement-units"
+  :zen.fhir/name "CoreVsMeasurementUnits"
+  :zen.fhir/title "Core ValueSet Единицы измерения"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.11.1358"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1358"}]}}
+  
+
+ CoreVsLaboratoryMaterialsAndSamples
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-laboratory-materials-and-samples"
+  :zen/desc "Основан на справочнике [\"Справочник лабораторных материалов и образцов\" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4)"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1081/version/2.4",
+     :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-vs-laboratory-materials-and-samples"
+  :version "1.1"
+  :zen.fhir/id "core-vs-laboratory-materials-and-samples"
+  :zen.fhir/name "CoreVsLaboratoryMaterialsAndSamples"
+  :zen.fhir/title "Core ValueSet Справочник лабораторных материалов и образцов"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.11.1081"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1081"}]}}}

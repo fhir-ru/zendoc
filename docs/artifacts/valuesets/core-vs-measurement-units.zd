@@ -1,0 +1,80 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+:title "Core ValueSet Единицы измерения"
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :zen/desc))"}
+{:name "Committee:" :value #{groups.lab}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения из справочника ["Единицы измерения" НСИ ЕГИСЗ](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12).
+
+^title "Описание"
+:description md/
+
+Для Единиц измерения определены CodingSystem и ValueSet на основе справочника НСИ ЕГИСЗ.
+
+
+:Coding-system md/
+
+Основан на справочнике ["Единицы измерения" НСИ ЕГИСЗ](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12)
+
+
+^collapse
+^title "ZEN Definition for ValueSet CoreVsMeasurementUnits"
+:valueset-zen-definition md/
+
+((ztx-get :symbols fhir.ru.core.vs/CoreVsMeasurementUnits))
+
+
+^collapse
+^title "JSON Definition for ValueSet CoreVsMeasurementUnits"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-measurement-units",
+  "name": "CoreVsMeasurementUnits",
+  "title": "Core ValueSet Единицы измерения",
+  "url" : "http://fhir.ru/core/vs/core-vs-measurement-units",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:oid:1.2.643.5.1.13.13.11.1358"        
+      }
+    ]
+  }
+}
+```

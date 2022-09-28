@@ -34,7 +34,7 @@
 ^badge
 :OID "1.2.643.5.1.13.13.11.1358"
 
-^title "Naming System"
+^title "Coding System"
 :code-systems-naming md/
 
 [НСИ Минздрава Справочник Единицы измерения](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12)
@@ -42,7 +42,7 @@
 ```code json
 {
   "id": "core-cs-nsi-measurement-units",
-  "resourceType": "NamingSystem",  
+  "resourceType": "CodingSystem",  
   "status": "active",    
   "kind": "codesystem",
   "name": "CoreNsiMeasurementUnits",
