@@ -19,15 +19,17 @@
 	:collection {
 		:type zen/map
 		:confirms #{fhir/BackboneElement}
-		:zen/desc "Детали коллекции"
+		:zen/desc "Используется в ПЛИ"
 		:keys {
 			:collected {
 				:fhir/polymorphic true
 				:type zen/map
-				:zen/desc "Время сбора"
+				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:dateTime {
+						:type zen/string
 						:confirms #{fhir/dateTime}
+						:zen/desc "Используется в ПЛИ"
 					}
 				}
 			}
@@ -37,17 +39,16 @@
 					:refers #{  fhir.ru.core.practitioner/CorePractitioner 
 								fhir.ru.core.practitioner/CorePractitionerRole}
 				}
-				:zen/desc "Кто собирал образец"
+				:zen/desc "Используется в ПЛИ"
 			}
 			:method {
 				:type zen/map
                 :confirms #{fhir/CodeableConcept}
-				:zen/desc "Техника, используемая для сбора"
+				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:coding {
 						:type zen/vector
-						:minItems 1
-						:zen/desc "Код, определяемый терминологической системой"
+						:zen/desc "Используется в ПЛИ"
 						:every {
 							:type zen/map
 							:confirms #{fhir/Coding}
@@ -55,22 +56,26 @@
 								:code {
 									:type zen/map
 									:confirms #{fhir/code}
-									:zen/desc "Символ в синтаксисе, определяемом системой"
+									:zen/desc "Используется в ПЛИ"
 								}
 								:display {
 									:type zen/string
-									:confirms #{fhir/string}
-									:zen/desc "Представление, определенное системой"
+									:confirms #{fhir/string} 	
+									:zen/desc "Используется в ПЛИ"
 								}
 								:system {
 									:type zen/string
-									:confirms #{fhir/string}
-									:zen/desc "Идентичность терминологической системы"
+									:confirms #{fhir/uri}
+									:zen/desc "Используется в ПЛИ"
+									:zen.fhir/value-set {
+										:symbol fhir.ru.lab.servicerequest/CoreVsNsirangemedicalservices
+										:strength :required
+									}
 								}
 								:version {
 									:type zen/string
 									:confirms #{fhir/string}
-									:zen/desc "Версия системы"
+									:zen/desc "Используется в ПЛИ"
 								}
 							}
 						}
@@ -80,27 +85,31 @@
 			:quantity {
 				:type zen/map
 				:confirms #{fhir/SimpleQuantity}
-				:zen/desc "Количество собранного образца"
+				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:code {
 						:type zen/string
                         :confirms #{fhir/code}
-						:zen/desc "Кодированная форма узла"
+						:zen/desc "Используется в ПЛИ"
 					}
 					:system {
 						:type zen/string
                         :confirms #{fhir/uri}
-						:zen/desc "Система, определяющая форму кодированного узла"
+						:zen/desc "Используется в ПЛИ"
+						:zen.fhir/value-set {
+							:symbol fhir.ru.core.vs/CoreVsMeasurementUnits
+                            :strength :required
+						}
 					}
 					:unit {
 						:type zen/string
 						:confirms #{fhir/string}
-						:zen/desc "Представление узла"
+						:zen/desc "Используется в ПЛИ"
 					}
 					:value {
 						:type zen/string
 						:confirms #{fhir/decimal}
-						:zen/desc "Числовое значение"
+						:zen/desc "Используется в ПЛИ"
 					}
 				}
 			}
@@ -108,17 +117,18 @@
 	}
 	:container {
 		:type zen/vector
-		:confirms #{fhir/BackboneElement}
-		:zen/desc "Прямой контейнер образца"
+		:zen/desc "Используется в ПЛИ"
 		:every {
 			:type zen/map
+			:confirms #{fhir/BackboneElement}
 			:keys {
 				:additive {
 					:fhir/polymorphic true
 					:type zen/map
-					:zen/desc "Добавка, связанная с контейнером"
+					:zen/desc "Используется в ПЛИ"
 					:keys {
 						:Reference {
+							:zen/desc "Используется в ПЛИ"
 							:confirms #{fhir/Reference zen.fhir/Reference}
 							:zen.fhir/reference {
 								:refers #{fhir.ru.lab.substance/LabSubstance}
@@ -129,19 +139,187 @@
 				:description {
 					:type zen/string
 					:confirms #{fhir/string}
-					:zen/desc "Текстовое описание контейнера"
+					:zen/desc "Используется в ПЛИ"
+				}
+				:identifier {
+					:type zen/vector
+					:zen/desc "Используется в ПЛИ"
+					:maxItems 1
+					:every {
+						:type zen/map
+						:confirms #{fhir/Identifier}
+						:keys {
+							:value {
+								:type zen/string
+								:confirms #{fhir/string}
+								:zen/desc "Используется в ПЛИ"
+							}
+							:system {
+								:type zen/string
+								:confirms #{fhir/uri}
+								:zen/desc "Используется в ПЛИ"
+							}
+						}
+					}
 				}
 			}
 		}
 	}
 	:identifier {
 		:type zen/vector
-		:zen/desc "Идентификатор контейнера"
+		:zen/desc "Используется в ПЛИ"
 		:every {
 			:type zen/map
+			:confirms #{fhir/Identifier}
 			:keys {
-				
+				:system {
+					:type zen/string
+					:confirms #{fhir/uri} 
+					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.66 Используется в ПЛИ"	
+				}
+				:value {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Используется в ПЛИ"
+				}
 			}
 		}
 	}
-  }}}}
+	:parent {
+		:type zen/vector
+		:zen/desc "Используется в ПЛИ"
+		:every {
+			:type zen/map
+			:confirms #{fhir/Reference zen.fhir/Reference}
+			:zen.fhir/reference {
+				:refers #{fhir.ru.lab.specimen/LabSpecimen}
+			}
+		}
+	}
+	:processing {
+		:type zen/vector
+		:zen/desc "Используется в ПЛИ"
+		:every {
+			:type zen/map
+			:confirms #{fhir/BackboneElement}
+			:keys {
+				:description {
+					:type zen/string
+					:confirms #{fhir/string}
+					:zen/desc "Используется в ПЛИ"
+				}
+				:procedure {
+					:type zen/map
+					:confirms #{fhir/CodeableConcept}
+					:zen/desc "Используется в ПЛИ"
+					:keys {
+						:coding {
+							:type zen/vector
+							:zen/desc "Используется в ПЛИ"
+							:every {
+								:type zen/map
+								:confirms #{fhir/Coding}
+								:keys {
+									:code {
+										:type zen/string
+										:confirms #{fhir/code}
+										:zen/desc "Используется в ПЛИ"
+									}
+									:system {
+										:type zen/string
+										:confirms #{fhir/uri}
+										:zen/desc "Используется в ПЛИ"
+										:zen.fhir/value-set {
+										:symbol :symbol fhir.ru.core.vs/CoreVsMeasurementUnits
+										:strength :required
+										}
+									}
+									:version {
+										:type zen/string
+										:confirms #{fhir/string}
+										:zen/desc "Используется в ПЛИ"
+									}
+									:display {
+										:type zen/string
+										:confirms #{fhir/string}
+										:zen/desc "Используется в ПЛИ"
+									}
+								}
+							}
+						}
+					}
+				}
+				:time {
+					:fhir/polymorphic true
+					:type zen/map
+					:zen/desc "Используется в ПЛИ"
+					:keys {
+						:dateTime {
+							:type zen/string
+							:confirms #{fhir/dateTime}
+							:zen/desc "Используется в ПЛИ"
+						}
+						:Period {
+							:type zen/map
+							:confirms #{fhir/Period}
+							:zen/desc "Используется в ПЛИ"
+							:keys {
+								:end {
+									:type zen/string
+									:confirms #{fhir/dateTime}
+									:zen/desc "Используется в ПЛИ"
+								}
+								:start {
+									:type zen/string
+									:confirms #{fhir/dateTime}
+									:zen/desc "Используется в ПЛИ"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	:type {
+		:type zen/map
+		:confirms #{fhir/CodeableConcept}
+		:zen/desc "Используется в ПЛИ"
+		:keys {
+			:coding {
+				:type zen/vector
+				:zen/desc "Используется в ПЛИ"
+				:every {
+					:type zen/map
+					:confirms #{fhir/Coding}
+					:keys {
+						:code {
+							:type zen/map
+							:confirms #{fhir/code}
+							:zen/desc "Используется в ПЛИ"
+						}
+						:display {
+							:type zen/string
+							:confirms #{fhir/string} 	
+							:zen/desc "Используется в ПЛИ"
+						}
+						:system {
+							:type zen/string
+							:confirms #{fhir/uri}
+							:zen/desc "Используется в ПЛИ"
+							:zen.fhir/value-set {
+								:symbol fhir.ru.lab.servicerequest/CoreVsLaboratoryMaterialsAndSamples
+								:strength :required
+							}
+						}
+						:version {
+							:type zen/string
+							:confirms #{fhir/string}
+							:zen/desc "Используется в ПЛИ"
+						}
+					}
+				}
+			}
+		}
+	}
+  }}}
