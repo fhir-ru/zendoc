@@ -24,6 +24,6 @@
 :toc
 
 ^title "Реестр систем кодирования"
-^table-of {:namespace "artifacts.codesystems." :columns [:zd/name :title :system :OID]}
+^table-of {:namespace "artifacts.codesystems." :columns [:zd/name :system :OID]}
 :codesystems-register
 

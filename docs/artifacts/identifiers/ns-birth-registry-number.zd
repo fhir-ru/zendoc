@@ -31,6 +31,9 @@
 ^badge
 :system "http://fhir.ru/core/systems/birth-registry-number"
 
+^title "Тип идентификатора RuCore"
+:RuCoreType "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+
 ^title "Naming System"
 :identifier-systems-naming md/
 

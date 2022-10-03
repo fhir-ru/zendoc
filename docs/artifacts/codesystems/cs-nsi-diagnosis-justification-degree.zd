@@ -70,6 +70,10 @@
       "type": "uri",
       "preferred": true,
       "value": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-justification-degree",
+    },
+    {
+      "type": "uri",
+      "value": "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.795/version/3.1"
     }
   ]
 }

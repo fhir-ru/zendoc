@@ -37,7 +37,7 @@
 ^title "Naming System"
 :code-systems-naming md/
 
-[НСИ Минздрава Документы, удостоверяющие личность](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)
+[НСИ Минздрава Документы, удостоверяющие личность](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)
 
 
 ```code json
@@ -76,6 +76,10 @@
       "type": "uri",
       "preferred": true,
       "value": "http://fhir.ru/core/cs/core-cs-nsi-identity-document",
+    },
+    {
+    "type": "uri",
+    "value": "http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48/version/7.1"
     }
   ]
 }

@@ -38,5 +38,5 @@
 ]
 
 ^title "Реестр систем идентификации"
-^table-of {:namespace "artifacts.identifiers." :columns [:zd/name :title]}
+^table-of {:namespace "artifacts.identifiers." :columns [:zd/name :title :system ]}
 :identifiers-register

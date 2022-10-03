@@ -70,6 +70,10 @@
       "type": "uri",
       "preferred": true,
       "value": "http://fhir.ru/core/cs/core-cs-nsi-diagnosis-nosology-kind",
+    },
+    {
+      "type": "uri",
+      "value": "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1077/version/1.3"
     }
   ]
 }
