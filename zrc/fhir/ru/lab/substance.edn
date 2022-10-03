@@ -94,7 +94,7 @@
 									}
 									:system {
 										:type zen/string
-										:confirms #{fhit/uri}
+										:confirms #{fhir/uri}
 										:const {
 											:value "http://terminology.hl7.org/CodeSystem/v2-0203"
 										}

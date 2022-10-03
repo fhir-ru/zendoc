@@ -3,7 +3,8 @@
           fhir.ru.core.patient
           fhir.ru.core.practitioner
           fhir.ru.core.encounter
-          fhir.ru.lab.device}
+          fhir.ru.lab.device
+          fhir.ru.lab.specimen}
 
  LabObservation
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}

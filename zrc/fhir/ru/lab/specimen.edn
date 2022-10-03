@@ -1,5 +1,8 @@
 {ns fhir.ru.lab.specimen
- import #{fhir zen.fhir}
+ import #{fhir
+ 		  zen.fhir
+		  fhir.ru.core.practitioner
+		  fhir.ru.lab.substance}
 
  LabSpecimen
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
@@ -230,8 +233,8 @@
 										:confirms #{fhir/uri}
 										:zen/desc "Используется в ПЛИ"
 										:zen.fhir/value-set {
-										:symbol :symbol fhir.ru.core.vs/CoreVsMeasurementUnits
-										:strength :required
+											:symbol fhir.ru.lab.servicerequest/CoreVsNsirangemedicalservices
+											:strength :required
 										}
 									}
 									:version {
@@ -308,7 +311,7 @@
 							:confirms #{fhir/uri}
 							:zen/desc "Используется в ПЛИ"
 							:zen.fhir/value-set {
-								:symbol fhir.ru.lab.servicerequest/CoreVsLaboratoryMaterialsAndSamples
+								:symbol fhir.ru.core.vs/CoreVsLaboratoryMaterialsAndSamples
 								:strength :required
 							}
 						}
