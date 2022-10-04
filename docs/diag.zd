@@ -191,7 +191,7 @@ direction LR
 :other-profiles-table
 [
 	{:name core.Encounter :summary "((resource core.Encounter :summary))" :status "((resource core.Encounter :status))"}
-	{:name core.Condition :summary "((resource core.Condition :summary))" :status "((resource core.Practitioner :status))"}
+	{:name core.Condition :summary "((resource core.Condition :summary))" :status "((resource core.Condition :status))"}
 	{:name core.Observation :summary "((resource core.Observation :summary))" :status "((resource core.Observation :status))"}
 ]
   
