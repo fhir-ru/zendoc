@@ -181,15 +181,20 @@ direction LR
 * выписной эпикриз стационара - заключительный [диагноз](terms.diagnose#:definition) по случаю госпитализации
 * этапный клинический [диагноз](terms.diagnose#:definition) - случай оказания консультации врачом-специалистом - как одним, так и группой специалистов (например, онкологический консилиум)
 
-^title "Профили"
-^table
-:profiles
-[
-    {:Профиль diag.DsEncounter   :Описание "Правила указания диагноза в рамках случая"}
-    {:Профиль diag.DsCondition   :Описание "Нозологическая единица"}
-    {:Профиль diag.DsObservation :Описание "Общий профиль описания наблюдений, связанных с диагнозом"}
-]
 
+^title "Профили РпР 'Клинические диагнозы'"
+^table-of {:namespace "diag." :columns [:zd/name :summary :status :authors]}
+:profiles-table
+
+^title "Другие профили"
+^table
+:other-profiles-table
+[
+	{:name core.Encounter :summary "((resource core.Encounter :summary))" :status "((resource core.Encounter :status))"}
+	{:name core.Condition :summary "((resource core.Condition :summary))" :status "((resource core.Practitioner :status))"}
+	{:name core.Observation :summary "((resource core.Observation :summary))" :status "((resource core.Observation :status))"}
+]
+  
 ^title "Полезные ссылки"
 :links md/
 
