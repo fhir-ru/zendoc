@@ -57,7 +57,7 @@
     {
       "type": "uri",
       "preferred": true,
-      "value": "http://fhir.ru/core/systems/gender",
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-gender",
     }
   ]
 }

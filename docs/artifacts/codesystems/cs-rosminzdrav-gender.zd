@@ -29,7 +29,7 @@
 Значение для использования в качестве системы:
 
 ^badge
-:system "http://fhir.ru/core/systems/gender"
+:system "http://fhir.ru/core/cs/core-cs-nsi-gender"
 
 ^badge
 :OID "1.2.643.5.1.13.13.11.1040"
@@ -50,7 +50,7 @@
   "text": {
     "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Пол пациента, 
     может быть известен под следующими идентификаторами:<ol>\n    <li>OID: 1.2.643.5.1.13.13.11.1040</li>\n   
-     <li>[предпочтительно] URI: http://fhir.ru/core/systems/gender</li>\n  </ol>\n</div>",
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-gender</li>\n  </ol>\n</div>",
     "status": "generated"
   },
   "uniqueId": [
@@ -61,7 +61,7 @@
     {
       "type": "uri",
       "preferred": true,
-      "value": "http://fhir.ru/core/systems/gender",
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-gender",
     },
     {
       "type": "uri",
@@ -101,7 +101,7 @@
   "targetUri": "http://hl7.org/fhir/ValueSet/administrative-gender",
   "group": [
     {
-      "source": "http://fhir.ru/core/systems/nsi-gender",
+      "source": "http://fhir.ru/core/cs/core-cs-nsi-gender",
       "target": "http://hl7.org/fhir/administrative-gender",
       "element": [
         {
@@ -174,7 +174,7 @@
   "group": [
     {
       "source": "http://hl7.org/fhir/administrative-gender",
-      "target": "http://fhir.ru/core/systems/nsi-gender",
+      "target": "http://fhir.ru/core/cs/core-cs-nsi-gender",
       "element": [
         {
           "code": "male",
