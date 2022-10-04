@@ -11,7 +11,7 @@
 :groups #{groups.clin}
 
 ^badge
-:status :not-started
+:status "Not started"
 
 ^badge
 :date:start "2022-10-04"
