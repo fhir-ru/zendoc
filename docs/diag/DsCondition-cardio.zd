@@ -10,7 +10,7 @@
 :groups #{groups.clin}
 
 ^badge
-:status "on planning"
+:status "On planning"
 
 ^badge
 :date:start "2022-10-04"
