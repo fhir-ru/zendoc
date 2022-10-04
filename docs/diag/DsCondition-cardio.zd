@@ -1,0 +1,48 @@
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-disease]
+
+^badge
+:authors #{people.vrodionov}
+
+^badge
+:groups #{groups.clin}
+
+^badge
+:status :on-planning
+
+^badge
+:date:start "2022-02-20"
+
+^badge
+:type :profile
+
+:title "Нозологическая единица болезней системы кровообращения"
+
+:toc
+
+^title "Введение"
+:intro md/
+
+todo
+
+^title "Область применения"
+:scope md/
+
+todo
+
+^title "Профиль"
+:profile md/
+
+todo
+
+^title "Пример N"
+:profile:examples md/
+
+todo
+
+^title "Полезные ссылки"
+:links md/
+
+todo
