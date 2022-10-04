@@ -183,7 +183,7 @@ direction LR
 
 
 ^title "Профили РпР 'Клинические диагнозы'"
-^table-of {:namespace "diag." :columns [:zd/name :summary :status :authors]}
+^table-of {:namespace "diag." :columns [:zd/name :summary :status]}
 :profiles-table
 
 ^title "Другие профили"
