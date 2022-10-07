@@ -34,6 +34,11 @@
 ^badge
 :OID "Отсутствует"
 
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
 ^title "Naming System"
 :code-systems-naming md/
 
@@ -42,7 +47,7 @@
 
 ```code json
 {
-  "id": "core-namingsystem-ffoms-gender",
+  "id": "core-ns-ffoms-gender",
   "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",

@@ -34,6 +34,11 @@
 ^badge
 :OID "1.2.643.5.1.13.13.99.2.795"
 
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
 ^title "Naming System"
 :code-systems-naming md/
 
@@ -41,7 +46,7 @@
 
 ```code json
 {
-  "id": "core-cs-nsi-diagnosis-justification-degree",
+  "id": "core-ns-nsi-diagnosis-justification-degree",
   "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",

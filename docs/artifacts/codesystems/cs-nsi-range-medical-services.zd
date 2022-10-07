@@ -34,15 +34,20 @@
 ^badge
 :OID "1.2.643.5.1.13.13.11.1070"
 
-^title "Coding System"
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
+^title "Naming System"
 :code-systems-naming md/
 
 [Справочник НСИ Минздрава Номенклатура медицинских услуг](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10)
 
 ```code json
 {
-  "id": "core-cs-nsi-range-medical-services",
-  "resourceType": "CodingSystem",  
+  "id": "core-ns-nsi-range-medical-services",
+  "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",
   "name": "CoreNsiRangeMedicalServices",

@@ -34,15 +34,20 @@
 ^badge
 :OID "1.2.643.5.1.13.13.11.1358"
 
-^title "Coding System"
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
+^title "Naming System"
 :code-systems-naming md/
 
 [НСИ Минздрава Справочник Единицы измерения](http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12)
 
 ```code json
 {
-  "id": "core-cs-nsi-measurement-units",
-  "resourceType": "CodingSystem",  
+  "id": "core-ns-nsi-measurement-units",
+  "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",
   "name": "CoreNsiMeasurementUnits",
