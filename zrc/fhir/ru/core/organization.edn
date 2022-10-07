@@ -11,9 +11,9 @@
   :confirms #{fhir/Organization}
   :zen.fhir/id "core-organization"
   :zen.fhir/name "CoreOrganization"
-:zen.fhir/abstract false
-:zen.fhir/status "draft"
-:zen.fhir/kind "resource"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
   :zen.fhir/type "Organization"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-organization"
   :type zen/map
@@ -30,7 +30,14 @@
   ;;  :active {:zen/desc "True для действующих организаций"}
 
    :identifier {:type zen/vector
-                :every {:confirms #{fhir/Identifier}}
+                :every {:confirms #{fhir/Identifier}
+                        :type zen/map
+                        :keys {:system {:type zen/string
+                                        :confirms #{fhir/uri}}
+                               :assigner {:type zen/map
+                                          :confirms #{fhir/Reference zen.fhir/Reference}
+                                          :zen.fhir/reference
+                                          {:refers #{fhir.ru.core.organization/CoreOrganization}}}}}
                 :slicing
                 {:slices
                  {"ИНН"
@@ -45,7 +52,10 @@
                     :maxItems 1
                     :every
                     {:type zen/map
-                     :require #{:system :value}}}}
+                     :require #{:system :value}
+                     :keys {:system {:type zen/string
+                                     :confirms #{fhir/uri}
+                                     :const {:value "http://fhir.ru/core/systems/inn"}}}}}}
                   "ФРМО"
                   {:zen/desc "Уникальный идентификатор МО в справочнике ФРМО"
                    :filter
@@ -57,7 +67,10 @@
                     :maxItems 1
                     :every
                     {:type zen/map
-                     :require #{:system :value}}}}
+                     :require #{:system :value}
+                     :keys {:system {:type zen/string
+                                     :confirms #{fhir/uri}
+                                     :const {:value "http://fhir.ru/core/systems/frmo"}}}}}}
                   "ОГРН"
                   {:zen/desc "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
                    :filter
@@ -69,27 +82,30 @@
                     :maxItems 1
                     :every
                     {:type zen/map
-                     :require #{:system :value}}}}}}}
+                     :require #{:system :value}
+                     :keys {:system {:type zen/string
+                                     :confirms #{fhir/uri}
+                                     :const {:value "http://fhir.ru/core/systems/ogrn"}}}}}}}}}
 
-   :telecom {:type zen/vector
-             :zen/desc "Контактные данные организации"
-             :every {:confirms #{fhir/ContactPoint}}
-             :slicing
-             {:slices
-              {"Phone"
-               {:filter
-                {:engine :match
-                 :match {:system "phone"}}
-                :schema {:type zen/vector
-                         :every {:type zen/map
-                                 :match {:use "work"}}}}
-               "Email"
-               {:filter
-                {:engine :match
-                 :match {:system "email"}}
-                :schema {:type zen/vector
-                         :every {:type zen/map
-                                 :match {:use "work"}}}}}}}
+  ;;  :telecom {:type zen/vector
+  ;;            :zen/desc "Контактные данные организации"
+  ;;            :every {:confirms #{fhir/ContactPoint}}
+  ;;            :slicing
+  ;;            {:slices
+  ;;             {"Phone"
+  ;;              {:filter
+  ;;               {:engine :match
+  ;;                :match {:system "phone"}}
+  ;;               :schema {:type zen/vector
+  ;;                        :every {:type zen/map
+  ;;                                :match {:use "work"}}}}
+  ;;              "Email"
+  ;;              {:filter
+  ;;               {:engine :match
+  ;;                :match {:system "email"}}
+  ;;               :schema {:type zen/vector
+  ;;                        :every {:type zen/map
+  ;;                                :match {:use "work"}}}}}}}
 
    :address {:type zen/vector
              :every {:confirms #{fhir.ru.core.address/CoreAddress}}
