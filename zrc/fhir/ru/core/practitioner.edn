@@ -45,8 +45,8 @@
                           :filter
                           {:engine :match
                            :match {:system "http://fhir.ru/core/systems/snils"}}}}}}
-          :active {:type zen/boolean
-                   :zen/desc "Признак активной действующей записи о враче"}
+          ;; :active {:type zen/boolean
+          ;;          :zen/desc "Признак активной действующей записи о враче"}
           :name {:zen/desc "ФИО врача"
                  :type zen/vector
                  :every {:confirms #{fhir/HumanName}
@@ -59,16 +59,16 @@
                                                 :type zen/string}}
                                 :family {:zen/desc "Фамилия врача"
                                          :type zen/string}}}}
-          :telecom {:zen/desc "Контактные данные врача"
-                    :type zen/vector
-                    :every {:confirms #{fhir/ContactPoint}
-                            :type zen/map}}
-          :gender {:zen/desc "Пол врача"
-                   :confirms #{fhir/code}
-                   :type zen/string}
-          :birthDate {:zen/desc "Дата рождения врача"
-                      :type zen/string
-                      :confirms #{fhir/date}}
+          ;; :telecom {:zen/desc "Контактные данные врача"
+          ;;           :type zen/vector
+          ;;           :every {:confirms #{fhir/ContactPoint}
+          ;;                   :type zen/map}}
+          ;; :gender {:zen/desc "Пол врача"
+          ;;          :confirms #{fhir/code}
+          ;;          :type zen/string}
+          ;; :birthDate {:zen/desc "Дата рождения врача"
+          ;;             :type zen/string
+          ;;             :confirms #{fhir/date}}
           :address {:zen/desc "Адрес врача"
                     :type zen/vector
                     :every {:confirms #{fhir.ru.core.address/CoreAddress}
