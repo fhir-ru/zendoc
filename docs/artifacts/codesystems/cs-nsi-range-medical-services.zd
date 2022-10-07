@@ -1,0 +1,80 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.vladimirinv people.makeev}
+
+^badge
+:groups #{groups.adm}
+
+^badge
+:status :draft
+
+^badge
+:date:updated "2022-09-09"
+
+^badge
+:type :ig
+
+:title "Справочник НСИ Минздрава Номенклатура медицинских услуг"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы в кодинге при указании в качестве кода услуги:
+
+^badge
+:system "http://fhir.ru/core/cs/core-cs-nsi-range-medical-services"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1070"
+
+^title "Coding System"
+:code-systems-naming md/
+
+[Справочник НСИ Минздрава Номенклатура медицинских услуг](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10)
+
+```code json
+{
+  "id": "core-cs-nsi-range-medical-services",
+  "resourceType": "CodingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsiRangeMedicalServices",
+  "description": "Справочник НСИ Минздрава Номенклатура медицинских услуг",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: Справочник НСИ Минздрава Номенклатура медицинских услуг
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.11.1070</li>\n    
+    <li>Дополнительный OID: 1.2.643.5.1.13.2.1.1.473</li>\n   
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-range-medical-services</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1070",
+      "comment": "Основной"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.2.1.1.473",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-range-medical-services",
+    },
+    {
+      "type": "uri",
+      "value": "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10"
+    }
+  ]
+}
+```code

@@ -1,5 +1,10 @@
 {ns fhir.ru.lab.media
- import #{fhir zen.fhir}
+ import #{fhir zen.fhir
+ 		  fhir.ru.lab.device
+		  fhir.ru.core.practitioner
+		  fhir.ru.core.organization
+		  fhir.ru.core.patient
+		  fhir.ru.financial.relatedperson}
 
  LabMedia
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}

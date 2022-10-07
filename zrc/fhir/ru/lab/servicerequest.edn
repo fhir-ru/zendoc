@@ -71,18 +71,18 @@
                                     {:type zen/string  
                                     :confirms #{fhir/string}}}}}}}}}
 
-CoreVsNsirangemedicalservices
+CoreVsNsiNomenclatureMedicalServices
  {:zen/tags #{zen.fhir/value-set}
-  :zendoc "artifacts.valuesets.vs-nsi-rangemedicalservices"
-  :zen/desc "Справочник НСИ Минздрава Номенклатура медицинских услуг"
+  :zendoc "artifacts.valuesets.core-vs-nsi-nomenclature-medical-services"
+  :zen/desc "Основан на справочнике [\"Номенклатура медицинских услуг\" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10)"
   :zen.fhir/version "0.5.8"
   :fhir/code-systems
-  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.285",
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1070/version/2.10",
      :zen.fhir/content :not-present}},
-  :uri "http://fhir.ru/core/systems/core-vs-nsi-Range-Of-MedicalServices"
+  :uri "http://fhir.ru/lab/servicerequest/core-vs-nsi-nomenclature-medical-services"
   :version "2.10"
-  :zen.fhir/id "core-vs-nsi-rangemedicalservices"
-  :zen.fhir/name "CoreVsNsirangemedicalservices"
+  :zen.fhir/id "core-vs-nsi-nomenclature-medical-services"
+  :zen.fhir/name "CoreVsNsiNomenclatureMedicalServices"
   :zen.fhir/title "Core ValueSet Номенклатура медицинских услуг"
   :zen.fhir/status "active"
   :zen.fhir/oid "1.2.643.5.1.13.13.11.1070"
