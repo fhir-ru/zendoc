@@ -1,0 +1,91 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-10-09"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Справочник Формы оказания медицинской помощи"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы:
+
+^badge
+:system "http://fhir.ru/core/cs/core-cs-nsi-medical-care-forms"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1551"
+
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Справочник Формы оказания медицинской помощи](https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1551/version/1.1)
+
+```code json
+{
+  "id": "core-cs-nsi-medical-care-forms",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsiMedicalCareForms",
+  "description": "НСИ Минздрава Справочник Формы оказания медицинской помощи",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Справочник Формы оказания медицинской помощи, 
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.11.1551</li>\n    
+    <li>Дополнительный OID: 1.2.643.5.1.13.2.1.1.568</li>\n
+    <li>Дополнительный OID: 1.2.643.5.1.13.13.99.2.377</li>\n
+     <li>[предпочтительно] URI: http://fhir.ru/core/cs/core-cs-nsi-medical-care-forms</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1551",
+      "comment": "Основной"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.2.1.1.568",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.99.2.377",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/cs/core-cs-nsi-medical-care-forms",
+    },
+    {
+      "type": "uri",
+      "value": "https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1551/version/1.1"
+    }
+  ]
+}
+```code

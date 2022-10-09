@@ -112,7 +112,7 @@
 					}
 				}
 				:value {
-					:type zen?string
+					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Используется в ПЛИ"
 				}

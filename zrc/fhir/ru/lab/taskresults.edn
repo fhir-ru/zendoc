@@ -148,6 +148,10 @@
 								:const {
 									:value "http://snomed.info/sct"
 								}
+								:zen.fhir/value-set {
+									:symbol fhir.ru.core.vs/CoreVsMedicalCareTypes
+									:strength :required
+								}
 							}
 						}
 					}
@@ -158,6 +162,10 @@
 	:priority {
 		:confirms #{fhir/code}
 		:zen/desc "Используется в ПЛИ"
+		:zen.fhir/value-set {
+			:symbol fhir.ru.core.vs/CoreVsMedicalCareForms
+			:strength :required
+		}
 	}
 	:status {
 		:confirms #{fhir/code}
