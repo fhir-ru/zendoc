@@ -1,0 +1,38 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa :fa-list-check] 
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status "in progress"
+
+^badge
+:maturity 0
+
+:title "TaskDirections Profile"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+:summary "code.coding.system – НСИ ЕГИСЗ, ссылки encounter, identifier.assigner, requester, insurance – на наши профили, identifier.system – специальным образом"
+
+^title "Определение"
+:section md/
+
+TODO
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.lab.taskdirections/LabTaskDirections

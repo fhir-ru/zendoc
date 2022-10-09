@@ -1,0 +1,38 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa :fa-list-check] 
+
+^hide
+:menu/first true
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status "in progress"
+
+^badge
+:maturity 0
+
+:title "TaskResults Profile"
+
+^title "Оглавление"
+:content-list md/ 
+
+:toc
+
+:summary "code.coding.system, performerType.coding.system, priority – по НСИ ЕГИСЗ, ссылки basedOn, output.type – на наши профили."
+
+^title "Определение"
+:section md/
+
+TODO
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.lab.taskresults/LabTaskResults
