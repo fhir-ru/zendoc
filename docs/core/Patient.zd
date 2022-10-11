@@ -13,7 +13,10 @@
 ^badge
 :authors #{people.alexandra}
 
-:title "Пациент"
+:title "Patient"
+
+^title "Пациент" 
+:title-ru
 
 :toc
 

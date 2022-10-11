@@ -12,7 +12,10 @@
 ^badge
 :authors #{people.alexandra}
 
-:title "Сотрудник"
+:title "Practitioner"
+
+^title "Сотрудник" 
+:title-ru
 
 ^badge
 :maturity 0

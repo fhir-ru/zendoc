@@ -19,7 +19,9 @@
 ^badge
 :maturity 0
 
-:title "Страховое покрытие"
+:title "Coverage"
+
+:summary "Страховое покрытие"
 
 ^title "Оглавление"
 :content-list md/ 

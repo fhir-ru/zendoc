@@ -20,7 +20,9 @@
 :maturity 0
 
 
-:title "Результат наблюдения"
+:title "Observation"
+
+:summary "Результат наблюдения"
 
 :toc
 

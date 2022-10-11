@@ -19,7 +19,9 @@
 ^badge
 :type :profile
 
-:title "Состояние, связанное со здоровьем"
+:title "Condition"
+
+:summary "Состояние, связанное со здоровьем"
 
 :toc
 

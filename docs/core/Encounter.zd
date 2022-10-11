@@ -20,7 +20,9 @@
 :maturity 0
 
 
-:title "Случай обслуживания"
+:title "Encounter"
+
+:summary "Случай обслуживания"
 
 :toc
 

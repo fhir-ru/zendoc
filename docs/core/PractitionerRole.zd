@@ -12,7 +12,10 @@
 ^badge
 :status "done"
 
-:title "Роль сотрудника"
+:title "PractitionerRole"
+
+^title "Роль сотрудника"
+:title-ru 
 
 ^badge
 :maturity 0
