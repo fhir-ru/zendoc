@@ -76,10 +76,6 @@ TODO
       "preferred": true,
       "value": "http://fhir.ru/core/cs/core-cs-nsi-measurement-units",
     },
-    {
-      "type": "uri",
-      "value": "http://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1358/version/3.12"
-    }
   ]
 }
 ```code
