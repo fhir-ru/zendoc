@@ -14,7 +14,7 @@
   :confirms #{fhir/Task}
   :zen/desc "TaskOrder"
   :zen.fhir/version "0.5.8"
-  :zen.fhir/type "TaskOrder"
+  :zen.fhir/type "Task"
   :zen.fhir/id "taskorder-lab"
   :zen.fhir/name "TaskOrderLab"
   :zen.fhir/abstract false
@@ -28,8 +28,10 @@
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
-			:type zen/map
-			:confirms #{fhir/Reference}
+			:confirms #{fhir/Reference zen.fhir/Reference}
+			:zen.fhir/reference {
+				:refers #{}
+			}
 		}
 	}
 	:code {
