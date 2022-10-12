@@ -19,14 +19,14 @@
 ^badge
 :maturity 0
 
-:title "TaskDirections Profile"
+:title "TaskReport Profile"
 
 ^title "Оглавление"
 :content-list md/ 
 
 :toc
 
-:summary "code.coding.system – НСИ ЕГИСЗ, ссылки encounter, identifier.assigner, requester, insurance – на наши профили, identifier.system – специальным образом"
+:summary "code.coding.system, performerType.coding.system, priority – по НСИ ЕГИСЗ, ссылки basedOn, output.type – на наши профили."
 
 ^title "Определение"
 :section md/
@@ -35,4 +35,4 @@ TODO
 
 ^title "Профиль"
 ^zen/schema
-:section:profile fhir.ru.lab.taskdirections/LabTaskDirections
+:section:profile fhir.ru.lab.taskreport/LabTaskReport

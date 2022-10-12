@@ -1,28 +1,21 @@
-{ns fhir.ru.lab.taskdirections
- import #{	fhir zen.fhir
- 			fhir.ru.core.encounter
-			fhir.ru.core.organization
-			fhir.ru.core.coverage
-			fhir.ru.core.patient
-			fhir.ru.core.practitioner
-			fhir.ru.lab.device
-			fhir.ru.financial.relatedperson}
+{ns fhir.ru.lab.taskreport
+ import #{fhir zen.fhir}
 
- LabTaskDirections
+ LabTaskReport
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
-  :zendoc "lab.TaskDirections"
-  :confirms #{fhir/TaskDirections}
-  :zen/desc "TaskDirections"
+  :zendoc "lab.TaskReport"
+  :confirms #{fhir/Task}
+  :zen/desc "TaskReport"
   :zen.fhir/version "0.5.8"
-  :zen.fhir/type "TaskDirections"
-  :zen.fhir/id "taskdirections-lab"
-  :zen.fhir/name "TaskDirectionsLab"
+  :zen.fhir/type "TaskReport"
+  :zen.fhir/id "taskreport-lab"
+  :zen.fhir/name "TaskReportLab"
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "resource"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/task-directions-lab"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/taskreport-lab"
   :type zen/map
-  :require #{:code :intent :status}
+  :require #{:code :intent :performerType :status}
   :keys {
 	:basedOn {
 		:type zen/vector
@@ -64,69 +57,26 @@
 							:confirms #{fhir/string}
 							:zen/desc "Используется в ПЛИ"
 						}
+
 					}
 				}
 			}
 		}
 	}
-	:encounter {
-		:confirms #{fhir/Reference zen.fhir/Reference}
-		:zen.fhir/reference {
-			:refers #{fhir.ru.core.encounter/CoreEncounter}
-		}
+	:executionPeriod {
+		:type zen/map
+		:confirms #{fhir/Period}
 		:zen/desc "Используется в ПЛИ"
-	}
-	:identifier {
-		:type zen/vector
-		:zen/desc "Используется в ПЛИ"
-		:every {
-			:type zen/map
-			:confirms #{fhir/Identifier}
-			:keys {
-				:assigner {
-					:confirms #{fhir/Reference zen.fhir/Reference}
-					:zen.fhir/reference {
-						:refers #{fhir.ru.core.organization/CoreOrganization}
-					}
-					:zen/desc ""
-				}
-				:system {
-					:type zen/string
-					:confirms #{fhir/uri} 
-					:zen/desc "ОИД МО направителя. Используется в ПЛИ"	
-				}
-				:type {
-					:type zen/map
-					:confirms #{fhir/CodeableConcept}
-					:zen/desc ""
-					:require #{:coding}
-					:keys {
-						:coding {
-							:type zen/vector
-							:zen/desc ""
-							:every {
-								:type zen/map
-								:confirms #{fhir/Coding}
-							}
-						}
-					}
-				}
-				:value {
-					:type zen/string
-					:confirms #{fhir/string}
-					:zen/desc "Используется в ПЛИ"
-				}
+		:keys {
+			:end {
+				:type zen/string
+				:confirms #{fhir/dateTime}
+				:zen/desc "Используется в ПЛИ"
 			}
-		}
-	}
-	:insurance {
-		:type zen/vector
-		:zen/desc "Используется в ПЛИ"
-		:every {
-			:type zen/map
-			:confirms #{fhir/Reference zen.fhir/Reference}
-			:zen.fhir/reference {
-				:refers #{fhir.ru.core.coverage/CoreCoverage fhir/ClaimResponse}
+			:start {
+				:type zen/string
+				:confirms #{fhir/dateTime}
+				:zen/desc "Используется в ПЛИ"
 			}
 		}
 	}
@@ -138,17 +88,84 @@
 		}
 		:zen/desc "Используется в ПЛИ"
 	}
-	:request {
-		:confirms #{fhir/Reference zen.fhir/Reference}
-		:zen.fhir/reference {
-		:refers #{	fhir.ru.lab.device/LabDevice
-					fhir.ru.core.organization/CoreOrganization
-					fhir.ru.core.patient/CorePatient
-					fhir.ru.core.practitioner/CorePractitioner 
-					fhir.ru.core.practitioner/CorePractitionerRole
-					fhir.ru.financial.relatedperson/FinancialRelatedPerson}
-		}
+	:output {
+		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
+		:every {
+			:type zen/map
+			:confirms #{fhir/BackboneElement}
+			:require #{:valueReference}
+			:keys {
+				:type {
+					:type zen/map
+					:confirms #{fhir/CodeableConcept}
+					:zen/desc "Используется в ПЛИ"
+					:require #{:coding}
+					:keys {
+						:coding {
+							:type zen/vector
+							:zen/desc ""
+							:every {
+								:type zen/map
+								:confirms #{fhir/Coding}
+								:keys {
+									:code {
+										:type zen/map
+										:confirms #{fhir/code}
+										:zen/desc "Используется в ПЛИ"
+									}
+								}
+							}
+						}
+					}
+				}
+				:valueReference {
+					:confirms #{fhir/Reference}
+					:zen/desc "Используется в ПЛИ"
+				}
+			}
+		}
+	}
+	:performerType {
+		:type zen/vector
+		:zen/desc "Используется в ПЛИ"
+		:every {
+			:type zen/map
+			:confirms #{fhir/CodeableConcept}
+			:require #{:coding}
+			:keys {
+				:coding {
+					:type zen/vector
+					:zen/desc ""
+					:every {
+						:type zen/map
+						:confirms #{fhir/Coding}
+						:keys {
+							:system {
+								:type zen/string
+								:confirms #{fhir/uri}
+								:zen/desc "Используется в ПЛИ"
+								:const {
+									:value "http://snomed.info/sct"
+								}
+								:zen.fhir/value-set {
+									:symbol fhir.ru.core.vs/CoreVsMedicalCareTypes
+									:strength :required
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	:priority {
+		:confirms #{fhir/code}
+		:zen/desc "Используется в ПЛИ"
+		:zen.fhir/value-set {
+			:symbol fhir.ru.core.vs/CoreVsMedicalCareForms
+			:strength :required
+		}
 	}
 	:status {
 		:confirms #{fhir/code}

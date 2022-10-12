@@ -46,7 +46,7 @@ TODO
 
 ```code json
 {
-  "id": "core-cs-nsi-medical-care-forms",
+  "id": "core-ns-nsi-medical-care-forms",
   "resourceType": "NamingSystem",  
   "status": "active",    
   "kind": "codesystem",
