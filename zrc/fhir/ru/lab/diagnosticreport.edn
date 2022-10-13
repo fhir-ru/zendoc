@@ -1,6 +1,8 @@
 {ns fhir.ru.lab.diagnosticreport
-
- import #{fhir zen.fhir fhir.ru.core.patient}
+ import #{fhir zen.fhir 
+        fhir.ru.core.Practitioner
+        fhir.ru.core.observation
+        fhir.ru.lab.specimen}
 
  LabDiagnosticReport
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/lab-group}
@@ -16,7 +18,94 @@
   :zen.fhir/type "DiagnosticReport"
   :zen.fhir/profileUri "http://fhir.ru/lab/sd/lab-diagnosticreport"
   :type zen/map
-  :keys
-  {:subject {:zen/desc "Пациент"
-             :confirms #{fhir/Reference zen.fhir/Reference}
-             :zen.fhir/reference {:refers #{fhir.ru.core.patient/CorePatient}}}}}}
+  :require #{:code :status}
+  :keys{
+        :category 
+            {:type zen/map
+            :confirms #{fhir/CodeableConcept} 
+            :require #{:coding}
+            :keys {
+                  :coding  
+                        {:type zen/vector
+                        :minItems 1
+                        :every
+                                {
+                                :type zen/map
+                                :confirms #{fhir/Coding}
+                                :keys {
+                                        :code  
+                                                {:type zen/string
+                                                :confirms #{fhir/code}} 
+                                                
+                                        :display
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}} 
+                                        
+                                        :system
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}}
+                                                
+                                        :version
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}}}}}}} 
+        :code
+            {:type zen/map
+            :confirms #{fhir/CodeableConcept} 
+            :require #{:coding}
+            :keys {
+                  :coding  
+                        {
+                        :type zen/vector 
+                        :minItems 1 
+                        :every
+                                {
+                                :type zen/map
+                                :confirms #{fhir/Coding}
+                                :keys {
+                                        :code  
+                                                {:type zen/string
+                                                :confirms #{fhir/code}} 
+                                                
+                                        :display
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}} 
+                                        
+                                        :system
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}} 
+                                                
+                                        :version
+                                                {:type zen/string  
+                                                :confirms #{fhir/string}}}}}}} 
+
+        :performer {:type zen/vector
+                        :minItems 0
+                        :every
+                                {:type zen/map
+                                :confirms #{fhir/Reference zen.fhir/Reference}
+                                :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner
+                                                                fhir.ru.core.practitioner/CorePractitionerRole}}}} 
+
+        :result {:type zen/vector
+                 :minItems 0
+                 :every
+                        {:type zen/map
+                         :confirms #{fhir/Reference zen.fhir/Reference}
+                         :zen.fhir/reference {:refers #{fhir.ru.core.observation/CoreObservation}}}} 
+      
+        :status  
+                {:type zen/string
+                :confirms #{fhir/code}} 
+
+        :media
+                {:type zen/vector
+                :minItems 0
+                :every
+                {:type zen/map
+                :confirms #{fhir/BackboneElement}
+                :require #{:link}
+                :keys {
+
+                        :link  
+                                {:confirms #{fhir/Reference zen.fhir/Reference}
+                                :zen.fhir/reference {:refers #{fhir.ru.lab.media/media}}}}}}}}}
