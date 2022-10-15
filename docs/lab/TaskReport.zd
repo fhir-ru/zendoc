@@ -36,3 +36,18 @@ TODO
 ^title "Профиль"
 ^zen/schema
 :section:profile fhir.ru.lab.taskreport/LabTaskReport
+
+^collapse
+^yaml
+^title "Пример TaskReport из бандла - 1"
+:section:example1 (load "samples/02_task.yaml" :yaml)
+
+^title "Ресурс TaskReport"
+:resource md/
+
+TODO
+
+^title "Область применения и использование"
+:resource:scope-and-usage md/
+
+TODO
