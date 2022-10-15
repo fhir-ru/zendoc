@@ -15,7 +15,7 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/taskreport-lab"
   :type zen/map
-  :require #{:code :intent :performerType :status}
+  :require #{:intent :status}
   :keys {
 	:basedOn {
 		:type zen/vector
@@ -24,44 +24,6 @@
 			:confirms #{fhir/Reference zen.fhir/Reference}
 			:zen.fhir/reference {
 				:refers #{}
-			}
-		}
-	}
-	:code {
-		:type zen/map
-		:confirms #{fhir/CodeableConcept}
-		:zen/desc "Используется в ПЛИ"
-		:require #{:coding}
-		:keys {
-			:coding {
-				:type zen/vector
-				:zen/desc ""
-				:every {
-					:type zen/map
-					:confirms #{fhir/Coding}
-					:keys {
-						:code {
-							:type zen/string
-							:confirms #{fhir/code}
-							:zen/desc "Используется в ПЛИ"
-						}
-						:system {
-							:type zen/string
-                            :confirms #{fhir/uri}
-							:zen/desc "Используется в ПЛИ"
-							:zen.fhir/value-set {
-								:symbol fhir.ru.core.patient/CoreVsMedCardsAsIdentifiers
-								:strength :required
-							}
-						}
-						:version {
-							:type zen/string
-							:confirms #{fhir/string}
-							:zen/desc "Используется в ПЛИ"
-						}
-
-					}
-				}
 			}
 		}
 	}
@@ -96,17 +58,16 @@
 		:every {
 			:type zen/map
 			:confirms #{fhir/BackboneElement}
-			:require #{:valueReference}
+			:require #{:type :valueReference}
 			:keys {
 				:type {
 					:type zen/map
 					:confirms #{fhir/CodeableConcept}
 					:zen/desc "Используется в ПЛИ"
-					:require #{:coding}
 					:keys {
 						:coding {
 							:type zen/vector
-							:zen/desc ""
+							:zen/desc "Используется в ПЛИ"
 							:every {
 								:type zen/map
 								:confirms #{fhir/Coding}
@@ -138,11 +99,16 @@
 			:keys {
 				:coding {
 					:type zen/vector
-					:zen/desc ""
+					:zen/desc "Используется в ПЛИ"
 					:every {
 						:type zen/map
 						:confirms #{fhir/Coding}
 						:keys {
+							:code {
+								:type zen/string
+								:confirms #{fhir/code}
+								:zen/desc "Используется в ПЛИ"
+							}
 							:system {
 								:type zen/string
 								:confirms #{fhir/uri}
@@ -154,6 +120,11 @@
 									:symbol fhir.ru.core.vs/CoreVsMedicalCareTypes
 									:strength :required
 								}
+							}
+							:version {
+								:type zen/string
+								:confirms #{fhir/string}
+								:zen/desc "Используется в ПЛИ"
 							}
 						}
 					}

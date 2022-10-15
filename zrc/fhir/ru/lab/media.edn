@@ -38,7 +38,6 @@
 		:fhir/polymorphic true
 		:type zen/map
 		:zen/desc "Используется в ПЛИ"
-
 		:keys {
 			:dateTime {
 				:type zen/string
@@ -50,19 +49,19 @@
 	:device {
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
-		:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}
+			:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}
 		}
 		:zen/desc "Используется в ПЛИ"
 	}
 	:operator {
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
-		:refers #{	fhir.ru.core.practitioner/CorePractitioner 
-					fhir.ru.core.practitioner/CorePractitionerRole
-					fhir.ru.core.organization/CoreOrganization
-					fhir.ru.lab.device/LabDevice
-					fhir.ru.core.patient/CorePatient
-					fhir.ru.financial.relatedperson/FinancialRelatedPerson}
+			:refers #{	fhir.ru.core.practitioner/CorePractitioner 
+						fhir.ru.core.practitioner/CorePractitionerRole
+						fhir.ru.core.organization/CoreOrganization
+						fhir.ru.lab.device/LabDevice
+						fhir.ru.core.patient/CorePatient
+						fhir.ru.financial.relatedperson/FinancialRelatedPerson}
 		}
 		:zen/desc "Используется в ПЛИ"
 	}

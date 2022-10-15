@@ -22,7 +22,7 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/taskorder-lab"
   :type zen/map
-  :require #{:code :intent :status}
+  :require #{:intent :status}
   :keys {
 	:basedOn {
 		:type zen/vector
@@ -38,11 +38,10 @@
 		:type zen/map
 		:confirms #{fhir/CodeableConcept}
 		:zen/desc "Используется в ПЛИ"
-		:require #{:coding}
 		:keys {
 			:coding {
 				:type zen/vector
-				:zen/desc ""
+				:zen/desc "Используется в ПЛИ"
 				:every {
 					:type zen/map
 					:confirms #{fhir/Coding}
@@ -85,33 +84,10 @@
 			:type zen/map
 			:confirms #{fhir/Identifier}
 			:keys {
-				:assigner {
-					:confirms #{fhir/Reference zen.fhir/Reference}
-					:zen.fhir/reference {
-						:refers #{fhir.ru.core.organization/CoreOrganization}
-					}
-					:zen/desc ""
-				}
 				:system {
 					:type zen/string
 					:confirms #{fhir/uri} 
 					:zen/desc "ОИД МО направителя. Используется в ПЛИ"	
-				}
-				:type {
-					:type zen/map
-					:confirms #{fhir/CodeableConcept}
-					:zen/desc ""
-					:require #{:coding}
-					:keys {
-						:coding {
-							:type zen/vector
-							:zen/desc ""
-							:every {
-								:type zen/map
-								:confirms #{fhir/Coding}
-							}
-						}
-					}
 				}
 				:value {
 					:type zen/string

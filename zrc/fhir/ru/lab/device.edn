@@ -50,33 +50,10 @@
 			:type zen/map
 			:confirms #{fhir/Identifier}
 			:keys {
-				:assigner {
-					:confirms #{fhir/Reference zen.fhir/Reference}
-					:zen.fhir/reference {
-						:refers #{fhir.ru.core.organization/CoreOrganization}
-					}
-					:zen/desc "Организация, выдавшая id"
-				}
 				:system {
 					:type zen/string
 					:confirms #{fhir/uri} 
 					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67. Используется в ПЛИ"	
-				}
-				:type {
-					:type zen/map
-					:confirms #{fhir/CodeableConcept}
-					:zen/desc "Тип идентификатора"
-					:require #{:coding}
-					:keys {
-						:coding {
-							:type zen/vector
-							:zen/desc "Код, определяемый системой кодирования"
-							:every {
-								:type zen/map
-								:confirms #{fhir/Coding}
-							}
-						}
-					}
 				}
 				:value {
 					:type zen/string

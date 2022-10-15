@@ -35,6 +35,11 @@
 						:confirms #{fhir/dateTime}
 						:zen/desc "Используется в ПЛИ"
 					}
+					:Period {
+						:type zen/map
+						:confirms #{fhir/Period}
+						:zen/desc "Используется в ПЛИ"
+					}
 				}
 			}
 			:collector {
