@@ -21,6 +21,14 @@
 
 :title "Номер медицинского свидетельства о рождении"
 
+:summary "Номер медицинского свидетельства о рождении"
+
+^hide
+:Тип-идентификатора-fhir ""
+
+^hide
+:Тип-идентификатора-ru-core "code: 6, display: Свидетельство о рождении, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+
 :toc
 
 ^title "System"

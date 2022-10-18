@@ -21,10 +21,18 @@
 
 :title "Паспорт РФ"
 
+:summary "Паспорт гражданина Российской Федерации"
+
+^hide
+:Тип-идентификатора-fhir "code: PPN, system: http://terminology.hl7.org/CodeSystem/v2-0203, display: Passport number"
+
+^hide
+:Тип-идентификатора-ru-core "code: 1, display: Паспорт гражданина Российской Федерации, system: http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+
 :toc
 
 ^title "System"
-:system md/
+:system-description md/
 
 Значение для использования в качестве системы в идентификаторе при указании паспорта гражданина Российской Федерации:
 
