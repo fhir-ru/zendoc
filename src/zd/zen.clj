@@ -170,7 +170,7 @@
                     "0..*"
                     (format "%s..%s"
                             (cond
-                              (:require sch)  "1"
+                              (contains? (:require sch) (:key pth)) "1"
                               (:minItems sch)  (:minItems sch)
                               (:require opts)  "1"
                               (:minItems opts) (:minItems opts)
@@ -230,8 +230,8 @@
                                                           (mapv (fn [v] [v nil]))
                                                           (into {}))
                                                      (-> slice-data :filter :match))
-                                       :minItems (-> slice-data :schema :minItems)
-                                       :maxItems (-> slice-data :schema :maxItems)}
+                                       :minItems (or (-> slice-data :schema :minItems) 0)
+                                       :maxItems (or (-> slice-data :schema :maxItems) "*")}
                                       ztx)))
                 acc)))
           (flatten-sch res
@@ -255,8 +255,8 @@
                                                         (mapv (fn [v] [v nil]))
                                                         (into {}))
                                                    (-> slice-data :filter :match))
-                                     :minItems (-> slice-data :schema :minItems)
-                                     :maxItems (-> slice-data :schema :maxItems)}
+                                     :minItems (or (-> slice-data :schema :minItems) 0)
+                                     :maxItems (or (-> slice-data :schema :maxItems) "*")}
                                     ztx)))
               acc)))
         :else res)
