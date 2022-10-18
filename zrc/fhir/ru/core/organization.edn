@@ -32,9 +32,7 @@
    :identifier {:type zen/vector
                 :every {:confirms #{fhir/Identifier}
                         :type zen/map
-                        :keys {:system {:type zen/string
-                                        :confirms #{fhir/uri}}
-                               :assigner {:type zen/map
+                        :keys {:assigner {:type zen/map
                                           :confirms #{fhir/Reference zen.fhir/Reference}
                                           :zen.fhir/reference
                                           {:refers #{fhir.ru.core.organization/CoreOrganization}}}}}
@@ -121,4 +119,4 @@
  {:zen/tags #{}
   :zen/desc "Идентификаторы организации"
   :concept [{:value "ОГРН" :description "Основной государственный регистрационный номер"}
-            {:value "ИНН"  :description "Номер налого платильщика"}]}}
+            {:value "ИНН"  :description "Номер налогоплатильщика"}]}}
