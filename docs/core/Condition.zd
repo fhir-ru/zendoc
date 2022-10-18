@@ -25,6 +25,10 @@
 
 :toc
 
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.core.condition/CoreCondition
+
 ^title "Введение"
 :intro md/
 
