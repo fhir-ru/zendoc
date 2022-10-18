@@ -105,4 +105,22 @@
   :zen.fhir/title "Core ValueSet Формы оказания медицинской помощи"
   :zen.fhir/status "active"
   :zen.fhir/oid "1.2.643.5.1.13.13.11.1551"
-  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1551"}]}}}
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1551"}]}}
+  
+  
+ CoreVsMedicalAndPharmaceuticalWorkersPositions
+ {:zen/tags #{zen.fhir/value-set}
+  :zendoc "artifacts.valuesets.core-vs-medical-and-pharmaceutical-workers-positions"
+  :zen/desc "Основан на справочнике [\"Должности медицинских и фармацевтических работников\" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/oidRepository/refbook/1.2.643.5.1.13.13.11.1002/version/7.6)"
+  :zen.fhir/version "0.5.8"
+  :fhir/code-systems
+  #{{:fhir/url "https://nsi.rosminzdrav.ru/#!/oidRepository/refbook/1.2.643.5.1.13.13.11.1002/version/7.6",
+     :zen.fhir/content :not-present}}
+  :uri "http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions"
+  :version "7.6"
+  :zen.fhir/id "core-vs-medical-and-pharmaceutical-workers-positions"
+  :zen.fhir/name "CoreVsMedicalAndPharmaceuticalWorkersPositions"
+  :zen.fhir/title "Core ValueSet Должности медицинских и фармацевтических работников"
+  :zen.fhir/status "active"
+  :zen.fhir/oid "1.2.643.5.1.13.13.11.1002"
+  :zen.fhir/compose {:include [{:system "urn:oid:1.2.643.5.1.13.13.11.1002"}]}}}

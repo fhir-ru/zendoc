@@ -1,0 +1,80 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-regular :fa-rectangle-list]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+:title "Core ValueSet Должности медицинских и фармацевтических работников"
+
+:toc
+
+:summary md/
+Этот набор значений определен проектом FHIR RU CORE.
+
+^table
+^title "Summary"
+:summary-table
+
+[{:name "Defining URL:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :uri))"}
+{:name "Version:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :version))"}
+{:name "Name:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :zen.fhir/name))"}
+{:name "Title:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :zen.fhir/title))"}
+{:name "Definition:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :zen/desc))"}
+{:name "Committee:" :value #{groups.lab}}
+{:name "OID:" :value "((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions :zen.fhir/oid))"}
+{:name "Source Resource" :value "[JSON](#:valueset-json-definition) / [ZEN](#:valueset-zen-definition)"}
+]
+
+^title "Логическое определение содержимого"
+:content-logical-definition md/
+
+В ValueSet входят все значения из справочника ["Должности медицинских и фармацевтических работников" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/oidRepository/refbook/1.2.643.5.1.13.13.11.1002/version/7.6).
+
+^title "Описание"
+:description md/
+
+Для должности медицинских и фармацевтических работников определены CodingSystem и ValueSet на основе справочника НСИ ЕГИСЗ.
+
+
+:Coding-system md/
+
+Основан на справочнике ["Должности медицинских и фармацевтических работников" НСИ ЕГИСЗ](https://nsi.rosminzdrav.ru/#!/oidRepository/refbook/1.2.643.5.1.13.13.11.1002/version/7.6)
+
+
+^collapse
+^title "ZEN Definition for ValueSet CoreVsMedicalAndPharmaceuticalWorkersPositions"
+:valueset-zen-definition md/
+
+((ztx-get :symbols fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions))
+
+
+^collapse
+^title "JSON Definition for ValueSet CoreVsMedicalAndPharmaceuticalWorkersPositions"
+:valueset-json-definition md/
+
+```code json
+{
+  "resourceType": "ValueSet",
+  "id": "core-vs-medical-and-pharmaceutical-workers-positions",
+  "name": "CoreVsMedicalAndPharmaceuticalWorkersPositions",
+  "title": "Core ValueSet Должности медицинских и фармацевтических работников",
+  "url" : "http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:oid:1.2.643.5.1.13.13.11.1002"        
+      }
+    ]
+  }
+}
+```
