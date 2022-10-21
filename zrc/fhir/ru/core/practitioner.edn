@@ -107,8 +107,8 @@
                                                         :system {:type zen/string
                                                                 :confirms #{fhir/uri}
                                                                 :zen/desc "Используется в ПЛИ"
-                                                                :zen.fhir/value-set {:symbol fhir.ru.core.patient/CoreVsMedicalAndPharmaceuticalWorkersPositions
-                                                                                :strength :required}}
+                                                                :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions
+                                                                                     :strength :required}}
                                                         :version {:type zen/string
                                                                 :confirms #{fhir/string}
                                                                 :zen/desc "Используется в ПЛИ"}}}}}}}

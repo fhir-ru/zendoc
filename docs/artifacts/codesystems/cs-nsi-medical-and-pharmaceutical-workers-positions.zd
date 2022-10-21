@@ -1,0 +1,81 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-book]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status :draft
+
+^badge
+:date:start "2022-10-21"
+
+^badge
+:type :ig
+
+:title "НСИ Минздрава Должности медицинских и фармацевтических работников"
+
+:toc
+
+^title "System"
+:system-md md/
+
+Значение для использования в качестве системы:
+
+^badge
+:system "http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions"
+
+^badge
+:OID "1.2.643.5.1.13.13.11.1002"
+
+^title "Code System"
+:code-system-definition md/
+
+TODO
+
+^title "Naming System"
+:code-systems-naming md/
+
+[НСИ Минздрава Справочник Должности медицинских и фармацевтических работников](https://nsi.rosminzdrav.ru/#!/oidRepository/refbook/1.2.643.5.1.13.13.11.1002/version/7.6)
+
+```code json
+{
+  "id": "core-ns-nsi-medical-and-pharmaceutical-workers-positions",
+  "resourceType": "NamingSystem",  
+  "status": "active",    
+  "kind": "codesystem",
+  "name": "CoreNsiMedicalAndPharmaceuticalWorkersPositions",
+  "description": "НСИ Минздрава Должности медицинских и фармацевтических работников",
+  "text": {
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>CodeSystem: НСИ Минздрава Должности медицинских и фармацевтических работников, 
+    может быть известен под следующими идентификаторами:<ol>\n    
+    <li>OID: 1.2.643.5.1.13.13.11.1002</li>\n    
+    <li>Дополнительный OID: 1.2.643.5.1.13.2.1.1.733</li>\n   
+     <li>[предпочтительно] URI:http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions</li>\n  </ol>\n</div>",
+    "status": "generated"
+  },
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.13.11.1002",
+      "comment": "Основной"
+    },
+    {
+      "type": "oid",
+      "value": "1.2.643.5.1.13.2.1.1.733",
+      "comment": "Дополнительный"
+    },
+    {
+      "type": "uri",
+      "preferred": true,
+      "value": "http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions",
+    },
+  ]
+}
+```code
