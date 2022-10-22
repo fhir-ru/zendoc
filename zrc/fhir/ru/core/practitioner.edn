@@ -27,24 +27,45 @@
                        {:slices
                         {"PassportRF"
                          {:zen/desc "Паспорт РФ"
-                          :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "http://fhir.ru/core/systems/passport-rf"}}}
+                           :match {:system "http://fhir.ru/core/systems/passport-rf"}}
+                           :schema {:type zen/vector
+                                    :maxItems 1
+                                    :every {:type zen/map
+                                            :confirms #{fhir/Identifier}
+                                            :require #{:system}
+                                            :keys {:system {:type zen/string
+                                                            :confirms #{fhir/uri}
+                                                            :const {:value "http://fhir.ru/core/systems/passport-rf"}}}}}}
                          "INN"
                          {:zen/desc "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. 
                          Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
-                          :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "http://fhir.ru/core/systems/inn"}}}
+                           :match {:system "http://fhir.ru/core/systems/inn"}}
+                           :schema {:type zen/vector
+                                    :maxItems 1
+                                    :every {:type zen/map
+                                            :confirms #{fhir/Identifier}
+                                            :require #{:system}
+                                            :keys {:system {:type zen/string
+                                                            :confirms #{fhir/uri}
+                                                            :const {:value "http://fhir.ru/core/systems/inn"}}}}}}
                          "SNILS"
                          {:zen/desc "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта 
                          застрахованного лица в системе обязательного пенсионного страхования"
-                          :schema {:type zen/vector, :maxItems 1}
                           :filter
                           {:engine :match
-                           :match {:system "http://fhir.ru/core/systems/snils"}}}}}}
+                           :match {:system "http://fhir.ru/core/systems/snils"}}
+                           :schema {:type zen/vector
+                                    :maxItems 1
+                                    :every {:type zen/map
+                                            :confirms #{fhir/Identifier}
+                                            :require #{:system}
+                                            :keys {:system {:type zen/string
+                                                            :confirms #{fhir/uri}
+                                                            :const {:value "http://fhir.ru/core/systems/snils"}}}}}}}}}
           ;; :active {:type zen/boolean
           ;;          :zen/desc "Признак активной действующей записи о враче"}
           :name {:zen/desc "ФИО врача"
