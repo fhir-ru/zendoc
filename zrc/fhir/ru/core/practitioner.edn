@@ -91,27 +91,27 @@
    :type zen/map
    :keys {
           :code {:type zen/vector
-                 :zen/desc "Используется в ПЛИ"
+                 :zen/desc ""
                  :every {:type zen/map
                          :confirms #{fhir/CodeableConcept}
                          :keys {:coding {:type zen/vector
-                                        :zen/desc "Используется в ПЛИ"
+                                        :zen/desc ""
                                         :every {:type zen/map
                                                 :confirms #{fhir/Coding}
                                                 :keys {:code {:type zen/string
                                                                 :confirms #{fhir/code}
-                                                                :zen/desc "Используется в ПЛИ"}
-                                                        :display {:zen/desc "Используется в ПЛИ"
+                                                                :zen/desc ""}
+                                                        :display {:zen/desc ""
                                                                 :type/zen string
                                                                 :confirms #{string}}
                                                         :system {:type zen/string
                                                                 :confirms #{fhir/uri}
-                                                                :zen/desc "Используется в ПЛИ"
+                                                                :zen/desc ""
                                                                 :zen.fhir/value-set {:symbol fhir.ru.core.vs/CoreVsMedicalAndPharmaceuticalWorkersPositions
                                                                                      :strength :required}}
                                                         :version {:type zen/string
                                                                 :confirms #{fhir/string}
-                                                                :zen/desc "Используется в ПЛИ"}}}}}}}
+                                                                :zen/desc ""}}}}}}}
           :practitioner {:zen/desc "Ссылка на ресурс Practitioner"
                          :type zen/map
                          :confirms #{fhir/Reference zen.fhir/Reference}
