@@ -1,0 +1,55 @@
+^hide
+:menu-order 98
+
+^hide
+:icon [:fa-solid :fa-disease]
+
+^badge
+:authors #{people.makeev}
+
+^badge
+:groups #{groups.lab}
+
+^badge
+:status "Not started"
+
+^badge
+:date:start "2022-10-23"
+
+^badge
+:type :profile
+
+:title "RelatedPerson"
+
+:summary "Лицо, имеющее связь с пациентом"
+
+:toc
+
+^title "Профиль"
+^zen/schema
+:section:profile fhir.ru.core.related-person/CoreRelatedPerson
+
+^title "Введение"
+:intro md/
+
+todo
+
+^title "Область применения"
+:scope md/
+
+todo
+
+^title "Профиль"
+:profile md/
+
+todo
+
+^title "Пример N"
+:profile:examples md/
+
+todo
+
+^title "Полезные ссылки"
+:links md/
+
+todo
