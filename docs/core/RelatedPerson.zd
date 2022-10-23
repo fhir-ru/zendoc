@@ -2,7 +2,7 @@
 :menu-order 98
 
 ^hide
-:icon [:fa-solid :fa-disease]
+:icon [:fa-solid :fa-user]
 
 ^badge
 :authors #{people.makeev}

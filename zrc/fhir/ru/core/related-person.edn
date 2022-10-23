@@ -23,7 +23,7 @@
 	:patient {
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
-		:refers #{fhir.ru.core.patient/CorePatient}
+			:refers #{fhir.ru.core.patient/CorePatient}
 		}
 	}
   }}}
