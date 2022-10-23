@@ -1,0 +1,29 @@
+{ns fhir.ru.core.related-person
+
+ import #{fhir
+          zen.fhir
+          fhir.ru.core.patient}
+
+ CoreRelatedPerson
+ {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
+  :zendoc "core.RelatedPerson"
+  :zen/desc "Связанное лицо"
+  :zen.fhir/version "0.5.8"
+  :confirms #{fhir/RelatedPerson}
+  :zen.fhir/id "сore-related-person"
+  :zen.fhir/name "CoreRelatedPerson"
+  :zen.fhir/abstract false
+  :zen.fhir/status "draft"
+  :zen.fhir/kind "resource"
+  :zen.fhir/type "RelatedPerson"
+  :zen.fhir/profileUri "http://fhir.ru/core/sd/сore-related-person"
+  :type zen/map
+  :require #{:patient}
+  :keys {
+	:patient {
+		:confirms #{fhir/Reference zen.fhir/Reference}
+		:zen.fhir/reference {
+			:refers #{fhir.ru.core.patient/CorePatient}
+		}
+	}
+  }}}
