@@ -175,22 +175,210 @@ MyObservationProfile
 ^title "slicing on an array"
 :how-to:describe-constraint:slicing md/
 
-TODO
+Можно сделать слайсинг в схеме с помощью своейства :slicing, которое позволяет валидировать оперделенные элементы массива, используя отдельные схемы для каждой категории элементов. Чтобы указать правила проверки отдельного среза, опишите его в свойстве :slices. Обратите внимание, что каждый слайс должен иметь свойство :filter, которое должно содержать свойство :match. Элемент становится частью определенного слайса, если указанные данные в свойстве :match совпадают с данными элемента.
+
+```code edn
+MyObservation
+{:zen/tags #{zen.fhir/profile-schema zen/schema},
+ :zen.fhir/profileUri "urn:fhir:Observation"
+ :zen.fhir/version "0.5.0"
+ :confirms #{fhir/Observation}
+ :type zen/map
+ :keys {:code {:confirms #{fhir/CodeableConcept}
+        :type zen/map
+        :keys {:coding
+                {:slicing
+                 {:type zen/vector
+                  :every {:confirms #{fhir/Coding}
+                          :slices {"HeartRateCode"
+                                   {:schema {:type zen/vector
+                                             :minItems 1  
+                                             :maxItems 1
+                                             :every {:type zen/map
+                                                     :keys {:system {:const {:value "http://loinc.org"}
+                                                                     :confirms #{fhir/uri}}
+                                                            :code   {:const {:value "8867-4"}
+                                                                     :confirms #{fhir/code}}
+                                                            :require #{:system :code}}}}
+                                    :filter {:engine  :match,
+                                             :match   {:code "8867-4", :system "http://loinc.org"}}}}}}}}}}}
+
+```
 
 ^title "binding to a value set"
 :how-to:describe-constraint:binding md/
 
-TODO
+Если у вас есть схема с тегом zen.fhir/profile-schema, вы можете указать набор значений. Используйте свойство zen.fhir/value-set и укажите существующее имя набора значений в свойстве :symbol. Вам также необходимо указать степень привязки к набору значений в свойстве :strength. Поддерживаемые степени привязки:
+
+* :required - концепция в этом элементе ДОЛЖНА быть из указанного набора значений.
+* :extensible - понятие в этом элементе ДОЛЖНО быть из указанного набора значений, если любой из кодов в пределах набора значений может применяться к передаваемому концепту. Если набор значений не охватывает концепцию (на основе проверки человеком), вместо этого могут быть включены альтернативные коды (или, если позволяет тип данных, текст).
+* :preferred - поощряется использовать указанные коды для целей взаимодействия, но не обязательно делать это, чтобы считаться соответствующими стандарту.
+* :example - не ожидается и даже не поощряется использование кодов из указанного набора значений. Набор значений просто предоставляет примеры типов понятий, которые должны быть включены.
+
+```code edn
+MyPatientProfile
+{:zen/tags #{zen/schema zen.fhir/profile-schema}
+ :zen.fhir/version "0.5.0"
+ :zen.fhir/profileUri "urn:fhir:extension:MyPatientProfile"
+ :confirms #{fhir/Patient}
+ :type zen/map
+ :keys {:gender {:confirms #{fhir/code},
+                 :zen.fhir/value-set {:symbol fhir/administrative-gender,
+                                      :strength :required}}
+```
 
 ^title "invariant"
 :how-to:describe-constraint:invariant md/
 
-TODO
+Как было сказано ранее, в zen-lang нет наследования, поэтому для описания ограничения вложенного элемента необходимо описать структуру, содержащую этот элемент. В следующем примере требуется, чтобы Patient.name.given присутствовал и содержал хотя бы один элемент:
+
+```code edn
+MyPatientProfile
+{:zen/tags #{zen/schema zen.fhir/profile-schema}
+ :zen.fhir/version "0.5.0"
+ :zen.fhir/profileUri "urn:fhir:extension:MyPatientProfile"
+ :confirms #{fhir/Patient}
+ :type zen/map
+ :require #{:name}
+ :keys {:name {:type zen/vector
+               :minItems 1
+               :every {:type zen/map
+                       :require #{:given}
+                       :keys {:given {:type zen/vector
+                                      :minItems 1}}}}}}
+```
 
 ^title "describe a constraint to a nested element"
 :how-to:describe-constraint-nested md/
 
-TODO
+Zen FHIR предлагает другой подход к расширениям как к первому классу вместо обычного способа FHIR через срезы. Расширения первого класса описываются так же, как и любые другие атрибуты и ограничения, но с добавлением URL-адреса расширения. В следующем примере описывается расширение первого класса us-core-race прямо внутри профиля:
+
+```code edn
+MyPatientProfile
+{:zen/tags #{zen/schema zen.fhir/profile-schema}
+ :zen.fhir/version "0.5.0"
+ :zen.fhir/profileUri "urn:fhir:extension:MyPatientProfile"
+ :confirms #{fhir/Patient}
+ :type zen/map
+ :keys {:race
+        {:type zen/map
+         :zen/desc "US Core Race Extension",
+         :fhir/extensionUri "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+         :require #{:text}
+         :keys {:ombCategory {:type zen/vector
+                              :maxItems 5
+                              :every {:confirms #{fhir/Coding}
+                                      :zen/desc "American Indian or Alaska Native|Asian|Black or African American|Native Hawaiian or Other Pacific Islander|White"
+                                      :zen.fhir/value-set {:symbol omb-race-category-value-set
+                                                           :strength :required}}}
+                :detailed {:type zen/vector
+                           :every {:confirms #{fhir/Coding}
+                                   :zen/desc "Extended race codes"
+                                   :zen.fhir/value-set {:symbol detailed-race-value-set
+                                                        :strength :required}}}
+                :text {:confirms #{fhir/string}
+                       :zen/desc "Race Text"}}}}}
+```
+
+Обратите внимание, что элементы расширения имеют свойство :confirms для указанного примитивного или сложного типа данных FHIR. Ранее они указывались в схеме базового профиля. Эти :confirms и :fhir/extensionUri необходимы для преобразования формата zen FHIR <-> FHIR.
+
+Структура, определяемая этой схемой, описывает данные такой формы:
+
+```code edn
+resourceType: Patient
+id: sample-pt
+race:
+  category:
+  - {system: 'urn:oid:2.16.840.1.113883.6.238', code: 2028-9, display: Asian}
+  detailed:
+  - {system: 'urn:oid:2.16.840.1.113883.6.238', code: 2029-7, display: Asian Indian}
+  text: Asian Indian
+```
+
+Затем его можно преобразовать в формат FHIR, что приведет к следующему результату:
+
+```code edn
+resourceType: Patient
+id: sample-pt
+extension:
+- url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
+  extension:
+  - url: ombCategory
+    valueCoding: {system: 'urn:oid:2.16.840.1.113883.6.238', code: 2028-9, display: Asian}
+  - url: detailed
+    valueCoding: {system: 'urn:oid:2.16.840.1.113883.6.238', code: 2029-7, display: Asian Indian}
+  - url: text
+    valueString: Asian Indian
+```
+
+Расширения можно помещать в отдельную схему, если вы собираетесь повторно использовать их в разных профилях. Вот профиль us-core-race, обновленный таким образом:
+
+```code edn
+us-core-race
+{:zen/tags #{zen/schema zen.fhir/structure-schema}
+ :zen.fhir/version "0.5.0"
+ :zen.fhir/profileUri "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+ :type zen/map
+ :require #{:text}
+ :keys {:ombCategory {:type zen/vector
+                      :maxItems 5
+                      :every {:confirms #{fhir/Coding}
+                              :zen/desc "American Indian or Alaska Native|Asian|Black or African American|Native Hawaiian or Other Pacific Islander|White"
+                              :zen.fhir/value-set {:symbol omb-race-category-value-set
+                                                   :strength :required}}}
+        :detailed {:type zen/vector
+                   :every {:confirms #{fhir/Coding}
+                           :zen/desc "Extended race codes"
+                           :zen.fhir/value-set {:symbol detailed-race-value-set
+                                                :strength :required}}}
+        :text {:confirms #{fhir/string}
+               :zen/desc "Race Text"}}}
+
+MyPatientProfile
+{:zen/tags #{zen/schema zen.fhir/profile-schema}
+ :zen.fhir/version "0.5.0"
+ :zen.fhir/profileUri "urn:fhir:extension:MyPatientProfile"
+ :confirms #{fhir/Patient}
+ :type zen/map
+ :keys {:race {:confirms #{us-core-race}
+               :zen/desc "US Core Race Extension"
+               :fhir/extensionUri "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"}}}
+```
+
+Более сложный пример расширения:
+
+```code edn
+MyPatient
+{:zen/tags #{zen/schema zen.fhir/profile-schema}
+ :zen/desc "Patient resource schema with first-class extension definition examples"
+ :zen.fhir/version "0.5.20"
+ :confirms #{zen.fhir/Resource}
+ :zen.fhir/type "Patient"
+ :zen.fhir/profileUri "urn:profile:MyPatientProfile"
+ :type zen/map
+ :keys {:meta {:type zen/map
+               :keys {:tenant-id
+                      {:confirms #{fhir/string}
+                       :zen/desc "Patient.meta.tenant-id first-class extension"
+                       :fhir/extensionUri "http://tenant-id-extension-url"}}}
+
+        :form {:type zen/vector
+               :zen/desc "Patient.form.[*] array first-class extension"
+               :every {:confirms #{fhir/uri}
+                       :fhir/extensionUri "http://patient-form-url"}}
+
+        :info {:type zen/map
+               :zen/desc "Patient.info nested first-class extension"
+               :fhir/extensionUri "http://patient-info"
+               :keys {:registration {:confirms #{fhir/dateTime}
+                                     :zen/desc "Patient.info.registration
+                                                extension.url deduced from key"}
+
+                      :referral {:confirms #{fhir/uri}
+                                 :fhir/extensionUri "http://patient-info-referral"
+                                 :zen/desc "Patient.info.referral
+                                            extension.url is specified"}}}}}
+```
 
 ^title "describe an extension"
 :how-to:describe-extension md/
