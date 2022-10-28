@@ -137,6 +137,7 @@
   :type     zen/map
   :keys     {:zendoc {:type zen/string}
              :zen.fhir/type {:type zen/string}
+             :zen.fhir/href {:type zen/string}
              :zen.fhir/abstract {:type zen/boolean}
              :zen.fhir/status {:type zen/string
                                :enum [{:value "active"}

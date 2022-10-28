@@ -358,6 +358,7 @@
          :gender {:zen/desc "[Пол пациента](/core.Patient#:elements:gender)"
                   :confirms #{fhir/code}
                   :type zen/string
+                  :zen.fhir/href "core.Patient#:elements:gender"
                   :enum [{:value "male"}
                          {:value "female"}
                          {:value "unknown"}]

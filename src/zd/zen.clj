@@ -169,6 +169,7 @@
                    (:confirms sch))]
     {:type tp
      :flags (:fhir/flags sch)
+     :href  (:zen.fhir/href sch)
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
      :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc) #_(:fhir/extensionUri sch)
@@ -345,9 +346,15 @@
   (into (schema-connectors pth)
         [(type-icon (:type row) (:confirms row) (:extension row))
          [:div {:class (c [:ml 3])}
-          (if-let [nm (:name row)]
-            (schema-name nm)
-            (when-let [k (:key (last (:path row)))] (name k)))]]))
+          (let [field-name (if-let [nm (:name row)]
+               (schema-name nm)
+               (when-let [k (:key (last (:path row)))] (name k)))]
+           (if (:href row)
+             [:a {:href (:href row)
+                  :class
+                  (c [:text :blue-600] [:hover [:underline]])
+                  :target "_blank"} field-name]
+             field-name))]]))
 
 
 (defn- render-schema-table-row-type [row]
