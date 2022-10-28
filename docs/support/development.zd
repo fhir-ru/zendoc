@@ -68,7 +68,7 @@ git submodule init
 git submodule update --recursive
 ```
 
-Установить node_modules с файлами стандарта FHIR, выполнив из папки zrc:
+Установить node_modules с файлами стандарта FHIR:
 
 ```code bash
 cd zrc
