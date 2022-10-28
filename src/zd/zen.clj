@@ -146,14 +146,21 @@
       (map-reference ztx refers))
 
     (contains? (:zen/tags sch) 'zen.fhir/profile-schema)
-    [:a {:href (format "http://hl7.org/fhir/r4b/%s.html#resource"
-                       (clojure.string/lower-case (str (:zen.fhir/type sch))))}
-     (:zen.fhir/type sch)]
+    (let [confirm-schemas (mapv (partial zen.core/get-symbol ztx) confirms)]
+      (for [confirm-schema confirm-schemas]
+        [:span {:class (c [:pr 2])}
+         (if (:zendoc confirm-schema)
+           [:a {:href (:zendoc confirm-schema)}
+            (or (:zen.fhir/name confirm-schema)
+                (:zendoc confirm-schema))]
+           [:a {:href (format "http://hl7.org/fhir/r4b/%s.html#resource"
+                              (clojure.string/lower-case (str (:zen.fhir/type sch))))}
+            (:zen.fhir/type sch)])]))
 
     confirms (let [sch-name (first confirms)
                    sch (zen.core/get-symbol ztx sch-name)]
                [:a {:href (calc-ref sch)} (or (:zen.fhir/type sch)
-                                              (schema-name sch-name))])))
+                                                (schema-name sch-name))])))
 
 
 (defn sch-el->row [pth {tp :type :as sch} & [opts ztx]]
