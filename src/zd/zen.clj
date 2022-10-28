@@ -255,7 +255,8 @@
                 (recur (rest slices)
                        (flatten-sch acc
                                     (conj pth {:key slice-name :last (empty? (rest slices))})
-                                    (assoc (merge confirm-schema
+                                    (assoc (merge (update confirm-schema :keys
+                                                          #(select-keys % (-> slice-data :schema :every keys)))
                                                   (:every (:schema slice-data)))
                                            :zen/desc (-> slice-data :zen/desc)
                                            :confirms (:confirms (:every sch)))
