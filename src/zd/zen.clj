@@ -168,6 +168,7 @@
                    (get-in sch [:every :confirms])
                    (:confirms sch))]
     {:type tp
+     :flags (:fhir/flags sch)
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
      :extension (->> sch :confirms first (zen.core/get-symbol ztx) :zendoc) #_(:fhir/extensionUri sch)
@@ -395,8 +396,9 @@
   [:table.schema
    [:tbody
     [:tr {:class (c [:text :gray-700] :text-left)}
-     (let [th-style (c :font-medium)]
+     (let [th-style (c :font-medium [:px 3])]
        (list [:th {:class th-style} "Название"]
+             [:th {:class th-style} "Флаги"]
              [:th {:class th-style} "Кол-во"]
              [:th {:class th-style} "Тип"]
              [:th {:class th-style} "Описание"]))]
@@ -404,6 +406,10 @@
       [:tr
        [:td {:class (c :text-sm)}
         (render-schema-table-row-name pth row)]
+       [:td {:class (c :text-sm [:px 3])}
+        (for [flag (:flags row)]
+          [:span {:class (c :border [:p 1] [:mr 1])}
+           (name flag)])]
        [:td {:class (c :text-sm [:px 3])}
         (:cardinality row)]
        [:td {:class (c [:text :blue-600] :text-sm [:px 3])}
