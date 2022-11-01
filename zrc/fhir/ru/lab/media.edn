@@ -1,10 +1,7 @@
 {ns fhir.ru.lab.media
  import #{fhir zen.fhir
  		  fhir.ru.lab.device
-		  fhir.ru.core.practitioner
-		  fhir.ru.core.organization
-		  fhir.ru.core.patient
-		  fhir.ru.financial.relatedperson}
+		  fhir.ru.core.practitioner}
 
  LabMedia
  {:zen/tags #{zen/schema zen.fhir/profile-schema zen.fhir/lab-group}
@@ -20,14 +17,16 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/media-lab"
   :type zen/map
-  :require #{:content :status}
+  :require #{:content :device :operator :status}
   :keys {
 	:content {
+		:fhir/flags #{:MS}
 		:zen/desc "Используется в ПЛИ"
 		:confirms #{fhir/Attachment}
 		:type zen/map
 		:keys {
 			:data {
+				:fhir/flags #{:MS}
 				:type zen/string
 				:confirms #{fhir/base64Binary}
 				:zen/desc "Используется в ПЛИ"
@@ -35,11 +34,13 @@
 		}
 	}
 	:created {
+		:fhir/flags #{:MS}
 		:fhir/polymorphic true
 		:type zen/map
 		:zen/desc "Используется в ПЛИ"
 		:keys {
 			:dateTime {
+				:fhir/flags #{:MS}
 				:type zen/string
 				:confirms #{fhir/dateTime}
 				:zen/desc "Используется в ПЛИ"
@@ -47,25 +48,24 @@
 		}
 	}
 	:device {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
-			:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}
+			:refers #{fhir.ru.lab.device/LabDevice}
 		}
 		:zen/desc "Используется в ПЛИ"
 	}
 	:operator {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/Reference zen.fhir/Reference}
 		:zen.fhir/reference {
 			:refers #{	fhir.ru.core.practitioner/CorePractitioner 
-						fhir.ru.core.practitioner/CorePractitionerRole
-						fhir.ru.core.organization/CoreOrganization
-						fhir.ru.lab.device/LabDevice
-						fhir.ru.core.patient/CorePatient
-						fhir.ru.financial.relatedperson/FinancialRelatedPerson}
+						fhir.ru.core.practitioner/CorePractitionerRole}
 		}
 		:zen/desc "Используется в ПЛИ"
 	}
 	:status {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/code}
 		:zen.fhir/value-set {
 			:symbol hl7-fhir-r4-core.value-set.event-status/value-set

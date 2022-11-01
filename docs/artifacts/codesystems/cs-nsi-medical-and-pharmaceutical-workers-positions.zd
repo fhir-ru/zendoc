@@ -29,8 +29,7 @@
 Значение для использования в качестве системы:
 
 ^badge
-:system "http://fhir.ru/core/vs/core-vs-medical-and-pharmaceutical-workers-positions"
-
+:system "http://fhir.ru/core/cs/core-cs-nsi-medical-and-pharmaceutical-workers-positions"
 ^badge
 :OID "1.2.643.5.1.13.13.11.1002"
 

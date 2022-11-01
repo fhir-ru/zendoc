@@ -22,11 +22,13 @@
   :keys{
         :category 
             {:type zen/map
+            :fhir/flags #{:MS}
             :confirms #{fhir/CodeableConcept} 
             :require #{:coding}
             :keys {
                   :coding  
                         {:type zen/vector
+                        :fhir/flags #{:MS}
                         :minItems 1
                         :every
                                 {
@@ -34,28 +36,34 @@
                                 :confirms #{fhir/Coding}
                                 :keys {
                                         :code  
-                                                {:type zen/string
+                                                {:fhir/flags #{:MS}
+                                                :type zen/string
                                                 :confirms #{fhir/code}} 
                                                 
                                         :display
-                                                {:type zen/string  
+                                                {:fhir/flags #{:MS}
+                                                :type zen/string  
                                                 :confirms #{fhir/string}} 
                                         
                                         :system
-                                                {:type zen/string  
-                                                :confirms #{fhir/string}}
+                                                {:fhir/flags #{:MS}
+                                                :type zen/string  
+                                                :confirms #{fhir/uri}}
                                                 
                                         :version
-                                                {:type zen/string  
+                                                {:fhir/flags #{:MS}
+                                                :type zen/string  
                                                 :confirms #{fhir/string}}}}}}} 
         :code
             {:type zen/map
+            :fhir/flags #{:MS}
             :confirms #{fhir/CodeableConcept} 
             :require #{:coding}
             :keys {
                   :coding  
                         {
-                        :type zen/vector 
+                        :type zen/vector
+                        :fhir/flags #{:MS}
                         :minItems 1 
                         :every
                                 {
@@ -64,29 +72,35 @@
                                 :keys {
                                         :code  
                                                 {:type zen/string
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/code}} 
                                                 
                                         :display
-                                                {:type zen/string  
+                                                {:type zen/string
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/string}} 
                                         
                                         :system
-                                                {:type zen/string  
-                                                :confirms #{fhir/string}} 
+                                                {:type zen/string
+                                                :fhir/flags #{:MS} 
+                                                :confirms #{fhir/uri}} 
                                                 
                                         :version
-                                                {:type zen/string  
+                                                {:type zen/string
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/string}}}}}}} 
 
         :performer {:type zen/vector
-                        :minItems 0
-                        :every
-                                {:type zen/map
-                                :confirms #{fhir/Reference zen.fhir/Reference}
-                                :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner
+                    :fhir/flags #{:MS}
+                    :minItems 0
+                    :every
+                            {:type zen/map
+                            :confirms #{fhir/Reference zen.fhir/Reference}
+                            :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner
                                                                 fhir.ru.core.practitioner/CorePractitionerRole}}}} 
 
         :result {:type zen/vector
+                 :fhir/flags #{:MS}
                  :minItems 0
                  :every
                         {:type zen/map
@@ -95,10 +109,12 @@
       
         :status  
                 {:type zen/string
+                :fhir/flags #{:MS}
                 :confirms #{fhir/code}} 
 
         :media
                 {:type zen/vector
+                :fhir/flags #{:MS}
                 :minItems 0
                 :every
                 {:type zen/map
@@ -107,5 +123,6 @@
                 :keys {
 
                         :link  
-                                {:confirms #{fhir/Reference zen.fhir/Reference}
-                                :zen.fhir/reference {:refers #{fhir.ru.lab.media/media}}}}}}}}}
+                                {:fhir/flags #{:MS}
+                                :confirms #{fhir/Reference zen.fhir/Reference}
+                                :zen.fhir/reference {:refers #{fhir.ru.lab.media/LabMedia}}}}}}}}}

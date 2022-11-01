@@ -22,7 +22,8 @@
   :zen.fhir/profileUri "http://fhir.ru/core/sd/lab-composition"
   :type zen/map
   :require #{:date :status :title :type}
-  :keys {:author {:type zen/vector
+  :keys {:author {:fhir/flags #{:MS}
+                  :type zen/vector
                   :minItems 1
                   :zen/desc "Определяет, кто несет ответственность за информацию в композиции, это не обязательно тот, кто её вводил."
                   :every {:type zen/map
@@ -33,28 +34,33 @@
                                                          fhir.ru.core.patient/CorePatient
                                                          fhir.ru.financial.relatedperson/FinancialRelatedPerson
                                                          fhir.ru.core.organization/CoreOrganization}}}}
-         :confidentiality {:type zen/string
+         :confidentiality {:fhir/flags #{:MS}
+                           :type zen/string
                            :confirms #{fhir/code}
                            :zen/desc "Уровень конфиденциальности медицинского документа"
                            :zen.fhir/value-set
                            {:symbol
                             CoreVsNsiConfidentiality
                             :strength :required}}
-         :date {:type zen/string
+         :date {:fhir/flags #{:MS}
+                :type zen/string
                 :confirms #{fhir/dateTime}
                 :zen/desc "Дата последнего изменения"}
-         :identifier {:zen/desc "Идентификаторы"
+         :identifier {:fhir/flags #{:MS}
+                      :zen/desc "Идентификаторы"
                       :type zen/map
-                      :keys {:value {:type zen/string
+                      :keys {:value {:fhir/flags #{:MS}
+                                     :type zen/string
                                      :confirms #{fhir/string}
                                      :zen/desc "Уникальный ИД набора версий документа"}
-                             :system {:type zen/string
+                             :system {:fhir/flags #{:MS}
+                                      :type zen/string
                                       :confirms #{fhir/uri}
                                       :zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.50"}}}
-         :section {:zen/desc ""}
-         :status {:zen/desc ""}
-         :title {:zen/desc ""}
-         :type {:type zen/map
+         :section {:fhir/flags #{:MS} :zen/desc ""}
+         :status {:fhir/flags #{:MS} :zen/desc ""}
+         :title {:fhir/flags #{:MS} :zen/desc ""}
+         :type {:fhir/flags #{:MS} :type zen/map
                 :zen/desc ""
                 :confirms #{fhir/CodeableConcept}
                 :match {:coding #{{:code "11502-2" :display "Laboratory report" :system "http://loinc.org"}

@@ -21,21 +21,25 @@
   :type zen/map
   :keys {
 	:collection {
+		:fhir/flags #{:MS}
 		:type zen/map
 		:confirms #{fhir/BackboneElement}
 		:zen/desc "Используется в ПЛИ"
 		:keys {
 			:collected {
+				:fhir/flags #{:MS}
 				:fhir/polymorphic true
 				:type zen/map
 				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:dateTime {
+						:fhir/flags #{:MS}
 						:type zen/string
 						:confirms #{fhir/dateTime}
 						:zen/desc "Используется в ПЛИ"
 					}
 					:Period {
+						:fhir/flags #{:MS}
 						:type zen/map
 						:confirms #{fhir/Period}
 						:zen/desc "Используется в ПЛИ"
@@ -43,6 +47,7 @@
 				}
 			}
 			:collector {
+				:fhir/flags #{:MS}
 				:confirms #{fhir/Reference zen.fhir/Reference}
             	:zen.fhir/reference {
 					:refers #{  fhir.ru.core.practitioner/CorePractitioner 
@@ -51,11 +56,13 @@
 				:zen/desc "Используется в ПЛИ"
 			}
 			:method {
+				:fhir/flags #{:MS}
 				:type zen/map
                 :confirms #{fhir/CodeableConcept}
 				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:coding {
+						:fhir/flags #{:MS}
 						:type zen/vector
 						:zen/desc "Используется в ПЛИ"
 						:every {
@@ -63,16 +70,19 @@
 							:confirms #{fhir/Coding}
 							:keys {
 								:code {
+									:fhir/flags #{:MS}
 									:type zen/map
 									:confirms #{fhir/code}
 									:zen/desc "Используется в ПЛИ"
 								}
 								:display {
+									:fhir/flags #{:MS}
 									:type zen/string
 									:confirms #{fhir/string} 	
 									:zen/desc "Используется в ПЛИ"
 								}
 								:system {
+									:fhir/flags #{:MS}
 									:type zen/string
 									:confirms #{fhir/uri}
 									:zen/desc "Используется в ПЛИ"
@@ -82,6 +92,7 @@
 									}
 								}
 								:version {
+									:fhir/flags #{:MS}
 									:type zen/string
 									:confirms #{fhir/string}
 									:zen/desc "Используется в ПЛИ"
@@ -92,16 +103,19 @@
 				}
 			}
 			:quantity {
+				:fhir/flags #{:MS}
 				:type zen/map
 				:confirms #{fhir/SimpleQuantity}
 				:zen/desc "Используется в ПЛИ"
 				:keys {
 					:code {
+						:fhir/flags #{:MS}
 						:type zen/string
                         :confirms #{fhir/code}
 						:zen/desc "Используется в ПЛИ"
 					}
 					:system {
+						:fhir/flags #{:MS}
 						:type zen/string
                         :confirms #{fhir/uri}
 						:zen/desc "Используется в ПЛИ"
@@ -111,11 +125,13 @@
 						}
 					}
 					:unit {
+						:fhir/flags #{:MS}
 						:type zen/string
 						:confirms #{fhir/string}
 						:zen/desc "Используется в ПЛИ"
 					}
 					:value {
+						:fhir/flags #{:MS}
 						:type zen/string
 						:confirms #{fhir/decimal}
 						:zen/desc "Используется в ПЛИ"
@@ -125,6 +141,7 @@
 		}
 	}
 	:container {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -133,11 +150,13 @@
 			:keys {
 				:additive {
 					:fhir/polymorphic true
+					:fhir/flags #{:MS}
 					:type zen/map
 					:zen/desc "Используется в ПЛИ"
 					:keys {
 						:Reference {
 							:zen/desc "Используется в ПЛИ"
+							:fhir/flags #{:MS}
 							:confirms #{fhir/Reference zen.fhir/Reference}
 							:zen.fhir/reference {
 								:refers #{fhir.ru.lab.substance/LabSubstance}
@@ -146,11 +165,13 @@
 					}
 				}
 				:description {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Используется в ПЛИ"
 				}
 				:identifier {
+					:fhir/flags #{:MS}
 					:type zen/vector
 					:zen/desc "Используется в ПЛИ"
 					:maxItems 1
@@ -159,11 +180,13 @@
 						:confirms #{fhir/Identifier}
 						:keys {
 							:value {
+								:fhir/flags #{:MS}
 								:type zen/string
 								:confirms #{fhir/string}
 								:zen/desc "Используется в ПЛИ"
 							}
 							:system {
+								:fhir/flags #{:MS}
 								:type zen/string
 								:confirms #{fhir/uri}
 								:zen/desc "Используется в ПЛИ"
@@ -175,6 +198,7 @@
 		}
 	}
 	:identifier {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -182,11 +206,13 @@
 			:confirms #{fhir/Identifier}
 			:keys {
 				:system {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/uri} 
 					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.66 Используется в ПЛИ"	
 				}
 				:value {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Используется в ПЛИ"
@@ -195,6 +221,7 @@
 		}
 	}
 	:parent {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -206,6 +233,7 @@
 		}
 	}
 	:processing {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -213,16 +241,19 @@
 			:confirms #{fhir/BackboneElement}
 			:keys {
 				:description {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Используется в ПЛИ"
 				}
 				:procedure {
+					:fhir/flags #{:MS}
 					:type zen/map
 					:confirms #{fhir/CodeableConcept}
 					:zen/desc "Используется в ПЛИ"
 					:keys {
 						:coding {
+							:fhir/flags #{:MS}
 							:type zen/vector
 							:zen/desc "Используется в ПЛИ"
 							:every {
@@ -230,11 +261,13 @@
 								:confirms #{fhir/Coding}
 								:keys {
 									:code {
+										:fhir/flags #{:MS}
 										:type zen/string
 										:confirms #{fhir/code}
 										:zen/desc "Используется в ПЛИ"
 									}
 									:system {
+										:fhir/flags #{:MS}
 										:type zen/string
 										:confirms #{fhir/uri}
 										:zen/desc "Используется в ПЛИ"
@@ -244,11 +277,13 @@
 										}
 									}
 									:version {
+										:fhir/flags #{:MS}
 										:type zen/string
 										:confirms #{fhir/string}
 										:zen/desc "Используется в ПЛИ"
 									}
 									:display {
+										:fhir/flags #{:MS}
 										:type zen/string
 										:confirms #{fhir/string}
 										:zen/desc "Используется в ПЛИ"
@@ -259,26 +294,31 @@
 					}
 				}
 				:time {
+					:fhir/flags #{:MS}
 					:fhir/polymorphic true
 					:type zen/map
 					:zen/desc "Используется в ПЛИ"
 					:keys {
 						:dateTime {
+							:fhir/flags #{:MS}
 							:type zen/string
 							:confirms #{fhir/dateTime}
 							:zen/desc "Используется в ПЛИ"
 						}
 						:Period {
+							:fhir/flags #{:MS}
 							:type zen/map
 							:confirms #{fhir/Period}
 							:zen/desc "Используется в ПЛИ"
 							:keys {
 								:end {
+									:fhir/flags #{:MS}
 									:type zen/string
 									:confirms #{fhir/dateTime}
 									:zen/desc "Используется в ПЛИ"
 								}
 								:start {
+									:fhir/flags #{:MS}
 									:type zen/string
 									:confirms #{fhir/dateTime}
 									:zen/desc "Используется в ПЛИ"
@@ -291,11 +331,13 @@
 		}
 	}
 	:type {
+		:fhir/flags #{:MS}
 		:type zen/map
 		:confirms #{fhir/CodeableConcept}
 		:zen/desc "Используется в ПЛИ"
 		:keys {
 			:coding {
+				:fhir/flags #{:MS}
 				:type zen/vector
 				:zen/desc "Используется в ПЛИ"
 				:every {
@@ -303,16 +345,19 @@
 					:confirms #{fhir/Coding}
 					:keys {
 						:code {
+							:fhir/flags #{:MS}
 							:type zen/map
 							:confirms #{fhir/code}
 							:zen/desc "Используется в ПЛИ"
 						}
 						:display {
+							:fhir/flags #{:MS}
 							:type zen/string
 							:confirms #{fhir/string} 	
 							:zen/desc "Используется в ПЛИ"
 						}
 						:system {
+							:fhir/flags #{:MS}
 							:type zen/string
 							:confirms #{fhir/uri}
 							:zen/desc "Используется в ПЛИ"
@@ -322,6 +367,7 @@
 							}
 						}
 						:version {
+							:fhir/flags #{:MS}
 							:type zen/string
 							:confirms #{fhir/string}
 							:zen/desc "Используется в ПЛИ"

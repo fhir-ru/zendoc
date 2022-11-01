@@ -20,6 +20,7 @@
   :require #{:identifier}
   :keys {
 	:deviceName {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Наименование из cправочника оборудования ЛИС. Используется в ПЛИ."
 		:every {
@@ -28,11 +29,13 @@
 			:require #{:name :type}
 			:keys {
 				:name {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Имя, которое идентифицирует устройство. Используется в ПЛИ."
 				}
 				:type {
+					:fhir/flags #{:MS}
 					:confirms #{fhir/code}
 					:zen.fhir/value-set {
 						:symbol hl7-fhir-r4-core.value-set.device-nametype/value-set
@@ -44,6 +47,7 @@
 		}
 	}
 	:identifier {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Идентификатор экземпляра. Используется в ПЛИ"
 		:every {
@@ -51,11 +55,13 @@
 			:confirms #{fhir/Identifier}
 			:keys {
 				:system {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/uri} 
 					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67. Используется в ПЛИ"	
 				}
 				:value {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "ID из cправочника оборудования ЛИС. Используется в ПЛИ"

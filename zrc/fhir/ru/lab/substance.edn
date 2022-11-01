@@ -18,12 +18,14 @@
   :require #{:code}
   :keys {
 	:code {
+		:fhir/flags #{:MS}
 		:type zen/map
 		:confirms #{fhir/CodeableConcept}
 		:zen/desc "Используется в ПЛИ"
 		:require #{:coding}
 		:keys {
 			:text {
+				:fhir/flags #{:MS}
 				:type zen/string
 				:confirms #{fhir/string}
 				:zen/desc "Используется в ПЛИ"
@@ -31,11 +33,13 @@
 		}
 	}
 	:description {
+		:fhir/flags #{:MS}
 		:type zen/string
 		:confirms #{fhir/string}
 		:zen/desc "Используется в ПЛИ"
 	}
 	:identifier {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -43,11 +47,13 @@
 			:confirms #{fhir/Identifier}
 			:keys {
 				:system {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/uri} 
 					:zen/desc "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.67 Используется в ПЛИ"	
 				}
 				:value {
+					:fhir/flags #{:MS}
 					:type zen/string
 					:confirms #{fhir/string}
 					:zen/desc "Используется в ПЛИ"

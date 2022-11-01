@@ -21,21 +21,22 @@
   :type zen/map
   :require #{:status :intent :subject}
   :keys  { 
-
       :status
             {:confirms #{fhir/code},
             :zen.fhir/value-set
             {:symbol hl7-fhir-r4-core.value-set.request-status/value-set,
             :strength :required},
             :zen/desc
-            "Черновик | Активен | В ожидании | Аннулирован | Завершён | Недействителен | Неизвестен"},
+            "Черновик | Активен | В ожидании | Аннулирован | Завершён | Недействителен | Неизвестен"
+            :fhir/flags #{:MS}},
       :intent
             {:confirms #{fhir/code},
             :zen.fhir/value-set
             {:symbol hl7-fhir-r4-core.value-set.request-intent/value-set,
             :strength :required},
             :zen/desc
-            "Предложение | План | Юридический запрос | Заказ | Первичный заказ | Ответный заказ | Заказ исполнения | Подзаказ исполнения | Опция"},
+            "Предложение | План | Юридический запрос | Заказ | Первичный заказ | Ответный заказ | Заказ исполнения | Подзаказ исполнения | Опция"
+            :fhir/flags #{:MS}},
 
       :subject
             {:confirms #{fhir/Reference zen.fhir/Reference},
@@ -44,16 +45,19 @@
             fhir.ru.lab.device/LabDevice
             fhir/Location
             fhir/Group}},
-            :zen/desc "Физическое или юридическое лицо, для которого заказана услуга"},   
+            :zen/desc "Физическое или юридическое лицо, для которого заказана услуга"
+            :fhir/flags #{:MS}},   
 
       :code 
             {:type zen/map
             :confirms #{fhir/CodeableConcept},
             :require #{:coding}
+            :fhir/flags #{:MS}
             :keys {
                   :coding  
                         {:type zen/vector,
                         :minItems 1,
+                        :fhir/flags #{:MS}
                         :every
                         {:type zen/map
                         :confirms #{fhir/Coding}
@@ -62,11 +66,13 @@
                                     {:type zen/map
                                     :zen.fhir/value-set {:symbol CoreVsNsirangemedicalservices :strength :required}
                                     :confirms #{fhir/code}
-                                    :zen/desc "Код услуги должен указывается по справочнику НСИ ЕГИСЗ"},
+                                    :zen/desc "Код услуги должен указывается по справочнику НСИ ЕГИСЗ"
+                                    :fhir/flags #{:MS}},
                                     
                               :display
                                     {:type zen/string  
-                                    :confirms #{fhir/string}}}}}}}}}
+                                    :confirms #{fhir/string}
+                                    :fhir/flags #{:MS}}}}}}}}}
 
 CoreVsNsiNomenclatureMedicalServices
  {:zen/tags #{zen.fhir/value-set}

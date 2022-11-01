@@ -30,10 +30,12 @@
   :zen.fhir/kind "resource"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/bundle-lab"
   :type zen/map
-  :keys {:type {:type zen/string
+  :keys {:type {:fhir/flags #{:MS}
+                :type zen/string
                 :zen/desc "Тип бандла"
                 :const {:value "document"}}
-         :entry {:type zen/vector
+         :entry {:fhir/flags #{:MS}
+                 :type zen/vector
                  :every {:type zen/map
                          :confirms #{fhir/BackboneElement}}
                  :slicing
@@ -46,7 +48,7 @@
                     :schema {:type zen/vector
                              :maxItems 1
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.composition/LabComposition}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.composition/LabComposition}}}}}}
                    "Coverage"
                    {:zen/desc "Coverage"
                     :filter
@@ -54,7 +56,7 @@
                      :match {:resource {:resourceType "Coverage"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.coverage/CoreCoverage}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.coverage/CoreCoverage}}}}}}
                    "Device"
                    {:zen/desc "Device"
                     :filter
@@ -62,7 +64,7 @@
                      :match {:resource {:resourceType "Device"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.device/LabDevice}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.device/LabDevice}}}}}}
                    "DiagnosticReport"
                    {:zen/desc "DiagnosticReport"
                     :filter
@@ -70,7 +72,7 @@
                      :match {:resource {:resourceType "DiagnosticReport"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.diagnosticreport/LabDiagnosticReport}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.diagnosticreport/LabDiagnosticReport}}}}}}
                    "Encounter"
                    {:zen/desc "Encounter"
                     :filter
@@ -78,7 +80,7 @@
                      :match {:resource {:resourceType "Encounter"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.encounter/CoreEncounter}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.encounter/CoreEncounter}}}}}}
                    "Media"
                    {:zen/desc "Media"
                     :filter
@@ -86,7 +88,7 @@
                      :match {:resource {:resourceType "Media"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.media/LabMedia}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.media/LabMedia}}}}}}
                    "Observation"
                    {:zen/desc "Observation"
                     :filter
@@ -94,7 +96,7 @@
                      :match {:resource {:resourceType "Observation"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.observation/LabObservation}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.observation/LabObservation}}}}}}
                    "Organization"
                    {:zen/desc "Organization"
                     :filter
@@ -102,7 +104,7 @@
                      :match {:resource {:resourceType "Organization"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.organization/CoreOrganization}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.organization/CoreOrganization}}}}}}
                    "Patient"
                    {:zen/desc "Patient"
                     :filter
@@ -110,7 +112,7 @@
                      :match {:resource {:resourceType "Patient"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.patient/CorePatient}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.patient/CorePatient}}}}}}
                    "Practitioner"
                    {:zen/desc "Practitioner"
                     :filter
@@ -118,7 +120,7 @@
                      :match {:resource {:resourceType "Practitioner"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.practitioner/CorePractitioner}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.practitioner/CorePractitioner}}}}}}
                    "PractitionerRole"
                    {:zen/desc "PractitionerRole"
                     :filter
@@ -126,7 +128,7 @@
                      :match {:resource {:resourceType "PractitionerRole"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.core.practitioner/CorePractitionerRole}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.core.practitioner/CorePractitionerRole}}}}}}
                    "ServiceRequest"
                    {:zen/desc "ServiceRequest"
                     :filter
@@ -134,7 +136,7 @@
                      :match {:resource {:resourceType "ServiceRequest"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.servicerequest/LabServiceRequest}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.servicerequest/LabServiceRequest}}}}}}
                    "Specimen"
                    {:zen/desc "Specimen"
                     :filter
@@ -142,7 +144,7 @@
                      :match {:resource {:resourceType "Specimen"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.specimen/LabSpecimen}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.specimen/LabSpecimen}}}}}}
                    "Substance"
                    {:zen/desc "Substance"
                     :filter
@@ -150,7 +152,7 @@
                      :match {:resource {:resourceType "Substance"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.substance/LabSubstance}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.substance/LabSubstance}}}}}}
                    "Task"
                    {:zen/desc "Task"
                     :filter
@@ -158,5 +160,5 @@
                      :match {:resource {:resourceType "Task"}}}
                     :schema {:type zen/vector
                              :every {:type zen/map
-                                     :keys {:resource {:confirms #{fhir.ru.lab.task/LabTask}}}}}}}}}}}}
+                                     :keys {:resource {:fhir/flags #{:MS} :confirms #{fhir.ru.lab.task/LabTask}}}}}}}}}}}}
 

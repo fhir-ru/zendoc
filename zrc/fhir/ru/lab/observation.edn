@@ -21,55 +21,72 @@
   :zen.fhir/profileUri "http://fhir.ru/core/sd/observation-lab"
   :type zen/map
   :keys {:code {:type zen/map
+                :fhir/flags #{:MS}
                 :zen.fhir/value-set {:symbol CoreVsLabTests :strength :required}}
          :device {:confirms #{fhir/Reference zen.fhir/Reference}
+                  :fhir/flags #{:MS}
                   :zen.fhir/reference {:refers #{fhir.ru.lab.device/LabDevice fhir/DeviceMetric}}}
          :effective
          {:fhir/polymorphic true
+          :fhir/flags #{:MS}
           :exclusive-keys #{#{:dateTime :Period}}
           :type zen/map
           :keys
-          {:dateTime {:confirms #{fhir/dateTime}}
+          {:dateTime {:confirms #{fhir/dateTime} :fhir/flags #{:MS}}
           ;;  :_dateTime {:confirms #{fhir/Element}}
-           :Period {:confirms #{fhir/Period}}}}
+           :Period {:confirms #{fhir/Period} :fhir/flags #{:MS}}}}
          :hasMember {:confirms #{fhir/Reference zen.fhir/Reference}
+                     :fhir/flags #{:MS}
                      :zen.fhir/reference {:refers #{fhir.ru.lab.observation/LabObservation fhir/QuestionnaireResponse fhir/MolecularSequence}}}
          :subject {:confirms #{fhir/Reference zen.fhir/Reference}
                    :zen.fhir/reference {:refers #{fhir.ru.core.patient/CorePatient}}}
          :encounter {:confirms #{fhir/Reference zen.fhir/Reference}
                      :zen.fhir/reference {:refers #{fhir.ru.core.encounter/CoreEncounter}}}
          :performer {:confirms #{fhir/Reference zen.fhir/Reference}
+                     :fhir/flags #{:MS}
                      :zen.fhir/reference {:refers #{fhir.ru.core.practitioner/CorePractitioner fhir.ru.core.practitioner/CorePractitionerRole}}}
          :interpretation {:type zen/vector
+                          :fhir/flags #{:MS}
                           :zen/desc ""
                           :zen.fhir/value-set {:symbol CoreVsResultInterpretation
                                                :strength :required}}
-         :note {}
+         :note {:fhir/flags #{:MS}}
          :referenceRange {:type zen/vector
                           :every {:type zen/map
                                   :confirms #{fhir/BackboneElement}
                                   :keys {:low {:type zen/map
+                                               :fhir/flags #{:MS}
                                                :confirms #{fhir/SimpleQuantity}
                                                :zen.fhir/value-set {:symbol CoreVsUnits :strength :required}
                                                :keys {:value {:type zen/string
+                                                              :fhir/flags #{:MS}
                                                               :confirms #{fhir/decimal}}
                                                       :unit {:type zen/string
+                                                             :fhir/flags #{:MS}
                                                              :confirms #{fhir/string}}
                                                       :system {:type zen/string
+                                                               :fhir/flags #{:MS}
                                                                :confirms #{fhir/uri}}
                                                       :code {:type zen/string
+                                                             :fhir/flags #{:MS}
                                                              :confirms #{fhir/code}}}}
                                          :high {:type zen/map
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/SimpleQuantity}}
                                          :type {:type zen/map
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/CodeableConcept}}
                                          :appliesTo {:type zen/map
+                                                     :fhir/flags #{:MS}
                                                      :confirms #{fhir/CodeableConcept}}
                                          :age {:type zen/map
+                                               :fhir/flags #{:MS}
                                                :confirms #{fhir/Range}}
                                          :text {:type zen/string
+                                                :fhir/flags #{:MS}
                                                 :confirms #{fhir/string}}}}}
          :specimen {:confirms #{fhir/Reference zen.fhir/Reference}
+                    :fhir/flags #{:MS}
                     :zen.fhir/reference {:refers #{fhir.ru.lab.specimen/LabSpecimen}}}}}
 
 

@@ -18,6 +18,7 @@
   :require #{:intent :status}
   :keys {
 	:basedOn {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -28,16 +29,19 @@
 		}
 	}
 	:executionPeriod {
+		:fhir/flags #{:MS}
 		:type zen/map
 		:confirms #{fhir/Period}
 		:zen/desc "Используется в ПЛИ"
 		:keys {
 			:end {
+				:fhir/flags #{:MS}
 				:type zen/string
 				:confirms #{fhir/dateTime}
 				:zen/desc "Используется в ПЛИ"
 			}
 			:start {
+				:fhir/flags #{:MS}
 				:type zen/string
 				:confirms #{fhir/dateTime}
 				:zen/desc "Используется в ПЛИ"
@@ -45,6 +49,7 @@
 		}
 	}
 	:intent {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/code}
 		:zen.fhir/value-set {
 			:symbol hl7-fhir-r4-core.value-set.task-intent/value-set
@@ -53,6 +58,7 @@
 		:zen/desc "Используется в ПЛИ"
 	}
 	:output {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -61,11 +67,13 @@
 			:require #{:type :valueReference}
 			:keys {
 				:type {
+					:fhir/flags #{:MS}
 					:type zen/map
 					:confirms #{fhir/CodeableConcept}
 					:zen/desc "Используется в ПЛИ"
 					:keys {
 						:coding {
+							:fhir/flags #{:MS}
 							:type zen/vector
 							:zen/desc "Используется в ПЛИ"
 							:every {
@@ -73,6 +81,7 @@
 								:confirms #{fhir/Coding}
 								:keys {
 									:code {
+										:fhir/flags #{:MS}
 										:type zen/map
 										:confirms #{fhir/code}
 										:zen/desc "Используется в ПЛИ"
@@ -83,6 +92,7 @@
 					}
 				}
 				:valueReference {
+					:fhir/flags #{:MS}
 					:confirms #{fhir/Reference}
 					:zen/desc "Используется в ПЛИ"
 				}
@@ -90,6 +100,7 @@
 		}
 	}
 	:performerType {
+		:fhir/flags #{:MS}
 		:type zen/vector
 		:zen/desc "Используется в ПЛИ"
 		:every {
@@ -98,6 +109,7 @@
 			:require #{:coding}
 			:keys {
 				:coding {
+					:fhir/flags #{:MS}
 					:type zen/vector
 					:zen/desc "Используется в ПЛИ"
 					:every {
@@ -105,11 +117,13 @@
 						:confirms #{fhir/Coding}
 						:keys {
 							:code {
+								:fhir/flags #{:MS}
 								:type zen/string
 								:confirms #{fhir/code}
 								:zen/desc "Используется в ПЛИ"
 							}
 							:system {
+								:fhir/flags #{:MS}
 								:type zen/string
 								:confirms #{fhir/uri}
 								:zen/desc "Используется в ПЛИ"
@@ -122,6 +136,7 @@
 								}
 							}
 							:version {
+								:fhir/flags #{:MS}
 								:type zen/string
 								:confirms #{fhir/string}
 								:zen/desc "Используется в ПЛИ"
@@ -133,6 +148,7 @@
 		}
 	}
 	:priority {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/code}
 		:zen/desc "Используется в ПЛИ"
 		:zen.fhir/value-set {
@@ -141,6 +157,7 @@
 		}
 	}
 	:status {
+		:fhir/flags #{:MS}
 		:confirms #{fhir/code}
 		:zen.fhir/value-set {
 			:symbol hl7-fhir-r4-core.value-set.task-status/value-set
