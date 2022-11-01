@@ -266,3 +266,20 @@ Value set задаёт набор кодов, определённых сист�
     {:confirms #{fhir/code}
      :fhir/flags #{:MS}}
 ```
+
+^title "Указание ссылки для элемента схемы"
+:element-as-a-link md/
+
+Чтобы сделать элемент схемы ссылкой, укажите в схеме элемента следующее свойство:
+
+```code edn
+  :zen.fhir/href "core.Patient#:elements:gender"
+```
+
+Например:
+
+```code edn
+  :gender
+    {:confirms #{fhir/code}
+     :zen.fhir/href "core.Patient#:elements:gender"}
+```
