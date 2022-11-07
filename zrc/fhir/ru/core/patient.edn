@@ -19,7 +19,8 @@
   :zen.fhir/type "Patient"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
   :type zen/map
-  :keys {:identifier {:zen/desc "Идентификаторы пациента"
+  :keys {:identifier {:zen/desc "[Идентификаторы пациента](core.Patient#:elements:identifier)"
+                      :zen.fhir/href "core.Patient#:elements:identifier"
                       :type zen/vector
                       :every {:confirms #{fhir/Identifier}
                               :type zen/map}
@@ -341,8 +342,9 @@
                            {:engine :match
                             :match {:system "http://fhir.ru/core/systems/newborn"}}
                            :schema {:type zen/vector, :maxItems 1}}}}}
-         :name {:zen/desc "ФИО пациента"
+         :name {:zen/desc "[ФИО пациента](core.Patient#:elements:name)"
                 :type zen/vector
+                :zen.fhir/href "core.Patient#:elements:name"
                 :every {:confirms #{fhir/HumanName}
                         :type zen/map
                         :keys {:use {:confirms #{fhir/code}
@@ -363,7 +365,8 @@
                          {:value "female"}
                          {:value "unknown"}]
                   :zen.fhir/value-set {:symbol CoreVsAdministrativeGender :strength :required}}
-         :address {:zen/desc "Адрес пациента"
+         :address {:zen/desc "[Адрес пациента](core.Patient#:elements:address)"
+                   :zen.fhir/href "core.Patient#:elements:address"
                    :type zen/vector
                    :every {:confirms #{fhir.ru.core.address/CoreAddress}
                            :type zen/map}}}}
