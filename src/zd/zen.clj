@@ -168,7 +168,7 @@
                    (get-in sch [:every :confirms])
                    (:confirms sch))]
     {:type tp
-     :flags (cond-> (:fhir/flags sch) (= 'zen/vector tp) (conj "Σ"))
+     :flags (:fhir/flags sch)
      :href  (:zen.fhir/href sch)
      :fhir-type (format-fhir-type ztx sch :confirms confirms)
      :confirms confirms
