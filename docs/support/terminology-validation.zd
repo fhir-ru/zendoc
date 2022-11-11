@@ -1,0 +1,126 @@
+^hide
+:menu-order 10
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+
+:title "Валидация на соответствие справочникам"
+
+^badge
+:editors #{people.alexandra}
+
+^badge
+:date:updated "2022-11-11"
+
+^title "Оглавление"
+:content-list md/ 
+
+:summary md/
+
+:toc
+
+^title "Установка"
+:installation md/
+
+Необходимо скачать файл `zen.jar` по ссылке [https://github.com/HealthSamurai/ftr/releases/latest/download/zen.jar](https://github.com/HealthSamurai/ftr/releases/latest/download/zen.jar)
+
+^title "Создание проекта"
+:project-creation md/
+
+Создайте директорию `project` со следующей структурой:
+
+```code 
+project/
+  zen-package.edn #Package deps declaration
+  resources/
+    icd-10.csv #CSV source file
+  zrc/
+    system.edn #System entrypoint importing a ValueSet definion
+    diagnosis.edn # ValueSet definition
+```
+
+Содержимое файла `zen-package.edn`:
+
+```code 
+{:deps {}}
+```
+
+Содержимое файла `zrc/system.edn`:
+
+```code 
+{:ns system
+ :import #{aidbox diagnosis}
+ 
+ box
+ {:zen/tags #{aidbox/system}}}
+```
+
+Содержимое файла `zrc/diagnosis.edn`:
+
+```code 
+{:ns diagnosis
+ :import #{zen.fhir}
+ 
+ diagnosis-vs
+ {:zen/tags #{zen.fhir/value-set},
+  :zen.fhir/version "0.5.0",
+  :uri "diagnosis-vs",
+  :ftr
+  {:module "ig",
+   :source-url "resources/icd-10.csv",
+   :ftr-path "ftr",
+   :tag "v1",
+   :source-type :flat-table,
+   :extractor-options
+   {:format "csv",
+    :csv-format {:delimiter ";", :quote "'"},
+    :header false,
+    :data-row 0,
+    :mapping {:concept {:code {:column 2}, :display {:column 3}}},
+    :code-system {:id "icd10", :url "http://hl7.org/fhir/sid/icd-10"},
+    :value-set
+    {:id "icd10", :name "icd10.accidents", :url "diagnosis-vs"}}}}}
+
+```
+
+Создайте файл `resources/icd-10.csv` следующего содержания:
+
+```code 
+10344;20;XX;External causes of morbidity and mortality;;;1;
+16003;2001;V01-X59;Accidents;10344;;1;
+15062;20012;W00-X59;Other external causes of accidental injury;16003;;1;10/07/2020
+11748;2001203;W50-W64;Exposure to animate mechanical forces;15062;;1;
+11870;2001203W64;W64;Exposure to other and unspecified animate mechanical forces;11748;;1;
+11871;2001203W640;W64.0;Exposure to other and unspecified animate mechanical forces home while engaged in sports activity;11870;;1;
+11872;2001203W641;W64.00;Exposure to other and unspecified animate mechanical forces, home, while engaged in sports activity;11871;;1;
+11873;2001203W641;W64.01;Exposure to other and unspecified animate mechanical forces, home, while engaged in leisure activity;11871;;1;
+```
+
+Инициализируйте директорию как гит-репозиторий и сделайте коммит:
+
+```code 
+git init && git add --all && git commit -m "init"
+```
+
+^title "Генерация FTR"
+:ftr-generation md/
+
+Замените `PATH_TO_JAR` на абсолютный путь к файлу `zen.jar`.
+
+Выполните следующую команду в директории проекта:
+
+```code bash
+java -jar PATH_TO_JAR build-ftr
+```
+
+Закоммитьте FTR-директорию:
+
+```code 
+git add . && git commit -m "Build ftr"
+```
+
+Теперь можно провалидировать ресурс на соответствие справочнику командой:
+
+```code 
+java -jar PATH_TO_JAR validate '[fhir-ru/Patient]' '{:gender "male"}'
+```
