@@ -25,6 +25,7 @@
                          :expression "(slice(http://fhir.ru/core/sd/encounter-clinical-dx, additional) or slice(http://fhir.ru/core/sd/encounter-clinical-dx, complication)) and slice(http://fhir.ru/core/sd/encounter-clinical-dx, main)"}]
   :keys {:diagnosis {:zen/desc "Диагноз"
                      :confirms #{ConstraintRule2}
+                     :zen.fhir/comment "Some Comment"
                      :type zen/vector
                      :every {:confirms #{fhir/BackboneElement}
                              :type zen/map
