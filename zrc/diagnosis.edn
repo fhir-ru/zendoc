@@ -1,0 +1,22 @@
+{:ns diagnosis
+ :import #{zen.fhir}
+ 
+ diagnosis-vs
+ {:zen/tags #{zen.fhir/value-set},
+  :zen.fhir/version "0.5.0",
+  :uri "diagnosis-vs",
+  :ftr
+  {:module "ig",
+   :source-url "resources/icd-10.csv",
+   :ftr-path "ftr",
+   :tag "v1",
+   :source-type :flat-table,
+   :extractor-options
+   {:format "csv",
+    :csv-format {:delimiter ";", :quote "'"},
+    :header false,
+    :data-row 0,
+    :mapping {:concept {:code {:column 2}, :display {:column 3}}},
+    :code-system {:id "icd10", :url "http://hl7.org/fhir/sid/icd-10"},
+    :value-set
+    {:id "icd10", :name "icd10.accidents", :url "diagnosis-vs"}}}}}
