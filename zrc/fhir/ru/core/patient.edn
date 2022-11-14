@@ -3,7 +3,8 @@
  import #{fhir
           zen.fhir
           fhir.ru.core.address
-          fhir.ru.core.vs}
+          fhir.ru.core.vs
+          diagnosis}
 
  CorePatient
  {:zen/tags #{zen.fhir/profile-schema zen/schema zen.fhir/adm-group}
@@ -19,7 +20,9 @@
   :zen.fhir/type "Patient"
   :zen.fhir/profileUri "http://fhir.ru/core/sd/core-patient"
   :type zen/map
-  :keys {:identifier {:zen/desc "[Идентификаторы пациента](core.Patient#:elements:identifier)"
+  :keys {:diagnosis {:zen.fhir/value-set {:symbol   diagnosis/diagnosis-vs
+                                          :strength :required}}
+         :identifier {:zen/desc "[Идентификаторы пациента](core.Patient#:elements:identifier)"
                       :zen.fhir/href "core.Patient#:elements:identifier"
                       :type zen/vector
                       :every {:confirms #{fhir/Identifier}
@@ -320,7 +323,7 @@
                                                                            :system "http://terminology.hl7.org/CodeSystem/v2-0203"}}}
                                                         :zen/desc "[Тип идентификатора](artifacts.valuesets.core-vs-identifier-type)"
                                                         :keys {:coding {:type zen/vector
-                                                                        :minItems 1                                                                 
+                                                                        :minItems 1
                                                                         :every {:type zen/map
                                                                                 :confirms #{fhir/Coding}}
                                                                         :slicing {:slices {"v2-0203" {:filter {:engine :match
