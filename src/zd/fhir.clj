@@ -12,6 +12,7 @@
             [clojure.java.shell]
             [clojure.pprint]
             [zen.dev]
+            [zd.format]
             [clojure.zip]))
 
 (defmethod zd.methods/inline-function :ztx-get
