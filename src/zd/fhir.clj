@@ -11,7 +11,9 @@
             [zen.core]
             [clojure.java.shell]
             [clojure.pprint]
-            [zen.dev]))
+            [zen.dev]
+            [zd.format]
+            [clojure.zip]))
 
 (defmethod zd.methods/inline-function :ztx-get
   [ztx m path]
@@ -75,7 +77,62 @@
   [ztx {data :data}]
   (render-video data))
 
+(defn fhir-constraints-filed
+  [label content]
+  (when (seq content)
+    [:div {:class (c :text-xs :flex [:py 0.5])}
+     [:div {:class (c [:w "80px"])}
+      [:span label]]
+     [:span content]]))
 
+(defmethod render-content :fhir-constraints
+  [ztx params]
+  (let [schema (->> params :data (zen.core/get-symbol ztx))
+        locs   (->>
+                (zd.format/zen-zipper schema)
+                (filter
+                 (fn [loc]
+                   (let [node (clojure.zip/node loc)]
+                     (keyword? (:zd.format/key node))))))
+        schema-id (name (:zen/name schema))]
+    
+    [:div
+     [:div
+      [:div {:class (c [:bg :gray-300] [:px 1])}
+       [:b schema-id]]
+      [:div {:class (c [:py 2])}
+       (fhir-constraints-filed "Element id" schema-id)
+       (fhir-constraints-filed "Definition" (:zen/desc schema))
+       (fhir-constraints-filed "Cardinality" "0..*")
+       (fhir-constraints-filed "Type" (name (:type schema)))
+       (fhir-constraints-filed "Comments" (:zen.fhir/comment schema))
+       (fhir-constraints-filed "Invariants"
+                               (for [c (:zen.fhir/constraint schema)]
+                                 [:div {:class (c [:space-y 2])}
+                                  [:b (:key c)]
+                                  [:div (:human c)]
+                                  [:div (:expression c)]]))]]
+     (for [loc locs]
+       (let [id     (some->> loc zd.format/get-loc-zen-path (map name) (interpose ".") (apply str))
+             node   (clojure.zip/node loc)]
+         [:div
+          [:div {:class (c [:bg :gray-300] [:px 1])}
+           [:b id]]
+          [:div {:class (c [:py 2])}
+           (fhir-constraints-filed "Element id" id)
+           (fhir-constraints-filed "Definition" (:zen/desc node))
+           (fhir-constraints-filed "Cardinality" (zd.format/get-loc-cardinality loc))
+           (fhir-constraints-filed "Type" (name (:type node)))
+           (fhir-constraints-filed "Comments" (:zen.fhir/comment node))
+           (fhir-constraints-filed "Invariants" (for [c (:zen.fhir/constraint node)]
+                                                  [:div {:class (c [:space-y 2])}
+                                                   [:b (:key c)]
+                                                   [:div (:human c)]
+                                                   [:div (:expression c)]]))]]))]))
+
+(defmethod annotation :fhir-constraints
+  [nm params]
+  {:content :fhir-constraints :fhir-constraints params})
 
 (defmethod render-key
   [:video]
