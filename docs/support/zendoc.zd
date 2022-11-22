@@ -358,6 +358,23 @@ __Результат:__
 ^title "Value Set - Таблица из файла .yaml"
 :tables:from-yaml (load "../core/samples/address-use.yaml" :yaml)
 
+^title "Таблица из файла .csv"
+:tables:table-from-csv-file md/
+
+Можно вывести значения из файла .csv в виде таблицы. Может пригодиться, например, для вывода содержимого набора значений.
+
+```code
+  ^table
+  ^title "Value Set - Таблица из файла .csv"
+  :tables:from-yaml (load "../terminology/1.2.643.5.1.13.13.99.2.285_1.2.csv" :csv)
+```
+
+__Результат:__
+
+^table
+^title "Value Set - Таблица из файла .csv"
+:tables:from-yaml (load "../terminology/1.2.643.5.1.13.13.99.2.285_1.2.csv" :csv)
+
 ^title "Код"
 :code md/
 
