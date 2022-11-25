@@ -1,5 +1,5 @@
-{:ns diagnosis
- :import #{zen.fhir}
+{ns diagnosis
+ import #{zen.fhir}
  
  diagnosis-vs
  {:zen/tags #{zen.fhir/value-set},
