@@ -80,10 +80,19 @@
 (defn fhir-constraints-filed
   [label content]
   (when (seq content)
-    [:div {:class (c :text-xs :flex [:py 0.5])}
+    [:div {:class (c :text-xs :flex [:py 0.5] [:ml 1])}
      [:div {:class (c [:w "80px"])}
       [:span label]]
      [:span content]]))
+
+(defn get-node-type
+  [ztx node]
+  (let [refers (get-in node [:zen.fhir/reference :refers])]
+    (if (seq refers)
+      (zd.zen/map-reference ztx refers)
+      (let [confirms-schema (->> node :confirms first (zen.core/get-symbol ztx))]
+        [:a {:class zd.zen/reference-style :href (zd.zen/calc-ref confirms-schema)}
+         (:zen.fhir/type confirms-schema)]))))
 
 (defmethod render-content :fhir-constraints
   [ztx params]
@@ -104,7 +113,7 @@
        (fhir-constraints-filed "Element id" schema-id)
        (fhir-constraints-filed "Definition" (:zen/desc schema))
        (fhir-constraints-filed "Cardinality" "0..*")
-       (fhir-constraints-filed "Type" (name (:type schema)))
+       (fhir-constraints-filed "Type" (get-node-type ztx schema))
        (fhir-constraints-filed "Comments" (:zen.fhir/comment schema))
        (fhir-constraints-filed "Invariants"
                                (for [c (:zen.fhir/constraint schema)]
@@ -122,7 +131,10 @@
            (fhir-constraints-filed "Element id" id)
            (fhir-constraints-filed "Definition" (:zen/desc node))
            (fhir-constraints-filed "Cardinality" (zd.format/get-loc-cardinality loc))
-           (fhir-constraints-filed "Type" (name (:type node)))
+           (fhir-constraints-filed "Terminology Binding"
+                                   (when-let [valueset (zd.zen/format-valueset-sch ztx (:zen.fhir/value-set node))]
+                                     (zd.zen/valueset-view valueset)))
+           (fhir-constraints-filed "Type" (get-node-type ztx node))
            (fhir-constraints-filed "Comments" (:zen.fhir/comment node))
            (fhir-constraints-filed "Invariants" (for [c (:zen.fhir/constraint node)]
                                                   [:div {:class (c [:space-y 2])}

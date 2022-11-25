@@ -124,12 +124,18 @@
     (str "/" (:zendoc refer-schema))
     (str "http://hl7.org/fhir/r4b/datatypes.html#" (:zen.fhir/type refer-schema))))
 
+(def reference-style
+  (c {:color "#3182ce"}))
+
 (defn map-reference
   [ztx refers]
   (let [schemas (map #(zen.core/get-symbol ztx %) refers)]
-    [:span [:a {:href "http://hl7.org/fhir/R4B/references.html#Reference"} "Reference"] "("
+    [:span [:a {:href "http://hl7.org/fhir/R4B/references.html#Reference"
+                :class reference-style}
+            "Reference"]
+     "("
      (->> (for [refer-schema schemas]
-            [:a {:href (calc-ref refer-schema)}
+            [:a {:href (calc-ref refer-schema) :class reference-style}
              (or (:zen.fhir/name refer-schema)
                  (:zen.fhir/type refer-schema))])
           distinct
@@ -361,6 +367,27 @@
   (or (:fhir-type row)
       (some-> (:type row) schema-name)))
 
+(defn valueset-view
+  [valueset]
+  [:div
+   [:b "Binding: "]
+   [:a {:href  (if (:zendoc valueset)
+                 (str "/" (:zendoc valueset))
+                 (:uri valueset))
+        :target "_blank"
+        :class (if (:page-not-found valueset)
+                 (c [:text :red-600])
+                 (c [:text :blue-600]))}
+    (:name valueset) " "]
+   [:span
+    "("
+    [:a {:href (:strength-ref valueset)
+         :target "_blank"
+         :class (c [:text :blue-600])}
+     (:strength valueset)]
+    ") "]
+   [:span (:description valueset)]])
+
 (defn- render-schema-table-row-description [row]
   (list (when-let [d (:desc row)]
           [:div {:class (c :text-xs [:text :gray-700])} d])
@@ -376,24 +403,7 @@
              [:a {:href (str "/" zendoc) :target "_blank" :class (c [:text :blue-700])}
               (:extension-name row)]]))
         (when-let [valueset (:valueset row)]
-          [:div
-           [:b "Binding: "]
-           [:a {:href  (if (:zendoc valueset)
-                         (str "/" (:zendoc valueset))
-                         (:uri valueset))
-                :target "_blank"
-                :class (if (:page-not-found valueset)
-                         (c [:text :red-600])
-                         (c [:text :blue-600]))}
-            (:name valueset) " "]
-           [:span
-            "("
-            [:a {:href (:strength-ref valueset)
-                 :target "_blank"
-                 :class (c [:text :blue-600])}
-             (:strength valueset)]
-            ") "]
-           [:span (:description valueset)]])
+          (valueset-view valueset))
         (when-let [enum (:enum row)]
           [:div {:class (c :flex :items-baseline [:space-x 1] :text-xs)}
            [:b "enum:"]
