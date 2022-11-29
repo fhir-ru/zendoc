@@ -75,9 +75,9 @@
 ^zen/schema
 :profile fhir.ru.diag.encounter/EncounterClinicalDx
 
-;; ^title "Ограничения"
-;; ^fhir-constraints
-;; :profile fhir.ru.diag.encounter/EncounterClinicalDx
+^title "Описание"
+^fhir-constraints
+:profile fhir.ru.diag.encounter/EncounterClinicalDx
 
 ^title "Ограничения"
 ^table
