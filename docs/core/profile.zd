@@ -1,3 +1,6 @@
+^hide
+:menu-order 95
+
 :title "Профили ресурсов"
 
 ^title "Профили"
