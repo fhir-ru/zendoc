@@ -1,5 +1,5 @@
 ^hide
-:menu-order 98
+:menu-order 70
 
 ^hide
 :icon [:fa-solid :fa-user]
