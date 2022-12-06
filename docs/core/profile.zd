@@ -1,3 +1,5 @@
+:title "Профили ресурсов"
+
 ^title "Профили"
 ^table-of {:namespace "core.profile." :columns [:zd/name :summary :status :authors]}
 :profiles
