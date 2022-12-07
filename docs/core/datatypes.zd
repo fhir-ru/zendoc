@@ -1,5 +1,5 @@
 ^hide
-:menu-order 6
+:menu-order 22
 
 ^hide
 :icon [:fa :fa-font]
