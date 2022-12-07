@@ -19,7 +19,7 @@
 ^badge
 :type :ig
 
-:title "Реестр систем идентификации"
+:title "Системы идентификации"
 
 :toc
 
@@ -38,5 +38,5 @@
 ;; ]
 
 ^title "Реестр систем идентификации"
-^table-of {:namespace "artifacts.identifiers." :columns [:zd/name :system :summary :Тип-идентификатора-fhir :Тип-идентификатора-ru-core]}
+^table-of {:namespace "core.identifiers." :columns [:zd/name :system :summary :Тип-идентификатора-fhir :Тип-идентификатора-ru-core]}
 :identifiers-register
