@@ -1,5 +1,5 @@
 ^hide
-:menu-order 3
+:menu-order 23
 
 ^hide
 :icon [:fa-solid :fa-notes-medical]
