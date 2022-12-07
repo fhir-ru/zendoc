@@ -8,7 +8,7 @@
 :icon [:fa-solid :fa-box]
 
 ^disc 94
-:title "Ядро (core)"
+:title "Руководство Ru Core"
 
 :summary md/
 
