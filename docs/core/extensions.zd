@@ -19,12 +19,12 @@
 ^badge
 :type :ig
 
-:title "Реестр расширений"
+:title "Расширения"
 
 :toc
 
 ^title "Расширения"
-^table-of {:namespace "artifacts.extensions." :columns [:zd/name :id :описание :url :тип]}
+^table-of {:namespace "core.extensions." :columns [:zd/name :id :описание :url :тип]}
 :extensions-table
 
 ^title "Расширения (список)"
