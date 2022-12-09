@@ -116,38 +116,61 @@
 (defmethod render-content :xsl-transformer
   [ztx params]
   (let [xsl-files (->> (:data params)
+                       (:xsl-path)
                        (clojure.java.io/file)
                        (file-seq)
                        (filter (memfn isFile))
                        (map
                         (fn [file]
                           {:name (.getName file)})))
+        xml-files (->> (:data params)
+                       (:xml-path)
+                       (clojure.java.io/file)
+                       (file-seq)
+                       (filter (memfn isFile))
+                       (map
+                        (fn [file]
+                          {:name (.getName file) :content (slurp file)})))
         response (-> params :page :request :params)
         xml      (get response "xml")
+        xml-example (get response "xml-example")
         xsl-name (get response "xsl")]
     [:div 
-     [:form {:method "POST"}
-      [:label {:class (c :font-medium [:text :black]) :for "xsl" } "XSL:"]
-      [:div {:class (c [:mb 4])}
-       [:select {:name "xsl" :id "xsl" :class (c :border [:px 4] [:py 1] :rounded)}
-        (for [xsl-file xsl-files]
-          [:option {:value (:name xsl-file)
-                    :selected (= (:name xsl-file) xsl-name)}
-           (:name xsl-file)])]]
-      [:label {:class (c :font-medium [:text :black]) :for "xml" } "XML:"]
-      [:div [:textarea {:class (c :border [:px 4] [:py 1] :rounded :w-full) :name "xml" :id "xml" :rows 20} xml]]
-      [:button {:type "submit" :class (c [:px 5] [:py 2] [:mt 4] :border [:bg :gray-200] :rounded)} "Transform"]
-      ]
-     (when (and xml xsl-name)
-       (let [xsl-path (str (:data params) "/" xsl-name)]
-         [:div
-          [:label {:class (c :font-medium [:text :black] :block)}"Result:"]
-          [:pre
-           [:code
-            (try 
-              (xsl-transform xsl-path xml)
-              (catch Exception ex
-                (ex-message ex)))]]]))]))
+     [:div 
+      [:form {:method "POST"}
+       [:label {:class (c :font-medium [:text :black]) :for "xsl" } "XSL:"]
+       [:div {:class (c [:mb 4])}
+        [:select {:name "xsl" :id "xsl" :class (c :border [:px 4] [:py 1] :rounded)}
+         [:option {:disabld true :selected (empty? xsl-name)}]
+         (for [xsl-file xsl-files]
+           [:option {:value (:name xsl-file)
+                     :selected (= (:name xsl-file) xsl-name)}
+            (:name xsl-file)])]]
+       
+       [:label {:class (c :font-medium [:text :black]) :for "xml" } "XML:"]
+       [:div {:class (c [:mb 4])}
+        [:select {:name "xml-example" :id "xml-example" :class (c :border [:px 4] [:py 1] :rounded)}
+         [:option {:disabld true :selected (empty? xml-example)}]
+         (for [xml-file xml-files]
+           [:option {:value (:content xml-file)
+                     :selected (= (:content xml-file) xml-example)}
+            (:name xml-file)])]]
+       [:div [:textarea {:class (c :border [:px 4] [:py 1] :rounded :w-full) :name "xml" :id "xml" :rows 20} xml]]
+       [:button {:type "submit" :class (c [:px 5] [:py 2] [:mt 4] :border [:bg :gray-200] :rounded)} "Transform"]]
+      (when (and xml xsl-name)
+        (let [xsl-path (str (:xsl-path (:data params)) "/" xsl-name)]
+          [:div
+           [:label {:class (c :font-medium [:text :black] :block)}"Result:"]
+           [:pre
+            [:code
+             (try 
+               (xsl-transform xsl-path xml)
+               (catch Exception ex
+                 (ex-message ex)))]]]))]
+     [:script
+      "const xmlExample = document.querySelector('#xml-example');
+       const xml        = document.querySelector('#xml');
+       xmlExample.addEventListener('change', function (event) { xml.value = event.target.value});"]]))
 
 (defmethod annotation :xsl-transformer
   [nm params]
