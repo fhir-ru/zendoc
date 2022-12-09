@@ -23,9 +23,18 @@
 ^title "Для тех, кто редактирует прямо на гитхабе"
 :project:lifehack md/
 
-Можно найти в репозитории нужный файл и нажать на клавиатуре клавишу с точкой ., откроется редактор VSCode прямо в браузере.
+Можно найти в репозитории нужный файл и нажать на клавиатуре клавишу с точкой (.), откроется редактор VSCode прямо в браузере.
 
 Там можно внести необходимые изменения в один или несколько файлов проекта и закоммитить их на третьей вкладке в левой навигации.
+
+^img
+:project:lifehack:git-file "img/git-file.png"
+
+^img
+:project:lifehack:open-in-web-vscode "img/open-in-web-vscode.png"
+
+^img
+:project:lifehack:commit-push "img/commit-push.png"
 
 ^title "Пререквизиты"
 :project:prerequisites md/
