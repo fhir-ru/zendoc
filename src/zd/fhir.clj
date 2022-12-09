@@ -12,8 +12,14 @@
             [clojure.java.shell]
             [clojure.pprint]
             [zen.dev]
+            [clojure.java.io]
             [zd.format]
-            [clojure.zip]))
+            [clojure.zip])
+  (:import javax.xml.transform.TransformerFactory
+           javax.xml.transform.stream.StreamSource
+           javax.xml.transform.stream.StreamResult
+           java.io.StringWriter
+           java.io.StringReader))
 
 (defmethod zd.methods/inline-function :ztx-get
   [ztx m path]
@@ -93,6 +99,59 @@
       (let [confirms-schema (->> node :confirms first (zen.core/get-symbol ztx))]
         [:a {:class zd.zen/reference-style :href (zd.zen/calc-ref confirms-schema)}
          (:zen.fhir/type confirms-schema)]))))
+
+(defn xsl-transform
+  [xsl-file-path xml-string]
+  (let [xsl-file (clojure.java.io/file xsl-file-path)
+        transformer (.newTransformer
+                     (javax.xml.transform.TransformerFactory/newInstance)
+                     (new javax.xml.transform.stream.StreamSource xsl-file))
+        result-writer (new java.io.StringWriter)]
+    (.transform transformer
+                (new javax.xml.transform.stream.StreamSource
+                     (new java.io.StringReader xml-string))
+                (new javax.xml.transform.stream.StreamResult result-writer))
+    (->> result-writer .getBuffer .toString)))
+
+(defmethod render-content :xsl-transformer
+  [ztx params]
+  (let [xsl-files (->> (:data params)
+                       (clojure.java.io/file)
+                       (file-seq)
+                       (filter (memfn isFile))
+                       (map
+                        (fn [file]
+                          {:name (.getName file)})))
+        response (-> params :page :request :params)
+        xml      (get response "xml")
+        xsl-name (get response "xsl")]
+    [:div 
+     [:form {:method "POST"}
+      [:label {:class (c :font-medium [:text :black]) :for "xsl" } "XSL:"]
+      [:div {:class (c [:mb 4])}
+       [:select {:name "xsl" :id "xsl" :class (c :border [:px 4] [:py 1] :rounded)}
+        (for [xsl-file xsl-files]
+          [:option {:value (:name xsl-file)
+                    :selected (= (:name xsl-file) xsl-name)}
+           (:name xsl-file)])]]
+      [:label {:class (c :font-medium [:text :black]) :for "xml" } "XML:"]
+      [:div [:textarea {:class (c :border [:px 4] [:py 1] :rounded :w-full) :name "xml" :id "xml" :rows 20} xml]]
+      [:button {:type "submit" :class (c [:px 5] [:py 2] [:mt 4] :border [:bg :gray-200] :rounded)} "Transform"]
+      ]
+     (when (and xml xsl-name)
+       (let [xsl-path (str (:data params) "/" xsl-name)]
+         [:div
+          [:label {:class (c :font-medium [:text :black] :block)}"Result:"]
+          [:pre
+           [:code
+            (try 
+              (xsl-transform xsl-path xml)
+              (catch Exception ex
+                (ex-message ex)))]]]))]))
+
+(defmethod annotation :xsl-transformer
+  [nm params]
+  {:content :xsl-transformer :xsl-transformer params})
 
 (defmethod render-content :fhir-constraints
   [ztx params]

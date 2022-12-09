@@ -1,0 +1,6 @@
+:title "XSL Transformer"
+:menu-order 99
+
+^xsl-transformer
+^title ""
+:xsl-files "resources/xsl-files"
