@@ -104,12 +104,90 @@
 Профиль предлагается в качестве базового для РФ. Предполагается, что разработчики для решения конкретных задач обмена медицинскими данными будут создавать сови профили на основе данного.
 
 
-^title "Схема профиля"
+^title "Схема профиля из ядра"
 ^zen/schema
 :section:profile fhir.ru.core.encounter/CoreEncounter
+
+^title "Схема профиля"
+^zen/schema
+:profile fhir.ru.diag.encounter/EncounterClinicalDx
+
+^title "Детальное описание атрибутов"
+^fhir-constraints
+:profile fhir.ru.diag.encounter/EncounterClinicalDx
+
+^title "Ограничения"
+^table
+:constraints
+[{:Ключ "ru-core-diag-1"
+                         :Описание "Правило проверки массива диагнозов: Если есть срез Сопуствующий или Осложнение, должен быть и срез Основной (в рамках одного типа диагноза diagnosisType и use)"
+                         :Выражение "(slice(http://fhir.ru/core/sd/encounter-clinical-dx, additional) or slice(http://fhir.ru/core/sd/encounter-clinical-dx, complication)) and slice(http://fhir.ru/core/sd/encounter-clinical-dx, main)"}]
 
 
 ^collapse
 ^yaml
 ^title "Пример Encounter из бандла"
 :section:example1 (load "../lab/samples/01_encounter.yaml" :yaml)
+
+^title "Пример 1"
+:examples md/
+
+Пример простого ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+
+^title "Пример 1"
+^tabs
+:tabs-example-simple
+^tab-title
+~:aidbox:title "Aidbox YAML"
+^tab-content
+^yaml
+~:aidbox:content (load "samples/CoreEncounterWithDiagnosisSimpleAidbox.yaml" :yaml)
+
+^tab-title
+~:json:title "FHIR JSON"
+^tab-content
+^yaml
+~:json:content (load "samples/CoreEncounterWithDiagnosisSimpleFHIR.json" :json)
+
+^tab-title
+~:yaml:title "FHIR YAML"
+^tab-content
+^yaml
+~:yaml:content (load "samples/CoreEncounterWithDiagnosisSimpleFHIR.yaml" :yaml)
+
+
+^title "Пример 2"
+:example-complex md/
+
+Пример составного ресурса Encounter, соответствующего профилю "Указание диагноза в рамках случая".
+
+^title "Пример 2"
+^tabs
+:tabs-example-complex
+^tab-title
+~:aidbox:title "Aidbox YAML"
+^tab-content
+^yaml
+~:aidbox:content  (load "samples/CoreEncounterWithDiagnosisComplexAidbox.yaml" :yaml)
+
+^tab-title
+~:json:title "FHIR JSON"
+^tab-content
+^yaml
+~:json:content (load "samples/CoreEncounterWithDiagnosisComplexFHIR.json" :json)
+
+^tab-title
+~:yaml:title "FHIR YAML"
+^tab-content
+^yaml
+~:yaml:content (load "samples/CoreEncounterWithDiagnosisComplexFHIR.yaml" :yaml)
+
+
+^title "Полезные ссылки"
+:links md/
+[Основная страница проекта fhir-ru на github.com для обсуждения клинического диагноза](https://github.com/fhir-ru/core/discussions/47 Основная страница проекта fhir-ru на github.com для обсуждения клинического диагноза)
+
+
+
+
+
