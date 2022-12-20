@@ -18,40 +18,39 @@
 
 :title "Coverage"
 
-:summary "Страховое покрытие"
-
-^title "Оглавление"
-:content-list md/ 
+:summary "Источник финансирования. TODO: Возможно, следует поменять кодирование Contract."
 
 :toc
 
 ^hide
-:summary md/
+:profile-uri "((ztx-get :symbols fhir.ru.core.coverage/CoreCoverage :zen.fhir/profileUri))"
 
-Type по справочнику НСИ. 
-Специальное указание идентификаторов для ОМС, ДМС и платных услуг, со ссылками на справочники НСИ. 
-Ссылки payor, beneficiary – на наши профили.
-QUESTION: Возможно, следует поменять кодирование Contract
+^title "Введение"
+:intro md/
 
-^title "Coverage"
-:section md/
+Ресурс Coverage описывает страховой полис пациента или другой источник финансирования.
 
-Профиль Coverage описывает страховой полис пациента или другой источник финансирования.
+^title "Профиль"
+:profile md/
+Профиль отражает следующие особенности ведения информации в РФ:
+* Тип источника финансирования должен быть указан по справочнику МЗ РФ. При этом, указание кода по базовому FHIR для типа Coverage.type не обязательно, но если указано, то следует использовать [данное отображение](artifacts.valuesets.vs-nsi-medical-care-payment-source#:valueset-mapping).
+* В случаях ОМС и ДМС используются идентификаторы со ссылками на НСИ МЗ РФ
+* В атрибутах payor, beneficiary необходимо использовать специальные профили ресурсов, в которых указание ИНН обязательно
 
-Указание кода по базовому FHIR для типа Coverage.type не обязательно, но если указано, то следует использовать [данное отображение](artifacts.valuesets.vs-nsi-medical-care-payment-source#:valueset-mapping).
+^title "Область применения"
+:scope md/
+Профиль является базовым для применения в РФ.
+
+^title "Схема профиля"
+^zen/schema
+:section:profile fhir.ru.core.coverage/CoreCoverage
 
 ^title "Используемые наборы значений"
 :section:valuesets md/
 
-* #artifacts.valuesets.vs-nsi-medical-care-payment-source
-* #artifacts.valuesets.vs-nsi-grounds-document-type
-* #artifacts.valuesets.vs-nsi-mandatory-medical-insurance-policy-type
-
-:profile-uri "((ztx-get :symbols fhir.ru.core.coverage/CoreCoverage :zen.fhir/profileUri))"
-
-^title "Профиль на Coverage"
-^zen/schema
-:section:profile fhir.ru.core.coverage/CoreCoverage
+* #core.valuesets.vs-nsi-medical-care-payment-source
+* #core.valuesets.vs-nsi-grounds-document-type
+* #core.valuesets.vs-nsi-mandatory-medical-insurance-policy-type
 
 ^collapse
 ^yaml
@@ -628,12 +627,3 @@ payor:
 * [FHIR-37739 Clarify the use of Identifier.type](https://jira.hl7.org/browse/FHIR-37739)
 * [Zulip-chat/Extensible binding of Identifier.type](https://chat.fhir.org/#narrow/stream/179177-conformance/topic/Extensible.20binding.20of.20Identifier.2Etype)
 
-^title "Ресурс Coverage"
-:support:resource md/
-
-TODO: перевод ресурса [Coverage](http://hl7.org/fhir/r4b/coverage.html)
-
-^title "Область применения и использование"
-:support:resource:scope-and-usage md/
-
-TODO: перевод ресурса Coverage
