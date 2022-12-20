@@ -26,6 +26,12 @@
 ^zen/schema
 :section:profile fhir.ru.core.condition/CoreCondition
 
+
+^title "Профиль (Zen-lang|Edn)"
+^zen/schema
+:profile:zen fhir.ru.diag.nu/DsCondition
+
+
 ^title "Введение"
 :intro md/
 
