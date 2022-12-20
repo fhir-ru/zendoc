@@ -1,7 +1,4 @@
 ^hide
-:menu-order 71
-
-^hide
 :icon [:fa-solid :fa-disease]
 
 ^badge
