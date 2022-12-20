@@ -1,6 +1,3 @@
-^hide
-:menu-order 3
-
 :icon [:fa-solid :fa-user]
 
 ^badge
