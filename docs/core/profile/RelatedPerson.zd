@@ -1,7 +1,4 @@
 ^hide
-:menu-order 70
-
-^hide
 :icon [:fa-solid :fa-user]
 
 ^badge
