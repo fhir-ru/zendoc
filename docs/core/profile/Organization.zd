@@ -1,7 +1,4 @@
 ^hide
-:menu-order 4
-
-^hide
 :menu/first true
 
 ^badge
