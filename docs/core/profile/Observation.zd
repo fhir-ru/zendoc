@@ -1,7 +1,4 @@
 ^hide
-:menu-order 8
-
-^hide
 :icon [:fa-solid :fa-heart-pulse] 
 
 ^hide
