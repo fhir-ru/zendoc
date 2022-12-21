@@ -1,7 +1,4 @@
 ^hide
-:menu-order 3
-
-^hide
 :icon [:fa-solid :fa-file-invoice-dollar] 
 
 ^hide
@@ -20,7 +17,7 @@
 :maturity 0
 
 
-:title "Организация-плательщик"
+:title "Organization-payer"
 
 :toc
 
