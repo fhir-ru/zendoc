@@ -1,16 +1,13 @@
 ^hide
-:menu-order 7
-
-^hide
 :icon [:fa-solid :fa-notes-medical]
 
-:title "Другие профили"
+:title "архив - Другие профили"
 
 
 ^title "Описание"
 :description md/
 
-Профили, вынесенные за рамки core.
+Профили, вынесенные за рамки core. Возможно, следует удалить.
 
 ^title "Профили"
 ^table-of {:namespace "other." :columns [:zd/name :summary]}
