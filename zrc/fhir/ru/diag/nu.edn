@@ -9,7 +9,8 @@
  CoreExConditionAssertedDate
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/diag}
   :zen/desc "CoreExConditionAssertedDate"
-  :zendoc "artifacts.extensions.core-ex-condition-assertedDate"
+  ;; :zendoc "artifacts.extensions.core-ex-condition-assertedDate"
+  :zendoc "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
   :type zen/map
   :confirms #{fhir/Extension}
   :zen.fhir/version "0.5.8"
@@ -19,7 +20,7 @@
   :zen.fhir/abstract false
   :zen.fhir/status "draft"
   :zen.fhir/kind "complex-type"
-  :zen.fhir/profileUri "http://fhir.ru/core/sd/core-ex-condition-assertedDate"}
+  :zen.fhir/profileUri "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"}
 
  CoreExConditionHistology
  {:zen/tags #{zen/schema zen.fhir/structure-schema zen.fhir/extension zen.fhir/diag}
