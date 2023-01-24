@@ -1,0 +1,20 @@
+^badge 
+:date "2023-01-20"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-01-20 (cl)"
+
+:video "https://youtu.be/_cS9qAUtQnY" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Продолжаем обсуждение случаев медицинской помощи и организацию FHIR-ресурсов для упаковки информации о них
