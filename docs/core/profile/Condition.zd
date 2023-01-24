@@ -62,7 +62,7 @@
 ~:fhir:title "FHIR/JSON"
 ^tab-content
 ^yaml
-~:fhir:content (load "samples/condition.json" :json)
+~:fhir:content (load "../samples/condition.json" :json)
 
 ^title "Полезные ссылки"
 :links md/
