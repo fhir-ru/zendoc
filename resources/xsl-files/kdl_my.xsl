@@ -23,6 +23,7 @@ entry:
  - resource:
  <xsl:call-template name="composition" />
  <xsl:call-template name="patient" />
+ <xsl:call-template name="practitioners" />
  <xsl:call-template name="organizations" />
  <xsl:call-template name="orderTask" />
  <xsl:call-template name="resultTask" />
@@ -783,7 +784,8 @@ entry:
           valueString: '<xsl:value-of select="fias:Address/fias:AOGUID" />'
         - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
           valueString: '<xsl:value-of select="fias:Address/fias:HOUSEGUID" />'
-  </xsl:for-each>
+    contact:  
+ </xsl:for-each>
   <xsl:for-each select="telecom">
    <xsl:variable name="telecomValue">
     <xsl:value-of select="./@value" />
@@ -794,7 +796,6 @@ entry:
    <xsl:variable name="contact">
     <xsl:value-of select="substring-after($telecomValue,':')" />
    </xsl:variable>
-    contact: 
      - telecom: 
        - value: '<xsl:value-of select="$type" />'
          system: '<xsl:value-of select="normalize-space($contact)" />'
@@ -809,7 +810,120 @@ entry:
            display: '<xsl:value-of select="patient/administrativeGenderCode/@displayName" />'
 
  </xsl:for-each>
-</xsl:template>  
+</xsl:template>
+
+<xsl:template name="practitioners"> 
+ <xsl:call-template name="practitioner" >
+     <xsl:with-param name="PractNode" select="author/assignedAuthor"/>
+ </xsl:call-template>
+ <xsl:call-template name="practitioner" >
+     <xsl:with-param name="PractNode" select="legalAuthenticator/assignedEntity"/>
+ </xsl:call-template> 
+ <xsl:call-template name="practitioner" >
+     <xsl:with-param name="PractNode" select="participant[@typeCode='REF']/associatedEntity"/>
+ </xsl:call-template>
+ <xsl:call-template name="practitioner" >
+     <xsl:with-param name="PractNode" select="component/structuredBody/component/section/entry/organizer/component/procedure/performer/assignedEntity"/>
+ </xsl:call-template>
+ 
+ <xsl:for-each select="documentationOf/serviceEvent/performer/assignedEntity">
+  <xsl:call-template name="practitioner" >
+    <xsl:with-param name="PractNode" select="."/>
+  </xsl:call-template>
+ </xsl:for-each> 
+</xsl:template> 
+  
+<xsl:template name="practitioner"> 
+ <xsl:param name="PractNode" />
+ <!--<xsl:variable name="procedureName">  
+  <xsl:choose>
+   <xsl:when test="code/@displayName!=''">
+    <xsl:value-of select="code/@displayName" />
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:value-of select="code/originalText" />
+   </xsl:otherwise>
+  </xsl:choose>
+  <xsl:if test="$PractNode/assignedPerson/name/family">
+   <xsl:variable name="family">
+    <xsl:value-of select="$PractNode/assignedPerson/name/family" />
+   </xsl:variable>    
+  </xsl:if>
+
+  <xsl:if test="$PractNode/associatedPerson/name/family">
+   <xsl:variable name="family">
+    <xsl:value-of select="$PractNode/associatedPerson/name/family" />
+   </xsl:variable>    
+  </xsl:if>-->
+ - resource: 
+    resourceType: 'Practitioner'
+    identifier: 
+     - value: '<xsl:value-of select="$PractNode/id[@root!='1.2.643.100.3']/@extension" />'
+       system: 'urn:oid:<xsl:value-of select="$PractNode/id[@root!='1.2.643.100.3']/@root" />'
+       type: 
+        text: 'Номер сотрудника в МИС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'EN'
+           display: 'Employer number'
+     - value: '<xsl:value-of select="$PractNode/id[@root='1.2.643.100.3']/@extension" />'
+       system: 'http://fhir.ru/core/systems/snils'
+       type: 
+        text: 'СНИЛС'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'NI'
+           display: 'National unique individual identifier'
+    name: 
+     - use: 'official'
+  <xsl:if test="$PractNode/assignedPerson/name/family">
+       family: '<xsl:value-of select="$PractNode/assignedPerson/name/family" />'
+       given: 
+        - '<xsl:value-of select="$PractNode/assignedPerson/name/identity:Patronymic" />'
+        - '<xsl:value-of select="$PractNode/assignedPerson/name/given" />' 
+  </xsl:if>
+  <xsl:if test="$PractNode/associatedPerson/name/family">
+       family: '<xsl:value-of select="$PractNode/associatedPerson/name/family" />'
+       given: 
+        - '<xsl:value-of select="$PractNode/associatedPerson/name/identity:Patronymic" />'
+        - '<xsl:value-of select="$PractNode/associatedPerson/name/given" />' 
+  </xsl:if> 		
+    address: 
+     - text: '<xsl:value-of select="normalize-space($PractNode/addr/streetAddressLine)" />'
+       state: '<xsl:value-of select="$PractNode/addr/address:stateCode/@code" />'
+       _state: 
+        extension: 
+         - url: 'http://fhir.ru/core/sd/core-ex-state'
+           valueCodeableConcept: 
+            coding: 
+             - system: 'urn:oid:<xsl:value-of select="$PractNode/addr/address:stateCode/@codeSystem" />'
+               code: '<xsl:value-of select="$PractNode/addr/address:stateCode/@code" />'
+               version: '<xsl:value-of select="$PractNode/addr/address:stateCode/@codeSystemVersion" />'
+               display: '<xsl:value-of select="$PractNode/addr/address:stateCode/@displayName" />'
+       postalCode: '<xsl:value-of select="$PractNode/addr/postalCode" />'
+       extension: 
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
+          valueString: '<xsl:value-of select="$PractNode/addr/fias:Address/fias:AOGUID" />'
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
+          valueString: '<xsl:value-of select="$PractNode/addr/fias:Address/fias:HOUSEGUID" />'
+    <xsl:if test="$PractNode/telecom">
+    telecom: 
+     <xsl:for-each select="$PractNode/telecom">
+      <xsl:variable name="telecomValue">
+       <xsl:value-of select="./@value" />
+      </xsl:variable>
+      <xsl:variable name="type">
+       <xsl:value-of select="substring-before($telecomValue,':')" />
+      </xsl:variable>
+      <xsl:variable name="contact">
+       <xsl:value-of select="substring-after($telecomValue,':')" />
+      </xsl:variable>
+     - telecom: 
+       - value: '<xsl:value-of select="$type" />'
+         system: '<xsl:value-of select="normalize-space($contact)" />'
+   </xsl:for-each>
+  </xsl:if>
+</xsl:template> 
  
 <xsl:template name="GenderCode">
  <xsl:param name="Code" />
