@@ -1,0 +1,27 @@
+^badge 
+:date "2023-01-30"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-01-30 (cl)"
+
+:video "https://youtu.be/0KbVlazxjME" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Выбор пилотного UseCase для представления эпизодов\случаев медицинской помощи
+
+^title "Решения"
+:decisions md/
+
+1.	Подготовить логическое описание процесса диспансерного наблюдения – Пензин, Родионов
+
+2.	Описать EpisodeOfCare и Encounter, используемые в Нетрике – Осьмаков
