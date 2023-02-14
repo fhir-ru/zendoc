@@ -1,0 +1,11 @@
+^badge
+:date "2023-02-07"
+:title "Встреча 2023-02-07"
+
+:video "https://youtu.be/gjeqPjZbUME"
+
+^title "Обсуждение"
+:discussion md/
+
+^title "Решили"
+:decisions md/
