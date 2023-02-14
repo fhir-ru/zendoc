@@ -1,0 +1,25 @@
+^badge 
+:date "2023-02-03"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-02-03 (cl)"
+
+:video "https://www.youtube.com/watch?v=WT_W63RsH18" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение UseCase с Диспансерным наблюдением пациентов для представления эпизодов\случаев медицинской помощи
+
+^title "Решения"
+:decisions md/
+
+
