@@ -25,6 +25,7 @@ entry:
  <xsl:call-template name="patient" />
  <xsl:call-template name="practitioners" />
  <xsl:call-template name="organizations" />
+ <xsl:call-template name="encounter" />
  <xsl:call-template name="orderTask" />
  <xsl:call-template name="resultTask" />
  <xsl:call-template name="serviceRequests" /> 
@@ -37,7 +38,7 @@ entry:
  <xsl:call-template name="coverage" />
 
 </xsl:template>
-	  
+       
 <xsl:template name="composition">
     resourceType: 'Composition'
     type:
@@ -60,53 +61,53 @@ entry:
      system: 'urn:oid:1.2.643.5.1.13.13.12.2.77.8312.100.1.1.50'
      value: '9633'
     title: 'Протокол лабораторного исследования'
-    section: 
-	 <xsl:call-template name="compositionSection">
+    section:
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ДАННЫЕ О ПАЦИЕНТЕ'"/>
-	  <xsl:with-param name="display" select="'recordTarget'"/>
-	  <xsl:with-param name="reference" select="concat('#Patient/', recordTarget/patientRole/id[@root!='1.2.643.100.3']/@extension)" />
+       <xsl:with-param name="display" select="'recordTarget'"/>
+       <xsl:with-param name="reference" select="concat('#Patient/', recordTarget/patientRole/id[@root!='1.2.643.100.3']/@extension)" />
      </xsl:call-template> 
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА'"/>
-	  <xsl:with-param name="display" select="'author'"/>
-	  <xsl:with-param name="reference" select="concat('#Practitioner/', author/assignedAuthor/id[@root!='1.2.643.100.3']/@extension)" />
+       <xsl:with-param name="display" select="'author'"/>
+       <xsl:with-param name="reference" select="concat('#Practitioner/', author/assignedAuthor/id[@root!='1.2.643.100.3']/@extension)" />
      </xsl:call-template>
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА'"/>
-	  <xsl:with-param name="display" select="'custodian'"/>
-	  <xsl:with-param name="reference" select="concat('#Organization/', custodian/assignedCustodian/representedCustodianOrganization/id/@extension)" />
+       <xsl:with-param name="display" select="'custodian'"/>
+       <xsl:with-param name="reference" select="concat('#Organization/', custodian/assignedCustodian/representedCustodianOrganization/id/@extension)" />
      </xsl:call-template>
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА'"/>
-	  <xsl:with-param name="display" select="'informationRecipient'"/>
-	  <xsl:with-param name="reference" select="concat('#Organization/', informationRecipient/intendedRecipient/receivedOrganization/id/@root)" />
+       <xsl:with-param name="display" select="'informationRecipient'"/>
+       <xsl:with-param name="reference" select="concat('#Organization/', informationRecipient/intendedRecipient/receivedOrganization/id/@root)" />
      </xsl:call-template>
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ'"/>
-	  <xsl:with-param name="display" select="'legalAuthenticator'"/>
-	  <xsl:with-param name="reference" select="concat('#Practitioner/', legalAuthenticator/assignedEntity/id[@root!='1.2.643.100.3']/@extension)" />
-     </xsl:call-template>	 
-	 <xsl:call-template name="compositionSection">
+       <xsl:with-param name="display" select="'legalAuthenticator'"/>
+       <xsl:with-param name="reference" select="concat('#Practitioner/', legalAuthenticator/assignedEntity/id[@root!='1.2.643.100.3']/@extension)" />
+     </xsl:call-template>      
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ'"/>
-	  <xsl:with-param name="display" select="'participantInd'"/>
-	  <xsl:with-param name="reference" select="concat('#Coverage/', '1')" />
-     </xsl:call-template>	
-	 <xsl:call-template name="compositionSection">
+       <xsl:with-param name="display" select="'participantInd'"/>
+       <xsl:with-param name="reference" select="concat('#Coverage/', '1')" />
+     </xsl:call-template>     
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'СВЕДЕНИЯ О НАПРАВИВШЕМ ЛИЦЕ И ОРГАНИЗАЦИИ'"/>
-	  <xsl:with-param name="display" select="'participantRef'"/>
-	  <xsl:with-param name="reference" select="concat('#Practitioner/', participant[@typeCode='REF']/associatedEntity/id[@root!='1.2.643.100.3']/@extension)" />
+       <xsl:with-param name="display" select="'participantRef'"/>
+       <xsl:with-param name="reference" select="concat('#Practitioner/', participant[@typeCode='REF']/associatedEntity/id[@root!='1.2.643.100.3']/@extension)" />
      </xsl:call-template>
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'СВЕДЕНИЯ О НАПРАВЛЕНИИ'"/>
-	  <xsl:with-param name="display" select="'order'"/>
-	  <xsl:with-param name="reference" select="concat('#Task/', '1')" />
+       <xsl:with-param name="display" select="'order'"/>
+       <xsl:with-param name="reference" select="concat('#Task/', '1')" />
      </xsl:call-template>
-	 <xsl:call-template name="compositionSection">
+      <xsl:call-template name="compositionSection">
       <xsl:with-param name="title" select="'ТЕЛО ДОКУМЕНТА'"/>
-	  <xsl:with-param name="display" select="'structuredBody'"/>
-	  <xsl:with-param name="reference" select="concat('#Task/', '2')" />
+       <xsl:with-param name="display" select="'structuredBody'"/>
+       <xsl:with-param name="reference" select="concat('#Task/', '2')" />
      </xsl:call-template>
-</xsl:template>	
+</xsl:template>     
 
 <xsl:template name="compositionSection">
  <xsl:param name="title" />
@@ -118,7 +119,7 @@ entry:
          - display: '<xsl:value-of select="$display"/>'
        entry: 
        - reference: '<xsl:value-of select="$reference"/>'  
-</xsl:template>	
+</xsl:template>     
 
 <xsl:template name="organizations">
  <xsl:call-template name="organization" >
@@ -133,19 +134,25 @@ entry:
  <xsl:call-template name="organization" >
      <xsl:with-param name="OrgNode" select="legalAuthenticator/assignedEntity/representedOrganization"/>
  </xsl:call-template> 
- <xsl:call-template name="organization" >
-     <xsl:with-param name="OrgNode" select="participant/associatedEntity/scopingOrganization"/>
- </xsl:call-template>  
- <xsl:call-template name="organization" >
-     <xsl:with-param name="OrgNode" select="documentationOf/serviceEvent/performer/assignedEntity/representedOrganization"/>
- </xsl:call-template>
- <xsl:call-template name="organization" >
-  <xsl:with-param name="OrgNode" select="component/structuredBody/component/section/entry/organizer/component/procedure/performer/assignedEntity/representedOrganization"/>
- </xsl:call-template>
+ <xsl:for-each select="participant/associatedEntity/scopingOrganization" >
+  <xsl:call-template name="organization" >
+    <xsl:with-param name="OrgNode" select="."/>
+  </xsl:call-template>  
+ </xsl:for-each>
+ <xsl:for-each select="documentationOf/serviceEvent/performer/assignedEntity/representedOrganization" > 
+  <xsl:call-template name="organization" >
+     <xsl:with-param name="OrgNode" select="."/>
+  </xsl:call-template>
+ </xsl:for-each>
+ <xsl:for-each select="component/structuredBody/component/section/entry/organizer/component/procedure/performer/assignedEntity/representedOrganization" >
+  <xsl:call-template name="organization" >
+   <xsl:with-param name="OrgNode" select="."/>
+  </xsl:call-template>
+ </xsl:for-each>
  <xsl:call-template name="organization" >
   <xsl:with-param name="OrgNode" select="recordTarget/patientRole/providerOrganization"/>
- </xsl:call-template>	
-</xsl:template>	
+ </xsl:call-template>     
+</xsl:template>     
 
 <xsl:template name="organization">
 <xsl:param name="OrgNode" />
@@ -177,7 +184,87 @@ entry:
          - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
            code: 'PRN'
            display: 'Provider number'
-    </xsl:if>	
+    </xsl:if> 
+    <xsl:if test="$OrgNode/id[@root='1.2.643.5.1.13.2.1.1.1504.101']/@extension">
+     - value: '<xsl:value-of select="$OrgNode/id[@root='1.2.643.5.1.13.2.1.1.1504.101']/@extension" />'
+       system: 'urn:oid:1.2.643.5.1.13.2.1.1.1504.101'
+       assigner: 
+        display: '<xsl:value-of select="$OrgNode/id[@root='1.2.643.5.1.13.2.1.1.1504.101']/@assigningAuthorityName" />'
+       type: 
+        text: 'Лицензия организации'
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'SL'
+           display: 'State license'
+    </xsl:if> 
+    <xsl:if test="$OrgNode/identity:Props/identity:Ogrn">
+     - value: '<xsl:value-of select="$OrgNode/identity:Props/identity:Ogrn" />'
+       system: 'urn:ru:id:ogrn'
+    </xsl:if>
+    <xsl:if test="$OrgNode/identity:Props/identity:Okato">
+     - value: '<xsl:value-of select="$OrgNode/identity:Props/identity:Okato" />'
+       system: 'urn:ru:id:okato'
+    </xsl:if>
+    name: '<xsl:value-of select="$OrgNode/name" />'
+   <xsl:call-template name="addresses" >
+     <xsl:with-param name="ParNode" select="$OrgNode"/>
+   </xsl:call-template>
+   <xsl:call-template name="contacts" >
+     <xsl:with-param name="ParNode" select="$OrgNode"/>
+	 <xsl:with-param name="ContNodeName" select="'contact'"/>
+   </xsl:call-template>
+ </xsl:template>
+
+<xsl:template name="encounter">
+ - resource: 
+    resourceType: 'Encounter'
+    id: 'Encounter/1'
+    class: 
+     - system: 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
+    period: 
+     start: '<xsl:call-template name="FormatDate">
+      <xsl:with-param name="DateTime" select="componentOf/encompassingEncounter/effectiveTime/low/@value"/>
+     </xsl:call-template>'
+     end: '<xsl:call-template name="FormatDate">
+      <xsl:with-param name="DateTime" select="componentOf/encompassingEncounter/effectiveTime/high/@value"/>
+     </xsl:call-template>'
+    status: 'finished'
+    identifier: 
+     <xsl:for-each select="componentOf/encompassingEncounter/id">
+      <xsl:variable name="idSystem">
+       <xsl:value-of select="./@root" />
+      </xsl:variable>
+      <xsl:variable name="idCode">
+       <xsl:value-of select="./@extension" />
+      </xsl:variable>
+
+      <xsl:choose>
+       <xsl:when test="ends-with($idSystem,'.15')">
+     - value: '<xsl:value-of select="./@extension" />'
+       system: 'urn:oid:<xsl:value-of select="$idSystem" />'
+       type: 
+        coding: 
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'ACSN'
+       </xsl:when>
+       <xsl:otherwise>
+     - value: '<xsl:value-of select="./@extension" />'
+       system: 'urn:oid:<xsl:value-of select="$idSystem" />'
+       type: 
+        coding: 
+         - system: 'urn:oid:<xsl:value-of select="..//medService:DocType/@codeSystem" />'
+           code: '<xsl:value-of select="..//medService:DocType/@code" />'
+           version: '<xsl:value-of select="..//medService:DocType/@codeSystemVersion" />'
+           display: '<xsl:value-of select="..//medService:DocType/@displayName" />'
+         - system: 'urn:oid:<xsl:value-of select="..//code/@codeSystem" />'
+           code: '<xsl:value-of select="..//code/@code" />'
+           version: '<xsl:value-of select="..//code/@codeSystemVersion" />'
+           display: '<xsl:value-of select="..//code/@displayName" />'
+         - system: 'http://terminology.hl7.org/CodeSystem/v2-0203'
+           code: 'MR'
+       </xsl:otherwise>
+      </xsl:choose>
+     </xsl:for-each>
  </xsl:template>
  
 <xsl:template name="orderTask"> 
@@ -201,7 +288,7 @@ entry:
     insurance:
      - reference: '#Coverage/1'
     basedOn: 
-	<xsl:for-each select="component/structuredBody/component/section/entry/organizer/component/organizer/code/originalText">
+    <xsl:for-each select="component/structuredBody/component/section/entry/organizer/component/organizer/code/originalText">
      - reference: '#ServiceRequest/<xsl:number value="position()" format="1"/>'
     </xsl:for-each>
  </xsl:template>  
@@ -224,7 +311,7 @@ entry:
      end: '<xsl:call-template name="FormatDate">
       <xsl:with-param name="DateTime" select="documentationOf/serviceEvent/effectiveTime/high/@value"/>
      </xsl:call-template>'
-	<!--http://snomed.info/sct-->
+    <!--http://snomed.info/sct-->
     performerType: 
      - coding: 
        - system: 'urn:oid:<xsl:value-of select="documentationOf/serviceEvent/medService:serviceType/@codeSystem" />'
@@ -247,11 +334,11 @@ entry:
         display: '<xsl:value-of select="." />'  
  </xsl:for-each> 
 </xsl:template>  
-	   
+  
 <xsl:template name="diagnosticReports"> 
  <xsl:variable name="reportDate">
   <xsl:value-of select="component/structuredBody/component/section/entry/act/effectiveTime/@value" />
- </xsl:variable> 
+ </xsl:variable>
  <xsl:for-each select="component/structuredBody/component/section/entry/organizer/component/organizer">
   <xsl:variable name="reportId">
    <xsl:number value="position()" format="1"/>
@@ -297,7 +384,7 @@ entry:
    </xsl:variable>
    <xsl:call-template name="observation" >
     <xsl:with-param name="ObservationNode" select="."/>
-	<xsl:with-param name="ObservationId" select="concat($reportId, '.', $observationId)"/>
+    <xsl:with-param name="ObservationId" select="concat($reportId, '.', $observationId)"/>
    </xsl:call-template>   
   </xsl:for-each> 
  </xsl:for-each> 
@@ -399,14 +486,14 @@ entry:
         code: '<xsl:value-of select="$RangeNode/value/low/translation/@code" />'
         value: <xsl:value-of select="$RangeNode/value/low/translation/@value" />
         unit: '<xsl:value-of select="$RangeNode/value/low/translation/@displayName" />'
-  </xsl:if>	
+  </xsl:if>     
   <xsl:if test="$RangeNode/value/high/translation/@code">
        low: 
         system: 'urn:oid:<xsl:value-of select="$RangeNode/value/high/translation/@codeSystem" />'
         code: '<xsl:value-of select="$RangeNode/value/high/translation/@code" />'
         value: <xsl:value-of select="$RangeNode/value/high/translation/@value" />
         unit: '<xsl:value-of select="$RangeNode/value/high/translation/@displayName" />'
-  </xsl:if>	
+  </xsl:if>     
        type: 
         coding: 
          - system: 'http://terminology.hl7.org/CodeSystem/referencerange-meaning'
@@ -451,15 +538,15 @@ entry:
   <xsl:for-each select="specimen/specimenRole">  
    <xsl:call-template name="specimen" >
     <xsl:with-param name="SpecimenNode" select="."/>
-	<xsl:with-param name="ProcedureCode" select="$procedureCode"/>
-	<xsl:with-param name="ProcedureSystem" select="$procedureSystem"/>
-	<xsl:with-param name="ProcedureVersion" select="$procedureVersion"/>
-	<xsl:with-param name="ProcedureName" select="$procedureName"/>
-	<xsl:with-param name="ProcedureTime" select="$procedureTime"/>
-	<xsl:with-param name="ProcedureTimeLow" select="$procedureTimeLow"/>
-	<xsl:with-param name="ProcedureTimeHigh" select="$procedureTimeHigh"/>
-	<xsl:with-param name="Pefrormer" select="$pefrormer"/>
-	
+     <xsl:with-param name="ProcedureCode" select="$procedureCode"/>
+     <xsl:with-param name="ProcedureSystem" select="$procedureSystem"/>
+     <xsl:with-param name="ProcedureVersion" select="$procedureVersion"/>
+     <xsl:with-param name="ProcedureName" select="$procedureName"/>
+     <xsl:with-param name="ProcedureTime" select="$procedureTime"/>
+     <xsl:with-param name="ProcedureTimeLow" select="$procedureTimeLow"/>
+     <xsl:with-param name="ProcedureTimeHigh" select="$procedureTimeHigh"/>
+     <xsl:with-param name="Pefrormer" select="$pefrormer"/>
+     
    </xsl:call-template>
    
   </xsl:for-each>    
@@ -491,15 +578,15 @@ entry:
        system: 'urn:oid:<xsl:value-of select="$SpecimenNode/id/@root" />'
     collection:
      collector:
-      <xsl:if test="$Pefrormer!=''">	 
+      <xsl:if test="$Pefrormer!=''">      
       reference: '#Practitioner/<xsl:value-of select="$Pefrormer" />'
       </xsl:if>
-      <xsl:if test="$ProcedureTime!=''">	 
+      <xsl:if test="$ProcedureTime!=''">      
      collectedDateTime: '<xsl:call-template name="FormatDate">
         <xsl:with-param name="DateTime" select="$ProcedureTime"/>
        </xsl:call-template>'
       </xsl:if>
-      <xsl:if test="$ProcedureTimeLow!=''">	 
+      <xsl:if test="$ProcedureTimeLow!=''">      
      collectedPeriod:
       start: '<xsl:call-template name="FormatDate">
         <xsl:with-param name="DateTime" select="$ProcedureTimeLow"/>
@@ -523,7 +610,7 @@ entry:
          <xsl:if test="$ProcedureVersion!=''" >
          version: '<xsl:value-of select="$ProcedureVersion" />'
          </xsl:if>         
-         display: '<xsl:value-of select="$ProcedureName" />'	  
+         display: '<xsl:value-of select="$ProcedureName" />'       
     container:
      - description: '<xsl:value-of select="$SpecimenNode/specimenPlayingEntity/desc" />'
        identifier:
@@ -584,7 +671,7 @@ entry:
   <xsl:if test="component/observationMedia">
    <xsl:call-template name="media" >
      <xsl:with-param name="MediaNode" select="component/observationMedia"/>
-	 <xsl:with-param name="MediaId" select="$reportId"/>
+      <xsl:with-param name="MediaId" select="$reportId"/>
    </xsl:call-template> 
   </xsl:if>
  </xsl:for-each> 
@@ -681,7 +768,7 @@ entry:
      <xsl:value-of select="$policyNumber" />
     </xsl:otherwise>
    </xsl:choose>
-  </xsl:variable>     
+  </xsl:variable>  
  - resource: 
     resourceType: 'Patient'
     id: 'Patient/1'
@@ -753,39 +840,15 @@ entry:
     birthDate: '<xsl:call-template name="FormatDate">
      <xsl:with-param name="DateTime" select="patient/birthTime/@value"/>
     </xsl:call-template>'
-  <xsl:for-each select="addr">
-    address: 
-     - use: '<xsl:call-template name="AddressUse">
-     <xsl:with-param name="Code" select="address:Type/@code"/>
-    </xsl:call-template>'
-       _use: 
-        extension: 
-         - url: 'http://fhir.ru/core/sd/core-ex-address-use'
-           valueCodeableConcept: 
-            coding: 
-             - system: 'urn:oid:<xsl:value-of select="address:Type/@codeSystem" />'
-               code: '<xsl:value-of select="address:Type/@code" />'
-               version: '<xsl:value-of select="address:Type/@codeSystemVersion" />'
-               display: '<xsl:value-of select="address:Type/@displayName" />'
-       text: '<xsl:value-of select="normalize-space(streetAddressLine)" />'
-       state: '<xsl:value-of select="address:stateCode/@code" />'
-       _state:
-        extension: 
-         - url: 'http://fhir.ru/core/sd/core-ex-state'
-           valueCodeableConcept: 
-            coding: 
-             - system: 'urn:oid:<xsl:value-of select="address:stateCode/@codeSystem" />'
-               code: '<xsl:value-of select="address:stateCode/@code" />'
-               version: '<xsl:value-of select="address:stateCode/@codeSystemVersion" />'
-               display: '<xsl:value-of select="address:stateCode/@displayName" />'
-       postalCode: '<xsl:value-of select="postalCode" />'
-       extension: 
-        - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
-          valueString: '<xsl:value-of select="fias:Address/fias:AOGUID" />'
-        - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
-          valueString: '<xsl:value-of select="fias:Address/fias:HOUSEGUID" />'
+    <xsl:call-template name="addresses" >
+     <xsl:with-param name="ParNode" select="."/>
+   </xsl:call-template>
+   <xsl:call-template name="contacts" >
+     <xsl:with-param name="ParNode" select="."/>
+	 <xsl:with-param name="ContNodeName" select="'contact'"/>
+   </xsl:call-template>
+ <!--<xsl:if test="count(telecom)"> 
     contact:  
- </xsl:for-each>
   <xsl:for-each select="telecom">
    <xsl:variable name="telecomValue">
     <xsl:value-of select="./@value" />
@@ -800,6 +863,7 @@ entry:
        - value: '<xsl:value-of select="$type" />'
          system: '<xsl:value-of select="normalize-space($contact)" />'
   </xsl:for-each>
+ </xsl:if>-->
     extension: 
      - url: 'http://fhir.ru/core/sd/core-ex-gender'
        valueCodeableConcept: 
@@ -835,30 +899,14 @@ entry:
   
 <xsl:template name="practitioner"> 
  <xsl:param name="PractNode" />
- <!--<xsl:variable name="procedureName">  
-  <xsl:choose>
-   <xsl:when test="code/@displayName!=''">
-    <xsl:value-of select="code/@displayName" />
-   </xsl:when>
-   <xsl:otherwise>
-    <xsl:value-of select="code/originalText" />
-   </xsl:otherwise>
-  </xsl:choose>
-  <xsl:if test="$PractNode/assignedPerson/name/family">
-   <xsl:variable name="family">
-    <xsl:value-of select="$PractNode/assignedPerson/name/family" />
-   </xsl:variable>    
-  </xsl:if>
-
-  <xsl:if test="$PractNode/associatedPerson/name/family">
-   <xsl:variable name="family">
-    <xsl:value-of select="$PractNode/associatedPerson/name/family" />
-   </xsl:variable>    
-  </xsl:if>-->
- - resource: 
+ <xsl:variable name="practId">
+  <xsl:value-of select="$PractNode/id[@root!='1.2.643.100.3']/@extension" />
+ </xsl:variable> 
+ - resource:
     resourceType: 'Practitioner'
+    id: 'Practitioner/<xsl:value-of select="$practId" />'
     identifier: 
-     - value: '<xsl:value-of select="$PractNode/id[@root!='1.2.643.100.3']/@extension" />'
+     - value: '<xsl:value-of select="$practId" />'
        system: 'urn:oid:<xsl:value-of select="$PractNode/id[@root!='1.2.643.100.3']/@root" />'
        type: 
         text: 'Номер сотрудника в МИС'
@@ -880,33 +928,22 @@ entry:
        family: '<xsl:value-of select="$PractNode/assignedPerson/name/family" />'
        given: 
         - '<xsl:value-of select="$PractNode/assignedPerson/name/identity:Patronymic" />'
-        - '<xsl:value-of select="$PractNode/assignedPerson/name/given" />' 
+        - '<xsl:value-of select="$PractNode/assignedPerson/name/given" />'
   </xsl:if>
   <xsl:if test="$PractNode/associatedPerson/name/family">
        family: '<xsl:value-of select="$PractNode/associatedPerson/name/family" />'
        given: 
         - '<xsl:value-of select="$PractNode/associatedPerson/name/identity:Patronymic" />'
         - '<xsl:value-of select="$PractNode/associatedPerson/name/given" />' 
-  </xsl:if> 		
-    address: 
-     - text: '<xsl:value-of select="normalize-space($PractNode/addr/streetAddressLine)" />'
-       state: '<xsl:value-of select="$PractNode/addr/address:stateCode/@code" />'
-       _state: 
-        extension: 
-         - url: 'http://fhir.ru/core/sd/core-ex-state'
-           valueCodeableConcept: 
-            coding: 
-             - system: 'urn:oid:<xsl:value-of select="$PractNode/addr/address:stateCode/@codeSystem" />'
-               code: '<xsl:value-of select="$PractNode/addr/address:stateCode/@code" />'
-               version: '<xsl:value-of select="$PractNode/addr/address:stateCode/@codeSystemVersion" />'
-               display: '<xsl:value-of select="$PractNode/addr/address:stateCode/@displayName" />'
-       postalCode: '<xsl:value-of select="$PractNode/addr/postalCode" />'
-       extension: 
-        - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
-          valueString: '<xsl:value-of select="$PractNode/addr/fias:Address/fias:AOGUID" />'
-        - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
-          valueString: '<xsl:value-of select="$PractNode/addr/fias:Address/fias:HOUSEGUID" />'
-    <xsl:if test="$PractNode/telecom">
+  </xsl:if>           
+  <xsl:call-template name="addresses" >
+    <xsl:with-param name="ParNode" select="$PractNode"/>
+  </xsl:call-template>
+  <xsl:call-template name="contacts" >
+     <xsl:with-param name="ParNode" select="$PractNode"/>
+	 <xsl:with-param name="ContNodeName" select="'telecom'"/>
+   </xsl:call-template>
+    <!--<xsl:if test="$PractNode/telecom">
     telecom: 
      <xsl:for-each select="$PractNode/telecom">
       <xsl:variable name="telecomValue">
@@ -922,9 +959,111 @@ entry:
        - value: '<xsl:value-of select="$type" />'
          system: '<xsl:value-of select="normalize-space($contact)" />'
    </xsl:for-each>
-  </xsl:if>
+  </xsl:if>-->
+  <xsl:call-template name="practitionerRole" >
+    <xsl:with-param name="PractRoleNode" select="$PractNode"/>
+     <xsl:with-param name="PractId" select="$practId"/>
+  </xsl:call-template>
 </xsl:template> 
+
+<xsl:template name="practitionerRole"> 
+ <xsl:param name="PractRoleNode" />
+ <xsl:param name="PractId" />
  
+ <xsl:variable name="organization">  
+  <xsl:choose>
+   <xsl:when test="$PractRoleNode/scopingOrganization/id/@root!=''">
+    <xsl:value-of select="$PractRoleNode/scopingOrganization/id/@root" />
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:value-of select="$PractRoleNode/representedOrganization/id/@root" />
+   </xsl:otherwise>
+  </xsl:choose>
+ </xsl:variable>  
+ - resource: 
+    resourceType: 'PractitionerRole'
+    code: 
+     - coding: 
+       - system: 'urn:oid:<xsl:value-of select="$PractRoleNode/code/@codeSystem" />'
+         code: '<xsl:value-of select="$PractRoleNode/code/@code" />'
+         version: '<xsl:value-of select="$PractRoleNode/code/@codeSystemVersion" />'
+         display: '<xsl:value-of select="$PractRoleNode/code/@displayName" />'
+    practitioner: 
+     reference: '#Practitioner/<xsl:value-of select="$PractId" />'
+    organization: 
+     reference: 'urn:uuid:<xsl:value-of select="$organization" />'
+</xsl:template> 
+
+<xsl:template name="contacts">
+ <xsl:param name="ParNode" />
+ <xsl:param name="ContNodeName" />
+ <xsl:if test="count($ParNode/telecom)">
+ <xsl:choose>	
+   <xsl:when test="$ContNodeName='telecom'" >
+    telecom: 
+   </xsl:when>
+   <xsl:otherwise>
+    contact:
+   </xsl:otherwise>
+  </xsl:choose>	
+    <xsl:for-each select="$ParNode/telecom">
+     <xsl:variable name="telecomValue">
+      <xsl:value-of select="@value" />
+     </xsl:variable>
+     <xsl:variable name="type">
+       <xsl:value-of select="substring-before($telecomValue,':')" />
+     </xsl:variable>
+     <xsl:variable name="contact">
+      <xsl:value-of select="substring-after($telecomValue,':')" />
+     </xsl:variable>
+     - telecom: 
+       - value: '<xsl:value-of select="$type" />'
+         system: '<xsl:value-of select="normalize-space($contact)" />'
+    </xsl:for-each>
+  </xsl:if>
+</xsl:template>
+  
+<xsl:template name="addresses">
+ <xsl:param name="ParNode" /> 
+ <xsl:if test="count($ParNode/addr)" >
+    address: 
+  <xsl:for-each select="$ParNode/addr">
+     - text: '<xsl:value-of select="normalize-space(streetAddressLine)" />'
+     <xsl:if test="address:Type/@code">
+       use: '<xsl:call-template name="AddressUse">
+      <xsl:with-param name="Code" select="address:Type/@code"/>
+     </xsl:call-template>'
+       _use: 
+        extension: 
+         - url: 'http://fhir.ru/core/sd/core-ex-address-use'
+           valueCodeableConcept: 
+            coding: 
+             - system: 'urn:oid:<xsl:value-of select="address:Type/@codeSystem" />'
+               code: '<xsl:value-of select="address:Type/@code" />'
+               version: '<xsl:value-of select="address:Type/@codeSystemVersion" />'
+               display: '<xsl:value-of select="address:Type/@displayName" />'
+     </xsl:if>
+
+       state: '<xsl:value-of select="address:stateCode/@code" />'
+       _state:
+        extension: 
+         - url: 'http://fhir.ru/core/sd/core-ex-state'
+           valueCodeableConcept: 
+            coding: 
+             - system: 'urn:oid:<xsl:value-of select="address:stateCode/@codeSystem" />'
+               code: '<xsl:value-of select="address:stateCode/@code" />'
+               version: '<xsl:value-of select="address:stateCode/@codeSystemVersion" />'
+               display: '<xsl:value-of select="address:stateCode/@displayName" />'
+       postalCode: '<xsl:value-of select="postalCode" />'
+       extension: 
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias'
+          valueString: '<xsl:value-of select="fias:Address/fias:AOGUID" />'
+        - url: 'http://fhir.ru/core/sd/core-ex-address-fias-house'
+          valueString: '<xsl:value-of select="fias:Address/fias:HOUSEGUID" />'
+  </xsl:for-each>
+ </xsl:if>
+</xsl:template>
+
 <xsl:template name="GenderCode">
  <xsl:param name="Code" />
  <xsl:choose>
