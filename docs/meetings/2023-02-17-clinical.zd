@@ -1,0 +1,23 @@
+^badge 
+:date "2023-02-17"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-02-17 (cl)"
+
+:video "https://youtu.be/sufCo-WbVQ4" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение реализации MPI и прикрепления пациентов для получения амбулаторной медицинской помощи - уточняем терминологию и границы юзкейсов
+
+^title "Решения"
+:decisions md/
