@@ -48,6 +48,10 @@ Interoperability Resources®
 ^title "Тематические курсы"
 :specific_courses md/
 
+* Введение в программирование на FHIR - Вадим Перетокин. http://fhir-drills.github.io/index.html (английский)
+
+* Мини-курс по FHIR с исходниками - jupyter-course - Илья Беда. https://github.com/Aidbox/jupyter-course (английский)
+
 * Введение в Search API. Юрий Махоткин. FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=LFyVqngtlF4) (русский).
 
 * Введение в профили и расширения. Николай Рыжиков, FHIR Starter 2019. [Видео](https://www.youtube.com/watch?v=ifJ4qvfeqUA) (русский).
