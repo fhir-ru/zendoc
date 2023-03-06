@@ -1,0 +1,23 @@
+^badge 
+:date "2023-03-03"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-03-03 (cl)"
+
+:video "https://youtu.be/9ke2ztq8xbg" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение процессов госпитализации в круглосуточный стационар
+
+^title "Решения"
+:decisions md/
