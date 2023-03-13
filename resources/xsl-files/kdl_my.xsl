@@ -121,7 +121,7 @@ entry:
        - reference: '<xsl:value-of select="$reference"/>'  
 </xsl:template>     
 
-<xsl:template name="organizations">
+<!--<xsl:template name="organizations">
  <xsl:call-template name="organization" >
      <xsl:with-param name="OrgNode" select="recordTarget/patientRole/providerOrganization"/>
  </xsl:call-template>
@@ -152,7 +152,23 @@ entry:
  <xsl:call-template name="organization" >
   <xsl:with-param name="OrgNode" select="recordTarget/patientRole/providerOrganization"/>
  </xsl:call-template>     
-</xsl:template>     
+</xsl:template>-->
+
+<xsl:template name="organizations">
+  <xsl:for-each-group select="recordTarget/patientRole/providerOrganization
+  |informationRecipient/intendedRecipient/receivedOrganization
+  |custodian/assignedCustodian/representedCustodianOrganization
+  |legalAuthenticator/assignedEntity/representedOrganization
+  |participant/associatedEntity/scopingOrganization
+  |documentationOf/serviceEvent/performer/assignedEntity/representedOrganization
+  |component/structuredBody/component/section/entry/organizer/component/procedure/performer/assignedEntity/representedOrganization
+  |recordTarget/patientRole/providerOrganization" 
+  group-by="id[@root!='1.2.643.5.1.13.2.1.1.1504.101']/@extension">
+   <xsl:call-template name="organization" >
+    <xsl:with-param name="OrgNode" select="."/>
+   </xsl:call-template>
+  </xsl:for-each-group>
+</xsl:template>
 
 <xsl:template name="organization">
 <xsl:param name="OrgNode" />
@@ -876,7 +892,20 @@ entry:
  </xsl:for-each>
 </xsl:template>
 
-<xsl:template name="practitioners"> 
+<xsl:template name="practitioners">
+  <xsl:for-each-group select="author/assignedAuthor
+  |legalAuthenticator/assignedEntity
+  |participant[@typeCode='REF']/associatedEntity
+  |component/structuredBody/component/section/entry/organizer/component/procedure/performer/assignedEntity
+  |documentationOf/serviceEvent/performer/assignedEntity" 
+  group-by="id[@root!='1.2.643.100.3']/@extension">
+   <xsl:call-template name="practitioner" >
+    <xsl:with-param name="PractNode" select="."/>
+   </xsl:call-template>
+  </xsl:for-each-group>
+</xsl:template>	  
+
+<!--<xsl:template name="practitioners1"> 
  <xsl:call-template name="practitioner" >
      <xsl:with-param name="PractNode" select="author/assignedAuthor"/>
  </xsl:call-template>
@@ -895,7 +924,7 @@ entry:
     <xsl:with-param name="PractNode" select="."/>
   </xsl:call-template>
  </xsl:for-each> 
-</xsl:template> 
+</xsl:template> -->
   
 <xsl:template name="practitioner"> 
  <xsl:param name="PractNode" />
