@@ -1,0 +1,23 @@
+^badge 
+:date "2023-03-17"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-03-17 (cl)"
+
+:video "https://youtu.be/8DAxkKDgJSA" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение пограничных сценариев перед началом госпитализации пациента для лечения в стационаре
+
+^title "Решения"
+:decisions md/
