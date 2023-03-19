@@ -1,0 +1,35 @@
+:title "Среда для работы с FHIR"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+
+^hide
+:menu-order 5
+
+
+^title "Оглавление"
+:content-list md/ 
+
+В данном разделе даны инструкции по настройке рабочей среды для работы с FHIR под различными OS, а так же рассмотрен вариант работы онлайн в FSH ONLINE. 
+
+:toc
+
+^title "Настройка рабочей среды"
+:introduction md/
+
+^title "Инструкция для Linux"
+:introduction:Linux md/
+Инструкция по настройке рабочей среды для работы с FHIR под Linux находится в разработке
+
+^title "Инструкция для Windows"
+:introduction:Windows md/
+Инструкция по настройке рабочей среды для работы с FHIR под Windows находится в разработке
+
+^title "Инструкция для Mac"
+:introduction:Mac md/
+Инструкция по настройке рабочей среды для работы с FHIR под Mac находится в разработке
+
+^title "Инструкция по работе онлайн в FSH ONLINE "
+:onlineFsh md/
+
+
