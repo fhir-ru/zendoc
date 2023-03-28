@@ -1,0 +1,28 @@
+^badge 
+:date "2023-03-23"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-03-23 (poc)"
+
+:video "https://youtu.be/ALts88-QKtc" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Установочная встрача группы Point of care - POC, теперь с видеозаписью. 
+Обсуждение целей, задач группы и первых шагов. Описание сценариев.
+Фадин Дмитрий
+Бережной Владимир
+
+
+^title "Решения"
+:decisions md/
+
