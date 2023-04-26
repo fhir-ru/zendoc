@@ -1,0 +1,22 @@
+^badge 
+:date "2023-04-14"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-04-14 (cl)"
+
+:video "https://youtu.be/pRuCkhwTTbc" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+
+^title "Решения"
+:decisions md/
