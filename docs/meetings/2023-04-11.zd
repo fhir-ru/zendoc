@@ -1,0 +1,13 @@
+^badge
+:date "2023-04-11"
+:title "Встреча 2023-04-11"
+
+:video "https://youtu.be/8VXjJ8OlHU8"
+
+^title "Обсуждение"
+:discussion md/
+
+Ревью предыдущих встреч и статус по рабочим группам.
+
+^title "Решили"
+:decisions md/
