@@ -1,0 +1,23 @@
+^badge 
+:date "2023-04-28"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-04-28 (cl)"
+
+:video "https://youtu.be/2lM08ZTSV8w" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение сценария ведения беременности
+
+^title "Решения"
+:decisions md/
