@@ -1,4 +1,4 @@
-:title "Разработка в FHS"
+:title "Разработка в FSH"
 
 ^hide
 :icon [:fa :fa-graduation-cap] 
@@ -16,5 +16,5 @@ zendok-страницы сайта.
 
 
 ^title ""
-^table-of {:namespace "support.fhs-development." :columns [:zd/name]}
+^table-of {:namespace "support.fsh-development." :columns [:zd/name]}
 :pages 
