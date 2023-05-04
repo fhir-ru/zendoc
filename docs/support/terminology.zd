@@ -1,0 +1,14 @@
+^hide
+:menu-order 50
+
+^hide
+:icon [:fa-solid :fa-circle-info] 
+
+^hide
+:menu/first true
+
+:title "Терминологический репозиторий"
+
+^title ""
+^table-of {:namespace "terminology." :columns [:zd/name]}
+:pages 
