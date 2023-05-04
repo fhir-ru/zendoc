@@ -1,0 +1,19 @@
+:title "Разработка в FHS"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+^hide
+:menu-order 40
+
+^hide
+:menu/first true
+
+Профили ресурсов и другие артефакты FHIR написаны на FSH. Это позволяет 
+публиковать стандартныое руководство по реализации. Тексты на fsh вставляются на 
+zendok-страницы сайта.
+ 
+
+
+^title ""
+^table-of {:namespace "fsh-development." :columns [:zd/name]}
+:pages 
