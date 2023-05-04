@@ -1,6 +1,6 @@
 
 ^hide
-:menu-order 200
+:menu-order 40
 
 ^hide
 :icon [:fa :fa-font] 
