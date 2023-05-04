@@ -14,5 +14,5 @@
 
 
 ^title ""
-^table-of {:namespace "zen-development." :columns [:zd/name]}
+^table-of {:namespace "support.zen-development." :columns [:zd/name]}
 :pages 
