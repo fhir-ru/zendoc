@@ -1,0 +1,13 @@
+:title "Как оформить slicing на FSH"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+
+^hide
+:menu-order 20
+
+
+^title "Оглавление"
+:content-list md/ 
+
+В данном разделе даны инструкции по slicing
