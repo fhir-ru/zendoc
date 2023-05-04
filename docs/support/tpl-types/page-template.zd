@@ -1,5 +1,5 @@
 ^hide
-:menu-order 5
+:menu-order 10
 
 ^hide
 :icon [:fa :fa-graduation-cap] 
