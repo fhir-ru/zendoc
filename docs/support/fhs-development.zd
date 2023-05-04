@@ -15,5 +15,5 @@ zendok-страницы сайта.
 
 
 ^title ""
-^table-of {:namespace "fsh-development." :columns [:zd/name]}
+^table-of {:namespace "support.fsh-development." :columns [:zd/name]}
 :pages 
