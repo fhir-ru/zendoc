@@ -4,7 +4,7 @@
 :icon [:fa :fa-graduation-cap] 
 
 ^hide
-:menu-order 5
+:menu-order 10
 
 
 ^title "Оглавление"
