@@ -1,10 +1,10 @@
 ^hide
-:menu-order 4
+:menu-order 50
 
 ^hide
 :icon [:fa :fa-graduation-cap] 
 
-:title "Шаблоны"
+:title "Примеры артефактов FHIR на Zen-lang"
 
 ^badge
 :editors #{people.alexandra}
