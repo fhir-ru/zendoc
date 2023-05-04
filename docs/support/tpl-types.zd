@@ -1,0 +1,14 @@
+^hide
+:menu-order 60
+
+^hide
+:icon [:fa-solid :fa-circle-info] 
+
+^hide
+:menu/first true
+
+:title "Шаблоны и типы данных"
+
+^title ""
+^table-of {:namespace "tpl-types." :columns [:zd/name]}
+:pages 
