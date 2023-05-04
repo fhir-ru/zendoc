@@ -10,5 +10,5 @@
 :title "Шаблоны и типы данных"
 
 ^title ""
-^table-of {:namespace "tpl-types." :columns [:zd/name]}
+^table-of {:namespace "support.tpl-types." :columns [:zd/name]}
 :pages 
