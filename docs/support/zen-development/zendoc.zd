@@ -4,7 +4,7 @@
 :icon [:fa :fa-graduation-cap] 
 
 ^hide
-:menu-order 3
+:menu-order 10
 
 ^badge
 :editors #{people.alexandra people.varvara}
