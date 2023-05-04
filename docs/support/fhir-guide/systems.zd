@@ -1,5 +1,5 @@
 ^hide
-:menu-order 11
+:menu-order 20
 
 ^hide
 :icon [:fa-solid :fa-table-list]
@@ -10,7 +10,7 @@
 ^badge
 :type :ig
 
-:title "Порядок внесения артефактов в реестр"
+:title "Для чего создавать системы идентификации"
 
 :toc
 
