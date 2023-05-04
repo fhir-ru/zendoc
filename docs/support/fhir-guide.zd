@@ -1,0 +1,16 @@
+:title "Как создавать руководства FHIR"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+^hide
+:menu-order 20
+
+^hide
+:menu/first true
+
+
+
+
+^title ""
+^table-of {:namespace "fhir-guide." :columns [:zd/name]}
+:pages 
