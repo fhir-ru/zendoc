@@ -1,0 +1,18 @@
+:title "Разработка в ZenDoc"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+^hide
+:menu-order 30
+
+^hide
+:menu/first true
+
+Страницы сайта Fhir.ru написаны на ZenDoc. Это позволяет не только построить
+"вики-образный" сайт, но и обращаться к элементам текста как к данным, генерируя
+страницы автоматически.
+
+
+^title ""
+^table-of {:namespace "zen-development." :columns [:zd/name]}
+:pages 
