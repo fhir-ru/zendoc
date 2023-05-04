@@ -5,12 +5,8 @@
 ^hide
 :menu-order 20
 
-^hide
-:menu/first true
-
-
-
 
 ^title ""
-^table-of {:namespace "fhir-guide." :columns [:zd/name]}
+^table-of {:namespace "support.fhir-guide." :columns [:zd/name]}
 :pages 
+
