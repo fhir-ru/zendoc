@@ -4,8 +4,9 @@
 ^hide
 :icon [:fa-solid :fa-circle-info] 
 
-^hide
-:menu/first true
+
+--^hide
+--:menu/first true
 
 :title "Шаблоны и типы данных"
 
