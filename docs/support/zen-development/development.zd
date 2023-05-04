@@ -1,10 +1,10 @@
-:title "Разработка проекта"
+:title "Настройка рабочей среды Zendoc"
 
 ^hide
 :icon [:fa :fa-laptop-code] 
 
 ^hide
-:menu-order 4
+:menu-order 40
 
 ^badge
 :editors #{people.alexandra}
