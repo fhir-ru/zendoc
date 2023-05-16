@@ -41,9 +41,41 @@ RuCore представляет собой FHIR-модель для россий
 :fsh md/
 В настоящее время идет перевод артефактов RuCore на fsh, с тем чтобы сделать возможными подключение стандартных валидаторов и публикатора IG
 Ниже приведены тексты на fsh
+1) 1.Пол пациента
+
+```
+Profile: CorePatient
+Id: core-patient
+Parent: Patient
+Title: "Пациент"
+
+* name 0..* 
+* name ^short = "ФИО пациента"
+* name.use 0..1
+* name.given 0..*
+* name.given ^short = "Имя и отчество пациента. Первым должно идти имя, вторым - отчество"
+* name.family 0..1
+* name.family ^short = "Фамилия пациента"
+
+* ^url = "http://fhir.ru/core/sd/core-patient"
+* gender 0..1
+* gender ^short = "Пол пациента"
+* gender from http://fhir.ru/core/vs/core-vs-administrative-gender (required)
 
 
 
+
+ValueSet: CoreVsAdministrativeGender
+Id:       core-vs-administrative-gender
+Title:  "Core ValueSet Пол пациента"
+
+* ^url = http://fhir.ru/core/vs/core-vs-administrative-gender
+
+* http://fhir.ru/core/vs/core-vs-administrative-gender#1 "Мужской"
+* http://fhir.ru/core/vs/core-vs-administrative-gender#2 "Женский"
+* http://fhir.ru/core/vs/core-vs-administrative-gender#3 "Другой"
+
+```
 
  
 :feedback md/
