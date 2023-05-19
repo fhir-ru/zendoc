@@ -1,0 +1,23 @@
+^badge 
+:date "2023-05-19"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-05-19 (cl)"
+
+:video "https://youtu.be/7qS7z4_KMpk" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсудили сделанную в прошлом году структуру для хранения клинического диагноза в Encounter.diagnosis и ее модификацию для перехода на R5.
+
+^title "Решения"
+:decisions md/
