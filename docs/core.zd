@@ -40,8 +40,105 @@ RuCore представляет собой FHIR-модель для россий
 ^title "Перевод на fsh (временный раздел)"
 :fsh md/
 В настоящее время идет перевод артефактов RuCore на fsh, с тем чтобы сделать возможными подключение стандартных валидаторов и публикатора IG
+
 Ниже приведены тексты на fsh
-1) 1.Пол пациента
+1) 1.Органзация
+
+```
+Profile:     CoreAddress
+Id:          core-address
+Parent:      Address
+Title:       "Адресс (Ru Core)"
+Description: "Адрес с кодом адреса и кодом дома по ФИАС"
+
+// TODO - нужно описать профиль на тип данных с предварительным описанием двух расширений, которые в нём используются
+
+
+Profile:     CoreOrganization
+Id:          core-organization
+Parent:      Organization
+Title:       "Organization"
+Description: "Профиль Organisation описывает субъекты хозяйственной деятельности в области здравоохранения. Определены специфические идентификаторы - ОГРН, ФРМО, ИНН."
+
+* name 1..1 MS
+* name ^short = "Полное название организации"
+
+* alias 0..*
+* alias ^short = "Сокращенное наименование организации"
+
+* identifier 0..* 
+
+* identifier.assigner 0..1
+* identifier.assigner only Reference(CoreOrganization)
+
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system" 
+* identifier ^slicing.rules = #open
+* identifier ^slicing.description = "Нарезка по типам реквизитов организации - ИНН, ФРМО, ОГРН"
+
+* identifier contains 
+  ИНН  0..1 and
+  ФРМО 0..1 and
+  ОГРН 0..1 
+  
+* identifier[ИНН] ^short = "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+* identifier[ИНН].system = "http://fhir.ru/core/systems/inn"
+  
+* identifier[ФРМО] ^short = "Уникальный идентификатор МО в справочнике ФРМО"
+* identifier[ФРМО].system = "http://fhir.ru/core/systems/frmo"  
+  
+* identifier[ОГРН] ^short = "Основной государственный регистрационный номер юридического лица (индивидуального предпринимателя)"
+* identifier[ОГРН].system = "http://fhir.ru/core/systems/ogrn"
+
+* address 0..*
+* address ^short = "Адрес организации"
+* address only CoreAddress
+
+
+Instance:   core-organization-instance-1
+InstanceOf: CoreOrganization
+Usage: #example
+
+* name = "Полное название организации"
+
+* alias = "Сокращенное наименование организации"
+
+* identifier[ИНН].system = "http://fhir.ru/core/systems/inn"
+* identifier[ИНН].value = "номер ИНН"
+* identifier[ИНН].assigner = Reference(core-organization-instance-2)
+  
+* identifier[ФРМО].system = "http://fhir.ru/core/systems/frmo"  
+* identifier[ФРМО].value = "идентификатор ФРМО"  
+* identifier[ФРМО].assigner = Reference(ore-organization-instance-2)
+  
+* identifier[ОГРН].system = "http://fhir.ru/core/systems/ogrn"
+* identifier[ОГРН].value = "номер ОГРН"
+* identifier[ОГРН].assigner = Reference(core-organization-instance-2)
+
+* address.text = "Адрес"
+
+
+Instance:   core-organization-instance-2
+InstanceOf: CoreOrganization
+Usage: #example
+
+* name = "Полное название организации 2"
+
+* alias = "Сокращенное наименование организации 2"
+
+* identifier[ИНН].system = "http://fhir.ru/core/systems/inn"
+* identifier[ИНН].value = "номер ИНН 2"
+  
+* identifier[ФРМО].system = "http://fhir.ru/core/systems/frmo"  
+* identifier[ФРМО].value = "идентификатор ФРМО 2"  
+  
+* identifier[ОГРН].system = "http://fhir.ru/core/systems/ogrn"
+* identifier[ОГРН].value = "номер ОГРН 2"
+
+* address.text = "Адрес 2"
+```
+
+2) 1.Пол пациента
 
 ```
 Profile: CorePatient
