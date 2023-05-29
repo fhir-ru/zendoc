@@ -138,7 +138,7 @@ Usage: #example
 * address.text = "Адрес 2"
 ```
 
-2) 2. Пациент и пол пациента
+2) 2. Пациент и пол пациента (версия 2)
 
 ```
 Profile: CorePatient
@@ -155,22 +155,35 @@ Title: "Пациент"
 * name.family ^short = "Фамилия пациента"
 
 * ^url = "http://fhir.ru/core/sd/core-patient"
+
 * gender 0..1
 * gender ^short = "Пол пациента"
 * gender from http://fhir.ru/core/vs/core-vs-administrative-gender (required)
 
 
+CodeSystem: CoreCsRosminzdravGender 
+Id:        core-cs-rosminzdrav-gender
+Title:  "Core CodeSystem НСИ Минздрава Пол пациента"
+Description: "НСИ Минздрава Пол пациента"
+* ^url = "http://fhir.ru/core/cs/core-cs-rosminzdrav-gender"
+* ^content = #complete
 
+* ^identifier.system = urn:ietf:rfc:3986
+* ^identifier.value = urn:oid:1.2.643.5.1.13.13.11.1040
+
+* #1 "Мужской"
+* #2 "Женский"
+* #3 "Неопределенный"
+
+Alias: $CoreCsRosminzdravGender = http://fhir.ru/core/cs/core-cs-rosminzdrav-gender
 
 ValueSet: CoreVsAdministrativeGender
 Id:       core-vs-administrative-gender
 Title:  "Core ValueSet Пол пациента"
 
 * ^url = http://fhir.ru/core/vs/core-vs-administrative-gender
+* include codes from system $CoreCsRosminzdravGender
 
-* http://fhir.ru/core/vs/core-vs-administrative-gender#1 "Мужской"
-* http://fhir.ru/core/vs/core-vs-administrative-gender#2 "Женский"
-* http://fhir.ru/core/vs/core-vs-administrative-gender#3 "Другой"
 
 ```
 
