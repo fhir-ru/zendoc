@@ -12,7 +12,8 @@
 Профили ресурсов и другие артефакты FHIR написаны на fsh. Это позволяет публиковать стандартное руководство по реализации. Тексты на fsh вставляются на zendoc – страницы сайта.
  
 
+:title "Разделы: "
+* [Среда для работы с FSH](support.fsh-development.instr)
 
-^title ""
-^table-of {:namespace "support.fsh-development." :columns [:zd/name]}
-:pages 
+* [Как оформить slicing на FSH](support.fsh-development.slicing)
+
