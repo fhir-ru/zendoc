@@ -13,7 +13,7 @@
  
 
 :title "Разделы: "
-* 1.[Среда для работы с FSH](support.fsh-development.instr)
+* 1. [Среда для работы с FSH](fsh-development.instr)
 
-* 2.[Как оформить slicing на FSH](support.fsh-development.slicing)
+* 2. [Как оформить slicing на FSH](fsh-development.slicing)
 
