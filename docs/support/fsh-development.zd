@@ -13,6 +13,7 @@
  
 
 :title "Содержание:"
+
 * Раздел 1. [Среда для работы с FSH](fsh-development.instr)
 
 * Раздел 2. [Как оформить slicing на FSH](fsh-development.slicing)
