@@ -8,7 +8,13 @@
 ^hide
 :menu/first true
 
-^title ""
-^table-of {:namespace "support.fhir-guide." :columns [:zd/name]}
-:pages 
+
+** Содержание:**
+
+* Раздел 1. [Соглашения](support.fhir-guide.convention)
+
+* Раздел 2. [Для чего создавать системы идентификации](support.fhir-guide.systems)
+
+
+
 
