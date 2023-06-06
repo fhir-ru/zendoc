@@ -176,8 +176,8 @@ __терминологии__
 
 
 ^disc 61
-^title "Идентификаторы Coding Systems"
-:code-systems-naming md/
+^title "Системы идентификации (Naming Systems)"
+:naming-systems-naming md/
 
 Аналогично соглашению по названиями профайлов - системы кодируются так:
 
