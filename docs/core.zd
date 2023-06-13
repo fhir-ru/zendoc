@@ -138,52 +138,151 @@ Usage: #example
 * address.text = "Адрес 2"
 ```
 
-2) 2. Пациент и пол пациента (версия 2)
+2) 2. Профиль Пациент(CorePatient) (версия 3)
 
 ```
 Profile: CorePatient
 Id: core-patient
 Parent: Patient
 Title: "Пациент"
-
-* name 0..* 
-* name ^short = "ФИО пациента"
-* name.use 0..1
-* name.given 0..*
-* name.given ^short = "Имя и отчество пациента. Первым должно идти имя, вторым - отчество"
-* name.family 0..1
-* name.family ^short = "Фамилия пациента"
-
 * ^url = "http://fhir.ru/core/sd/core-patient"
 
-* gender 0..1
-* gender ^short = "Пол пациента"
-* gender from http://fhir.ru/core/vs/core-vs-administrative-gender (required)
+* . 0..*
 
-
-CodeSystem: CoreCsRosminzdravGender 
-Id:        core-cs-rosminzdrav-gender
-Title:  "Core CodeSystem НСИ Минздрава Пол пациента"
-Description: "НСИ Минздрава Пол пациента"
-* ^url = "http://fhir.ru/core/cs/core-cs-rosminzdrav-gender"
-* ^content = #complete
-
-* ^identifier.system = urn:ietf:rfc:3986
-* ^identifier.value = urn:oid:1.2.643.5.1.13.13.11.1040
-
-* #1 "Мужской"
-* #2 "Женский"
-* #3 "Неопределенный"
-
-Alias: $CoreCsRosminzdravGender = http://fhir.ru/core/cs/core-cs-rosminzdrav-gender
-
-ValueSet: CoreVsAdministrativeGender
-Id:       core-vs-administrative-gender
-Title:  "Core ValueSet Пол пациента"
-
-* ^url = http://fhir.ru/core/vs/core-vs-administrative-gender
-* include codes from system $CoreCsRosminzdravGender
-
+// Идентификаторы пациента
+* identifier 0..* 
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system" 
+* identifier ^slicing.rules = #open
+* identifier ^slicing.description = "Нарезка по Идентификаторам пациента - Паспорт РФ, ИНН, СНИЛС, номер МК, полис ОМС, номер св-ва о рожд.,Номер пациента в МИС"
+* identifier contains 
+  PassportRF  0..1 and
+  INN 0..1 and
+  ОГРН 0..1 and
+  SNILS 0..1 and
+  MRN 0..1 and
+  InsuranceOMS 0..1 and
+  BirthCertificate 0..1 and
+  PatientInternalIdentifier 0..1 
+  
+* identifier[PassportRF] ^short = "Паспорт РФ "
+* identifier[PassportRF].value only string
+* identifier[PassportRF].system = "http://fhir.ru/core/systems/passport-rf"
+* identifier[PassportRF].type 0..1
+  * coding 0..*
+  * coding ^slicing.discriminator.type = #value
+  * coding ^slicing.discriminator.path = "system" 
+  * coding ^slicing.rules = #open
+  * coding ^slicing.description = "Нарезка по типам индентификатора - Паспорт пациента "
+  * coding contains   
+    v2-0203 1..* and
+    core-cs-nsi-identity-document 0..* and
+    oid-48  0..*  
+  * coding[v2-0203] ^short = "Binding: identifier-type (extensible) A coded type for an identifier that can be used to determine which identifier to use for a specific purpose"
+    * code = #PPN
+    * display ^short = "Fixed value: Passport number"
+    * display = "Passport number"
+    * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+  * coding[core-cs-nsi-identity-document] ^short = "Binding: CoreVsIdentityDocument (required) Основан на справочнике 'Документы, удостоверяющие личность' НСИ ЕГИСЗ (https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)"
+    * code ^short = "Fixed value: 1"
+    * code = #1
+    * display ^short = "Fixed value: Паспорт гражданина Российской Федерации"
+    * display = "Паспорт гражданина Российской Федерации"
+    * system ^short = "Fixed value: http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+    * system = "http://fhir.ru/core/cs/core-cs-nsi-identity-document"
+  * coding[oid-48] ^short = "Binding: CoreVsIdentityDocument (required) Основан на справочнике 'Документы, удостоверяющие личность' НСИ ЕГИСЗ(https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.99.2.48)"
+    * code ^short = "Fixed value: 1"
+    * code = #1
+    * display ^short = "Fixed value: Паспорт гражданина Российской Федерации"
+    * display = "Паспорт гражданина Российской Федерации"
+    * system ^short = "Fixed value: urn:oid:1.2.643.5.1.13.13.99.2.48"
+    * system = "urn:oid:1.2.643.5.1.13.13.99.2.48"
+    
+* identifier[INN] ^short = "Идентификационный номер налогоплательщика — цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. Присваивается налоговой записи как юридических, так и физических лиц Федеральной налоговой службой России."
+* identifier[INN].value only string
+* identifier[INN].system = "http://fhir.ru/core/systems/inn"
+* identifier[INN].type 0..1
+  * coding 1..*
+  * coding ^slicing.discriminator.type = #value
+  * coding ^slicing.discriminator.path = "system" 
+  * coding ^slicing.rules = #open
+  * coding ^slicing.description = "Нарезка по типам индентификатора - ИНН "
+  * coding contains   
+    v2-0203 1..* 
+  * coding[v2-0203] ^short = "Binding: identifier-type (extensible) A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."
+    * code ^short = "Fixed value: TAX"
+    * code = #TAX
+    * display ^short = "Fixed value: Tax ID number"
+    * display = "Tax ID number"
+    * system ^short = "Fixed value: http://terminology.hl7.org/CodeSystem/v2-0203"
+    * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+      
+    
+* identifier[SNILS] ^short = "Страховой номер индивидуального лицевого счёта, СНИЛС — уникальный номер индивидуального лицевого счёта застрахованного лица в системе обязательного пенсионного страхования"
+* identifier[SNILS].value only string
+* identifier[SNILS].system  = "http://fhir.ru/core/systems/snils" 
+* identifier[SNILS].type 0..1
+  * coding 1..*
+  * coding ^slicing.discriminator.type = #value
+  * coding ^slicing.discriminator.path = "system" 
+  * coding ^slicing.rules = #open
+  * coding ^slicing.description = "Нарезка по типам индентификатора - СНИЛС "
+  * coding contains   
+    v2-0203 1..* 
+  * coding[v2-0203] ^short = "Binding: identifier-type (extensible) A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." 
+    * code ^short = "Fixed value: SB"   
+    * code = #SB
+    * display ^short = "Fixed value: Social Beneficiary Identifier"
+    * display = "Social Beneficiary Identifier"
+    * system ^short = "Fixed value: http://terminology.hl7.org/CodeSystem/v2-0203"
+    * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+   
+      
+* identifier[MRN] ^short = "Номер медицинской карты"
+* identifier[MRN].value only string 
+* identifier[MRN].value ^short = "Номер карты"
+* identifier[MRN].system 1..1 
+* identifier[MRN].system ^short = "Требования не предъявляются"
+* identifier[MRN].assigner 0..1
+* identifier[MRN].assigner ^short = "Медицинская организация - владелец информационной системы, выдавшей карту (не организация-поставщик МИС)"
+* identifier[MRN].type 
+  * text only string 
+  * text ^short = "Название карты в произвольной форме"
+  * coding 2..*
+  * coding ^slicing.discriminator.type = #value
+  * coding ^slicing.discriminator.path = "system" 
+  * coding ^slicing.rules = #open
+  * coding ^slicing.description = "Нарезка по типам индентификатора - Номер пациента в МИС"
+  * coding contains   
+    v2-0203 1..* and
+    med-cards-as-identifiers 1..*
+  * coding[v2-0203] ^short = "Binding: identifier-type (extensible) A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."
+    * code = #MR 
+    * display = " Medical record number"
+    * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+  * coding[med-cards-as-identifiers] ^short = "Кодированное значение по справочнику urn:oid:1.2.643.5.1.13.13.11.1522 Типы медицинских карт для идентификации пациента"
+    * system = "urn:oid:1.2.643.5.1.13.13.11.1522"  
+    
+* identifier[InsuranceOMS] ^short = "Идентификация по номеру полиса ОМС. Система идентификации - Единый реестр застрахованных ФФОМС"
+* identifier[InsuranceOMS].value only string  
+* identifier[InsuranceOMS].system 1..1
+* identifier[InsuranceOMS].system = "http://fhir.ru/core/systems/ffoms-erz"
+* identifier[InsuranceOMS].type 0..1
+* identifier[InsuranceOMS].type ^short = "Тип идентификатора"
+  * coding 1..*
+  * coding ^slicing.discriminator.type = #value
+  * coding ^slicing.discriminator.path = "system" 
+  * coding ^slicing.rules = #open
+  * coding ^slicing.description = "Нарезка по типам индентификатора - полис ОМС"
+  * coding contains   
+    v2-0203 1..* 
+  * coding[v2-0203] ^short = "Binding: identifier-type (extensible) A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."
+    * code ^short = "Fixed value: SB"
+    * code = #SB
+    * display ^short = "Fixed value: Social Beneficiary Identifier"	
+    * display = "Social Beneficiary Identifier"
+    * system ^short = "Fixed value: http://terminology.hl7.org/CodeSystem/v2-0203"
+    * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 
 ```
 
