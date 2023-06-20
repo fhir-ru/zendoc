@@ -1,5 +1,5 @@
 ^badge 
-:date "2023-05-22-poc"
+:date "2023-05-22"
 
 ^badge 
 :groups #{groups.poc}
