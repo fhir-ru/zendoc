@@ -1,0 +1,24 @@
+^badge 
+:date "2023-07-14"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-07-14 (cl)"
+
+:video "https://youtu.be/ur5E8i4s_7U" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение границ проектирования между клинической и POC группами. Объем профилей, запланированных к реализации по Encounter-EpisodeOfCare. Место PHR-систем в текущем скоупе профилей.
+
+
+^title "Решения"
+:decisions md/
