@@ -1,0 +1,35 @@
+^badge 
+:date "2023-07-13"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-07-13 (poc)"
+
+:video "https://youtu.be/qGEtjuWoXIM" 
+
+:video "https://youtu.be/t_ylopi7KW4"
+
+:video "https://youtu.be/iuqzwglNgVw"
+
+^tile "Обсуждение"
+:discussion  md/
+
+**Для просмотра второго видео откройте страницу встречи!**
+
+Фадин Д., Бережной В., Звягин А., Коган Е.
+
+^tile "Решения"
+:decision  md/
+
+1.	Диаграмму в целом одобрить
+
+2.	В дальнейшем выделить на диаграмме фрагменты, общие с другими сценариями, и провести композицию-декомпозицию
+
+3.	Описать следующий сценарий – А.Звягин.
