@@ -12,6 +12,8 @@
 
 :title "Встреча 2023-08-30 (pmp)"
 
+:video "" 
+
 ^tile "Обсуждение"
 :discussion  md/
 
