@@ -17,7 +17,7 @@
 ^tile "Обсуждение"
 :discussion  md/
 
-Обсуждение вопросов к RuCore профилю нозологической единицы (ресурс Condition) https://github.com/fhir-ru/core/discussions/72#discussioncomment-6851577
+Обсуждение вопросов к RuCore профилю нозологической единицы (ресурс Condition) - [в дискуссии 72](https://github.com/fhir-ru/core/discussions/72#discussioncomment-6851577)
 
 ^title "Решения"
 :decisions md/
