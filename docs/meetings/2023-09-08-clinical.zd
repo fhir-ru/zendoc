@@ -1,0 +1,23 @@
+^badge 
+:date "2023-09-08"
+
+^badge 
+:groups #{groups.clin}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-09-08 (cl)"
+
+:video "https://youtu.be/813NS8St20E" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение вопросов к RuCore профилю нозологической единицы (ресурс Condition) https://github.com/fhir-ru/core/discussions/72#discussioncomment-6851577
+
+^title "Решения"
+:decisions md/
