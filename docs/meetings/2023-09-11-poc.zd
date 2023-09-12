@@ -1,0 +1,27 @@
+^badge 
+:date "2023-09-11"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-09-11 (poc)"
+
+:video "https://youtu.be/qqu9Oc-NcIE" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+В.Бережной, А.Звягин, Д.Фадин, Е.Коган
+
+Обсуждение сценария С2. Недоступность ИС (Shutdown)
+
+Обсуждение, как будем выкладывать решения по РОС на странички сайта по мере готовности.
+
+^tile "Решения"
+:decision  md/
