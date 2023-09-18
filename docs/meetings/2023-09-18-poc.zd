@@ -1,0 +1,25 @@
+^badge 
+:date "2023-09-18"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-09-18 (poc)"
+
+:video "https://youtu.be/lx3zLUiDFEc" 
+
+^tile "Обсуждение"
+:discussion  md/
+
+В.Бережной, А.Звягин, Д.Фадин, Е.Коган
+
+Обсуждение сценария, когда валидация теста не прошла. Обсуждение плана участия в Конгрессе лабораторной медицины 4-6.09.23.
+
+^tile "Решения"
+:decision  md/
