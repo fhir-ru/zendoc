@@ -1,0 +1,8 @@
+^hide
+:menu-order 3
+
+:title "Профили ресурсов"
+
+^title "Профили"
+^table-of {:namespace "poct.profile." :columns [:zd/name :summary :status :authors]}
+:profiles
