@@ -1,0 +1,9 @@
+^hide
+:menu-order 1
+
+^hide
+:icon [:fa-solid :fa-box]
+
+:title "Операция1: Передача плана наблюдения"
+
+:description md/
