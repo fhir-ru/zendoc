@@ -1,0 +1,9 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-box]
+
+:title "Команды передачи данных"
+
+:description md/
