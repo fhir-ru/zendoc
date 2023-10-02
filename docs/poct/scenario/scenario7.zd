@@ -1,0 +1,13 @@
+^hide
+:menu-order 7
+
+^badge
+:status :draft
+
+^hide
+:icon [:fa-solid :fa-box]
+
+:title "С7: Регистрация оператора, пациента, оборудования"
+
+:description md/
+
