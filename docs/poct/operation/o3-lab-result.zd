@@ -1,0 +1,9 @@
+^hide
+:menu-order 3
+
+^hide
+:icon [:fa-solid :fa-box]
+
+:title "Операция3: Передача результата лабораторного исследования"
+
+:description md/
