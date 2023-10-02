@@ -1,0 +1,9 @@
+^hide
+:menu-order 2
+
+^hide
+:icon [:fa-solid :fa-box]
+
+:title "Операция2: Передача измерения"
+
+:description md/
