@@ -4,6 +4,6 @@
 ^hide
 :icon [:fa-solid :fa-box]
 
-:title "Команды передачи данных"
+:title "Операции передачи данных"
 
 :description md/
