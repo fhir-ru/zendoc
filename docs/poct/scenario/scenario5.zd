@@ -7,7 +7,7 @@
 ^hide
 :icon [:fa-solid :fa-box]
 
-:title "С5: ЧРЕЗВЫЧАЙНАЯ СИТУАЦИЯ (ЧС)"
+:title "С5: Чрезвычайная ситуация"
 
 :description md/
 
