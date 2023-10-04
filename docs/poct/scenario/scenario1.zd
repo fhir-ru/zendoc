@@ -30,11 +30,8 @@ MIDDLEWARE
 Анализатор ИМНП
 * Оператор ИМНП в соответствии с листом назначений проводит одно или несколько измерений. Для этого он вводит идентификатор оператора, пациента и проводит измерение. Ввод идентификатора пациента обязателен для каждого нового пациента.
 
-[[img poct/scenario/Scenario1.png]]
-
-
-^img 
-:diagram:img "poct/scenario/Scenario1.png"
+^title "Схема процесса"
+:process-schema md/
 
 ^img
 :images:image "https://user-images.githubusercontent.com/62525329/272394309-9bf012df-e8ec-4459-b506-26dadc098c9a.png"
