@@ -9,5 +9,8 @@
 
 :title "С7: Регистрация оператора, пациента, оборудования"
 
-:description md/
+^title "Схема процесса"
+:process-schema md/
 
+^img
+:images:image "https://user-images.githubusercontent.com/62525329/272469483-c19cfeba-2fb8-4ceb-9668-54ab622b3bcc.png"
