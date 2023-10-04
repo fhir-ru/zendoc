@@ -66,8 +66,5 @@
 :process-schema md/
 
 ^img
-:images:image "https://user-images.githubusercontent.com/62525329/272469227-e5b5ff68-5b7d-404a-b9df-08a10a85c742.png"
-
-^img
 :images:image "https://user-images.githubusercontent.com/62525329/272469273-4ca043e6-6919-4ffa-a218-2dde02a456fb.png"
 
