@@ -1,0 +1,28 @@
+^badge 
+:date "2023-10-30"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-10-30 (poc)"
+
+:video "https://youtu.be/dFHGfDJBPFY"
+
+:video "https://youtu.be/V3_cn77Lr6k"
+
+
+^tile "Обсуждение"
+:discussion  md/
+
+А.Звягин, В.Бережной, Д.Фадин, Е.Коган
+
+Решили готовить текст ГОСТ, разделяя логическую модель и привязки к FHIR с его конкретной версией. Начинаем с процесса регистрации прибора.
+
+^tile "Решения"
+:decision  md/
