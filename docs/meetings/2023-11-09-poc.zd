@@ -1,0 +1,28 @@
+^badge 
+:date "2023-11-09"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-11-09 (poc)"
+
+:video "https://youtu.be/FGm9_-ie_h8"
+
+:video "https://youtu.be/aiPY0sVLNB8"
+
+
+^tile "Обсуждение"
+:discussion  md/
+
+А.Звягин, В.Бережной, Д.Фадин, Е.Коган
+
+В рамках работы над логической моделью обсудили и приняли описание медицинского проибора. Следующией будет медицинская организация.
+
+^tile "Решения"
+:decision  md/
