@@ -1,0 +1,28 @@
+^badge 
+:date "2023-11-20"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-11-20 (poc)"
+
+:video "https://youtu.be/xNw7_Z-ZMfM"
+
+:video "https://youtu.be/8d4Dyq9DKxw"
+
+
+^tile "Обсуждение"
+:discussion  md/
+
+А.Звягин, В.Бережной, М.Закатов, Е.Коган
+
+Обсуждение логической модели прибора, в части идентификаторов. Обсуждение логической модели организации. Следующим будет пациент.
+
+^tile "Решения"
+:decision  md/
