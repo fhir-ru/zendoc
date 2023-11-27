@@ -1,0 +1,26 @@
+^badge 
+:date "2023-11-27"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2023-11-27 (poc)"
+
+:video "https://youtu.be/XuYWHW1L0eY"
+
+
+^tile "Обсуждение"
+:discussion  md/
+
+А.Звягин, В.Бережной, М.Закатов, Е.Коган
+
+Обсуждаем логическую модель пациента: идентификацию и возможность ведения его персональных данных.
+
+^tile "Решения"
+:decision  md/
