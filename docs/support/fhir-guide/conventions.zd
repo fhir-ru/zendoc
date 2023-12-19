@@ -105,8 +105,7 @@ __терминологии__
 
 _____________________
 
-**name:** camel-case - слова слитно, каждое слово с заглавной буквы, затем - нижний регистр, латинскими буквами
-
+**name:** Camel_Case - части наименования пишутся через нижнее подчёркивание, каждая часть наименования с заглавной буквы, затем - нижний регистр, латинскими буквами
 
 `"name" : "Core[Тип][УточненияCamelКейсом]"`
 
@@ -114,27 +113,27 @@ _____________________
 
 __ресурс__
 ```  
-"name" : "CorePatientAdult"  
-"name" : "CorePatientNewborn"
+"name" : "Core_Patient_Adult"  
+"name" : "Core_Patient_Newborn"
 ```  
 
 
 __тип данных__
 ```  
-"name" : "CoreAddress"  
+"name" : "Core_Address"  
 ```
 
 __расширение__
 ```  
-"name" : "CoreExFias" 
+"name" : "Core_Ex_Fias" 
 ```
 
 
 __терминологии__
 ```  
-"name" : "CoreCsNsiSex"  
-"name" : "CoreVsNsiSex"  
-"name" : "CoreCmCoreVsNsiSexXAdministrativeGender"  
+"name" : "Core_Cs_Nsi_Sex"  
+"name" : "Core_Vs_Nsi_Sex"  
+"name" : "Core_Cm_Core_Vs_Nsi_Sex_X_Administrative_Gender"  
 ```
 
 ______________________
