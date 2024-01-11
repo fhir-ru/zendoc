@@ -1,0 +1,26 @@
+^badge 
+:date "2024-01-10"
+
+^badge 
+:groups #{groups.poc}
+
+^badge 
+:tags #{}
+
+^badge 
+:participants #{}
+
+:title "Встреча 2024-01-10 (poc)"
+
+:video "https://youtu.be/RT2f_muNJB4"
+
+
+^tile "Обсуждение"
+:discussion  md/
+
+Обсуждение сценария проведения измерений в клиническом отделении
+
+Участники И.В.Емелин, В.Бережной, Б.Зингерман, Е.Коган
+
+^tile "Решения"
+:decision  md/
