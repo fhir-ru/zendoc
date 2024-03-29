@@ -434,7 +434,8 @@
   ;; (clojure.java.shell/sh "npm" "update" :dir "zrc")
   (start-docs {:production (not reload)
                :route-map routes
-               :port (if port (Integer/parseInt port) 3333)}))
+               :port (if port (Integer/parseInt port) 3333)
+               :ip "127.0.0.1"}))
 
 (comment
   (start-docs {:port 3333
