@@ -1,0 +1,15 @@
+^badge
+:date "2024-06-18"
+:title "Встреча 2024-06-18"
+
+:video "https://youtu.be/uTdZoOVwiJM"
+
+^title "Обсуждение"
+:discussion md/
+
+* 1:20 Шамиль Низамов рассказывает о проекте International Patient Summary в Канаде - о согласовании IPS IG и FHIR CA Baseline IG, модели в которых различаются в части кардинальности, использования флага Must Support и терминологий. 
+
+^title "Решили"
+:decisions md/
+
+В России поддержка IPS пока затруднительна в силу различий в используемых терминологиях (SNOMED, LOINC).
