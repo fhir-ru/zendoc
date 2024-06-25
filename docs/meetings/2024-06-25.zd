@@ -1,0 +1,15 @@
+^badge
+:date "2024-06-25"
+:title "Встреча 2024-06-25"
+
+:video "https://youtu.be/wcCQrCtMplw"
+
+^title "Обсуждение"
+:discussion md/
+
+* 5:03 В.Родионов, Е.Коган - обсуждаем проблемы сборки руководства RuCore. QA report (https://docs.google.com/document/d/1MdFMnVl8Axhfqdr7FrH1T5ex29fjd9n0/edit?usp=sharing&ouid=107253868441487824494&rtpof=true&sd=true) содержит 49 ошибок и 70 предупреждений.
+
+^title "Решили"
+:decisions md/
+
+1. Выложить QA report в дискуссию – Коган, выполнено – [дискуссия 264]( https://github.com/fhir-ru/core/discussions/264)
