@@ -8,13 +8,14 @@
 ^hide
 :menu/first true
 
-:Описание md/ 
-Профили ресурсов и другие артефакты FHIR написаны на fsh. Это позволяет публиковать стандартное руководство по реализации. Тексты на fsh вставляются на zendoc – страницы сайта.
- 
+^title "Введение"
+:support:intro md/ 
+Сообщество fhir.ru разрабатывает руководства по реализации FHIR с использованием инструментов FHIR Shorthand. Данный раздел содержит инструкции редактору при написании и сборке руководств.
 
-** Содержание:**
+^title "Руководства по разработке и сборке Implementation Guide"
+:support:fsh-development
 
-* Раздел 1. [Среда для работы с FSH](support.fsh-development.instr)
-
-* Раздел 2. [Как оформить slicing на FSH](support.fsh-development.slicing)
+^title ""
+^table-of {:namespace "support.fsh-development." :columns [:zd/name :summary]}
+:wiki
 
