@@ -11,8 +11,9 @@
 :description md/ 
 Страницы сайта Fhir.ru написаны на ZenDoc. Это позволяет не только построить "вики-образный" сайт, но и обращаться к элементам текста как к данным, генерируя страницы автоматически.
 
-:title "Руководства по работе с Zendoc"
-
-^title ""
-^table-of {:namespace "support.wiki-development." :columns [:zd/name :summary]}
+^title "Руководства по работе с Zendoc"
 :support:wiki-development
+
+//^title ""
+^table-of {:namespace "support.wiki-development." :columns [:zd/name :summary]}
+//:support:wiki-development
