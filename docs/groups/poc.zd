@@ -1,0 +1,16 @@
+:title "Исследования по месту нахождения пациента (point of care)"
+
+:icon [:fa-solid :fa-flask]
+
+:summary md/
+
+
+^title "Участники"
+^table 
+:members
+[{:person people.ai}
+ {:person people.mary}]
+
+
+^meeting-list {:group groups.poc}
+:meetings
