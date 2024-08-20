@@ -1,0 +1,26 @@
+:title "Как создавать руководства FHIR"
+
+^hide
+:icon [:fa :fa-graduation-cap] 
+^hide
+:menu-order 40
+
+^hide
+:menu/first true
+
+^title "Введение"
+:support:intro md/
+Стандарт FHIR содержит руководство о том, как создавать руководства. Оно оформлено в виде Implementation Guide и доступно [в виде исходных текстов на Github](https://github.com/FHIR/ig-guidance) и [в собранном/опубликованном виде](https://build.fhir.org/ig/FHIR/ig-guidance/index.html)
+
+В данном разделе размещены дополнительные инструкции редактору сообщества FHIR.ru по написанию и сборке руководств.
+
+^title "Руководства по разработке и сборке Implementation Guide"
+:support:ig-development
+
+^title ""
+^table-of {:namespace "support.ig-development." :columns [:zd/name :summary]}
+:ig-dev
+
+
+
+
