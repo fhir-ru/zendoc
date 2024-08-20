@@ -10,5 +10,5 @@
 :title "Терминологический репозиторий"
 
 ^title ""
-^table-of {:namespace "support.terminology." :columns [:zd/name]}
+^table-of {:namespace "archive.terminology." :columns [:zd/name]}
 :pages 
