@@ -15,6 +15,7 @@
 ^title "Руководства по разработке и сборке Implementation Guide"
 :support:fsh-development
 
+^title ""
 ^table-of {:namespace "support.fsh-development." :columns [:zd/name :summary]}
 :fsh-dev
 
