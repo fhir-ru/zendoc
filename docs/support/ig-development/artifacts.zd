@@ -17,5 +17,5 @@
 :support:ig-dev-artifacts
 
 ^title ""
-^table-of {:namespace "support.ig-development.artifacts" :columns [:zd/name :summary]}
+^table-of {:namespace "support.ig-development.artifacts." :columns [:zd/name :summary]}
 :ig-dev-artifacts
