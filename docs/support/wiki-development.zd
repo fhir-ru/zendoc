@@ -14,6 +14,6 @@
 ^title "Руководства по работе с Zendoc"
 :support:wiki-development
 
-//^title ""
+^title ""
 ^table-of {:namespace "support.wiki-development." :columns [:zd/name :summary]}
-//:support:wiki-development
+:wiki
