@@ -1,0 +1,12 @@
+^hide
+:menu-order 20
+
+^hide
+:icon [:fa-solid :fa-file-code]
+
+^hide
+:menu/first true
+
+:title "Архив"
+:Описание md/
+__В этот раздел перенесены страницы, потерявшие свою актуальность__
