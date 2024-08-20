@@ -7,11 +7,13 @@
 :menu-order 10
 
 ^title "Оглавление"
-:content-list md/ 
+:summary md/ 
 
 В данном разделе даны инструкции по использованию редактором различных инструментов, в том числе VS Code и FSH ONLINE. 
 
 :toc
+
+
 
 ^title "Общие положения"
 :introduction md/
