@@ -17,6 +17,9 @@
 
 :toc
 
+:summary md/
+Инструкция по редактированию страниц с использованием синтакисиса zendoc.
+
 ^title "Введение в Zendoc"
 :introduction md/
 
