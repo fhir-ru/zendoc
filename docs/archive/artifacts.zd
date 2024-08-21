@@ -7,7 +7,7 @@
 ^hide
 :menu/first true
 
-:title "архив - FHIR-артефакты"
+:title "FHIR-артефакты по типам и рабочим группам"
 
 :toc
 
