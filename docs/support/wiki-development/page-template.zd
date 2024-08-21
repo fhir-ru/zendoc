@@ -65,6 +65,9 @@
 
 :toc
 
+:summary md/
+Шаблон страницы на zendoc
+
 ^title "Заголовок раздела"
 :section md/
 
