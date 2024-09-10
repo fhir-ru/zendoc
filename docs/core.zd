@@ -15,7 +15,7 @@
 ^title "Введение"
 :intro md/
 
-Текущая версия RuCore опубликована здесь: https://build.fhir.org/ig/fhir-ru/RuCoreIG/branches/main/toc.html
+Текущая версия RuCore опубликована здесь: https://build.fhir.org/ig/fhir-ru/RuCoreIG/branches/main/index.html
 
 RuCore представляет собой руководство по реализации стандарта HL7 FHIR(R) на территории Российской Федерации, Ru Core Implementation Guide.
 
