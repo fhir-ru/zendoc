@@ -349,12 +349,8 @@
                 (:reverse tbl) (reverse))]
     (zd.impl/table ztx tbl items)))
 
-(defn symbol-link [ztx s]
-  (if-let [res (zd.db/get-resource ztx (symbol s))]
-    [:a {:href s :class (c :inline-flex :items-center [:text :blue-600] [:hover [:underline]] :whitespace-no-wrap)}
-     (icon ztx res)
-     (or (:title res) s)]
-    [:a {:href s :class (c [:text :red-600] [:bg :red-100]) :title "Broken Link"} s]))
+(defn remove-leading-slash [v]
+  (update-in v [1 :href] subs 1))
 
 (defmethod render-content :meeting-list
   [ztx {{optx :meeting-list} :annotations data :data path :path}]
@@ -369,10 +365,15 @@
     (for [it items]
       [:div {:class (c [:py 2] [:mb 4])}
        [:div {:class (c :border-b :text-lg :flex [:space-x 4])}
-        [:div {:class (c :flex-1)} (symbol-link ztx (:zd/name it))]
+        [:div {:class (c :flex-1)} (->> it
+                                        :zd/name
+                                        (zd.impl/symbol-link ztx)
+                                        remove-leading-slash)]
         [:div {:class (c :text-sm [:text :gray-500] :flex [:space-x 2])}
          (for [g (:groups it)]
-                (symbol-link ztx g))]
+                (->> g
+                     (zd.impl/symbol-link ztx)
+                     remove-leading-slash))]
         [:div {:class (c :text-sm [:text :gray-500])}
          (:date it)]]
        [:div {:class (c :flex [:space-x 8] [:py 2] :text-sm)}
