@@ -47,9 +47,10 @@
 ^img
 :image "https://www.hl7.org/fhir/conformance.jpg"
 
+^hide
 :go_on md/
 
-[[img local.webp]]
+[[img https://www.hl7.org/fhir/conformance.jpg]]
 
 ..* **Экземпляр оформлен**
 ..* 3.2 Информация о пациенте recordTarget, patientRole - расхождений нет
