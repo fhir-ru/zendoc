@@ -44,7 +44,7 @@
 
 * [Руководство ПЛИ, п. 3.2 Пациент](https://github.com/fhir-ru/core/discussions/269)
 
-[[img https://www.hl7.org/fhir/conformance.jpg]]
+[[img https://www.hl7.org/fhir/conformance.jpg]]  это продолжение строки
 
 ..* **Экземпляр оформлен**
 ..* 3.2 Информация о пациенте recordTarget, patientRole - расхождений нет
