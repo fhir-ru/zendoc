@@ -48,7 +48,7 @@
 :image "https://www.hl7.org/fhir/conformance.jpg"
 
 
-[[img https://www.hl7.org/fhir/conformance.jpg]]
+[[img local.webp]]
 
 ..* **Экземпляр оформлен**
 ..* 3.2 Информация о пациенте recordTarget, patientRole - расхождений нет
