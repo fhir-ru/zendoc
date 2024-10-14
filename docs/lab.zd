@@ -67,6 +67,18 @@
 ..* 3.3.2.6. assignedPerson
 ..* 3.3.2.7. representedOrganization
 
+* [Руководство ПЛИ, п. 3.4 Владелец оригинала документа Custodian](https://github.com/fhir-ru/core/discussions/272)
+* [Руководство ПЛИ, п. 3.5 Получатель документа](https://github.com/fhir-ru/core/discussions/273)
+* [Руководство ПЛИ, п. 3.6 Лицо, придавшее юридическую силу документу](https://github.com/fhir-ru/core/discussions/274)
+* [Руководство ПЛИ, п. 3.7 Источник оплаты](https://github.com/fhir-ru/core/discussions/275)
+* [Руководство ПЛИ, п. 3.8 Направившее лицо и организация](https://github.com/fhir-ru/core/discussions/276)
+* [Руководство ПЛИ, п. 3.9 Направление](https://github.com/fhir-ru/core/discussions/277)
+* [Руководство ПЛИ, п. 3.10 Документируемое событие](https://github.com/fhir-ru/core/discussions/278)
+* [Руководство ПЛИ, п. 3.11 Случай оказания медицинской помощи](https://github.com/fhir-ru/core/discussions/279)
+* [Руководство ПЛИ, тело документа, п. 1.1 список секций](https://github.com/fhir-ru/core/discussions/280)
+* [Руководство ПЛИ, тело документа, п. 1.2 секция исследуемые материалы](https://github.com/fhir-ru/core/discussions/281)
+
+
 
 Ранее (до 2024 года) сделанный сообществом разбор соответствия данных CDA и FHIR приведен в эксель-файле [Отображение ПЛИ CDA-FHIR](https://docs.google.com/spreadsheets/d/1vMn4_WpOxKPNt68Ig7ii1BrvXXqBTR_3o_nPEsRLj-A/edit?usp=sharing).
 
