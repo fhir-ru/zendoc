@@ -47,6 +47,7 @@
 ^img
 :image "https://www.hl7.org/fhir/conformance.jpg"
 
+:go_on md/
 
 [[img local.webp]]
 
