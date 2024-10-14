@@ -44,11 +44,6 @@
 
 * [Руководство ПЛИ, п. 3.2 Пациент](https://github.com/fhir-ru/core/discussions/269)
 
-^img
-:image "https://www.hl7.org/fhir/conformance.jpg"
-
-:go_on md/
-
 [[img https://www.hl7.org/fhir/conformance.jpg]]
 
 ..* **Экземпляр оформлен**
