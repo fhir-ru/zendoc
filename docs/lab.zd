@@ -42,11 +42,9 @@
 ..* 2.10 Язык документа languageCode
 ..* 2.11 Версионность документа setId и versionNumber
 
+
+[[img https://www.hl7.org/fhir/conformance.jpg]]  **Экземпляр оформлен**
 * [Руководство ПЛИ, п. 3.2 Пациент](https://github.com/fhir-ru/core/discussions/269)
-
-[[img https://www.hl7.org/fhir/conformance.jpg]]  это продолжение строки
-
-..* **Экземпляр оформлен**
 ..* 3.2 Информация о пациенте recordTarget, patientRole - расхождений нет
 ..* 3.2.1а Уникальный идентификатор пациента в МИС
 ..* 3.2.1б СНИЛС
