@@ -19,5 +19,5 @@ git config --unset-all http.https://github.com/.extraheader || true
   done
 ) &
 
-# Start application
-exec clojure -M:run
+# Start application with reload mode
+exec clojure -M:run 3333 reload
