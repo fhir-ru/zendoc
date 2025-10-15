@@ -3,6 +3,9 @@ set -e
 
 echo "Starting fhir-ru-zendoc..."
 
+# Ensure git remote uses HTTPS (not SSH) for public repo access
+git remote set-url origin https://github.com/fhir-ru/zendoc.git
+
 # Background process: git pull every 30 seconds
 (
   while true; do
