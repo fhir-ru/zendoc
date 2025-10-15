@@ -1,0 +1,33 @@
+# Git
+.gitignore
+
+# Clojure caches
+.cpcache
+.lsp
+.clj-kondo
+.nrepl-port
+
+# IDE
+.projectile
+
+# Documentation
+README.md
+*.md
+
+# Build artifacts
+target
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# CI/CD (not needed in image)
+.github
+
+# Old docker-compose
+docker-compose.yaml

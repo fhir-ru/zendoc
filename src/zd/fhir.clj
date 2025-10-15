@@ -442,7 +442,7 @@
   (start-docs {:production (not reload)
                :route-map routes
                :port (if port (Integer/parseInt port) 3333)
-               :ip "127.0.0.1"}))
+               :ip "0.0.0.0"}))
 
 (comment
   (start-docs {:port 3333

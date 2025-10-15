@@ -24,16 +24,29 @@ open http://localhost:3333
 ## Run with docker-compose
 
 ```bash
+git clone git@github.com:fhir-ru/zendoc.git fhir-ru
 cd fhir-ru
-git submodule init
-git submodule update --recursive
-# start
+
+# Build and start (submodules are handled automatically in Docker)
+docker-compose up --build
+
+# Or run in background
 docker-compose up -d
-# see logs
-docker-compose logs -f 
-# stop
-docker-compose stop
+
+# See logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
 ```
+
+## Run with pre-built image
+
+```bash
+docker run -p 3333:3333 ghcr.io/fhir-ru/zendoc:latest
+```
+
+Then open http://localhost:3333
 
 ## zendoc basics
 

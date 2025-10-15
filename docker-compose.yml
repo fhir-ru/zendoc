@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fhir-ru-zendoc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fhir-ru-zendoc
+    ports:
+      - "3333:3333"
+    restart: unless-stopped
