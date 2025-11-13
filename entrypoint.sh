@@ -14,10 +14,14 @@ git config --unset-all http.https://github.com/.extraheader || true
   while true; do
     sleep 30
     echo "[$(date)] Pulling latest changes..."
-    git fetch origin
-    git reset --hard origin/main || echo "Warning: git reset failed"
+    if ! git fetch origin 2>&1; then
+      echo "Warning: git fetch failed with exit code $?"
+    fi
+    if ! git reset --hard origin/main 2>&1; then
+      echo "Warning: git reset failed with exit code $?"
+    fi
   done
 ) &
 
 # Start application with reload mode
-exec clojure -M:run 3333 reload
+clojure -M:run 3333 reload
