@@ -18,7 +18,8 @@ WORKDIR /app
 # Install runtime dependencies
 RUN apk add --no-cache \
     git \
-    bash
+    bash \
+    tini
 
 # Copy clojure dependencies cache from deps stage
 COPY --from=deps /root/.m2 /root/.m2
@@ -48,5 +49,5 @@ RUN chmod +x entrypoint.sh
 # Expose port
 EXPOSE 3333
 
-# Entrypoint
-ENTRYPOINT ["./entrypoint.sh"]
+# Entrypoint with tini to reap zombie processes
+ENTRYPOINT ["/sbin/tini", "--", "./entrypoint.sh"]
