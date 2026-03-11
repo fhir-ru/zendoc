@@ -1,5 +1,5 @@
 # Stage 1: Dependencies cache
-FROM clojure:temurin-17-tools-deps-alpine AS deps
+FROM clojure:temurin-17-tools-deps AS deps
 
 WORKDIR /app
 
@@ -11,15 +11,12 @@ COPY libs ./libs
 RUN clojure -P -M:run
 
 # Stage 2: Runtime
-FROM clojure:temurin-17-tools-deps-alpine
+FROM clojure:temurin-17-tools-deps
 
 WORKDIR /app
 
-# Install runtime dependencies
-RUN apk add --no-cache \
-    git \
-    bash \
-    tini
+# Install tini (git and bash already in base image)
+RUN apt-get update && apt-get install -y --no-install-recommends tini && rm -rf /var/lib/apt/lists/*
 
 # Copy clojure dependencies cache from deps stage
 COPY --from=deps /root/.m2 /root/.m2
@@ -50,4 +47,4 @@ RUN chmod +x entrypoint.sh
 EXPOSE 3333
 
 # Entrypoint with tini to reap zombie processes
-ENTRYPOINT ["/sbin/tini", "--", "./entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "./entrypoint.sh"]
